@@ -1,0 +1,79 @@
+# 只启用已经获得授权、并确认可以公开发布的来源。
+# private 来源默认 publish=false；密钥或订阅 URL 通过 env 注入，不写进仓库。
+version: 1
+
+settings:
+  timeout_seconds: 15
+  retries: 2
+  retry_backoff_seconds: 0.5
+  max_redirects: 3
+  allow_http_sources: false
+  max_payload_bytes: 5242880
+  max_nodes: 0
+  min_publish_nodes: 1
+  max_shrink_ratio: 0.2
+  active_probe: false
+  # Only these public GitHub raw endpoints are trusted for source retrieval.
+  allowed_source_hosts:
+    - raw.githubusercontent.com
+  trust_hosts:
+    - raw.githubusercontent.com
+  # Controlled resolver maps the allowlisted host to this non-routable test address.
+  controlled_proxy_addresses:
+    - 198.18.1.48
+  filters:
+    allow_protocols: []
+    deny_protocols: []
+    deny_name_keywords: []
+    min_quality_score: 0
+
+sources:
+  public:
+    - id: free-v2ray-verified-clash
+      kind: public
+      name: 0xRadikal Free-v2ray-Configs verified Clash profile
+      url: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/verified/clash.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/0xRadikal/Free-v2ray-Configs
+      license: MIT
+      license_evidence: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE
+
+    - id: p-configs-vless
+      kind: public
+      name: VovaplusEXP p-configs VLESS profile
+      url: https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/Clash-Profiles/vless.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/VovaplusEXP/p-configs
+      license: GPL-3.0
+      license_evidence: https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE
+
+    - id: p-configs-trojan
+      kind: public
+      name: VovaplusEXP p-configs Trojan profile
+      url: https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/Clash-Profiles/trojan.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/VovaplusEXP/p-configs
+      license: GPL-3.0
+      license_evidence: https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE
+
+  private:
+    - id: private-sample
+      kind: private
+      name: Self-owned source placeholder
+      env: AGGREGATOR_PRIVATE_SOURCE_PRIVATE_SAMPLE
+      format: auto
+      enabled: false
+      publish: false
+      requires_review: true
