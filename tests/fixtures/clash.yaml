@@ -1,0 +1,15 @@
+proxies:
+  - name: alpha
+    type: http
+    server: alpha.example.invalid
+    port: 8080
+    tls: false
+  - name: alpha-duplicate
+    type: http
+    server: alpha.example.invalid
+    port: 8080
+    tls: false
+  - name: beta
+    type: socks5
+    server: beta.example.invalid
+    port: 1080

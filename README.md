@@ -1,0 +1,81 @@
+# Clash/Mihomo 订阅超级聚合器
+
+这是一个 Python 3.11+ 的最小聚合器：抓取配置中明确允许的公开来源，解析 Base64、URI、Clash YAML/JSON，规范化、去重、过滤后生成 Clash/Mihomo 与 sing-box 配置。节点级主动拨测默认关闭，解析成功不代表节点可用。
+
+此公开仓库只发布项目代码、文档和合成测试数据，不包含来源配置、真实节点或运行产物。`config/` 被 `.gitignore` 忽略，使用者必须自备 `config/sources.yaml`；来源 URL、订阅凭据和私有来源配置不要提交。GitHub Actions 只执行离线测试，不抓取来源或发布节点。
+
+## 本地运行
+
+```powershell
+python -m pip install -e ".[dev]"
+python -m aggregator --help
+python -m pytest -q
+python -m compileall -q aggregator tests
+python -m aggregator init-dist --output dist
+# 先自备本机 config/sources.yaml，再运行：
+python -m aggregator run --config config/sources.yaml --output dist --state state --no-private
+```
+
+运行时只抓取使用者配置中已启用且获准使用的公开来源；`--offline` 只允许本地文件来源。仓库不提供可用订阅；测试中的 `example.invalid` 地址和占位 UUID/密码不可用于连接。没有有效公开节点时命令以非零状态退出，并保留 last-known-good，不把空配置冒充成功。
+
+本机配置的最小结构如下（没有来源，不能生成可用订阅）：
+
+```yaml
+version: 1
+settings:
+  active_probe: false
+  allowed_source_hosts: []
+  trust_hosts: []
+sources:
+  public: []
+  private: []
+```
+
+使用者需自行填写已获授权的来源及 HTTPS host 白名单。可参考 `tests/test_pipeline.py` 中的本地文件来源示例；测试只使用合成数据，不依赖仓库外的来源配置。
+
+## 来源与隐私边界
+
+- `sources.public` 只有 `enabled=true`、`publish=true`、`requires_review=false` 才能进入公开聚合。
+- `sources.private` 默认不发布。需要本机混合验证时显式使用 `--include-private --private-output dist-private`；私有产物只落在本机目录，已加入 `.gitignore`。CI 不运行聚合器。
+- 公开节点产物可能包含来源本身提供的连接凭据，这是公开订阅内容的一部分；程序、日志和报告不打印节点 URI、UUID、密码或完整敏感载荷。
+- 来源抓取只允许使用者配置的 HTTPS host。受控解析例外必须同时匹配显式信任的 host 和精确地址，TLS 证书校验仍开启；其他内网、私网、回环和链路本地地址拒绝。每一跳 redirect 都重新校验。
+
+## 本机输出（不提交仓库）
+
+| 文件 | 用途 |
+|---|---|
+| `dist/clash/config.yaml` | Clash Verge Rev 本机导入主文件，自包含 `proxies`，并内含 `select`、`url-test`、`fallback` 三类组 |
+| `dist/clash/providers/aggregate.yaml` | 本地调试或需要 file provider 时使用的节点文件 |
+| `dist/clash/config-provider.yaml` | 仅在传入 `--base-url` 时生成的绝对 URL provider 辅助配置 |
+| `dist/sing-box/config.json` | 能明确映射的 sing-box outbounds；无法安全映射的协议会计入 dropped，不伪装成可用配置 |
+| `dist/manifest.json` | 来源状态、节点数、协议数、dropped 统计、校验结果和 SHA256 |
+| `dist/health.json` | 本轮状态、失败原因和 LKG 回退状态 |
+
+本地文件导入时选择 `dist/clash/config.yaml`，不需要另行下载 provider 文件。本仓库没有在线订阅 URL，也不提供 GitHub Pages 站点；所有 `dist/`、`state/`、缓存和报告只保留本机。
+
+## GitHub Actions：仅离线测试
+
+`.github/workflows/update.yml` 的行为是：
+
+- 仅在涉及代码、测试、文档和工作流的 Pull Request 上执行 pytest 与 compileall；
+- 没有 `push`、`schedule` 或 `workflow_dispatch` 触发器，代码首推不会自动运行该工作流；
+- 不抓取来源、不拨测节点、不生成或上传订阅产物；
+- 只有源码读取权限，没有 Pages/OIDC 写入权限或部署步骤；
+- 不读取或设置节点再分发授权变量，不启用 GitHub Pages。
+
+未来若要公开节点数据，需另行明确授权并核对各来源节点数据的使用与再分发条款，不能把代码仓库公开视为数据公开授权。
+
+## 许可证与来源条款
+
+本仓库代码采用 MIT License，见 `LICENSE`。这只针对本仓库代码，不自动授予任何订阅源、节点、域名、账号或来源数据的使用权。`publicly_offered: true` 只是接入者记录的来源属性，不是“可以合法再分发”的结论。来源仓库的代码 license 也不必然等于节点数据 license；公开部署前必须由接入者单独核对使用和 redistribution terms，未确认时不得声称 legal-to-redistribute。
+
+## 故障回退
+
+本机产物生成采用 staging 目录、原子替换和 `state/last-known-good/`：
+
+1. 空结果、来源全失败、最小节点数不足、异常骤减或核心校验失败时拒绝发布；
+2. 有 LKG 时恢复旧的 Clash、sing-box 和 manifest 核心文件；
+3. 写入 `health.json` 标明 `failed` 与 `fallback=last-known-good`；
+4. 没有 LKG 时保留失败态，不把 bootstrap 空配置当作可用订阅。
+
+详见 [docs/architecture.md](docs/architecture.md)。

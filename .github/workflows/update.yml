@@ -1,0 +1,44 @@
+name: Offline tests
+
+on:
+  pull_request:
+    paths:
+      - "aggregator/**"
+      - "tests/**"
+      - "docs/**"
+      - "README.md"
+      - ".gitignore"
+      - "pyproject.toml"
+      - ".github/workflows/update.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: offline-tests-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  tests:
+    name: Offline tests and compilation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install project
+        run: python -m pip install -e ".[dev]"
+
+      - name: Run offline tests
+        run: python -m pytest -q
+
+      - name: Compile Python sources
+        run: python -m compileall -q aggregator tests
