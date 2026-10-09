@@ -2,7 +2,7 @@
 
 这是一个 Python 3.11+ 的最小聚合器：抓取配置中明确允许的公开来源，解析 Base64、URI、Clash YAML/JSON，规范化、去重、过滤后生成 Clash/Mihomo 与 sing-box 配置。节点级主动拨测默认关闭，解析成功不代表节点可用。
 
-此公开仓库只发布项目代码、文档和合成测试数据，不包含来源配置、真实节点或运行产物。`config/` 被 `.gitignore` 忽略，使用者必须自备 `config/sources.yaml`；来源 URL、订阅凭据和私有来源配置不要提交。GitHub Actions 只执行离线测试，不抓取来源或发布节点。
+此公开仓库包含项目代码、文档、合成测试数据，以及 `config/sources.yaml` 中的公开来源清单（公开 URL、来源元数据和发布开关）。该文件不含订阅令牌、节点凭据或私有正文；`sources.private` 通过环境变量或本机目录注入，仅用于本机处理，不进入公开 `dist`。GitHub Actions 只执行离线测试，不抓取来源或发布节点。
 
 ## 本地运行
 
@@ -12,13 +12,13 @@ python -m aggregator --help
 python -m pytest -q
 python -m compileall -q aggregator tests
 python -m aggregator init-dist --output dist
-# 先自备本机 config/sources.yaml，再运行：
+# 使用仓库中的公开来源清单运行；如需自定义本机来源，可准备相应的 config/sources.yaml：
 python -m aggregator run --config config/sources.yaml --output dist --state state --no-private
 ```
 
 运行时只抓取使用者配置中已启用且获准使用的公开来源；`--offline` 只允许本地文件来源。仓库不提供可用订阅；测试中的 `example.invalid` 地址和占位 UUID/密码不可用于连接。没有有效公开节点时命令以非零状态退出，并保留 last-known-good，不把空配置冒充成功。
 
-本机配置的最小结构如下（没有来源，不能生成可用订阅）：
+如需自定义本机配置，最小结构如下（没有来源，不能生成可用订阅）：
 
 ```yaml
 version: 1
@@ -31,7 +31,7 @@ sources:
   private: []
 ```
 
-使用者需自行填写已获授权的来源及 HTTPS host 白名单。可参考 `tests/test_pipeline.py` 中的本地文件来源示例；测试只使用合成数据，不依赖仓库外的来源配置。
+仓库内的 `config/sources.yaml` 已列出公开来源及 HTTPS host 白名单；使用者如需替换或补充来源，必须确认已获授权。可参考 `tests/test_pipeline.py` 中的本地文件来源示例；测试只使用合成数据，不依赖仓库外的来源配置。
 
 ## 来源与隐私边界
 
@@ -61,7 +61,7 @@ sources:
 - 没有 `push`、`schedule` 或 `workflow_dispatch` 触发器，代码首推不会自动运行该工作流；
 - 不抓取来源、不拨测节点、不生成或上传订阅产物；
 - 只有源码读取权限，没有 Pages/OIDC 写入权限或部署步骤；
-- 不读取或设置节点再分发授权变量，不启用 GitHub Pages。
+- 不读取或设置节点再分发授权变量；来源数据发布闸门（`PUBLIC_NODE_REDISTRIBUTION_APPROVED`）与 GitHub Pages 均默认关闭。
 
 未来若要公开节点数据，需另行明确授权并核对各来源节点数据的使用与再分发条款，不能把代码仓库公开视为数据公开授权。
 
