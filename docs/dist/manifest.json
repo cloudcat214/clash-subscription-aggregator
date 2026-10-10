@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-10T18:15:50Z",
+  "status": "success",
+  "active_probe": true,
+  "counts": {
+    "published": 17,
+    "sources": 3,
+    "parsed": 1034,
+    "accepted": 962
+  },
+  "protocols": {
+    "ss": 1,
+    "trojan": 2,
+    "vless": 14
+  },
+  "sources": [
+    {
+      "id": "free-v2ray-verified-clash",
+      "kind": "public",
+      "status": "ok",
+      "parsed": 956,
+      "accepted": 908,
+      "drops": {
+        "duplicate": 48
+      },
+      "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
+      "license": "MIT",
+      "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
+      "publicly_offered": true,
+      "sha256": "bc0683c30a58b20cbbf4870825e83d35962a1d6b1feab8c4cd0b48c7797cb4c3"
+    },
+    {
+      "id": "p-configs-vless",
+      "kind": "public",
+      "status": "ok",
+      "parsed": 77,
+      "accepted": 54,
+      "drops": {
+        "duplicate": 23
+      },
+      "source_repo": "https://github.com/VovaplusEXP/p-configs",
+      "license": "GPL-3.0",
+      "evidence": "https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE",
+      "publicly_offered": true,
+      "sha256": "4387ab350c59e3626d6a5860575186d6c2ac449e076d8de30d4a0482e35c0f5d"
+    },
+    {
+      "id": "p-configs-trojan",
+      "kind": "public",
+      "status": "ok",
+      "parsed": 1,
+      "accepted": 0,
+      "drops": {
+        "missing_password": 1
+      },
+      "source_repo": "https://github.com/VovaplusEXP/p-configs",
+      "license": "GPL-3.0",
+      "evidence": "https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE",
+      "publicly_offered": true,
+      "sha256": "f2ebee0557b66a3352fe86c91faa119ac2cd4d3b4d9479fe8e34c097cacb4e24"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "clash/config.yaml",
+      "sha256": "a40a4cdfab69732d624b043dc46afd4c1a065947b50898d53cdfbf72c6eaf6a8",
+      "bytes": 8861
+    },
+    {
+      "path": "clash/providers/aggregate.yaml",
+      "sha256": "0c3c4440ff662504af0de6caf5c995ed77b02dfa452aecd81e6ea95f54073f19",
+      "bytes": 6165
+    },
+    {
+      "path": "sing-box/config.json",
+      "sha256": "9579058e1576cd1a8843083b3956b2c57cf6434fc31e134fd3b2ee6783993ff6",
+      "bytes": 10264
+    }
+  ],
+  "drops": {
+    "duplicate": 71,
+    "missing_password": 1
+  },
+  "sing_box": {
+    "unsupported": 1,
+    "drop_reasons": {
+      "unsupported_transport:xhttp": 1
+    }
+  },
+  "verification": {
+    "status": "performed",
+    "backend": "delay",
+    "target": "http://www.gstatic.com/generate_204",
+    "max_nodes": 1500,
+    "rounds": 3,
+    "timeout_seconds": 8.0,
+    "concurrency": 12,
+    "execution_mode": "parallel",
+    "min_verdict": "stable",
+    "verified_min_rounds": 3,
+    "stable_min_rounds": 3,
+    "stable_success_rate": 0.6666666667,
+    "fast_latency_ms": 800.0,
+    "latency_score_cap_ms": 5000.0,
+    "error_categories": {
+      "http_error": 945
+    },
+    "stage1_tested": 962,
+    "stage1_passed": 21,
+    "stage2_tested": 21,
+    "stage2_stable": 20,
+    "probe_interface": "WLAN",
+    "interface_mode": "top-level",
+    "direct_control": {
+      "status": "passed",
+      "target": "http://www.baidu.com",
+      "interface_mode": "top-level"
+    }
+  },
+  "node_quality": {
+    "candidates": 962,
+    "tested": 962,
+    "verified": 17,
+    "fast": 3,
+    "stable": 17,
+    "failed": 945,
+    "not_tested": 0,
+    "not_tested_budget": 0,
+    "failed_probe": 941,
+    "below_quality_threshold": 4,
+    "dropped": 945,
+    "published": 17,
+    "success_rate": 0.020097020097020097
+  },
+  "limitations": [
+    "HTTP(S) checks only fetch and parse the configured source.",
+    "Bounded active probing is evidence from this runner only.",
+    "Source host addresses are pinned for each request and every HTTPS redirect is revalidated."
+  ],
+  "core_validation": {
+    "status": "not_tested",
+    "clients": {
+      "mihomo": {
+        "status": "passed",
+        "exit_code": 0,
+        "version": "Mihomo Meta v1.19.32 windows amd64 with go1.26.8 Wed Sep 30 17:00:11 UTC 2026"
+      },
+      "sing-box": {
+        "status": "not_available"
+      }
+    }
+  }
+}
