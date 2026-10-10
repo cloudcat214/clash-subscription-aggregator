@@ -409,7 +409,10 @@ def test_release_workflow_gate_keeps_aggregate_thresholds(tmp_path: Path) -> Non
     gate_script = gate_run[script_start : gate_run.index("\nPY", script_start)]
 
     def run_gate(
-        case: str, accepted: list[int], published: int
+        case: str,
+        accepted: list[int],
+        published: int,
+        quality_overrides: dict[str, int] | None = None,
     ) -> subprocess.CompletedProcess[str]:
         root = tmp_path / case
         (root / "config").mkdir(parents=True)
@@ -443,13 +446,35 @@ def test_release_workflow_gate_keeps_aggregate_thresholds(tmp_path: Path) -> Non
             if count == 0:
                 source["drops"] = {"missing_password": 1}
             source_results.append(source)
+        node_quality = {
+            "candidates": published,
+            "tested": published,
+            "published": published,
+            "verified": 0,
+            "fast": 0,
+            "stable": published,
+            "dropped": 0,
+            "not_tested": 0,
+            "not_tested_budget": 0,
+            "failed_probe": 0,
+            "below_quality_threshold": 0,
+            "failed": 0,
+        }
+        node_quality.update(quality_overrides or {})
         manifest = {
             "status": "success",
             "counts": {"published": published},
             "sources": source_results,
             "core_validation": {"clients": {"mihomo": {"status": "passed"}}},
+            "verification": {"status": "performed", "min_verdict": "stable"},
+            "node_quality": node_quality,
         }
-        health = {"status": "ok", "sources": source_results}
+        health = {
+            "status": "ok",
+            "sources": source_results,
+            "verification": {"status": "performed", "min_verdict": "stable"},
+            "node_quality": dict(node_quality),
+        }
         proxies = [
             {
                 "name": f"proxy-{index}",
@@ -506,6 +531,58 @@ def test_release_workflow_gate_keeps_aggregate_thresholds(tmp_path: Path) -> Non
         no_published_nodes.stdout + no_published_nodes.stderr
     )
 
+    published_outside_stable = run_gate(
+        "published-outside-stable",
+        [1, 1, 0],
+        2,
+        quality_overrides={
+            "stable": 1,
+            "verified": 1,
+            "fast": 1,
+            "failed": 1,
+            "below_quality_threshold": 1,
+            "dropped": 1,
+        },
+    )
+    assert published_outside_stable.returncode != 0
+    assert "release_gate_failed:published_below_quality_gate" in (
+        published_outside_stable.stdout + published_outside_stable.stderr
+    )
+
+    inconsistent_classification = run_gate(
+        "inconsistent-classification",
+        [1, 1, 0],
+        2,
+        quality_overrides={"stable": 1, "failed": 0},
+    )
+    assert inconsistent_classification.returncode != 0
+    assert "release_gate_failed:node_quality_classification" in (
+        inconsistent_classification.stdout + inconsistent_classification.stderr
+    )
+
+    inconsistent_failure_categories = run_gate(
+        "inconsistent-failure-categories",
+        [1, 1, 0],
+        2,
+        quality_overrides={
+            "stable": 1,
+            "failed": 1,
+            "below_quality_threshold": 0,
+            "dropped": 1,
+        },
+    )
+    assert inconsistent_failure_categories.returncode != 0
+    assert "release_gate_failed:node_quality_failure_categories" in (
+        inconsistent_failure_categories.stdout + inconsistent_failure_categories.stderr
+    )
+
+    allowed_output = (tmp_path / "allowed" / "github-output").read_text(
+        encoding="utf-8"
+    )
+    assert "node_quality_not_tested_budget=0" in allowed_output
+    assert "node_quality_failed_probe=0" in allowed_output
+    assert "node_quality_below_quality_threshold=0" in allowed_output
+
 
 def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:
     workflow = yaml.safe_load(
@@ -543,3 +620,24 @@ def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:
     assert "actions/deploy-pages@v4" in serialized
     assert "--no-private" in serialized
     assert "--require-core" in serialized
+
+
+def test_workflow_publish_probe_flags_are_explicitly_bounded() -> None:
+    workflow_path = Path(__file__).parents[1] / ".github" / "workflows" / "update.yml"
+    workflow = yaml.safe_load(workflow_path.read_text(encoding="utf-8"))
+    publish_runs = "\n".join(
+        str(step.get("run", "")) for step in workflow["jobs"]["publish"]["steps"]
+    )
+
+    def option(name: str) -> str:
+        marker = f"{name} "
+        start = publish_runs.index(marker) + len(marker)
+        return publish_runs[start:].split()[0]
+
+    assert "--probe" in publish_runs
+    assert option("--probe-max-nodes") == "30"
+    assert option("--probe-rounds") == "3"
+    assert float(option("--probe-timeout")) <= 30
+    assert int(option("--probe-concurrency")) <= 4
+    assert "--require-core" in publish_runs
+    assert "--no-private" in publish_runs

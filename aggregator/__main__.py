@@ -46,6 +46,11 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--probe-rounds", type=int, default=3)
     run.add_argument("--probe-timeout", type=float, default=10.0)
     run.add_argument("--probe-concurrency", type=int, default=1)
+    run.add_argument(
+        "--probe-min-verdict",
+        choices=("stable", "verified", "fast"),
+        help="最低发布等级；默认 stable（3 轮且成功率至少 2/3）",
+    )
 
     validate = subparsers.add_parser("validate", help="使用真实核心检查现有产物")
     validate.add_argument("--output", type=Path, default=Path("dist"))
@@ -114,7 +119,14 @@ def main(argv: list[str] | None = None) -> int:
         if args.base_url:
             config.setdefault("publish", {})["base_url"] = args.base_url
         if args.probe:
-            config.setdefault("settings", {})["active_probe"] = True
+            settings = config.setdefault("settings", {})
+            settings["active_probe"] = True
+            settings["probe_max_nodes"] = args.probe_max_nodes
+            settings["probe_rounds"] = args.probe_rounds
+            settings["probe_timeout_seconds"] = args.probe_timeout
+            settings["probe_concurrency"] = args.probe_concurrency
+            if args.probe_min_verdict:
+                settings["probe_min_verdict"] = args.probe_min_verdict
         with tempfile.NamedTemporaryFile(
             "w", dir=config_path.parent, suffix=".yaml", encoding="utf-8", delete=False
         ) as handle:

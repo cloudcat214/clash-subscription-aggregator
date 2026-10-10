@@ -13,6 +13,17 @@ settings:
   min_publish_nodes: 1
   max_shrink_ratio: 0.2
   active_probe: false
+  probe_max_nodes: 30
+  probe_rounds: 3
+  probe_timeout_seconds: 10
+  probe_concurrency: 1
+  probe_min_verdict: stable
+  probe_publish_max_nodes: 30
+  probe_verified_min_rounds: 3
+  probe_stable_min_rounds: 3
+  probe_min_success_rate: 0.6666666667
+  probe_fast_latency_ms: 800
+  probe_score_latency_cap_ms: 5000
   # Only these public GitHub raw endpoints are trusted for source retrieval.
   allowed_source_hosts:
     - raw.githubusercontent.com

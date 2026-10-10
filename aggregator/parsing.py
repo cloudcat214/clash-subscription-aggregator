@@ -114,10 +114,21 @@ _BASIC_PROXY_FIELDS = {"name", "type", "server", "port", "server_port", "add"}
 _BLOCKED_ENDPOINT_NAMES = {
     "localhost",
     "localhost.localdomain",
+    "metadata",
     "metadata.google.internal",
     "metadata.google.com",
     "instance-data.ec2.internal",
 }
+_SPECIAL_USE_ENDPOINT_NETWORKS = (
+    ipaddress.ip_network("100.64.0.0/10"),
+    ipaddress.ip_network("192.0.0.0/24"),
+    ipaddress.ip_network("192.0.2.0/24"),
+    ipaddress.ip_network("198.18.0.0/15"),
+    ipaddress.ip_network("198.51.100.0/24"),
+    ipaddress.ip_network("203.0.113.0/24"),
+    ipaddress.ip_network("64:ff9b::/96"),
+    ipaddress.ip_network("64:ff9b:1::/48"),
+)
 
 
 def decode_base64_payload(payload: str) -> str:
@@ -191,8 +202,13 @@ def _validate_endpoint_host(server: str) -> None:
         address = ipaddress.ip_address(hostname)
     except ValueError:
         return
+    address = getattr(address, "ipv4_mapped", None) or address
     if (
-        address.is_private
+        any(
+            address.version == network.version and address in network
+            for network in _SPECIAL_USE_ENDPOINT_NETWORKS
+        )
+        or address.is_private
         or address.is_loopback
         or address.is_link_local
         or address.is_reserved

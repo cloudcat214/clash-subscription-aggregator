@@ -18,6 +18,17 @@ python -m aggregator run --config config/sources.yaml --output dist --state stat
 
 运行时只抓取使用者配置中已启用且获准使用的公开来源；`--offline` 只允许本地文件来源。仓库不提供可用订阅；测试中的 `example.invalid` 地址和占位 UUID/密码不可用于连接。没有有效公开节点时命令以非零状态退出，并保留 last-known-good，不把空配置冒充成功。
 
+### 节点主动探测与质量口径
+
+- `settings.active_probe` 默认是 `false`；普通本地运行不会主动连接节点。只有显式传入 `--probe` 才启用主动探测。
+- 发布 job 显式使用 `--probe --probe-max-nodes 30 --probe-rounds 3 --probe-timeout 10 --probe-concurrency 4 --probe-min-verdict stable --require-core --no-private`。单次最多探测 30 个节点、3 轮、30 秒以内超时上限、最多 4 个 worker；超出配置会被代码再次钳制。
+- 每个节点保留独立的轮次结果、成功率、平均延迟、p95 延迟和错误分类。`verified` 只表示 3/3 轮成功；`stable` 表示至少 3 轮且成功率至少 2/3；`fast` 只是延迟标签（平均延迟不超过 800ms），不单独放宽 `stable` 发布门槛。
+- 只有达到发布配置的最低等级（发布 workflow 为 `stable`）的节点才进入最终产物。预算外节点记为 `not_tested_budget`，探测失败与成功率不足分别记为 `failed_probe`、`below_quality_threshold`；未实测不等于可用。
+- 目标固定为 `https://www.gstatic.com/generate_204`。结果只代表当前 runner 到这个目标的路径，受 runner 地域、出口网络、上游限速和目标站点策略影响，不代表全球或其他站点可用。
+- 本地回归只使用 fake Mihomo/网络夹具，不运行真实节点 probe 或真实 Mihomo 外联；真实探测仅由获授权的远程 workflow 执行。
+- 探测失败、结果不完整、无合格节点或写入失败都会 fail-closed，并优先保留 `state/last-known-good/`。LKG 是上一份可回退产物，不是本轮节点可用性证明。
+- 每个临时 Mihomo worker 使用独立 loopback controller 和独立的 256-bit 随机 secret；secret 仅在 worker 生命周期内用于 `Authorization: Bearer`，不进入 manifest、health、日志或报告，worker 结束后随临时目录清理。
+
 如需自定义本机配置，最小结构如下（没有来源，不能生成可用订阅）：
 
 ```yaml
@@ -38,7 +49,8 @@ sources:
 - `sources.public` 只有 `enabled=true`、`publish=true`、`requires_review=false` 才能进入公开聚合。
 - `sources.private` 默认不发布。需要本机混合验证时显式使用 `--include-private --private-output dist-private`；私有产物只落在本机目录，已加入 `.gitignore`。CI 不运行聚合器。
 - 公开节点产物可能包含来源本身提供的连接凭据，这是公开订阅内容的一部分；程序、日志和报告不打印节点 URI、UUID、密码或完整敏感载荷。
-- 来源抓取只允许使用者配置的 HTTPS host。受控解析例外必须同时匹配显式信任的 host 和精确地址，TLS 证书校验仍开启；其他内网、私网、回环和链路本地地址拒绝。每一跳 redirect 都重新校验。
+- 来源抓取只允许使用者配置的 HTTPS host。受控解析例外仅允许 `raw.githubusercontent.com` 配对 `198.18.0.21` 或 `198.18.1.48`，并通过 `curl --resolve` 固定已校验地址；不能借此放行整个 `198.18.0.0/15`。IPv4-mapped IPv6（`::ffff:a.b.c.d`）先解包为 IPv4 再走同一拒绝逻辑；常见 NAT64 `64:ff9b::/96` 与 `64:ff9b:1::/48` 显式拒绝。`100.64.0.0/10`、文档/基准测试地址、私网、回环、metadata 和链路本地地址拒绝。每一跳 redirect 都重新校验。
+- 当前实现接受“解析校验后用 `curl --resolve` 固定地址”的跨平台折中：它避免再次按 hostname 解析，但不宣称消除操作系统解析到连接之间的全部 TOCTOU 窗口。该项保留为低风险残余，不以文档或测试伪装成已解决。
 
 ## 本机输出（不提交仓库）
 

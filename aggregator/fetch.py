@@ -15,19 +15,62 @@ class FetchError(RuntimeError):
 
 
 _CONTROLLED_PROXY_DNS = ipaddress.ip_network("198.18.0.0/15")
+_CONTROLLED_PROXY_HOST = "raw.githubusercontent.com"
+_CONTROLLED_PROXY_ADDRESSES = frozenset({"198.18.0.21", "198.18.1.48"})
+_SPECIAL_USE_NETWORKS = (
+    ipaddress.ip_network("0.0.0.0/8"),
+    ipaddress.ip_network("10.0.0.0/8"),
+    ipaddress.ip_network("100.64.0.0/10"),
+    ipaddress.ip_network("127.0.0.0/8"),
+    ipaddress.ip_network("169.254.0.0/16"),
+    ipaddress.ip_network("172.16.0.0/12"),
+    ipaddress.ip_network("192.0.0.0/24"),
+    ipaddress.ip_network("192.0.2.0/24"),
+    ipaddress.ip_network("192.168.0.0/16"),
+    ipaddress.ip_network("198.18.0.0/15"),
+    ipaddress.ip_network("198.51.100.0/24"),
+    ipaddress.ip_network("203.0.113.0/24"),
+    ipaddress.ip_network("224.0.0.0/4"),
+    ipaddress.ip_network("240.0.0.0/4"),
+    ipaddress.ip_network("64:ff9b::/96"),
+    ipaddress.ip_network("64:ff9b:1::/48"),
+)
+_BLOCKED_SOURCE_HOSTS = frozenset(
+    {
+        "localhost",
+        "localhost.localdomain",
+        "metadata",
+        "metadata.google.internal",
+        "metadata.google.com",
+        "instance-data.ec2.internal",
+    }
+)
 _REDIRECT_STATUSES = {301, 302, 303, 307, 308}
 
 
-def _blocked_ip(address: str) -> bool:
+def _normalized_ip(address: str):
     value = ipaddress.ip_address(address)
+    return getattr(value, "ipv4_mapped", None) or value
+
+
+def _blocked_ip(address: str) -> bool:
+    value = _normalized_ip(address)
     return bool(
-        value.is_private
+        any(
+            value.version == network.version and value in network
+            for network in _SPECIAL_USE_NETWORKS
+        )
+        or value.is_private
         or value.is_loopback
         or value.is_link_local
         or value.is_reserved
         or value.is_unspecified
         or value.is_multicast
     )
+
+
+def _blocked_source_hostname(hostname: str) -> bool:
+    return hostname in _BLOCKED_SOURCE_HOSTS or hostname.endswith(".localhost")
 
 
 def _curl_string(value: str) -> str:
@@ -55,6 +98,8 @@ def _validate_fetch_url(
     if port not in {None, 443}:
         raise FetchError("source_port_not_allowed")
     hostname = parsed.hostname.rstrip(".").lower()
+    if _blocked_source_hostname(hostname):
+        raise FetchError("private_source_address")
     if hostname not in allowed_hosts:
         raise FetchError("source_host_not_allowlisted")
     try:
@@ -69,19 +114,30 @@ def _validate_fetch_url(
     if not addresses:
         raise FetchError("source_dns_empty")
 
+    validated_addresses: list[str] = []
     for address in addresses:
         try:
-            value = ipaddress.ip_address(address)
+            value = _normalized_ip(address)
         except ValueError as exc:
             raise FetchError("source_dns_invalid_address") from exc
-        if value in _CONTROLLED_PROXY_DNS:
-            if address not in controlled_proxy_addresses or hostname not in trust_hosts:
+        normalized_address = str(value)
+        if (
+            value.version == _CONTROLLED_PROXY_DNS.version
+            and value in _CONTROLLED_PROXY_DNS
+        ):
+            if (
+                normalized_address not in _CONTROLLED_PROXY_ADDRESSES
+                or normalized_address not in controlled_proxy_addresses
+                or hostname != _CONTROLLED_PROXY_HOST
+                or hostname not in trust_hosts
+            ):
                 raise FetchError("controlled_proxy_address_not_trusted")
-        elif _blocked_ip(address):
+        elif _blocked_ip(normalized_address):
             raise FetchError("private_source_address")
+        validated_addresses.append(normalized_address)
 
     # Pin curl to the address checked above to close the validate-then-resolve gap.
-    return hostname, addresses[0]
+    return hostname, validated_addresses[0]
 
 
 def _response_headers(path: Path) -> dict[str, str]:

@@ -10,6 +10,7 @@ import yaml
 
 from aggregator import fetch
 from aggregator.fetch import FetchError
+from aggregator.parsing import ParseError, normalize_proxy
 
 
 def test_controlled_proxy_allowlist_is_exact_and_private_addresses_stay_blocked(
@@ -39,6 +40,10 @@ def test_controlled_proxy_allowlist_is_exact_and_private_addresses_stay_blocked(
         )
 
     assert validate("198.18.0.21") == (
+        "raw.githubusercontent.com",
+        "198.18.0.21",
+    )
+    assert validate("::ffff:198.18.0.21") == (
         "raw.githubusercontent.com",
         "198.18.0.21",
     )
@@ -72,6 +77,112 @@ def test_controlled_dns_exception_is_limited_to_trusted_host(monkeypatch) -> Non
             allowed_hosts={"raw.githubusercontent.com"},
             trust_hosts={"raw.githubusercontent.com"},
             controlled_proxy_addresses={"198.18.1.48"},
+        )
+
+
+@pytest.mark.parametrize(
+    "address",
+    [
+        "100.64.0.1",
+        "192.0.2.1",
+        "198.51.100.1",
+        "203.0.113.1",
+        "::ffff:169.254.169.254",
+        "::ffff:10.0.0.1",
+        "::ffff:127.0.0.1",
+        "64:ff9b::169.254.169.254",
+        "64:ff9b:1::1",
+    ],
+)
+def test_fetch_rejects_explicit_special_use_and_translation_addresses(
+    monkeypatch, address: str
+) -> None:
+    monkeypatch.setattr(
+        fetch.socket,
+        "getaddrinfo",
+        lambda *args, **kwargs: [
+            (socket.AF_INET, socket.SOCK_STREAM, 6, "", (address, 443))
+        ],
+    )
+
+    with pytest.raises(FetchError, match="private_source_address"):
+        fetch._validate_fetch_url(
+            "https://raw.githubusercontent.com/owner/repo/file",
+            allowed_hosts={"raw.githubusercontent.com"},
+            trust_hosts={"raw.githubusercontent.com"},
+            controlled_proxy_addresses={"198.18.0.21", "198.18.1.48"},
+        )
+
+
+@pytest.mark.parametrize("address", ["198.18.0.22", "::ffff:198.18.0.22"])
+def test_fetch_rejects_non_allowlisted_benchmark_address(
+    monkeypatch, address: str
+) -> None:
+    monkeypatch.setattr(
+        fetch.socket,
+        "getaddrinfo",
+        lambda *args, **kwargs: [
+            (socket.AF_INET, socket.SOCK_STREAM, 6, "", (address, 443))
+        ],
+    )
+
+    with pytest.raises(FetchError, match="controlled_proxy_address_not_trusted"):
+        fetch._validate_fetch_url(
+            "https://raw.githubusercontent.com/owner/repo/file",
+            allowed_hosts={"raw.githubusercontent.com"},
+            trust_hosts={"raw.githubusercontent.com"},
+            controlled_proxy_addresses={"198.18.0.21", "198.18.1.48"},
+        )
+
+
+@pytest.mark.parametrize(
+    "hostname", ["localhost", "metadata", "metadata.google.internal"]
+)
+def test_fetch_rejects_special_use_hostnames(monkeypatch, hostname: str) -> None:
+    monkeypatch.setattr(
+        fetch.socket,
+        "getaddrinfo",
+        lambda *args, **kwargs: [
+            (socket.AF_INET, socket.SOCK_STREAM, 6, "", ("8.8.8.8", 443))
+        ],
+    )
+
+    with pytest.raises(FetchError, match="private_source_address"):
+        fetch._validate_fetch_url(
+            f"https://{hostname}/source",
+            allowed_hosts={hostname},
+            trust_hosts={hostname},
+            controlled_proxy_addresses=set(),
+        )
+
+
+@pytest.mark.parametrize(
+    "endpoint",
+    [
+        "100.64.0.1",
+        "192.0.2.1",
+        "198.51.100.1",
+        "203.0.113.1",
+        "198.18.0.22",
+        "::ffff:169.254.169.254",
+        "::ffff:10.0.0.1",
+        "::ffff:127.0.0.1",
+        "64:ff9b::169.254.169.254",
+        "64:ff9b:1::1",
+        "localhost",
+        "metadata",
+        "metadata.google.internal",
+    ],
+)
+def test_node_endpoint_rejects_special_use_and_metadata(endpoint: str) -> None:
+    with pytest.raises(ParseError, match="private_server"):
+        normalize_proxy(
+            {
+                "name": "synthetic-node",
+                "type": "http",
+                "server": endpoint,
+                "port": 8080,
+            }
         )
 
 

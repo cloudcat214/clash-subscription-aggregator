@@ -2,15 +2,17 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import shutil
 import tempfile
 import uuid
+from collections import Counter
 from collections.abc import Callable
 from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 from urllib.parse import urlsplit
 
 import yaml
@@ -25,6 +27,8 @@ from .parsing import (
     parse_source_payload_with_drops,
     quality_score,
 )
+from .probe import DEFAULT_TARGET_URL
+from .quality import classify_node, node_key, probe_verdict, select_published
 from .validators import CoreValidationError
 
 
@@ -340,6 +344,239 @@ def _sha256_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
+def _empty_node_quality(
+    candidates: int,
+    *,
+    published: int = 0,
+    dropped: int = 0,
+    not_tested_budget: int = 0,
+    failed_probe: int = 0,
+    below_quality_threshold: int = 0,
+) -> dict[str, object]:
+    return {
+        "candidates": candidates,
+        "tested": 0,
+        "verified": 0,
+        "fast": 0,
+        "stable": 0,
+        "failed": 0,
+        "not_tested": candidates,
+        "not_tested_budget": not_tested_budget,
+        "failed_probe": failed_probe,
+        "below_quality_threshold": below_quality_threshold,
+        "dropped": dropped,
+        "published": published,
+        "success_rate": None,
+    }
+
+
+def _probe_error_category(exc: Exception) -> str:
+    if isinstance(exc, TimeoutError):
+        return "timeout"
+    if isinstance(exc, CoreValidationError):
+        return "core_validation_error"
+    if isinstance(exc, OSError):
+        return "network_or_process_error"
+    if isinstance(exc, ValueError):
+        return "invalid_probe_result"
+    return "probe_error"
+
+
+def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
+    minimum = str(settings.get("probe_min_verdict", "stable"))
+    if minimum not in {"stable", "verified", "fast"}:
+        raise ValueError("invalid_probe_min_verdict")
+
+    def bounded_int(name: str, default: int, maximum: int) -> int:
+        value = settings.get(name, default)
+        if isinstance(value, bool) or not isinstance(value, int):
+            raise TypeError("invalid_probe_policy")
+        return max(1, min(value, maximum))
+
+    try:
+        stable_rate = float(settings.get("probe_min_success_rate", 2 / 3))
+        fast_latency = float(settings.get("probe_fast_latency_ms", 800.0))
+        latency_cap = float(settings.get("probe_score_latency_cap_ms", 5000.0))
+        timeout_seconds = float(settings.get("probe_timeout_seconds", 10.0))
+    except (TypeError, ValueError) as exc:
+        raise ValueError("invalid_probe_policy") from exc
+    if (
+        not math.isfinite(stable_rate)
+        or not 0 < stable_rate <= 1
+        or not math.isfinite(fast_latency)
+        or fast_latency <= 0
+        or not math.isfinite(latency_cap)
+        or latency_cap <= 0
+        or not math.isfinite(timeout_seconds)
+        or not 0 < timeout_seconds <= 30
+    ):
+        raise ValueError("invalid_probe_policy")
+    probe_rounds = bounded_int("probe_rounds", 3, 3)
+    verified_min_rounds = bounded_int("probe_verified_min_rounds", 3, 3)
+    stable_min_rounds = bounded_int("probe_stable_min_rounds", 3, 3)
+    if probe_rounds < stable_min_rounds:
+        raise ValueError("probe_rounds_below_stable_min_rounds")
+    if probe_rounds < verified_min_rounds:
+        raise ValueError("probe_rounds_below_verified_min_rounds")
+    return {
+        "min_verdict": minimum,
+        "probe_max_nodes": bounded_int("probe_max_nodes", 30, 30),
+        "probe_rounds": probe_rounds,
+        "probe_concurrency": bounded_int("probe_concurrency", 1, 4),
+        "probe_timeout_seconds": timeout_seconds,
+        "verified_min_rounds": verified_min_rounds,
+        "stable_min_rounds": stable_min_rounds,
+        "stable_success_rate": stable_rate,
+        "fast_latency_ms": fast_latency,
+        "latency_cap_ms": latency_cap,
+        "publish_max_nodes": bounded_int("probe_publish_max_nodes", 30, 30),
+    }
+
+
+def _normalize_probe_rows(
+    raw: object,
+    candidates: list[dict[str, object]],
+    *,
+    rounds_default: int,
+    policy: dict[str, object],
+) -> tuple[dict[str, dict[str, object]], list[dict[str, object]]]:
+    by_name = {str(node.get("name") or ""): node for node in candidates}
+    by_key = {node_key(node): node for node in candidates}
+    if isinstance(raw, dict):
+        raw_rows: list[dict[str, object]] = []
+        for identity, value in raw.items():
+            if not isinstance(value, dict):
+                raise TypeError("probe_results_invalid")
+            row = dict(value)
+            if identity in by_name:
+                row.setdefault("name", identity)
+            else:
+                row.setdefault("node_key", identity)
+            raw_rows.append(row)
+    elif isinstance(raw, list):
+        if any(not isinstance(row, dict) for row in raw):
+            raise ValueError("probe_results_invalid")
+        raw_rows = [dict(row) for row in raw]
+    else:
+        raise TypeError("probe_results_invalid")
+    if len(raw_rows) > 30:
+        raise ValueError("probe_results_over_budget")
+
+    normalized: dict[str, dict[str, object]] = {}
+    rows: list[dict[str, object]] = []
+    allowed_errors = {
+        "timeout",
+        "http_error",
+        "network_error",
+        "invalid_response",
+        "core_validation_error",
+        "probe_error",
+    }
+    for row in raw_rows:
+        name = row.get("name")
+        key = row.get("node_key", row.get("name_hash"))
+        node = by_name.get(name) if isinstance(name, str) else None
+        if node is None and isinstance(key, str):
+            node = by_key.get(key)
+        if node is None:
+            raise TypeError("probe_results_invalid")
+        normalized_name = str(node.get("name") or "")
+        if normalized_name in normalized:
+            raise ValueError("probe_results_duplicate")
+        passed = row.get("rounds_passed")
+        total = row.get("rounds_total", row.get("rounds", rounds_default))
+        if (
+            isinstance(passed, bool)
+            or not isinstance(passed, int)
+            or isinstance(total, bool)
+            or not isinstance(total, int)
+            or passed < 0
+            or total < 1
+            or passed > total
+        ):
+            raise TypeError("probe_results_invalid")
+        raw_error = row.get("error_category")
+        error_category = None
+        if raw_error:
+            error_category = (
+                raw_error
+                if isinstance(raw_error, str) and raw_error in allowed_errors
+                else "probe_error"
+            )
+        latency_value = row.get("latency_ms")
+        p95_value = row.get("p95_latency_ms")
+        latency = (
+            float(latency_value)
+            if isinstance(latency_value, (int, float))
+            and not isinstance(latency_value, bool)
+            else None
+        )
+        p95 = (
+            float(p95_value)
+            if isinstance(p95_value, (int, float)) and not isinstance(p95_value, bool)
+            else None
+        )
+        verdict = probe_verdict(
+            passed,
+            total,
+            latency,
+            p95_latency_ms=p95,
+            verified_min_rounds=cast(int, policy["verified_min_rounds"]),
+            stable_min_rounds=cast(int, policy["stable_min_rounds"]),
+            stable_success_rate=cast(float, policy["stable_success_rate"]),
+            fast_latency_ms=cast(float, policy["fast_latency_ms"]),
+            error_category=error_category,
+        )
+        verdict["node_key"] = node_key(node)
+        normalized[normalized_name] = verdict
+        rows.append(verdict)
+    return normalized, rows
+
+
+def _node_quality_counts(
+    candidates: int,
+    rows: list[dict[str, object]],
+    published: int,
+    policy: dict[str, object],
+    *,
+    not_tested_budget: int,
+) -> dict[str, object]:
+    statuses = [
+        classify_node(
+            {},
+            row,
+            verified_min_rounds=cast(int, policy["verified_min_rounds"]),
+            stable_min_rounds=cast(int, policy["stable_min_rounds"]),
+            stable_success_rate=cast(float, policy["stable_success_rate"]),
+            fast_latency_ms=cast(float, policy["fast_latency_ms"]),
+        )
+        for row in rows
+    ]
+    failed_probe = sum(1 for row in rows if cast(int, row["rounds_passed"]) == 0)
+    below_quality_threshold = sum(
+        1
+        for row, status in zip(rows, statuses)
+        if status == "failed" and cast(int, row["rounds_passed"]) > 0
+    )
+    passed = sum(cast(int, row["rounds_passed"]) for row in rows)
+    total = sum(cast(int, row["rounds_total"]) for row in rows)
+    return {
+        "candidates": candidates,
+        "tested": len(rows),
+        "verified": sum(1 for row in rows if row["verified"]),
+        "fast": sum(1 for row in rows if row["fast"]),
+        "stable": sum(1 for row in rows if row["stable"]),
+        "failed": statuses.count("failed"),
+        "not_tested": max(0, candidates - len(rows)),
+        "not_tested_budget": max(0, not_tested_budget),
+        "failed_probe": failed_probe,
+        "below_quality_threshold": below_quality_threshold,
+        "dropped": failed_probe + below_quality_threshold,
+        "published": published,
+        "success_rate": passed / total if total else 0.0,
+    }
+
+
 def build_manifest(
     *,
     status: str,
@@ -351,6 +588,7 @@ def build_manifest(
     drops: dict[str, int] | None = None,
     sing_box: dict[str, object] | None = None,
     verification: dict[str, object] | None = None,
+    node_quality: dict[str, object] | None = None,
     base_url: str | None = None,
 ) -> dict[str, object]:
     protocols: dict[str, int] = {}
@@ -382,6 +620,8 @@ def build_manifest(
         "sing_box": sing_box or {"unsupported": 0, "drop_reasons": {}},
         "verification": verification
         or {"status": "not_tested", "reason": "active_probe_disabled"},
+        "node_quality": node_quality
+        or _empty_node_quality(len(proxies), published=len(proxies)),
         "limitations": [
             "HTTP(S) checks only fetch and parse the configured source.",
             "Node-level active probing is disabled and not tested in this run."
@@ -409,6 +649,8 @@ def _health_document(
     fallback: str | None = None,
     active_probe: bool = False,
     validation: dict[str, object] | None = None,
+    verification: dict[str, object] | None = None,
+    node_quality: dict[str, object] | None = None,
 ) -> dict[str, object]:
     document: dict[str, object] = {
         "schema_version": 1,
@@ -421,6 +663,9 @@ def _health_document(
             "source_fetch": "performed_for_enabled_publishable_sources",
             "node_active_probe": "performed" if active_probe else "not_tested",
         },
+        "verification": verification
+        or {"status": "not_tested", "reason": "active_probe_disabled"},
+        "node_quality": node_quality or _empty_node_quality(0, published=published),
     }
     if fallback:
         document["fallback"] = fallback
@@ -589,6 +834,10 @@ def _write_failure(
     source_results: list[SourceResult],
     reason: str,
     generated_at: str,
+    *,
+    active_probe: bool = False,
+    verification: dict[str, object] | None = None,
+    node_quality: dict[str, object] | None = None,
 ) -> PipelineResult:
     output_dir.mkdir(parents=True, exist_ok=True)
     has_lkg = _has_lkg(state_dir)
@@ -603,6 +852,9 @@ def _write_failure(
         source_results=source_results,
         published=0,
         fallback="last-known-good" if has_lkg else None,
+        active_probe=active_probe,
+        verification=verification,
+        node_quality=node_quality,
     )
     health["failure_reason"] = reason
     health_path = output_dir / "health.json"
@@ -791,20 +1043,253 @@ def run_pipeline(
             output_dir, state_dir, public_results, "shrink_guard", generated_at
         )
 
+    active_probe = bool(settings.get("active_probe", False))
     verification: dict[str, object] = {
         "status": "not_tested",
         "reason": "active_probe_disabled",
     }
-    if bool(settings.get("active_probe", False)):
-        if probe_runner is None:
+    node_quality = _empty_node_quality(
+        len(proxies), published=0 if active_probe else len(proxies)
+    )
+    if active_probe:
+        try:
+            policy = _probe_policy(settings)
+        except (TypeError, ValueError) as exc:
+            policy_error = str(exc)
+            if policy_error not in {
+                "probe_rounds_below_stable_min_rounds",
+                "probe_rounds_below_verified_min_rounds",
+            }:
+                policy_error = "invalid_probe_policy"
+            verification = {
+                "status": "failed",
+                "reason": "probe_policy_invalid",
+                "error_category": "invalid_probe_policy",
+                "policy_error": policy_error,
+            }
+            node_quality = _empty_node_quality(len(proxies))
             return _write_failure(
-                output_dir, state_dir, public_results, "probe_unavailable", generated_at
+                output_dir,
+                state_dir,
+                public_results,
+                policy_error,
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=node_quality,
+            )
+        if probe_runner is None:
+            verification = {
+                "status": "failed",
+                "reason": "probe_unavailable",
+                "error_category": "probe_unavailable",
+                "target": DEFAULT_TARGET_URL,
+                "min_verdict": policy["min_verdict"],
+            }
+            node_quality = _empty_node_quality(len(proxies))
+            return _write_failure(
+                output_dir,
+                state_dir,
+                public_results,
+                "probe_unavailable",
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=node_quality,
+            )
+        candidate_pool = proxies
+        candidates_before_probe = candidate_pool[: cast(int, policy["probe_max_nodes"])]
+        if not candidates_before_probe:
+            return _write_failure(
+                output_dir,
+                state_dir,
+                public_results,
+                "probe_no_candidates",
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=_empty_node_quality(len(candidate_pool)),
             )
         try:
-            verification = probe_runner(proxies)
-        except (CoreValidationError, OSError, ValueError) as exc:
+            raw_verification = probe_runner(candidates_before_probe)
+        except Exception as exc:  # noqa: BLE001 - runner errors are redacted below
+            error_category = _probe_error_category(exc)
+            verification = {
+                "status": "failed",
+                "reason": "probe_execution_failed",
+                "error_category": error_category,
+                "target": DEFAULT_TARGET_URL,
+                "min_verdict": policy["min_verdict"],
+            }
+            node_quality = _empty_node_quality(len(candidate_pool))
             return _write_failure(
-                output_dir, state_dir, public_results, _safe_error(exc), generated_at
+                output_dir,
+                state_dir,
+                public_results,
+                "probe_execution_failed",
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=node_quality,
+            )
+        try:
+            if not isinstance(raw_verification, dict):
+                raise TypeError("probe_results_invalid")
+            if raw_verification.get("status") != "performed":
+                raise ValueError("probe_not_performed")
+            raw_target = raw_verification.get("target")
+            if raw_target not in (None, DEFAULT_TARGET_URL):
+                raise ValueError("probe_target_invalid")
+            raw_rounds = raw_verification.get("rounds", settings.get("probe_rounds", 3))
+            raw_max_nodes = raw_verification.get(
+                "max_nodes", settings.get("probe_max_nodes", 30)
+            )
+            raw_concurrency = raw_verification.get(
+                "concurrency", settings.get("probe_concurrency", 1)
+            )
+            raw_timeout = raw_verification.get(
+                "timeout_seconds", settings.get("probe_timeout_seconds", 10.0)
+            )
+            if any(
+                isinstance(value, bool) or not isinstance(value, int)
+                for value in (raw_rounds, raw_max_nodes, raw_concurrency)
+            ):
+                raise TypeError("probe_parameters_invalid")
+            if isinstance(raw_timeout, bool) or not isinstance(
+                raw_timeout, (int, float)
+            ):
+                raise TypeError("probe_parameters_invalid")
+            timeout_seconds = float(raw_timeout)
+            if not math.isfinite(timeout_seconds) or timeout_seconds <= 0:
+                raise ValueError("probe_parameters_invalid")
+            rounds_total = max(1, min(cast(int, raw_rounds), 3))
+            max_nodes = max(1, min(cast(int, raw_max_nodes), 30))
+            concurrency = max(1, min(cast(int, raw_concurrency), 4))
+            if timeout_seconds > 30:
+                raise ValueError("probe_parameters_over_budget")
+            result_map, probe_rows = _normalize_probe_rows(
+                raw_verification.get("results"),
+                candidates_before_probe,
+                rounds_default=rounds_total,
+                policy=policy,
+            )
+            if any(
+                cast(int, row["rounds_total"]) < 1
+                or cast(int, row["rounds_total"]) > rounds_total
+                for row in probe_rows
+            ):
+                raise ValueError("probe_results_over_budget")
+            reported_tested = raw_verification.get("tested")
+            if "tested" in raw_verification and (
+                isinstance(reported_tested, bool)
+                or not isinstance(reported_tested, int)
+                or reported_tested != len(probe_rows)
+            ):
+                raise ValueError("probe_results_invalid")
+            if len(probe_rows) > max_nodes:
+                raise ValueError("probe_results_over_budget")
+            selected = select_published(
+                candidates_before_probe,
+                result_map,
+                min_verdict=cast(str, policy["min_verdict"]),
+                max_nodes=cast(int, policy["publish_max_nodes"]),
+                verified_min_rounds=cast(int, policy["verified_min_rounds"]),
+                stable_min_rounds=cast(int, policy["stable_min_rounds"]),
+                stable_success_rate=cast(float, policy["stable_success_rate"]),
+                fast_latency_ms=cast(float, policy["fast_latency_ms"]),
+                latency_cap_ms=cast(float, policy["latency_cap_ms"]),
+            )
+            original_by_name = {
+                str(proxy.get("name") or ""): proxy for proxy in candidates_before_probe
+            }
+            proxies = [
+                original_by_name[str(item["name"])]
+                for item in selected
+                if str(item.get("name") or "") in original_by_name
+            ]
+            node_quality = _node_quality_counts(
+                len(candidate_pool),
+                probe_rows,
+                len(proxies),
+                policy,
+                not_tested_budget=len(candidate_pool) - len(candidates_before_probe),
+            )
+            error_counts = Counter(
+                str(row["error_category"])
+                for row in probe_rows
+                if row.get("error_category")
+            )
+            verification = {
+                "status": "performed",
+                "target": DEFAULT_TARGET_URL,
+                "max_nodes": max_nodes,
+                "rounds": rounds_total,
+                "timeout_seconds": timeout_seconds,
+                "concurrency": concurrency,
+                "execution_mode": raw_verification.get("execution_mode", "serial"),
+                "min_verdict": policy["min_verdict"],
+                "verified_min_rounds": policy["verified_min_rounds"],
+                "stable_min_rounds": policy["stable_min_rounds"],
+                "stable_success_rate": policy["stable_success_rate"],
+                "fast_latency_ms": policy["fast_latency_ms"],
+                "latency_score_cap_ms": policy["latency_cap_ms"],
+                "error_categories": dict(sorted(error_counts.items())),
+            }
+        except (TypeError, ValueError, OverflowError):
+            verification = {
+                "status": "failed",
+                "reason": "probe_results_invalid",
+                "error_category": "invalid_probe_result",
+                "target": DEFAULT_TARGET_URL,
+                "min_verdict": policy["min_verdict"],
+            }
+            node_quality = _empty_node_quality(len(candidate_pool))
+            return _write_failure(
+                output_dir,
+                state_dir,
+                public_results,
+                "probe_results_invalid",
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=node_quality,
+            )
+        if not proxies:
+            return _write_failure(
+                output_dir,
+                state_dir,
+                public_results,
+                "probe_no_qualified_nodes",
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=node_quality,
+            )
+        if len(proxies) < min_publish_nodes:
+            return _write_failure(
+                output_dir,
+                state_dir,
+                public_results,
+                "min_publish_nodes",
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=node_quality,
+            )
+        if (
+            previous_count > 0
+            and 0 < max_shrink_ratio <= 1
+            and len(proxies) < previous_count * max_shrink_ratio
+        ):
+            return _write_failure(
+                output_dir,
+                state_dir,
+                public_results,
+                "shrink_guard",
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=node_quality,
             )
 
     publish = config.get("publish") if isinstance(config.get("publish"), dict) else {}
@@ -825,10 +1310,11 @@ def run_pipeline(
         proxies=proxies,
         source_results=public_results,
         artifacts=artifacts,
-        active_probe=bool(settings.get("active_probe", False)),
+        active_probe=active_probe,
         drops=aggregate_drops,
         sing_box=sing_box_stats,
         verification=verification,
+        node_quality=node_quality,
         base_url=base_url,
     )
     health_status = "degraded" if manifest["status"] == "degraded" else "ok"
@@ -837,16 +1323,24 @@ def run_pipeline(
         generated_at=generated_at,
         source_results=public_results,
         published=len(proxies),
-        active_probe=bool(settings.get("active_probe", False)),
+        active_probe=active_probe,
+        verification=verification,
+        node_quality=node_quality,
     )
-    health["verification"] = verification
     try:
         _publish_transaction(
             output_dir, state_dir, artifacts, manifest, health, validator
         )
     except (OSError, CoreValidationError, ValueError) as exc:
         return _write_failure(
-            output_dir, state_dir, public_results, _safe_error(exc), generated_at
+            output_dir,
+            state_dir,
+            public_results,
+            _safe_error(exc),
+            generated_at,
+            active_probe=active_probe,
+            verification=verification,
+            node_quality=node_quality,
         )
 
     private_manifest_path: Path | None = None

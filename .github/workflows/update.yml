@@ -211,6 +211,12 @@ jobs:
             --no-private \
             --base-url "$PUBLISH_BASE_URL" \
             --mihomo "$MIHOMO_PATH" \
+            --probe \
+            --probe-max-nodes 30 \
+            --probe-rounds 3 \
+            --probe-timeout 10 \
+            --probe-concurrency 4 \
+            --probe-min-verdict stable \
             --require-core
 
       - name: Check redacted release inputs
@@ -330,6 +336,12 @@ jobs:
           ]
           if len(successful_public_sources) < MIN_SUCCESSFUL_PUBLIC_SOURCES:
               fail("source_fetch_or_empty")
+          verification = manifest.get("verification")
+          node_quality = manifest.get("node_quality")
+          if not isinstance(verification, dict) or verification.get("status") != "performed":
+              fail("probe_not_performed")
+          if not isinstance(node_quality, dict):
+              fail("node_quality_missing")
           validation = manifest.get("core_validation", {})
           mihomo = validation.get("clients", {}).get("mihomo", {})
           if mihomo.get("status") != "passed":
@@ -340,6 +352,40 @@ jobs:
           published = counts.get("published")
           if not is_nonnegative_int(published) or published <= 0:
               fail("manifest_published_count")
+          if node_quality.get("published") != published:
+              fail("node_quality_published_mismatch")
+          for key in (
+              "candidates",
+              "published",
+              "tested",
+              "verified",
+              "fast",
+              "stable",
+              "failed",
+              "not_tested",
+              "not_tested_budget",
+              "failed_probe",
+              "below_quality_threshold",
+              "dropped",
+          ):
+              if not is_nonnegative_int(node_quality.get(key)):
+                  fail("node_quality_counts")
+          if node_quality["tested"] > 30 or node_quality["published"] > 30:
+              fail("probe_budget")
+          if node_quality["not_tested"] + node_quality["tested"] != node_quality["candidates"]:
+              fail("node_quality_coverage")
+          if node_quality["stable"] + node_quality["failed"] + node_quality["not_tested"] != node_quality["candidates"]:
+              fail("node_quality_classification")
+          if node_quality["failed"] != node_quality["failed_probe"] + node_quality["below_quality_threshold"]:
+              fail("node_quality_failure_categories")
+          if node_quality["dropped"] != node_quality["failed_probe"] + node_quality["below_quality_threshold"]:
+              fail("node_quality_dropped_categories")
+          if node_quality["not_tested_budget"] > node_quality["not_tested"]:
+              fail("node_quality_budget_coverage")
+          if node_quality["verified"] > node_quality["stable"]:
+              fail("node_quality_verdict_order")
+          if node_quality["published"] > node_quality["stable"]:
+              fail("published_below_quality_gate")
 
           clash = yaml.safe_load(
               (root / "clash/config.yaml").read_text(encoding="utf-8")
@@ -360,6 +406,20 @@ jobs:
 
           with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
               output.write(f"published_count={published}\n")
+              for key in (
+                  "candidates",
+                  "tested",
+                  "verified",
+                  "fast",
+                  "stable",
+                  "failed",
+                  "not_tested",
+                  "not_tested_budget",
+                  "failed_probe",
+                  "below_quality_threshold",
+                  "dropped",
+              ):
+                  output.write(f"node_quality_{key}={node_quality[key]}\n")
               output.write("verification_status=build_core_passed\n")
           print("release inputs: passed")
           PY
@@ -440,6 +500,11 @@ jobs:
         env:
           RELEASE_STATUS: ${{ job.status }}
           PUBLISHED_COUNT: ${{ steps.artifact_check.outputs.published_count || '0' }}
+          NODE_QUALITY_TESTED: ${{ steps.artifact_check.outputs.node_quality_tested || '0' }}
+          NODE_QUALITY_NOT_TESTED_BUDGET: ${{ steps.artifact_check.outputs.node_quality_not_tested_budget || '0' }}
+          NODE_QUALITY_FAILED_PROBE: ${{ steps.artifact_check.outputs.node_quality_failed_probe || '0' }}
+          NODE_QUALITY_BELOW_THRESHOLD: ${{ steps.artifact_check.outputs.node_quality_below_quality_threshold || '0' }}
+          NODE_QUALITY_DROPPED: ${{ steps.artifact_check.outputs.node_quality_dropped || '0' }}
           MIN_SUCCESSFUL_PUBLIC_SOURCES: ${{ steps.artifact_check.outputs.min_successful_public_sources || '2' }}
           EMPTY_SOURCE_SUMMARY: ${{ steps.artifact_check.outputs.empty_source_summary || 'not_available' }}
           VERIFICATION_STATUS: ${{ steps.http_verify.outputs.verification_status || 'not_run' }}
@@ -449,6 +514,11 @@ jobs:
             echo "- status: ${RELEASE_STATUS}"
             echo "- minimum successful public sources: ${MIN_SUCCESSFUL_PUBLIC_SOURCES}"
             echo "- published count: ${PUBLISHED_COUNT}"
+            echo "- node quality tested: ${NODE_QUALITY_TESTED}"
+            echo "- node quality not tested by budget: ${NODE_QUALITY_NOT_TESTED_BUDGET}"
+            echo "- node quality failed probe: ${NODE_QUALITY_FAILED_PROBE}"
+            echo "- node quality below threshold: ${NODE_QUALITY_BELOW_THRESHOLD}"
+            echo "- node quality dropped after probe: ${NODE_QUALITY_DROPPED}"
             echo "- verification status: ${VERIFICATION_STATUS}"
             echo "- empty public source drops:"
             printf '%s\n' "${EMPTY_SOURCE_SUMMARY}"
