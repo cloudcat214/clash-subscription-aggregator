@@ -1,25 +1,25 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T20:45:08Z",
+  "generated_at": "2026-10-10T21:00:10Z",
   "status": "ok",
   "active_probe": true,
-  "published": 18,
+  "published": 21,
   "sources": [
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1044,
-      "accepted": 983,
+      "parsed": 1217,
+      "accepted": 1143,
       "drops": {
-        "invalid_uuid": 4,
-        "duplicate": 57
+        "invalid_uuid": 6,
+        "duplicate": 68
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "f1ae87b189b84b8d9d2ddba5a9a4d6107bb6a008581ba4e1d5cd46119afd9fe7"
+      "sha256": "65c4be2b514ad9b3a508401eafd22e289caf980a422f9cb11e5491cf97150f5b"
     },
     {
       "id": "p-configs-vless",
@@ -72,12 +72,12 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1019
+      "http_error": 1176
     },
-    "stage1_tested": 1037,
-    "stage1_passed": 22,
-    "stage2_tested": 22,
-    "stage2_stable": 20,
+    "stage1_tested": 1197,
+    "stage1_passed": 25,
+    "stage2_tested": 25,
+    "stage2_stable": 22,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -87,19 +87,19 @@
     }
   },
   "node_quality": {
-    "candidates": 1037,
-    "tested": 1037,
-    "verified": 18,
-    "fast": 2,
-    "stable": 18,
-    "failed": 1019,
+    "candidates": 1197,
+    "tested": 1197,
+    "verified": 21,
+    "fast": 3,
+    "stable": 21,
+    "failed": 1176,
     "not_tested": 0,
     "not_tested_budget": 0,
-    "failed_probe": 1017,
-    "below_quality_threshold": 2,
-    "dropped": 1019,
-    "published": 18,
-    "success_rate": 0.01864352298296368
+    "failed_probe": 1173,
+    "below_quality_threshold": 3,
+    "dropped": 1176,
+    "published": 21,
+    "success_rate": 0.018657755499860762
   },
   "core_validation": {
     "status": "not_tested",
