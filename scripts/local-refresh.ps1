@@ -5,7 +5,8 @@ param(
     [int]$Concurrency = 6,
     [ValidateSet("stable", "verified", "fast")]
     [string]$MinVerdict = "stable",
-    [string]$Core
+    [string]$Core,
+    [string]$ProbeInterface
 )
 
 $ErrorActionPreference = "Stop"
@@ -27,6 +28,45 @@ if ([string]::IsNullOrWhiteSpace($Core) -or -not (Test-Path -LiteralPath $Core -
     throw "找不到 verge-mihomo.exe。请使用 -Core 指定 Mihomo 可执行文件路径。"
 }
 
+function Get-DirectProbeInterface {
+    $excluded = 'Meta|Tunnel|Wintun|TAP|VPN'
+    $adapters = @(Get-NetAdapter -IncludeHidden | Where-Object {
+        $_.Status -eq "Up" -and
+        $_.Name -notmatch $excluded -and
+        $_.InterfaceDescription -notmatch $excluded -and
+        $_.Virtual -ne $true
+    })
+    if ($adapters.Count -eq 0) {
+        throw "未找到状态为 Up 的物理网卡。"
+    }
+
+    $adapterByIndex = @{}
+    foreach ($adapter in $adapters) {
+        $adapterByIndex[[int]$adapter.ifIndex] = $adapter
+    }
+    $routes = @(Get-NetRoute -DestinationPrefix "0.0.0.0/0" -AddressFamily IPv4 |
+        Sort-Object RouteMetric, ifIndex)
+    foreach ($route in $routes) {
+        if ($adapterByIndex.ContainsKey([int]$route.ifIndex)) {
+            return $adapterByIndex[[int]$route.ifIndex]
+        }
+    }
+    return ($adapters | Sort-Object {
+        if ($_.Name -match 'WLAN|Wi-?Fi|Ethernet|以太网') { 0 } else { 1 }
+    }, ifIndex | Select-Object -First 1)
+}
+
+if ([string]::IsNullOrWhiteSpace($ProbeInterface)) {
+    $SelectedAdapter = Get-DirectProbeInterface
+    $ProbeInterface = [string]$SelectedAdapter.Name
+} else {
+    $SelectedAdapter = Get-NetAdapter -Name $ProbeInterface -IncludeHidden -ErrorAction SilentlyContinue
+    if ($null -eq $SelectedAdapter -or $SelectedAdapter.Status -ne "Up") {
+        throw "手动指定的 ProbeInterface 不存在或未处于 Up：$ProbeInterface"
+    }
+}
+Write-Host ("直连探测网卡=" + $SelectedAdapter.Name + "; ifIndex=" + $SelectedAdapter.ifIndex + "; description=" + $SelectedAdapter.InterfaceDescription)
+
 Push-Location $ProjectRoot
 try {
     & python -m aggregator run `
@@ -36,6 +76,7 @@ try {
         --no-private `
         --mihomo $Core `
         --probe `
+        --probe-interface $ProbeInterface `
         --probe-max-nodes $MaxNodes `
         --probe-rounds $Rounds `
         --probe-timeout $Timeout `

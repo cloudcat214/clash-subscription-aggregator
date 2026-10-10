@@ -19,6 +19,8 @@ ALLOWED_ERROR_CATEGORIES = frozenset(
         "controller_timeout",
         "controller_auth_error",
         "controller_http_error",
+        "probe_direct_control_failed",
+        "probe_interface_invalid",
         "core_validation_error",
         "probe_error",
     }

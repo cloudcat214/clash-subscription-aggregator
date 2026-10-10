@@ -378,6 +378,8 @@ def _probe_error_category(exc: Exception) -> str:
         "probe_controller_timeout": "controller_timeout",
         "probe_controller_auth_failed": "controller_auth_error",
         "probe_controller_http_error": "controller_http_error",
+        "probe_direct_control_failed": "probe_direct_control_failed",
+        "probe_interface_invalid": "probe_interface_invalid",
     }
     if isinstance(exc, CoreValidationError):
         return core_categories.get(str(exc), "core_validation_error")
@@ -1127,9 +1129,14 @@ def run_pipeline(
             raw_verification = probe_runner(candidates_before_probe)
         except Exception as exc:  # noqa: BLE001 - runner errors are redacted below
             error_category = _probe_error_category(exc)
+            failure_reason = (
+                "probe_direct_control_failed"
+                if str(exc) == "probe_direct_control_failed"
+                else "probe_execution_failed"
+            )
             verification = {
                 "status": "failed",
-                "reason": "probe_execution_failed",
+                "reason": failure_reason,
                 "error_category": error_category,
                 "target": DEFAULT_TARGET_URL,
                 "min_verdict": policy["min_verdict"],
@@ -1139,7 +1146,7 @@ def run_pipeline(
                 output_dir,
                 state_dir,
                 public_results,
-                "probe_execution_failed",
+                failure_reason,
                 generated_at,
                 active_probe=True,
                 verification=verification,
@@ -1163,6 +1170,22 @@ def run_pipeline(
             raw_timeout = raw_verification.get(
                 "timeout_seconds", settings.get("probe_timeout_seconds", 10.0)
             )
+            raw_probe_interface = raw_verification.get("probe_interface")
+            raw_interface_mode = raw_verification.get("interface_mode")
+            raw_direct_control = raw_verification.get("direct_control")
+            if raw_probe_interface is not None and not isinstance(
+                raw_probe_interface, str
+            ):
+                raise TypeError("probe_parameters_invalid")
+            if raw_interface_mode is not None and raw_interface_mode not in {
+                "top-level",
+                "proxy",
+            }:
+                raise ValueError("probe_parameters_invalid")
+            if raw_direct_control is not None and not isinstance(
+                raw_direct_control, dict
+            ):
+                raise TypeError("probe_parameters_invalid")
             if any(
                 isinstance(value, bool) or not isinstance(value, int)
                 for value in (raw_rounds, raw_max_nodes, raw_concurrency)
@@ -1250,6 +1273,13 @@ def run_pipeline(
                 "latency_score_cap_ms": policy["latency_cap_ms"],
                 "error_categories": dict(sorted(error_counts.items())),
             }
+            if raw_probe_interface:
+                verification["probe_interface"] = raw_probe_interface
+                verification["interface_mode"] = raw_interface_mode
+                verification["direct_control"] = raw_direct_control or {
+                    "status": "not_tested",
+                    "reason": "probe_interface_missing_control_result",
+                }
         except (TypeError, ValueError, OverflowError) as exc:
             failure_reason = (
                 "probe_parameters_over_budget"

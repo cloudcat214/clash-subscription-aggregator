@@ -47,6 +47,10 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--probe-timeout", type=float, default=10.0)
     run.add_argument("--probe-concurrency", type=int, default=1)
     run.add_argument(
+        "--probe-interface",
+        help="直连探测使用的物理网卡名；留空保持旧的默认出口行为",
+    )
+    run.add_argument(
         "--probe-min-verdict",
         choices=("stable", "verified", "fast"),
         help="最低发布等级；默认 stable（3 轮且成功率至少 2/3）",
@@ -90,6 +94,7 @@ def main(argv: list[str] | None = None) -> int:
 
         validator = _validator
 
+    probe_interface = args.probe_interface
     probe_runner: Callable[[list[dict[str, object]]], dict[str, object]] | None = None
     if args.probe:
         if not args.mihomo:
@@ -104,6 +109,7 @@ def main(argv: list[str] | None = None) -> int:
                 rounds=args.probe_rounds,
                 timeout=args.probe_timeout,
                 concurrency=args.probe_concurrency,
+                probe_interface=probe_interface,
             )
 
         probe_runner = _probe_runner
@@ -125,6 +131,15 @@ def main(argv: list[str] | None = None) -> int:
             settings["probe_rounds"] = args.probe_rounds
             settings["probe_timeout_seconds"] = args.probe_timeout
             settings["probe_concurrency"] = args.probe_concurrency
+            if args.probe_interface is not None:
+                settings["probe_interface"] = args.probe_interface
+            configured_interface = settings.get("probe_interface")
+            if configured_interface is not None and not isinstance(
+                configured_interface, str
+            ):
+                print("settings.probe_interface must be a string", file=sys.stderr)
+                return 2
+            probe_interface = configured_interface or None
             if args.probe_min_verdict:
                 settings["probe_min_verdict"] = args.probe_min_verdict
         with tempfile.NamedTemporaryFile(

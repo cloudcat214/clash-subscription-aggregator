@@ -295,6 +295,151 @@ def test_probe_controller_uses_unique_memory_only_bearer_secrets(monkeypatch) ->
     assert all(secret not in serialized for secret in secrets)
 
 
+def test_probe_nodes_injects_direct_egress_settings_only_when_requested(
+    monkeypatch,
+) -> None:
+    configs: list[dict[str, object]] = []
+    ports = iter(range(20000, 20020))
+    monkeypatch.setattr(probe_mod, "_free_port", lambda: next(ports))
+
+    class _FakeProcess:
+        def poll(self):
+            return None
+
+        def terminate(self):
+            return None
+
+        def kill(self):
+            return None
+
+        def wait(self, timeout=None):
+            return 0
+
+    def fake_popen(command, **_kwargs):
+        config_path = Path(command[command.index("-f") + 1])
+        configs.append(yaml.safe_load(config_path.read_text(encoding="utf-8")))
+        return _FakeProcess()
+
+    class _FakeResponse:
+        status = 204
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def read(self, n=None):
+            return b"ok"
+
+    class _FakeOpener:
+        def open(self, request, timeout=None):
+            return _FakeResponse()
+
+    monkeypatch.setattr(probe_mod.subprocess, "Popen", fake_popen)
+    monkeypatch.setattr(probe_mod, "build_opener", lambda handler=None: _FakeOpener())
+    monkeypatch.setattr(probe_mod, "_api_request", lambda *args, **kwargs: b"{}")
+
+    direct = probe_nodes(
+        [{"name": "node-0"}],
+        mihomo_path="/fake/mihomo",
+        rounds=1,
+        timeout=1.0,
+        probe_interface="WLAN",
+    )
+
+    assert direct["direct_control"] == {
+        "status": "passed",
+        "target": "http://www.baidu.com",
+        "interface_mode": "top-level",
+    }
+    assert len(configs) == 2
+    for config in configs:
+        assert config["interface-name"] == "WLAN"
+        assert config["dns"] == {
+            "enable": True,
+            "ipv6": False,
+            "enhanced-mode": "normal",
+            "nameserver": ["udp://223.5.5.5", "udp://119.29.29.29"],
+            "default-nameserver": ["223.5.5.5", "119.29.29.29"],
+        }
+    direct_control_config = configs[1]
+    control_proxies = cast(list[dict[str, object]], direct_control_config["proxies"])
+    assert "interface-name" not in control_proxies[0]
+
+    configs.clear()
+    legacy = probe_nodes(
+        [{"name": "node-0"}],
+        mihomo_path="/fake/mihomo",
+        rounds=1,
+        timeout=1.0,
+    )
+
+    legacy_control = cast(dict[str, object], legacy["direct_control"])
+    assert legacy_control["status"] == "not_tested"
+    assert len(configs) == 1
+    assert "interface-name" not in configs[0]
+    assert "dns" not in configs[0]
+
+
+def test_probe_direct_control_failure_is_fail_closed(monkeypatch) -> None:
+    configs: list[dict[str, object]] = []
+    ports = iter(range(20000, 20020))
+    monkeypatch.setattr(probe_mod, "_free_port", lambda: next(ports))
+
+    class _FakeProcess:
+        def poll(self):
+            return None
+
+        def terminate(self):
+            return None
+
+        def kill(self):
+            return None
+
+        def wait(self, timeout=None):
+            return 0
+
+    def fake_popen(command, **_kwargs):
+        config_path = Path(command[command.index("-f") + 1])
+        configs.append(yaml.safe_load(config_path.read_text(encoding="utf-8")))
+        return _FakeProcess()
+
+    class _FakeResponse:
+        status = 204
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def read(self, n=None):
+            return b"ok"
+
+    class _FakeOpener:
+        def open(self, request, timeout=None):
+            if request.full_url == "http://www.baidu.com":
+                raise OSError("direct control unavailable")
+            return _FakeResponse()
+
+    monkeypatch.setattr(probe_mod.subprocess, "Popen", fake_popen)
+    monkeypatch.setattr(probe_mod, "build_opener", lambda handler=None: _FakeOpener())
+    monkeypatch.setattr(probe_mod, "_api_request", lambda *args, **kwargs: b"{}")
+
+    with pytest.raises(CoreValidationError, match="probe_direct_control_failed"):
+        probe_nodes(
+            [{"name": "node-0"}],
+            mihomo_path="/fake/mihomo",
+            rounds=1,
+            timeout=1.0,
+            probe_interface="WLAN",
+        )
+
+    assert len(configs) == 2
+    assert all(config["rules"] == ["MATCH,DIRECT"] for config in configs)
+
+
 def test_probe_nodes_uses_bounded_parallel_node_tasks(monkeypatch) -> None:
     """并发参数必须让不同节点任务真实重叠，且结果顺序稳定。"""
     active = 0
@@ -895,3 +1040,24 @@ def test_pipeline_maps_runner_failure_to_safe_category(tmp_path: Path) -> None:
     assert health["verification"]["error_category"] == "controller_timeout"
     assert "controller_timeout" in json.dumps(health)
     assert "probe_controller_timeout" not in json.dumps(health)
+
+
+def test_pipeline_aborts_when_direct_control_fails(tmp_path: Path) -> None:
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path,
+        active_probe=True,
+        settings_overrides={"probe_interface": "WLAN"},
+    )
+
+    def failed_runner(_proxies):
+        raise CoreValidationError("probe_direct_control_failed")
+
+    result = run_pipeline(
+        config_path, output_dir, state_dir, probe_runner=failed_runner
+    )
+
+    assert result.success is False
+    assert result.failure_reason == "probe_direct_control_failed"
+    health = json.loads((output_dir / "health.json").read_text(encoding="utf-8"))
+    assert health["verification"]["error_category"] == "probe_direct_control_failed"
+    assert health["failure_reason"] == "probe_direct_control_failed"

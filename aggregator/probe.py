@@ -20,7 +20,15 @@ from .quality import node_key, probe_verdict
 from .validators import CoreValidationError
 
 DEFAULT_TARGET_URL = "https://www.gstatic.com/generate_204"
+DIRECT_CONTROL_URL = "http://www.baidu.com"
 MAX_PROBE_TIMEOUT_SECONDS = 30.0
+DIRECT_DNS_CONFIG = {
+    "enable": True,
+    "ipv6": False,
+    "enhanced-mode": "normal",
+    "nameserver": ["udp://223.5.5.5", "udp://119.29.29.29"],
+    "default-nameserver": ["223.5.5.5", "119.29.29.29"],
+}
 PROBE_ERROR_CATEGORIES = frozenset(
     {
         "timeout",
@@ -35,6 +43,8 @@ PROBE_ERROR_CATEGORIES = frozenset(
         "controller_timeout",
         "controller_auth_error",
         "controller_http_error",
+        "probe_direct_control_failed",
+        "probe_interface_invalid",
         "core_validation_error",
         "probe_error",
     }
@@ -46,6 +56,8 @@ _CORE_ERROR_CATEGORIES = {
     "probe_controller_timeout": "controller_timeout",
     "probe_controller_auth_failed": "controller_auth_error",
     "probe_controller_http_error": "controller_http_error",
+    "probe_direct_control_failed": "probe_direct_control_failed",
+    "probe_interface_invalid": "probe_interface_invalid",
 }
 
 
@@ -123,6 +135,171 @@ def _p95(values: list[float]) -> float | None:
     return round(ordered[math.ceil(0.95 * len(ordered)) - 1], 1)
 
 
+def _probe_config(
+    proxy: Mapping[str, object],
+    *,
+    mixed_port: int,
+    controller_port: int,
+    controller_secret: str,
+    probe_interface: str | None = None,
+    interface_mode: str = "top-level",
+    direct_control: bool = False,
+) -> dict[str, object]:
+    node = dict(proxy)
+    config: dict[str, object] = {
+        "mixed-port": mixed_port,
+        "bind-address": "127.0.0.1",
+        "allow-lan": False,
+        "mode": "rule",
+        "log-level": "silent",
+        "external-controller": f"127.0.0.1:{controller_port}",
+        "secret": controller_secret,
+    }
+    if probe_interface:
+        config["dns"] = dict(DIRECT_DNS_CONFIG)
+        if interface_mode == "top-level":
+            config["interface-name"] = probe_interface
+        elif interface_mode == "proxy":
+            node["interface-name"] = probe_interface
+        else:
+            raise CoreValidationError("probe_interface_invalid")
+
+    if direct_control:
+        config["proxies"] = [node] if interface_mode == "proxy" else []
+        config["proxy-groups"] = []
+        config["rules"] = ["MATCH,DIRECT"]
+    else:
+        name = str(node["name"])
+        config["proxies"] = [node]
+        config["proxy-groups"] = [
+            {"name": "PROBE", "type": "select", "proxies": [name]}
+        ]
+        config["rules"] = ["MATCH,PROBE"]
+    return config
+
+
+def _wait_for_controller(
+    process: subprocess.Popen[bytes],
+    *,
+    controller: str,
+    headers: Mapping[str, str],
+    timeout: float,
+) -> None:
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        if process.poll() is not None:
+            raise CoreValidationError("probe_process_exited")
+        try:
+            _api_request(
+                controller,
+                "/version",
+                timeout=min(1.0, timeout),
+                headers=headers,
+            )
+            return
+        except HTTPError as exc:
+            if exc.code in {401, 403}:
+                raise CoreValidationError("probe_controller_auth_failed") from exc
+            raise CoreValidationError("probe_controller_http_error") from exc
+        except (OSError, ValueError):
+            time.sleep(0.1)
+    raise CoreValidationError("probe_controller_timeout")
+
+
+def _run_direct_control_attempt(
+    *,
+    mihomo_path: str,
+    timeout: float,
+    probe_interface: str,
+    interface_mode: str,
+    proxy: Mapping[str, object],
+) -> bool:
+    with tempfile.TemporaryDirectory(
+        prefix="aggregator-mihomo-direct-control-"
+    ) as temp:
+        root = Path(temp)
+        mixed_port = _free_port()
+        controller_port = _free_port()
+        controller_secret = secrets.token_urlsafe(32)
+        config = _probe_config(
+            proxy,
+            mixed_port=mixed_port,
+            controller_port=controller_port,
+            controller_secret=controller_secret,
+            probe_interface=probe_interface,
+            interface_mode=interface_mode,
+            direct_control=True,
+        )
+        config_path = root / "config.yaml"
+        config_path.write_text(
+            yaml.safe_dump(config, sort_keys=False), encoding="utf-8"
+        )
+        creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+        try:
+            process = subprocess.Popen(
+                [mihomo_path, "-f", str(config_path), "-d", str(root)],
+                cwd=root,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                creationflags=creationflags,
+            )
+        except (OSError, TypeError, ValueError):
+            return False
+
+        controller = f"http://127.0.0.1:{controller_port}"
+        controller_headers = {"Authorization": f"Bearer {controller_secret}"}
+        try:
+            _wait_for_controller(
+                process,
+                controller=controller,
+                headers=controller_headers,
+                timeout=timeout,
+            )
+            proxy_opener = build_opener(
+                ProxyHandler(
+                    {
+                        "http": f"http://127.0.0.1:{mixed_port}",
+                        "https": f"http://127.0.0.1:{mixed_port}",
+                    }
+                )
+            )
+            request = Request(
+                DIRECT_CONTROL_URL,
+                headers={"User-Agent": "clash-mihomo-aggregator-direct-control/0.1"},
+            )
+            with proxy_opener.open(request, timeout=timeout) as response:
+                status = getattr(response, "status", None)
+                if status is None and hasattr(response, "getcode"):
+                    status = response.getcode()
+                if status is not None and not 200 <= status < 400:
+                    return False
+                response.read(64)
+            return True
+        except Exception:  # noqa: BLE001 - control failures are fail-closed below
+            return False
+        finally:
+            _stop_process(process)
+
+
+def _run_direct_control(
+    *,
+    mihomo_path: str,
+    timeout: float,
+    probe_interface: str,
+    proxy: Mapping[str, object],
+) -> str:
+    for interface_mode in ("top-level", "proxy"):
+        if _run_direct_control_attempt(
+            mihomo_path=mihomo_path,
+            timeout=timeout,
+            probe_interface=probe_interface,
+            interface_mode=interface_mode,
+            proxy=proxy,
+        ):
+            return interface_mode
+    raise CoreValidationError("probe_direct_control_failed")
+
+
 def _probe_one_node(
     proxy: Mapping[str, object],
     *,
@@ -130,6 +307,8 @@ def _probe_one_node(
     rounds: int,
     timeout: float,
     target_url: str,
+    probe_interface: str | None = None,
+    interface_mode: str = "top-level",
 ) -> dict[str, object]:
     """Probe one node with a private process, controller, and loopback port."""
     with tempfile.TemporaryDirectory(prefix="aggregator-mihomo-probe-") as temp:
@@ -139,18 +318,14 @@ def _probe_one_node(
         node = dict(proxy)
         name = str(node["name"])
         controller_secret = secrets.token_urlsafe(32)
-        config = {
-            "mixed-port": mixed_port,
-            "bind-address": "127.0.0.1",
-            "allow-lan": False,
-            "mode": "rule",
-            "log-level": "silent",
-            "external-controller": f"127.0.0.1:{controller_port}",
-            "secret": controller_secret,
-            "proxies": [node],
-            "proxy-groups": [{"name": "PROBE", "type": "select", "proxies": [name]}],
-            "rules": ["MATCH,PROBE"],
-        }
+        config = _probe_config(
+            node,
+            mixed_port=mixed_port,
+            controller_port=controller_port,
+            controller_secret=controller_secret,
+            probe_interface=probe_interface,
+            interface_mode=interface_mode,
+        )
         config_path = root / "config.yaml"
         config_path.write_text(
             yaml.safe_dump(config, sort_keys=False), encoding="utf-8"
@@ -170,28 +345,12 @@ def _probe_one_node(
         controller = f"http://127.0.0.1:{controller_port}"
         controller_headers = {"Authorization": f"Bearer {controller_secret}"}
         try:
-            deadline = time.monotonic() + timeout
-            while time.monotonic() < deadline:
-                if process.poll() is not None:
-                    raise CoreValidationError("probe_process_exited")
-                try:
-                    _api_request(
-                        controller,
-                        "/version",
-                        timeout=min(1.0, timeout),
-                        headers=controller_headers,
-                    )
-                    break
-                except HTTPError as exc:
-                    if exc.code in {401, 403}:
-                        raise CoreValidationError(
-                            "probe_controller_auth_failed"
-                        ) from exc
-                    raise CoreValidationError("probe_controller_http_error") from exc
-                except (OSError, ValueError):
-                    time.sleep(0.1)
-            else:
-                raise CoreValidationError("probe_controller_timeout")
+            _wait_for_controller(
+                process,
+                controller=controller,
+                headers=controller_headers,
+                timeout=timeout,
+            )
 
             proxy_opener = build_opener(
                 ProxyHandler(
@@ -249,6 +408,8 @@ def _probe_task(
     rounds: int,
     timeout: float,
     target_url: str,
+    probe_interface: str | None = None,
+    interface_mode: str = "top-level",
 ) -> dict[str, object]:
     """Keep one worker failure isolated and return only redacted probe data."""
     try:
@@ -258,6 +419,8 @@ def _probe_task(
             rounds=rounds,
             timeout=timeout,
             target_url=target_url,
+            probe_interface=probe_interface,
+            interface_mode=interface_mode,
         )
         if not isinstance(result, dict):
             raise TypeError("probe_result_not_mapping")
@@ -283,6 +446,7 @@ def probe_nodes(
     timeout: float = 10.0,
     concurrency: int = 1,
     target_url: str = DEFAULT_TARGET_URL,
+    probe_interface: str | None = None,
 ) -> dict[str, object]:
     """Probe a small bounded set through an isolated temporary Mihomo process."""
     if not mihomo_path:
@@ -302,6 +466,9 @@ def probe_nodes(
         if math.isfinite(requested_timeout)
         else 10.0
     )
+    if probe_interface is not None and not isinstance(probe_interface, str):
+        raise CoreValidationError("probe_interface_invalid")
+    normalized_interface = probe_interface.strip() if probe_interface else None
     if not bounded_nodes:
         return {
             "status": "not_tested",
@@ -317,7 +484,29 @@ def probe_nodes(
             "timeout_seconds": bounded_timeout,
             "execution_mode": "serial",
             "target": DEFAULT_TARGET_URL,
+            "direct_control": {
+                "status": "not_tested",
+                "reason": "no_nodes",
+            },
             "results": [],
+        }
+
+    interface_mode: str | None = None
+    direct_control: dict[str, object] = {
+        "status": "not_tested",
+        "reason": "probe_interface_disabled",
+    }
+    if normalized_interface:
+        interface_mode = _run_direct_control(
+            mihomo_path=mihomo_path,
+            timeout=bounded_timeout,
+            probe_interface=normalized_interface,
+            proxy=bounded_nodes[0],
+        )
+        direct_control = {
+            "status": "passed",
+            "target": DIRECT_CONTROL_URL,
+            "interface_mode": interface_mode,
         }
 
     with ThreadPoolExecutor(max_workers=bounded_concurrency) as executor:
@@ -329,6 +518,8 @@ def probe_nodes(
                 rounds=bounded_rounds,
                 timeout=bounded_timeout,
                 target_url=DEFAULT_TARGET_URL,
+                probe_interface=normalized_interface,
+                interface_mode=interface_mode or "top-level",
             )
             for proxy in bounded_nodes
         ]
@@ -371,6 +562,9 @@ def probe_nodes(
             "parallel" if bounded_concurrency > 1 and len(results) > 1 else "serial"
         ),
         "target": DEFAULT_TARGET_URL,
+        "probe_interface": normalized_interface,
+        "interface_mode": interface_mode,
+        "direct_control": direct_control,
         "error_categories": dict(sorted(error_counts.items())),
         "results": results,
     }
