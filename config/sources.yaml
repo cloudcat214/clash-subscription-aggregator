@@ -18,8 +18,10 @@ settings:
     - raw.githubusercontent.com
   trust_hosts:
     - raw.githubusercontent.com
-  # Controlled resolver maps the allowlisted host to this non-routable test address.
+  # Controlled DNS addresses may drift: register each observed address explicitly
+  # and re-validate it. This is for the controlled environment, not a general proxy.
   controlled_proxy_addresses:
+    - 198.18.0.21
     - 198.18.1.48
   filters:
     allow_protocols: []
