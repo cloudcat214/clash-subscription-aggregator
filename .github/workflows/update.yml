@@ -26,11 +26,23 @@ jobs:
   tests:
     name: Offline tests and workflow checks
     runs-on: ubuntu-latest
+    outputs:
+      pages_changed: ${{ steps.detect_pages_changes.outputs.pages_changed }}
     permissions:
       contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect Pages artifact changes
+        id: detect_pages_changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_BEFORE: ${{ github.event.before }}
+        run: >-
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then echo "pages_changed=true" >> "$GITHUB_OUTPUT"; elif [ -n "$EVENT_BEFORE" ] && git diff --name-only "$EVENT_BEFORE" "$GITHUB_SHA" | grep -q '^docs/dist/'; then echo "pages_changed=true" >> "$GITHUB_OUTPUT"; else echo "pages_changed=false" >> "$GITHUB_OUTPUT"; fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -56,14 +68,8 @@ jobs:
     if: >-
       ${{
         needs.tests.result == 'success' &&
+        needs.tests.outputs.pages_changed == 'true' &&
         github.ref == 'refs/heads/main' &&
-        (
-          github.event_name == 'workflow_dispatch' ||
-          (
-            github.event_name == 'push' &&
-            contains(toJSON(github.event.commits), 'docs/dist/')
-          )
-        ) &&
         vars.PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true' &&
         github.event.repository.fork == false
       }}

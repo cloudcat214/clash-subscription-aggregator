@@ -425,8 +425,12 @@ def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:
     assert "actions/upload-pages-artifact@v3" in serialized
     assert "actions/deploy-pages@v4" in serialized
     assert '"path": "docs"' in serialized
-    assert "toJSON(github.event.commits)" in str(workflow["jobs"]["deploy"]["if"])
-    assert "docs/dist/" in str(workflow["jobs"]["deploy"]["if"])
+    assert workflow["jobs"]["tests"]["outputs"]["pages_changed"] == (
+        "${{ steps.detect_pages_changes.outputs.pages_changed }}"
+    )
+    assert "git diff --name-only" in serialized
+    assert "docs/dist/" in serialized
+    assert "needs.tests.outputs.pages_changed" in str(workflow["jobs"]["deploy"]["if"])
     assert "schedule" not in serialized
     assert "mihomo" not in serialized.lower()
     assert "secrets." not in serialized
