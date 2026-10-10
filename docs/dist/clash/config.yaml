@@ -3,34 +3,6 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
-- name: '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B'
-  server: co-a.speedtec.ru
-  port: 443
-  type: vless
-  uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: co-pl.speedtec.ru
-  reality-opts:
-    public-key: EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI
-    short-id: 226509f017e4c36d
-  client-fingerprint: random
-  network: tcp
-- name: '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 70AED3'
-  server: 77.110.105.122
-  port: 443
-  type: vless
-  uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: co-pl.speedtec.ru
-  reality-opts:
-    public-key: EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI
-    short-id: 226509f017e4c36d
-  client-fingerprint: random
-  network: tcp
 - name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 633CF6'
   server: tgfree.rush-server.com
   port: 443
@@ -45,60 +17,13 @@ proxies:
     short-id: 64c1fe36c7846400
   client-fingerprint: chrome
   network: tcp
-- name: '[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B'
-  server: edge.bookmai.com
-  port: 443
-  type: vless
-  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+- name: '[free-v2ray-verified-clash] SG 🇸🇬 | @Raydikalx | 8E8CFD'
+  server: 13.212.173.211
+  port: 8443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 7e68e32f-8015-4f37-9082-70e8b0b58043
   udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: mother-earth.fyi
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: ''
-  client-fingerprint: firefox
-  network: tcp
-- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0E1D88'
-  server: 31.59.210.37
-  port: 443
-  type: vless
-  uuid: 5413edfb-08d6-4fba-b51c-809c04feb127
-  udp: true
-  tls: true
-  servername: www.yandex.ru
-  reality-opts:
-    public-key: 5k0dtOSzmshCubdYeKppsUdHU4i2ghaB9uSJSzGjHW4
-    short-id: 6dbf4931096f9890
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: astracat
-- name: '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB'
-  server: switchyard.proxy.rlwy.net
-  port: 47289
-  type: vless
-  uuid: 64b683e6-50e9-4168-884a-1707d1d8e176
-  udp: true
-  tls: false
-  network: ws
-  ws-opts:
-    path: /
-- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 1E54F8'
-  server: 31.59.210.25
-  port: 2087
-  type: vless
-  uuid: 5413edfb-08d6-4fba-b51c-809c04feb127
-  udp: true
-  tls: true
-  servername: www.yandex.ru
-  reality-opts:
-    public-key: KDBhxT2YMtMjDEC9VdoDEISdCwxd6KFrSE8uyUaHcTY
-    short-id: ed435c242097fd05
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-service-name: astracat
 - name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | DA6B77'
   server: 31.59.210.26
   port: 2088
@@ -114,13 +39,35 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: astracat
-- name: '[free-v2ray-verified-clash] SG 🇸🇬 | @Raydikalx | 8E8CFD'
-  server: 13.212.173.211
-  port: 8443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 7e68e32f-8015-4f37-9082-70e8b0b58043
+- name: '[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B'
+  server: edge.bookmai.com
+  port: 443
+  type: vless
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
   udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: mother-earth.fyi
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  client-fingerprint: firefox
+  network: tcp
+- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 40EC5F'
+  server: 194.226.121.119
+  port: 2087
+  type: vless
+  uuid: ec6f8131-7a5d-4117-9627-6fb2b39ae0da
+  udp: true
+  tls: true
+  servername: www.apple.com
+  reality-opts:
+    public-key: sXOLkj_L8EpGL0yZA9laLDaPfpwVEcBVHLSvunPVQwA
+    short-id: a644f94155c87551
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc
 - name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0B85CB'
   server: tg1.cdnphotos.org
   port: 443
@@ -135,6 +82,35 @@ proxies:
     path: /api/v1/
     host: tg1.cdnphotos.org
     mode: auto
+- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0E1D88'
+  server: 31.59.210.37
+  port: 443
+  type: vless
+  uuid: 5413edfb-08d6-4fba-b51c-809c04feb127
+  udp: true
+  tls: true
+  servername: www.yandex.ru
+  reality-opts:
+    public-key: 5k0dtOSzmshCubdYeKppsUdHU4i2ghaB9uSJSzGjHW4
+    short-id: 6dbf4931096f9890
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: astracat
+- name: '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B'
+  server: co-a.speedtec.ru
+  port: 443
+  type: vless
+  uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: co-pl.speedtec.ru
+  reality-opts:
+    public-key: EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI
+    short-id: 226509f017e4c36d
+  client-fingerprint: random
+  network: tcp
 - name: '[free-v2ray-verified-clash] KR 🇰🇷 | @Raydikalx | 12C48D'
   server: 43.155.223.71
   port: 8388
@@ -142,9 +118,9 @@ proxies:
   cipher: aes-256-gcm
   password: UsIv5aKJabiqnYtY8IfWd6FfgjzrJlfZ
   udp: true
-- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 664B40'
-  server: gw1.edgemedia.lol
-  port: 13443
+- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | D3D121'
+  server: 13.143.137.206
+  port: 8443
   type: vless
   uuid: 9ebf4fda-7395-4800-b42f-b2dda649880a
   udp: true
@@ -154,37 +130,88 @@ proxies:
   reality-opts:
     public-key: 1MLoHw7RVkGefh7XUyuGg4ndxwv4vDU9en-f9JxpXRQ
     short-id: d2061bb1
-  client-fingerprint: firefox
+  client-fingerprint: chrome
   network: tcp
-- name: '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | C4EE76'
-  server: 185.114.48.103
+- name: '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 70AED3'
+  server: 77.110.105.122
   port: 443
   type: vless
-  uuid: 616c7b3b-41f4-4038-88c6-d6fedd0ae4a7
+  uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: nd-3.ardesnode.ru
+  servername: co-pl.speedtec.ru
   reality-opts:
-    public-key: PKlt_5ASsz137EvA9SKSadtjEv1k_U7VRtoelKCgADs
-    short-id: 9ea74b83f4993ca9
-  client-fingerprint: chrome
+    public-key: EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI
+    short-id: 226509f017e4c36d
+  client-fingerprint: random
   network: tcp
-- name: '[free-v2ray-verified-clash] LV 🇱🇻 | @Raydikalx | C5A4C5'
-  server: 138.124.63.224
-  port: 8444
+- name: '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB'
+  server: switchyard.proxy.rlwy.net
+  port: 47289
   type: vless
-  uuid: f55e9aba-7b14-4f6f-b59a-d5b3d45c9309
+  uuid: 64b683e6-50e9-4168-884a-1707d1d8e176
+  udp: true
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+- name: '[free-v2ray-verified-clash] ME 🇲🇪 | @Raydikalx | C5877E'
+  server: 31.57.190.15
+  port: 443
+  type: vless
+  uuid: 698b212d-ca12-4794-8256-252a6e1b4533
   udp: true
   tls: true
-  servername: github.com
+  servername: q4x8.vpnpolar.online
+  network: ws
+  ws-opts:
+    path: /beeline
+    headers:
+      Host: q4x8.vpnpolar.online
+- name: '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 35BC8B'
+  server: 157.228.160.166
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: addons.mozilla.org
   reality-opts:
-    public-key: FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0
-    short-id: 457fab2ac885dbe0
-  client-fingerprint: chrome
+    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
+    short-id: 3cef317b
+  client-fingerprint: randomized
+  network: tcp
+- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 1E54F8'
+  server: 31.59.210.25
+  port: 2087
+  type: vless
+  uuid: 5413edfb-08d6-4fba-b51c-809c04feb127
+  udp: true
+  tls: true
+  servername: www.yandex.ru
+  reality-opts:
+    public-key: KDBhxT2YMtMjDEC9VdoDEISdCwxd6KFrSE8uyUaHcTY
+    short-id: ed435c242097fd05
+  client-fingerprint: firefox
   network: grpc
   grpc-opts:
-    grpc-service-name: GunService
+    grpc-service-name: astracat
+- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 18ED5C'
+  server: 45.144.179.112
+  port: 443
+  type: vless
+  uuid: 86096188-0ece-41af-922d-792c5f96c3ad
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: ru.caloribro.uno
+  reality-opts:
+    public-key: 8cN2ldJOVJ_ulUORM3mblWMg1etGrTruJoAtYyhE5h8
+    short-id: 73cd09c320ca209d
+  client-fingerprint: firefox
+  network: tcp
 - name: '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 85896C'
   server: nd-3.ardesnode.ru
   port: 443
@@ -199,46 +226,32 @@ proxies:
     short-id: 9ea74b83f4993ca9
   client-fingerprint: random
   network: tcp
-- name: '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 7FC8A7'
-  server: 13.143.137.206
-  port: 13443
+- name: '[free-v2ray-verified-clash] HK 🇭🇰 | @Raydikalx | 41CB3F'
+  server: 43.247.132.85
+  port: 41563
   type: vless
-  uuid: 9ebf4fda-7395-4800-b42f-b2dda649880a
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: ya.ru
+  servername: iosapps.itunes.apple.com
   reality-opts:
-    public-key: 1MLoHw7RVkGefh7XUyuGg4ndxwv4vDU9en-f9JxpXRQ
-    short-id: d2061bb1
+    public-key: HrcXRHtsitc_AVlN-_8fZuRgaP-Mqa_9JJotI9OnkVc
+    short-id: 25c79e5856c7
   client-fingerprint: firefox
   network: tcp
-- name: '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | FBDAAE'
-  server: 157.228.128.59
+- name: '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 45F75E'
+  server: netherlands01.azotvpn.xyz
   port: 443
   type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  uuid: 5a96c1fc-f167-44b9-9020-8f6867537d14
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: addons.mozilla.org
+  servername: netherlands01.azotvpn.xyz
   reality-opts:
-    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
-    short-id: 06e00e7c
-  client-fingerprint: chrome
-  network: tcp
-- name: '[free-v2ray-verified-clash] LV 🇱🇻 | @Raydikalx | AF3EAF'
-  server: 185.220.223.109
-  port: 8443
-  type: vless
-  uuid: f7f48934-f14c-4819-b225-36e89bda5491
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: lv.shadowshroom.org
-  reality-opts:
-    public-key: RdMrEyniUBYe4bPHFYIwdczUWW4vbZe_DboFu8gjN0w
-    short-id: ''
+    public-key: mVHfqglm6n5NqynpakJT_CfD3rBQfx_UBabYCtJaJi0
+    short-id: da15595a494f902c
   client-fingerprint: random
   network: tcp
 proxy-groups:
@@ -246,45 +259,47 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
-  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B'
-  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 70AED3'
   - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 633CF6'
-  - '[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0E1D88'
-  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 1E54F8'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | DA6B77'
   - '[free-v2ray-verified-clash] SG 🇸🇬 | @Raydikalx | 8E8CFD'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | DA6B77'
+  - '[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 40EC5F'
   - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0B85CB'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0E1D88'
+  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B'
   - '[free-v2ray-verified-clash] KR 🇰🇷 | @Raydikalx | 12C48D'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 664B40'
-  - '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | C4EE76'
-  - '[free-v2ray-verified-clash] LV 🇱🇻 | @Raydikalx | C5A4C5'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | D3D121'
+  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 70AED3'
+  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB'
+  - '[free-v2ray-verified-clash] ME 🇲🇪 | @Raydikalx | C5877E'
+  - '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 35BC8B'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 1E54F8'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 18ED5C'
   - '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 85896C'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 7FC8A7'
-  - '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | FBDAAE'
-  - '[free-v2ray-verified-clash] LV 🇱🇻 | @Raydikalx | AF3EAF'
+  - '[free-v2ray-verified-clash] HK 🇭🇰 | @Raydikalx | 41CB3F'
+  - '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 45F75E'
 - name: AUTO
   type: url-test
   proxies: &id001
-  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B'
-  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 70AED3'
   - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 633CF6'
-  - '[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0E1D88'
-  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 1E54F8'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | DA6B77'
   - '[free-v2ray-verified-clash] SG 🇸🇬 | @Raydikalx | 8E8CFD'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | DA6B77'
+  - '[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 40EC5F'
   - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0B85CB'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0E1D88'
+  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B'
   - '[free-v2ray-verified-clash] KR 🇰🇷 | @Raydikalx | 12C48D'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 664B40'
-  - '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | C4EE76'
-  - '[free-v2ray-verified-clash] LV 🇱🇻 | @Raydikalx | C5A4C5'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | D3D121'
+  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 70AED3'
+  - '[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB'
+  - '[free-v2ray-verified-clash] ME 🇲🇪 | @Raydikalx | C5877E'
+  - '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 35BC8B'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 1E54F8'
+  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 18ED5C'
   - '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 85896C'
-  - '[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 7FC8A7'
-  - '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | FBDAAE'
-  - '[free-v2ray-verified-clash] LV 🇱🇻 | @Raydikalx | AF3EAF'
+  - '[free-v2ray-verified-clash] HK 🇭🇰 | @Raydikalx | 41CB3F'
+  - '[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 45F75E'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100
