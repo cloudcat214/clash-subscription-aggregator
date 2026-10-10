@@ -1,20 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T18:38:04Z",
+  "generated_at": "2026-10-10T19:00:06Z",
   "status": "ok",
   "active_probe": true,
-  "published": 22,
+  "published": 15,
   "sources": [
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 980,
       "accepted": 935,
       "drops": {
         "invalid_uuid": 3,
         "duplicate": 42
       },
+      "cached": true,
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
@@ -72,12 +73,12 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 967
+      "http_error": 974
     },
     "stage1_tested": 989,
-    "stage1_passed": 27,
-    "stage2_tested": 27,
-    "stage2_stable": 24,
+    "stage1_passed": 18,
+    "stage2_tested": 18,
+    "stage2_stable": 15,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -89,17 +90,17 @@
   "node_quality": {
     "candidates": 989,
     "tested": 989,
-    "verified": 22,
-    "fast": 4,
-    "stable": 22,
-    "failed": 967,
+    "verified": 15,
+    "fast": 0,
+    "stable": 15,
+    "failed": 974,
     "not_tested": 0,
     "not_tested_budget": 0,
-    "failed_probe": 964,
-    "below_quality_threshold": 3,
-    "dropped": 967,
-    "published": 22,
-    "success_rate": 0.0239298955173576
+    "failed_probe": 973,
+    "below_quality_threshold": 1,
+    "dropped": 974,
+    "published": 15,
+    "success_rate": 0.015503875968992248
   },
   "core_validation": {
     "status": "not_tested",
