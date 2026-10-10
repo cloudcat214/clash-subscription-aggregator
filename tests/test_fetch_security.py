@@ -22,7 +22,7 @@ def test_controlled_proxy_allowlist_is_exact_and_private_addresses_stay_blocked(
         )
     )
     controlled_addresses = set(config["settings"]["controlled_proxy_addresses"])
-    assert controlled_addresses == {"198.18.0.21", "198.18.1.48"}
+    assert controlled_addresses == {"198.18.0.21", "198.18.0.37", "198.18.1.48"}
 
     def validate(address: str) -> tuple[str, str]:
         monkeypatch.setattr(
@@ -78,6 +78,25 @@ def test_controlled_dns_exception_is_limited_to_trusted_host(monkeypatch) -> Non
             trust_hosts={"raw.githubusercontent.com"},
             controlled_proxy_addresses={"198.18.1.48"},
         )
+
+
+def test_controlled_dns_exception_accepts_configured_exact_drift_address(
+    monkeypatch,
+) -> None:
+    monkeypatch.setattr(
+        fetch.socket,
+        "getaddrinfo",
+        lambda *args, **kwargs: [
+            (socket.AF_INET, socket.SOCK_STREAM, 6, "", ("198.18.0.37", 443))
+        ],
+    )
+
+    assert fetch._validate_fetch_url(
+        "https://raw.githubusercontent.com/owner/repo/file",
+        allowed_hosts={"raw.githubusercontent.com"},
+        trust_hosts={"raw.githubusercontent.com"},
+        controlled_proxy_addresses={"198.18.0.37"},
+    ) == ("raw.githubusercontent.com", "198.18.0.37")
 
 
 @pytest.mark.parametrize(

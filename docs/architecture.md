@@ -3,7 +3,7 @@
 ## 数据流
 
 1. 仓库将公开来源清单 `config/sources.yaml` 入库，其中包含公开来源 URL、来源元数据和 `private` 来源的环境变量占位；不含订阅令牌、节点凭据或私有正文。配置将 `public` 与 `private` 来源分开；Pull Request CI 只运行合成数据的离线测试，受门禁的定时/手动发布才运行来源聚合。
-2. `aggregator.fetch` 只允许显式信任的 HTTPS host。每一跳 redirect 都重新解析、校验 host/IP 并用 `curl --resolve` 固定地址；受控例外只允许 `raw.githubusercontent.com` 与精确地址 `198.18.0.21`、`198.18.1.48`，不能放行整个 `198.18.0.0/15`。IPv4-mapped IPv6（`::ffff:a.b.c.d`）先解包为 IPv4；常见 NAT64 `64:ff9b::/96` 与 `64:ff9b:1::/48` 显式拒绝。`100.64.0.0/10`、文档/基准测试地址、私网、回环、metadata 和链路本地地址均拒绝。
+2. `aggregator.fetch` 只允许显式信任的 HTTPS host。每一跳 redirect 都重新解析、校验 host/IP 并用 `curl --resolve` 固定地址；受控例外只允许 `raw.githubusercontent.com` 与 `settings.controlled_proxy_addresses` 中的精确地址，当前配置为 `198.18.0.21`、`198.18.1.48` 和本机本次解析到的 `198.18.0.37`，不能放行整个 `198.18.0.0/15`。IPv4-mapped IPv6（`::ffff:a.b.c.d`）先解包为 IPv4；常见 NAT64 `64:ff9b::/96` 与 `64:ff9b:1::/48` 显式拒绝。`100.64.0.0/10`、文档/基准测试地址、私网、回环、metadata 和链路本地地址均拒绝。
 3. `aggregator.parsing` 解析 Clash YAML/JSON、Base64 和 URI，保留协议的传输、TLS、Reality、插件等结构；不做节点拨测。
 4. `aggregator.probe` 只在显式启用时为最多 500 个节点启动独立临时 Mihomo worker，最多 8 个并发；每个 worker 使用整数 loopback `mixed-port`、独立 `bind-address`、loopback controller、独立 256-bit secret 和 `Authorization: Bearer`。固定目标为 `https://www.gstatic.com/generate_204`，不做端口扫描或任意目标探测。
 5. `aggregator.pipeline` 做规范化、来源标记、去重、过滤、数量上限与 shrink guard，然后在主动探测时按逐节点结果计算 `verified`、`stable`、`fast` 并筛选最终发布集合，再构建 manifest/health。

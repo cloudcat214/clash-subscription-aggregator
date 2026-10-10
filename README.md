@@ -69,7 +69,7 @@ sources:
 - `sources.public` 只有 `enabled=true`、`publish=true`、`requires_review=false` 才能进入公开聚合。
 - `sources.private` 默认不发布。需要本机混合验证时显式使用 `--include-private --private-output dist-private`；私有产物只落在本机目录，已加入 `.gitignore`。CI 不运行聚合器。
 - 公开节点产物可能包含来源本身提供的连接凭据，这是公开订阅内容的一部分；程序、日志和报告不打印节点 URI、UUID、密码或完整敏感载荷。
-- 来源抓取只允许使用者配置的 HTTPS host。受控解析例外仅允许 `raw.githubusercontent.com` 配对 `198.18.0.21` 或 `198.18.1.48`，并通过 `curl --resolve` 固定已校验地址；不能借此放行整个 `198.18.0.0/15`。IPv4-mapped IPv6（`::ffff:a.b.c.d`）先解包为 IPv4 再走同一拒绝逻辑；常见 NAT64 `64:ff9b::/96` 与 `64:ff9b:1::/48` 显式拒绝。`100.64.0.0/10`、文档/基准测试地址、私网、回环、metadata 和链路本地地址拒绝。每一跳 redirect 都重新校验。
+- 来源抓取只允许使用者配置的 HTTPS host。受控解析例外仅允许 `raw.githubusercontent.com` 配对 `settings.controlled_proxy_addresses` 中的精确地址；当前配置为 `198.18.0.21`、`198.18.1.48` 和本机本次解析到的 `198.18.0.37`，并通过 `curl --resolve` 固定已校验地址，不能借此放行整个 `198.18.0.0/15`。IPv4-mapped IPv6（`::ffff:a.b.c.d`）先解包为 IPv4 再走同一拒绝逻辑；常见 NAT64 `64:ff9b::/96` 与 `64:ff9b:1::/48` 显式拒绝。`100.64.0.0/10`、文档/基准测试地址、私网、回环、metadata 和链路本地地址拒绝。每一跳 redirect 都重新校验。
 - 当前实现接受“解析校验后用 `curl --resolve` 固定地址”的跨平台折中：它避免再次按 hostname 解析，但不宣称消除操作系统解析到连接之间的全部 TOCTOU 窗口。该项保留为低风险残余，不以文档或测试伪装成已解决。
 
 ## 本机输出（不提交仓库）

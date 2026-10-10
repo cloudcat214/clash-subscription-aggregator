@@ -16,7 +16,6 @@ class FetchError(RuntimeError):
 
 _CONTROLLED_PROXY_DNS = ipaddress.ip_network("198.18.0.0/15")
 _CONTROLLED_PROXY_HOST = "raw.githubusercontent.com"
-_CONTROLLED_PROXY_ADDRESSES = frozenset({"198.18.0.21", "198.18.1.48"})
 _SPECIAL_USE_NETWORKS = (
     ipaddress.ip_network("0.0.0.0/8"),
     ipaddress.ip_network("10.0.0.0/8"),
@@ -126,8 +125,7 @@ def _validate_fetch_url(
             and value in _CONTROLLED_PROXY_DNS
         ):
             if (
-                normalized_address not in _CONTROLLED_PROXY_ADDRESSES
-                or normalized_address not in controlled_proxy_addresses
+                normalized_address not in controlled_proxy_addresses
                 or hostname != _CONTROLLED_PROXY_HOST
                 or hostname not in trust_hosts
             ):

@@ -15,6 +15,8 @@ def _run(command: list[str], timeout: float) -> dict[str, object]:
             command,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             timeout=timeout,
             check=False,
         )
@@ -31,6 +33,8 @@ def _version(command: list[str], timeout: float) -> str:
             command,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             timeout=timeout,
             check=False,
         )
