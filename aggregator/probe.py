@@ -45,6 +45,7 @@ PROBE_ERROR_CATEGORIES = frozenset(
         "controller_http_error",
         "probe_direct_control_failed",
         "probe_interface_invalid",
+        "probe_interface_required",
         "core_validation_error",
         "probe_error",
     }
@@ -58,6 +59,7 @@ _CORE_ERROR_CATEGORIES = {
     "probe_controller_http_error": "controller_http_error",
     "probe_direct_control_failed": "probe_direct_control_failed",
     "probe_interface_invalid": "probe_interface_invalid",
+    "probe_interface_required": "probe_interface_required",
 }
 
 

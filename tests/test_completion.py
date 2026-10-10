@@ -2,9 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import os
-import subprocess
-import sys
 from pathlib import Path
 
 import yaml
@@ -393,197 +390,6 @@ def test_two_public_sources_can_publish_when_one_source_is_empty(
     assert health_sources["empty-trojan"]["drops"] == {"missing_password": 1}
 
 
-def test_release_workflow_gate_keeps_aggregate_thresholds(tmp_path: Path) -> None:
-    workflow = yaml.safe_load(
-        (Path(__file__).parents[1] / ".github" / "workflows" / "update.yml").read_text(
-            encoding="utf-8"
-        )
-    )
-    gate_step = next(
-        step
-        for step in workflow["jobs"]["publish"]["steps"]
-        if step.get("name") == "Check redacted release inputs"
-    )
-    gate_run = str(gate_step["run"])
-    script_start = gate_run.index("python - <<'PY'\n") + len("python - <<'PY'\n")
-    gate_script = gate_run[script_start : gate_run.index("\nPY", script_start)]
-
-    def run_gate(
-        case: str,
-        accepted: list[int],
-        published: int,
-        quality_overrides: dict[str, int] | None = None,
-    ) -> subprocess.CompletedProcess[str]:
-        root = tmp_path / case
-        (root / "config").mkdir(parents=True)
-        (root / "dist" / "clash").mkdir(parents=True)
-        (root / "dist" / "clash" / "providers").mkdir()
-        (root / "dist" / "sing-box").mkdir()
-        sources = [
-            {
-                "id": f"source-{index}",
-                "kind": "public",
-                "url": f"https://example.invalid/source-{index}",
-                "enabled": True,
-                "publish": True,
-                "requires_review": False,
-            }
-            for index in range(3)
-        ]
-        (root / "config" / "sources.yaml").write_text(
-            yaml.safe_dump({"sources": {"public": sources, "private": []}}),
-            encoding="utf-8",
-        )
-        source_results = []
-        for index, count in enumerate(accepted):
-            source = {
-                "id": f"source-{index}",
-                "kind": "public",
-                "status": "ok",
-                "parsed": count,
-                "accepted": count,
-            }
-            if count == 0:
-                source["drops"] = {"missing_password": 1}
-            source_results.append(source)
-        node_quality = {
-            "candidates": published,
-            "tested": published,
-            "published": published,
-            "verified": 0,
-            "fast": 0,
-            "stable": published,
-            "dropped": 0,
-            "not_tested": 0,
-            "not_tested_budget": 0,
-            "failed_probe": 0,
-            "below_quality_threshold": 0,
-            "failed": 0,
-        }
-        node_quality.update(quality_overrides or {})
-        manifest = {
-            "status": "success",
-            "counts": {"published": published},
-            "sources": source_results,
-            "core_validation": {"clients": {"mihomo": {"status": "passed"}}},
-            "verification": {"status": "performed", "min_verdict": "stable"},
-            "node_quality": node_quality,
-        }
-        health = {
-            "status": "ok",
-            "sources": source_results,
-            "verification": {"status": "performed", "min_verdict": "stable"},
-            "node_quality": dict(node_quality),
-        }
-        proxies = [
-            {
-                "name": f"proxy-{index}",
-                "type": "http",
-                "server": f"proxy-{index}.example.invalid",
-                "port": 8080,
-            }
-            for index in range(published)
-        ]
-        (root / "dist" / "manifest.json").write_text(
-            json.dumps(manifest), encoding="utf-8"
-        )
-        (root / "dist" / "health.json").write_text(json.dumps(health), encoding="utf-8")
-        (root / "dist" / "clash" / "config.yaml").write_text(
-            yaml.safe_dump({"proxies": proxies, "proxy-groups": [], "rules": []}),
-            encoding="utf-8",
-        )
-        (root / "dist" / "clash" / "providers" / "aggregate.yaml").write_text(
-            "proxies: []\n", encoding="utf-8"
-        )
-        (root / "dist" / "sing-box" / "config.json").write_text(
-            json.dumps({"outbounds": []}), encoding="utf-8"
-        )
-        output_path = root / "github-output"
-        environment = os.environ.copy()
-        environment["GITHUB_OUTPUT"] = str(output_path)
-        return subprocess.run(
-            [sys.executable, "-c", gate_script],
-            cwd=root,
-            env=environment,
-            capture_output=True,
-            text=True,
-            check=False,
-        )
-
-    allowed = run_gate("allowed", [1, 1, 0], 2)
-    assert allowed.returncode == 0
-    assert "- source-2: accepted=0; drops: missing_password=1" in (
-        tmp_path / "allowed" / "github-output"
-    ).read_text(encoding="utf-8")
-    assert "example.invalid" not in (tmp_path / "allowed" / "github-output").read_text(
-        encoding="utf-8"
-    )
-
-    below_threshold = run_gate("below-threshold", [1, 0, 0], 1)
-    assert below_threshold.returncode != 0
-    assert "release_gate_failed:source_fetch_or_empty" in (
-        below_threshold.stdout + below_threshold.stderr
-    )
-
-    no_published_nodes = run_gate("no-published-nodes", [1, 1, 0], 0)
-    assert no_published_nodes.returncode != 0
-    assert "release_gate_failed:manifest_published_count" in (
-        no_published_nodes.stdout + no_published_nodes.stderr
-    )
-
-    published_outside_stable = run_gate(
-        "published-outside-stable",
-        [1, 1, 0],
-        2,
-        quality_overrides={
-            "stable": 1,
-            "verified": 1,
-            "fast": 1,
-            "failed": 1,
-            "below_quality_threshold": 1,
-            "dropped": 1,
-        },
-    )
-    assert published_outside_stable.returncode != 0
-    assert "release_gate_failed:published_below_quality_gate" in (
-        published_outside_stable.stdout + published_outside_stable.stderr
-    )
-
-    inconsistent_classification = run_gate(
-        "inconsistent-classification",
-        [1, 1, 0],
-        2,
-        quality_overrides={"stable": 1, "failed": 0},
-    )
-    assert inconsistent_classification.returncode != 0
-    assert "release_gate_failed:node_quality_classification" in (
-        inconsistent_classification.stdout + inconsistent_classification.stderr
-    )
-
-    inconsistent_failure_categories = run_gate(
-        "inconsistent-failure-categories",
-        [1, 1, 0],
-        2,
-        quality_overrides={
-            "stable": 1,
-            "failed": 1,
-            "below_quality_threshold": 0,
-            "dropped": 1,
-        },
-    )
-    assert inconsistent_failure_categories.returncode != 0
-    assert "release_gate_failed:node_quality_failure_categories" in (
-        inconsistent_failure_categories.stdout + inconsistent_failure_categories.stderr
-    )
-
-    allowed_output = (tmp_path / "allowed" / "github-output").read_text(
-        encoding="utf-8"
-    )
-    assert "node_quality_not_tested_budget=0" in allowed_output
-    assert "node_quality_failed_probe=0" in allowed_output
-    assert "node_quality_below_quality_threshold=0" in allowed_output
-
-
 def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:
     workflow = yaml.safe_load(
         (Path(__file__).parents[1] / ".github" / "workflows" / "update.yml").read_text(
@@ -591,19 +397,19 @@ def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:
         )
     )
     triggers = workflow.get("on", workflow.get(True))
-    assert set(triggers) == {"pull_request", "schedule", "workflow_dispatch"}
-    assert triggers["schedule"] == [{"cron": "0 */6 * * *"}]
-    assert triggers["workflow_dispatch"]["inputs"]["publish_nodes"]["default"] is False
-    assert triggers["workflow_dispatch"]["inputs"]["publish_nodes"]["type"] == "boolean"
-    assert set(workflow["jobs"]) == {"tests", "publish"}
+    assert set(triggers) == {"pull_request", "push", "workflow_dispatch"}
+    assert triggers["push"]["branches"] == ["main"]
+    assert triggers["push"]["paths"] == ["docs/**"]
+    assert set(workflow["jobs"]) == {"tests", "deploy"}
     assert workflow["permissions"] == {"contents": "read"}
     assert workflow["jobs"]["tests"]["permissions"] == {"contents": "read"}
-    assert workflow["jobs"]["publish"]["permissions"] == {
+    assert workflow["jobs"]["deploy"]["permissions"] == {
         "contents": "read",
         "pages": "write",
         "id-token": "write",
     }
-    assert workflow["jobs"]["publish"]["concurrency"]["cancel-in-progress"] is False
+    assert workflow["jobs"]["deploy"]["concurrency"]["cancel-in-progress"] is False
+    assert workflow["jobs"]["deploy"]["concurrency"]["group"] == "public-pages-release"
     test_runs = [
         step.get("run", "")
         for step in workflow["jobs"]["tests"]["steps"]
@@ -618,54 +424,68 @@ def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:
     assert "PUBLIC_NODE_REDISTRIBUTION_APPROVED" in serialized
     assert "actions/upload-pages-artifact@v3" in serialized
     assert "actions/deploy-pages@v4" in serialized
-    assert "--no-private" in serialized
-    assert "--require-core" in serialized
+    assert '"path": "docs"' in serialized
+    assert "schedule" not in serialized
+    assert "mihomo" not in serialized.lower()
+    assert "secrets." not in serialized
 
 
-def test_workflow_publish_probe_flags_are_explicitly_bounded() -> None:
+def test_workflow_deploy_check_requires_committed_config_without_heredoc() -> None:
     workflow_path = Path(__file__).parents[1] / ".github" / "workflows" / "update.yml"
     workflow = yaml.safe_load(workflow_path.read_text(encoding="utf-8"))
-    publish_runs = "\n".join(
-        str(step.get("run", "")) for step in workflow["jobs"]["publish"]["steps"]
+    deploy_steps = workflow["jobs"]["deploy"]["steps"]
+    validate = next(
+        step
+        for step in deploy_steps
+        if step.get("name") == "Validate committed public config"
+    )
+    validate_run = str(validate["run"])
+    assert "docs/dist/clash/config.yaml" in validate_run
+    assert "yaml.safe_load" in validate_run
+    assert "python - <<'PY'" not in validate_run
+    assert (
+        next(
+            step
+            for step in deploy_steps
+            if step.get("uses", "").startswith("actions/upload-pages-artifact")
+        )["with"]["path"]
+        == "docs"
     )
 
-    def option(name: str) -> str:
-        marker = f"{name} "
-        start = publish_runs.index(marker) + len(marker)
-        return publish_runs[start:].split()[0]
 
-    assert "--probe" in publish_runs
-    assert option("--probe-max-nodes") == "30"
-    assert option("--probe-rounds") == "3"
-    assert float(option("--probe-timeout")) == 10
-    assert int(option("--probe-concurrency")) == 4
-    assert "--require-core" in publish_runs
-    assert "--no-private" in publish_runs
-    assert "PROBE_ERROR_CATEGORIES" in publish_runs
-    assert "aggregator.ci_probe_summary dist/health.json" in publish_runs
-
-
-def test_local_refresh_script_uses_local_only_outputs_and_explicit_probe_args() -> None:
-    script_path = Path(__file__).parents[1] / "scripts" / "local-refresh.ps1"
+def test_refresh_publish_script_is_the_only_local_refresh_entrypoint() -> None:
+    root = Path(__file__).parents[1]
+    script_path = root / "scripts" / "refresh-publish.ps1"
     script = script_path.read_text(encoding="utf-8")
 
     for expected in (
-        "[int]$MaxNodes = 150",
-        "[int]$Rounds = 3",
-        "[double]$Timeout = 5",
-        "[int]$Concurrency = 6",
-        '[string]$MinVerdict = "stable"',
+        "[switch]$Publish",
+        "[int]$MinStable = 5",
+        "[int]$MaxNodes = 1500",
+        '[string]$Output = "dist-local"',
+        '[string]$State = "state-local"',
         '"D:\\Program Files\\Clash Verge\\verge-mihomo.exe"',
         '"C:\\Program Files\\Clash Verge\\verge-mihomo.exe"',
-        "--output dist-local",
-        "--state state-local",
+        "--probe-backend",
+        "delay",
+        "--probe-rounds",
+        "3",
+        "--probe-timeout",
+        "8",
+        "--probe-concurrency",
+        "12",
         "--no-private",
         "--require-core",
-        "dist-local\\manifest.json",
-        "counts=",
+        '"reports"',
+        '"refresh-$Timestamp.log"',
+        'Resolve-ProjectPath "docs"',
+        '"docs/dist"',
+        '"pull", "--rebase"',
+        '"push", "origin", "main"',
         "node_quality",
     ):
         assert expected in script
+    assert not (root / "scripts" / "local-refresh.ps1").exists()
     assert "Set-ItemProperty" not in script
     assert "ProxyEnable" not in script
     assert "secret" not in script.lower()

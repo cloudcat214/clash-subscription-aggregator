@@ -888,6 +888,104 @@ def test_pipeline_rejects_probe_settings_over_budget(
     assert health["verification"]["policy_error"] == "probe_parameters_over_budget"
 
 
+def test_pipeline_allows_delay_backend_limits(tmp_path: Path) -> None:
+    """delay 后端允许 2000 节点/16 并发，但仍走同一质量筛选。"""
+
+    def fake_probe(proxies):
+        return {
+            "status": "performed",
+            "backend": "delay",
+            "tested": len(proxies),
+            "max_nodes": 2000,
+            "rounds": 3,
+            "concurrency": 16,
+            "timeout_seconds": 8.0,
+            "stage1_tested": len(proxies),
+            "stage1_passed": len(proxies),
+            "stage2_tested": len(proxies),
+            "stage2_stable": len(proxies),
+            "results": [
+                {
+                    "name": proxy["name"],
+                    "rounds_passed": 3,
+                    "rounds_total": 3,
+                    "latency_ms": 100.0,
+                    "p95_latency_ms": 100.0,
+                }
+                for proxy in proxies
+            ],
+        }
+
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path,
+        active_probe=True,
+        settings_overrides={
+            "probe_backend": "delay",
+            "probe_interface": "WLAN",
+            "probe_max_nodes": 2000,
+            "probe_concurrency": 16,
+        },
+    )
+    result = run_pipeline(config_path, output_dir, state_dir, probe_runner=fake_probe)
+
+    assert result.success is True
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    verification = manifest["verification"]
+    assert verification["backend"] == "delay"
+    assert verification["stage1_tested"] == 2
+    assert verification["stage1_passed"] == 2
+    assert verification["stage2_tested"] == 2
+    assert verification["stage2_stable"] == 2
+
+
+@pytest.mark.parametrize(
+    ("setting", "value"),
+    [("probe_max_nodes", 2001), ("probe_concurrency", 17)],
+)
+def test_pipeline_rejects_delay_backend_over_budget(
+    tmp_path: Path, setting: str, value: int
+) -> None:
+    calls = {"count": 0}
+
+    def fake_probe(_proxies):
+        calls["count"] += 1
+        return {"status": "performed", "backend": "delay", "results": []}
+
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path,
+        active_probe=True,
+        settings_overrides={
+            "probe_backend": "delay",
+            "probe_interface": "WLAN",
+            setting: value,
+        },
+    )
+    result = run_pipeline(config_path, output_dir, state_dir, probe_runner=fake_probe)
+
+    assert result.success is False
+    assert result.failure_reason == "probe_parameters_over_budget"
+    assert calls["count"] == 0
+
+
+def test_pipeline_requires_interface_for_delay_backend(tmp_path: Path) -> None:
+    calls = {"count": 0}
+
+    def fake_probe(_proxies):
+        calls["count"] += 1
+        return {"status": "performed", "backend": "delay", "results": []}
+
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path,
+        active_probe=True,
+        settings_overrides={"probe_backend": "delay", "probe_interface": ""},
+    )
+    result = run_pipeline(config_path, output_dir, state_dir, probe_runner=fake_probe)
+
+    assert result.success is False
+    assert result.failure_reason == "probe_interface_required"
+    assert calls["count"] == 0
+
+
 @pytest.mark.parametrize(
     ("field", "value"),
     [("max_nodes", 501), ("concurrency", 9)],

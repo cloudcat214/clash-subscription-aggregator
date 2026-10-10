@@ -18,6 +18,7 @@ from urllib.parse import urlsplit
 
 import yaml
 
+from .fastprobe import TARGET_URL as FASTPROBE_TARGET_URL
 from .fetch import FetchError, fetch_http_source_with_meta
 from .outputs import render_artifacts
 from .parsing import (
@@ -75,6 +76,11 @@ class PipelineResult:
 SourceLoader = Callable[[dict[str, Any], Path, dict[str, Any], bool], str]
 ArtifactValidator = Callable[[Path], dict[str, Any]]
 ProbeRunner = Callable[[list[dict[str, object]]], dict[str, object]]
+
+_PROBE_BACKEND_CAPS = {
+    "spawn": {"max_nodes": 500, "concurrency": 8},
+    "delay": {"max_nodes": 2000, "concurrency": 16},
+}
 
 
 def utc_now() -> str:
@@ -380,6 +386,7 @@ def _probe_error_category(exc: Exception) -> str:
         "probe_controller_http_error": "controller_http_error",
         "probe_direct_control_failed": "probe_direct_control_failed",
         "probe_interface_invalid": "probe_interface_invalid",
+        "probe_interface_required": "probe_interface_required",
     }
     if isinstance(exc, CoreValidationError):
         return core_categories.get(str(exc), "core_validation_error")
@@ -393,6 +400,16 @@ def _probe_error_category(exc: Exception) -> str:
 
 
 def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
+    backend = str(settings.get("probe_backend", "spawn"))
+    caps = _PROBE_BACKEND_CAPS.get(backend)
+    if caps is None:
+        raise ValueError("invalid_probe_policy")
+    if backend == "delay":
+        interface = settings.get("probe_interface")
+        if not isinstance(interface, str):
+            raise ValueError("probe_interface_invalid")
+        if not interface.strip():
+            raise ValueError("probe_interface_required")
     minimum = str(settings.get("probe_min_verdict", "stable"))
     if minimum not in {"stable", "verified", "fast"}:
         raise ValueError("invalid_probe_min_verdict")
@@ -404,8 +421,8 @@ def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
         return max(1, min(value, maximum))
 
     for name, default, maximum in (
-        ("probe_max_nodes", 30, 500),
-        ("probe_concurrency", 1, 8),
+        ("probe_max_nodes", 30, int(caps["max_nodes"])),
+        ("probe_concurrency", 1, int(caps["concurrency"])),
         ("probe_publish_max_nodes", 30, 500),
     ):
         value = settings.get(name, default)
@@ -440,10 +457,15 @@ def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
     if probe_rounds < verified_min_rounds:
         raise ValueError("probe_rounds_below_verified_min_rounds")
     return {
+        "backend": backend,
+        "max_nodes_cap": int(caps["max_nodes"]),
+        "concurrency_cap": int(caps["concurrency"]),
         "min_verdict": minimum,
-        "probe_max_nodes": bounded_int("probe_max_nodes", 30, 500),
+        "probe_max_nodes": bounded_int("probe_max_nodes", 30, int(caps["max_nodes"])),
         "probe_rounds": probe_rounds,
-        "probe_concurrency": bounded_int("probe_concurrency", 1, 8),
+        "probe_concurrency": bounded_int(
+            "probe_concurrency", 1, int(caps["concurrency"])
+        ),
         "probe_timeout_seconds": timeout_seconds,
         "verified_min_rounds": verified_min_rounds,
         "stable_min_rounds": stable_min_rounds,
@@ -1058,9 +1080,11 @@ def run_pipeline(
         )
 
     active_probe = bool(settings.get("active_probe", False))
+    requested_backend = str(settings.get("probe_backend", "spawn"))
     verification: dict[str, object] = {
         "status": "not_tested",
         "reason": "active_probe_disabled",
+        "backend": requested_backend,
     }
     node_quality = _empty_node_quality(
         len(proxies), published=0 if active_probe else len(proxies)
@@ -1074,13 +1098,20 @@ def run_pipeline(
                 "probe_rounds_below_stable_min_rounds",
                 "probe_rounds_below_verified_min_rounds",
                 "probe_parameters_over_budget",
+                "probe_interface_required",
+                "probe_interface_invalid",
             }:
                 policy_error = "invalid_probe_policy"
             verification = {
                 "status": "failed",
                 "reason": "probe_policy_invalid",
-                "error_category": "invalid_probe_policy",
+                "error_category": (
+                    policy_error
+                    if policy_error in PROBE_ERROR_CATEGORIES
+                    else "invalid_probe_policy"
+                ),
                 "policy_error": policy_error,
+                "backend": requested_backend,
             }
             node_quality = _empty_node_quality(len(proxies))
             return _write_failure(
@@ -1100,6 +1131,7 @@ def run_pipeline(
                 "error_category": "probe_unavailable",
                 "target": DEFAULT_TARGET_URL,
                 "min_verdict": policy["min_verdict"],
+                "backend": policy["backend"],
             }
             node_quality = _empty_node_quality(len(proxies))
             return _write_failure(
@@ -1130,16 +1162,26 @@ def run_pipeline(
         except Exception as exc:  # noqa: BLE001 - runner errors are redacted below
             error_category = _probe_error_category(exc)
             failure_reason = (
-                "probe_direct_control_failed"
-                if str(exc) == "probe_direct_control_failed"
+                str(exc)
+                if str(exc)
+                in {
+                    "probe_direct_control_failed",
+                    "probe_interface_required",
+                    "probe_interface_invalid",
+                }
                 else "probe_execution_failed"
             )
             verification = {
                 "status": "failed",
                 "reason": failure_reason,
                 "error_category": error_category,
-                "target": DEFAULT_TARGET_URL,
+                "target": (
+                    FASTPROBE_TARGET_URL
+                    if policy["backend"] == "delay"
+                    else DEFAULT_TARGET_URL
+                ),
                 "min_verdict": policy["min_verdict"],
+                "backend": policy["backend"],
             }
             node_quality = _empty_node_quality(len(candidate_pool))
             return _write_failure(
@@ -1157,8 +1199,16 @@ def run_pipeline(
                 raise TypeError("probe_results_invalid")
             if raw_verification.get("status") != "performed":
                 raise ValueError("probe_not_performed")
+            raw_backend = raw_verification.get("backend", policy["backend"])
+            if raw_backend != policy["backend"]:
+                raise ValueError("probe_backend_mismatch")
             raw_target = raw_verification.get("target")
-            if raw_target not in (None, DEFAULT_TARGET_URL):
+            expected_target = (
+                FASTPROBE_TARGET_URL
+                if policy["backend"] == "delay"
+                else DEFAULT_TARGET_URL
+            )
+            if raw_target not in (None, expected_target):
                 raise ValueError("probe_target_invalid")
             raw_rounds = raw_verification.get("rounds", settings.get("probe_rounds", 3))
             raw_max_nodes = raw_verification.get(
@@ -1186,12 +1236,27 @@ def run_pipeline(
                 raw_direct_control, dict
             ):
                 raise TypeError("probe_parameters_invalid")
+            stage_stats: dict[str, int] = {}
+            for field_name in (
+                "stage1_tested",
+                "stage1_passed",
+                "stage2_tested",
+                "stage2_stable",
+            ):
+                value = raw_verification.get(field_name)
+                if value is None:
+                    continue
+                if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+                    raise TypeError("probe_results_invalid")
+                stage_stats[field_name] = value
             if any(
                 isinstance(value, bool) or not isinstance(value, int)
                 for value in (raw_rounds, raw_max_nodes, raw_concurrency)
             ):
                 raise TypeError("probe_parameters_invalid")
-            if cast(int, raw_max_nodes) > 500 or cast(int, raw_concurrency) > 8:
+            if cast(int, raw_max_nodes) > cast(int, policy["max_nodes_cap"]) or cast(
+                int, raw_concurrency
+            ) > cast(int, policy["concurrency_cap"]):
                 raise ValueError("probe_parameters_over_budget")
             if isinstance(raw_timeout, bool) or not isinstance(
                 raw_timeout, (int, float)
@@ -1201,8 +1266,13 @@ def run_pipeline(
             if not math.isfinite(timeout_seconds) or timeout_seconds <= 0:
                 raise ValueError("probe_parameters_invalid")
             rounds_total = max(1, min(cast(int, raw_rounds), 3))
-            max_nodes = max(1, min(cast(int, raw_max_nodes), 500))
-            concurrency = max(1, min(cast(int, raw_concurrency), 8))
+            max_nodes = max(
+                1, min(cast(int, raw_max_nodes), cast(int, policy["max_nodes_cap"]))
+            )
+            concurrency = max(
+                1,
+                min(cast(int, raw_concurrency), cast(int, policy["concurrency_cap"])),
+            )
             if timeout_seconds > 30:
                 raise ValueError("probe_parameters_over_budget")
             result_map, probe_rows = _normalize_probe_rows(
@@ -1259,7 +1329,8 @@ def run_pipeline(
             )
             verification = {
                 "status": "performed",
-                "target": DEFAULT_TARGET_URL,
+                "backend": policy["backend"],
+                "target": raw_target or expected_target,
                 "max_nodes": max_nodes,
                 "rounds": rounds_total,
                 "timeout_seconds": timeout_seconds,
@@ -1273,6 +1344,7 @@ def run_pipeline(
                 "latency_score_cap_ms": policy["latency_cap_ms"],
                 "error_categories": dict(sorted(error_counts.items())),
             }
+            verification.update(stage_stats)
             if raw_probe_interface:
                 verification["probe_interface"] = raw_probe_interface
                 verification["interface_mode"] = raw_interface_mode

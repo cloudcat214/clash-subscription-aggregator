@@ -97,18 +97,10 @@ def test_summary_handles_missing_health_without_changing_failure_reporting(
     assert values == {"PROBE_ERROR_CATEGORIES": "{}", "PROBE_ERROR_TOTAL": "0"}
 
 
-def test_workflow_preserves_build_exit_code_and_removes_failure_heredoc() -> None:
+def test_workflow_removes_runner_build_and_failure_heredoc() -> None:
     workflow = yaml.safe_load(WORKFLOW.read_text(encoding="utf-8"))
-    build_step = next(
-        step
-        for step in workflow["jobs"]["publish"]["steps"]
-        if step.get("name") == "Build public artifacts"
-    )
-    run = str(build_step["run"])
-    build_status = run.index("build_status=$?")
-    summary = run.index("python -m aggregator.ci_probe_summary dist/health.json")
-    exit_status = run.index('exit "$build_status"')
-
-    assert "set +e" in run
-    assert build_status < summary < exit_status
-    assert "python - <<'PY'" not in run
+    deploy = workflow["jobs"]["deploy"]
+    serialized = json.dumps(deploy)
+    assert "Build public artifacts" not in serialized
+    assert "aggregator.ci_probe_summary" not in serialized
+    assert "python - <<'PY'" not in serialized

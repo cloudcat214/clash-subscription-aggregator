@@ -7,6 +7,7 @@ from collections.abc import Callable
 from pathlib import Path
 
 from . import __version__
+from .fastprobe import probe_nodes as delay_probe_nodes
 from .pipeline import initialize_dist, load_config, run_pipeline
 from .probe import probe_nodes
 from .validators import validate_generated_artifacts
@@ -40,7 +41,15 @@ def build_parser() -> argparse.ArgumentParser:
         "--require-core", action="store_true", help="缺少核心或校验失败时禁止替换产物"
     )
     run.add_argument(
-        "--probe", action="store_true", help="独立临时 Mihomo 实测，最多 500 节点×3轮"
+        "--probe",
+        action="store_true",
+        help="独立临时 Mihomo 实测，默认最多 500 节点×3轮",
+    )
+    run.add_argument(
+        "--probe-backend",
+        choices=("spawn", "delay"),
+        default="spawn",
+        help="主动探测后端；spawn 保持逐节点 worker，delay 使用批量 controller delay",
     )
     run.add_argument("--probe-max-nodes", type=int, default=30)
     run.add_argument("--probe-rounds", type=int, default=3)
@@ -100,9 +109,16 @@ def main(argv: list[str] | None = None) -> int:
         if not args.mihomo:
             print("--probe requires --mihomo", file=sys.stderr)
             return 2
+        if (
+            args.probe_backend == "delay"
+            and not str(args.probe_interface or "").strip()
+        ):
+            print("--probe-backend delay requires --probe-interface", file=sys.stderr)
+            return 2
 
         def _probe_runner(proxies: list[dict[str, object]]) -> dict[str, object]:
-            return probe_nodes(
+            runner = probe_nodes if args.probe_backend == "spawn" else delay_probe_nodes
+            return runner(
                 proxies,
                 mihomo_path=args.mihomo,
                 max_nodes=args.probe_max_nodes,
@@ -131,6 +147,7 @@ def main(argv: list[str] | None = None) -> int:
             settings["probe_rounds"] = args.probe_rounds
             settings["probe_timeout_seconds"] = args.probe_timeout
             settings["probe_concurrency"] = args.probe_concurrency
+            settings["probe_backend"] = args.probe_backend
             if args.probe_interface is not None:
                 settings["probe_interface"] = args.probe_interface
             configured_interface = settings.get("probe_interface")
