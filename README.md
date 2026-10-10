@@ -2,7 +2,7 @@
 
 这是一个 Python 3.11+ 的最小聚合器：抓取配置中明确允许的公开来源，解析 Base64、URI、Clash YAML/JSON，规范化、去重、过滤后生成 Clash/Mihomo 与 sing-box 配置。节点级主动拨测默认关闭，解析成功不代表节点可用。
 
-此公开仓库包含项目代码、文档、合成测试数据，以及 `config/sources.yaml` 中的公开来源清单（公开 URL、来源元数据和发布开关）。该文件不含订阅令牌、节点凭据或私有正文；`sources.private` 通过环境变量或本机目录注入，仅用于本机处理，不进入公开 `dist`。GitHub Actions 只执行离线测试，不抓取来源或发布节点。
+此公开仓库包含项目代码、文档、合成测试数据，以及 `config/sources.yaml` 中的公开来源清单（公开 URL、来源元数据和发布开关）。该文件不含订阅令牌、节点凭据或私有正文；`sources.private` 通过环境变量或本机目录注入，仅用于本机处理，不进入公开 `dist`。GitHub Actions 在 Pull Request 上只执行离线检查；定时和手动发布都经过公开再分发授权闸门，只处理当前清单中的公开来源。
 
 ## 本地运行
 
@@ -51,19 +51,19 @@ sources:
 | `dist/manifest.json` | 来源状态、节点数、协议数、dropped 统计、校验结果和 SHA256 |
 | `dist/health.json` | 本轮状态、失败原因和 LKG 回退状态 |
 
-本地文件导入时选择 `dist/clash/config.yaml`，不需要另行下载 provider 文件。本仓库没有在线订阅 URL，也不提供 GitHub Pages 站点；所有 `dist/`、`state/`、缓存和报告只保留本机。
+本地文件导入时选择 `dist/clash/config.yaml`，不需要另行下载 provider 文件。公开发布成功后，固定导入地址为 `https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`；所有本地 `dist/`、`state/`、缓存和报告仍只保留本机。
 
-## GitHub Actions：仅离线测试
+## GitHub Actions：离线检查与受门禁的公开发布
 
 `.github/workflows/update.yml` 的行为是：
 
-- 仅在涉及代码、测试、文档和工作流的 Pull Request 上执行 pytest 与 compileall；
-- 没有 `push`、`schedule` 或 `workflow_dispatch` 触发器，代码首推不会自动运行该工作流；
-- 不抓取来源、不拨测节点、不生成或上传订阅产物；
-- 只有源码读取权限，没有 Pages/OIDC 写入权限或部署步骤；
-- 不读取或设置节点再分发授权变量；来源数据发布闸门（`PUBLIC_NODE_REDISTRIBUTION_APPROVED`）与 GitHub Pages 均默认关闭。
+- Pull Request 只运行 pytest、compileall 和 workflow 结构检查，不抓取来源、不生成发布产物、不部署 Pages；
+- 每 6 小时运行一次，也支持手动触发；手动输入 `publish_nodes` 默认关闭；
+- 发布仅允许在 `main`、非 fork、公开再分发授权闸门开启且手动明确发布或定时触发时进行；
+- 发布只读取 3 个当前已授权的 `sources.public` 来源，强制 `--no-private`，固定使用受摘要校验的 Mihomo 核心，并在核心校验、产物结构和固定 URL HTTP/YAML 检查全部通过后部署；
+- Pages artifact 只包含 `pages/dist`，不包含仓库其他文件；Step Summary 只记录状态、发布数量、验证状态和固定导入地址，不输出节点正文或凭据。
 
-未来若要公开节点数据，需另行明确授权并核对各来源节点数据的使用与再分发条款，不能把代码仓库公开视为数据公开授权。
+公开节点数据仍需由接入者核对各来源节点数据的使用与再分发条款；代码仓库公开不等于节点数据公开授权，工作流闸门也不替代这项责任。
 
 ## 许可证与来源条款
 

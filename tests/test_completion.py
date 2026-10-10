@@ -319,28 +319,39 @@ def test_manifest_artifact_hashes_match_written_files(tmp_path: Path) -> None:
         assert len(content) == artifact["bytes"]
 
 
-def test_workflow_only_runs_offline_checks_without_publication() -> None:
+def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:
     workflow = yaml.safe_load(
         (Path(__file__).parents[1] / ".github" / "workflows" / "update.yml").read_text(
             encoding="utf-8"
         )
     )
     triggers = workflow.get("on", workflow.get(True))
-    assert set(triggers) == {"pull_request"}
-    assert set(workflow["jobs"]) == {"tests"}
+    assert set(triggers) == {"pull_request", "schedule", "workflow_dispatch"}
+    assert triggers["schedule"] == [{"cron": "0 */6 * * *"}]
+    assert triggers["workflow_dispatch"]["inputs"]["publish_nodes"]["default"] is False
+    assert triggers["workflow_dispatch"]["inputs"]["publish_nodes"]["type"] == "boolean"
+    assert set(workflow["jobs"]) == {"tests", "publish"}
     assert workflow["permissions"] == {"contents": "read"}
-    assert "permissions" not in workflow["jobs"]["tests"]
-    assert workflow["concurrency"]["cancel-in-progress"] is False
+    assert workflow["jobs"]["tests"]["permissions"] == {"contents": "read"}
+    assert workflow["jobs"]["publish"]["permissions"] == {
+        "contents": "read",
+        "pages": "write",
+        "id-token": "write",
+    }
+    assert workflow["jobs"]["publish"]["concurrency"]["cancel-in-progress"] is False
     test_runs = [
         step.get("run", "")
         for step in workflow["jobs"]["tests"]["steps"]
         if isinstance(step, dict)
+        and step.get("name") in {"Run offline tests", "Compile Python sources"}
     ]
     assert all("aggregator run" not in command for command in test_runs)
     assert all("curl" not in command for command in test_runs)
     assert "python -m pytest -q" in test_runs
     assert "python -m compileall -q aggregator tests" in test_runs
     serialized = json.dumps(workflow)
-    assert "PUBLIC_NODE_REDISTRIBUTION_APPROVED" not in serialized
-    assert "upload-" not in serialized
-    assert "pages" not in serialized
+    assert "PUBLIC_NODE_REDISTRIBUTION_APPROVED" in serialized
+    assert "actions/upload-pages-artifact@v3" in serialized
+    assert "actions/deploy-pages@v4" in serialized
+    assert "--no-private" in serialized
+    assert "--require-core" in serialized
