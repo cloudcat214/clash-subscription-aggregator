@@ -8,86 +8,28 @@
       "tag": "proxy",
       "outbounds": [
         "direct",
-        "[free-v2ray-verified-clash] KR 🇰🇷 | @Raydikalx | 12C48D",
-        "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | DA6B77",
-        "[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B",
-        "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB",
         "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 633CF6",
-        "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B",
         "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 70AED3",
-        "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 4DB6E4",
+        "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 40EC5F",
+        "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B",
+        "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB",
+        "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 1E54F8",
         "[free-v2ray-verified-clash] SG 🇸🇬 | @Raydikalx | 8E8CFD",
+        "[free-v2ray-verified-clash] KR 🇰🇷 | @Raydikalx | 12C48D",
+        "[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B",
+        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 37BFC1",
+        "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0E1D88",
+        "[free-v2ray-verified-clash] ME 🇲🇪 | @Raydikalx | C5877E",
+        "[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 85896C",
         "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 18ED5C",
+        "[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 35BC8B",
+        "[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 6D25D1",
         "[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 45F75E"
       ]
     },
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "[free-v2ray-verified-clash] KR 🇰🇷 | @Raydikalx | 12C48D",
-      "server": "43.155.223.71",
-      "server_port": 8388,
-      "method": "aes-256-gcm",
-      "password": "UsIv5aKJabiqnYtY8IfWd6FfgjzrJlfZ"
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | DA6B77",
-      "server": "31.59.210.26",
-      "server_port": 2088,
-      "uuid": "5413edfb-08d6-4fba-b51c-809c04feb127",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.yandex.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Eq3c19Y0WGB1APWMADQB-oxCvZFSVFAQxG5L6b8EkUg",
-          "short_id": "b1ad165f903c62fe"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "astracat"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B",
-      "server": "edge.bookmai.com",
-      "server_port": 443,
-      "uuid": "b9bfa54d-bc44-4592-a6d6-89a9665d286f",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "mother-earth.fyi",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
-          "short_id": ""
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB",
-      "server": "switchyard.proxy.rlwy.net",
-      "server_port": 47289,
-      "uuid": "64b683e6-50e9-4168-884a-1707d1d8e176",
-      "transport": {
-        "type": "ws",
-        "path": "/"
-      }
     },
     {
       "type": "vless",
@@ -107,27 +49,6 @@
           "enabled": true,
           "public_key": "mza5Hn1aolSz65qu-UwvBP3oesxMe25r11o4nxvikF0",
           "short_id": "64c1fe36c7846400"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B",
-      "server": "co-a.speedtec.ru",
-      "server_port": 443,
-      "uuid": "019fbe0f-2d9f-4b89-9f81-e1e36129892a",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "co-pl.speedtec.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI",
-          "short_id": "226509f017e4c36d"
         }
       }
     },
@@ -154,23 +75,82 @@
     },
     {
       "type": "vless",
-      "tag": "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 4DB6E4",
-      "server": "de2.srv.vbuste.ru",
-      "server_port": 443,
-      "uuid": "318c935d-c195-41d3-99ad-9bbcfdab3386",
-      "flow": "xtls-rprx-vision",
+      "tag": "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 40EC5F",
+      "server": "194.226.121.119",
+      "server_port": 2087,
+      "uuid": "ec6f8131-7a5d-4117-9627-6fb2b39ae0da",
       "tls": {
         "enabled": true,
-        "server_name": "de2.srv.vbuste.ru",
+        "server_name": "www.apple.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08",
-          "short_id": "4be4110078ebed4a"
+          "public_key": "sXOLkj_L8EpGL0yZA9laLDaPfpwVEcBVHLSvunPVQwA",
+          "short_id": "a644f94155c87551"
         }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 7AAB8B",
+      "server": "co-a.speedtec.ru",
+      "server_port": 443,
+      "uuid": "019fbe0f-2d9f-4b89-9f81-e1e36129892a",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "co-pl.speedtec.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI",
+          "short_id": "226509f017e4c36d"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] US 🇺🇸 | @Raydikalx | 8743AB",
+      "server": "switchyard.proxy.rlwy.net",
+      "server_port": 47289,
+      "uuid": "64b683e6-50e9-4168-884a-1707d1d8e176",
+      "transport": {
+        "type": "ws",
+        "path": "/"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 1E54F8",
+      "server": "31.59.210.25",
+      "server_port": 2087,
+      "uuid": "5413edfb-08d6-4fba-b51c-809c04feb127",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "KDBhxT2YMtMjDEC9VdoDEISdCwxd6KFrSE8uyUaHcTY",
+          "short_id": "ed435c242097fd05"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "astracat"
       }
     },
     {
@@ -180,6 +160,120 @@
       "server_port": 8443,
       "method": "chacha20-ietf-poly1305",
       "password": "7e68e32f-8015-4f37-9082-70e8b0b58043"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[free-v2ray-verified-clash] KR 🇰🇷 | @Raydikalx | 12C48D",
+      "server": "43.155.223.71",
+      "server_port": 8388,
+      "method": "aes-256-gcm",
+      "password": "UsIv5aKJabiqnYtY8IfWd6FfgjzrJlfZ"
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] FR 🇫🇷 | @Raydikalx | 94019B",
+      "server": "edge.bookmai.com",
+      "server_port": 443,
+      "uuid": "b9bfa54d-bc44-4592-a6d6-89a9665d286f",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "mother-earth.fyi",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+          "short_id": ""
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 37BFC1",
+      "server": "95.133.247.98",
+      "server_port": 995,
+      "uuid": "df275727-c25a-450b-99c3-29e4e6b0b6b9",
+      "tls": {
+        "enabled": true,
+        "server_name": "love-paris.roxa.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/api/v1",
+        "headers": {
+          "Host": "love-paris.roxa.org"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] RU 🇷🇺 | @Raydikalx | 0E1D88",
+      "server": "31.59.210.37",
+      "server_port": 443,
+      "uuid": "5413edfb-08d6-4fba-b51c-809c04feb127",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "5k0dtOSzmshCubdYeKppsUdHU4i2ghaB9uSJSzGjHW4",
+          "short_id": "6dbf4931096f9890"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "astracat"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] ME 🇲🇪 | @Raydikalx | C5877E",
+      "server": "31.57.190.15",
+      "server_port": 443,
+      "uuid": "698b212d-ca12-4794-8256-252a6e1b4533",
+      "tls": {
+        "enabled": true,
+        "server_name": "q4x8.vpnpolar.online"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/beeline",
+        "headers": {
+          "Host": "q4x8.vpnpolar.online"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 85896C",
+      "server": "nd-3.ardesnode.ru",
+      "server_port": 443,
+      "uuid": "616c7b3b-41f4-4038-88c6-d6fedd0ae4a7",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "nd-3.ardesnode.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "PKlt_5ASsz137EvA9SKSadtjEv1k_U7VRtoelKCgADs",
+          "short_id": "9ea74b83f4993ca9"
+        }
+      }
     },
     {
       "type": "vless",
@@ -199,6 +293,48 @@
           "enabled": true,
           "public_key": "8cN2ldJOVJ_ulUORM3mblWMg1etGrTruJoAtYyhE5h8",
           "short_id": "73cd09c320ca209d"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 35BC8B",
+      "server": "157.228.160.166",
+      "server_port": 443,
+      "uuid": "df53b6c2-8005-475c-9eb9-74e1be785dc8",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M",
+          "short_id": "3cef317b"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] NL 🇳🇱 | @Raydikalx | 6D25D1",
+      "server": "157.228.150.34",
+      "server_port": 443,
+      "uuid": "df53b6c2-8005-475c-9eb9-74e1be785dc8",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M",
+          "short_id": "3cef317b"
         }
       }
     },
