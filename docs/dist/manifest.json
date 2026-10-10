@@ -1,34 +1,34 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T19:45:09Z",
+  "generated_at": "2026-10-10T20:00:07Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 19,
+    "published": 18,
     "sources": 3,
-    "parsed": 1029,
-    "accepted": 960
+    "parsed": 1008,
+    "accepted": 938
   },
   "protocols": {
     "ss": 2,
-    "vless": 17
+    "vless": 16
   },
   "sources": [
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 951,
-      "accepted": 906,
+      "parsed": 930,
+      "accepted": 884,
       "drops": {
-        "invalid_uuid": 3,
-        "duplicate": 42
+        "invalid_uuid": 5,
+        "duplicate": 41
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "ae43bfa52f87f2dd48c6953c5cb3a41af7439e9ceae08439b2c16df1f4a502e4"
+      "sha256": "78d0f66ace4c0ce883dd6396abf26fdd7ab9396b81a85032c15704c7025b7f2c"
     },
     {
       "id": "p-configs-vless",
@@ -64,29 +64,29 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "9764dd2ee163a0d464879932dea04d4dbbc76207e32a38ffd228c9599e44c133",
-      "bytes": 9911
+      "sha256": "047ffc30b6a04a173d560151fce4926954c5d37446c1e4be01a9851380c34d70",
+      "bytes": 9464
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "3ce498b337a545764205db644e3b8e8297df5742f0cc7b0bedb32e40ded72772",
-      "bytes": 6943
+      "sha256": "c734fac86cbc1e5f64d51f9bf3a41d4fd9f3f7c9f9c9d2062bd72790b46c5a4a",
+      "bytes": 6632
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "177092fd39c6f49d1d115776e395dd5894dc8eb12a38867da4a963acf6c5c458",
-      "bytes": 10881
+      "sha256": "7617fdb225e31ce45cf31ea5656196a12e164f3122799a57e8419e2845247895",
+      "bytes": 11068
     }
   ],
   "drops": {
-    "invalid_uuid": 3,
-    "duplicate": 65,
+    "invalid_uuid": 5,
+    "duplicate": 64,
     "missing_password": 1
   },
   "sing_box": {
-    "unsupported": 2,
+    "unsupported": 1,
     "drop_reasons": {
-      "unsupported_transport:xhttp": 2
+      "unsupported_transport:xhttp": 1
     }
   },
   "verification": {
@@ -105,12 +105,12 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 941
+      "http_error": 920
     },
-    "stage1_tested": 960,
-    "stage1_passed": 19,
-    "stage2_tested": 19,
-    "stage2_stable": 19,
+    "stage1_tested": 938,
+    "stage1_passed": 23,
+    "stage2_tested": 23,
+    "stage2_stable": 20,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -120,19 +120,19 @@
     }
   },
   "node_quality": {
-    "candidates": 960,
-    "tested": 960,
-    "verified": 19,
-    "fast": 1,
-    "stable": 19,
-    "failed": 941,
+    "candidates": 938,
+    "tested": 938,
+    "verified": 18,
+    "fast": 2,
+    "stable": 18,
+    "failed": 920,
     "not_tested": 0,
     "not_tested_budget": 0,
-    "failed_probe": 941,
-    "below_quality_threshold": 0,
-    "dropped": 941,
-    "published": 19,
-    "success_rate": 0.019791666666666666
+    "failed_probe": 918,
+    "below_quality_threshold": 2,
+    "dropped": 920,
+    "published": 18,
+    "success_rate": 0.02061122956645345
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
