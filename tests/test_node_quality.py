@@ -22,6 +22,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import threading
 import time
 from pathlib import Path
@@ -71,6 +72,9 @@ def _patch_probe_runtime(monkeypatch, *, version_ok: bool = True) -> None:
     monkeypatch.setattr(probe_mod, "_free_port", lambda: 20000)
 
     class _FakeProcess:
+        def poll(self):
+            return None
+
         def terminate(self):
             return None
 
@@ -217,6 +221,9 @@ def test_probe_controller_uses_unique_memory_only_bearer_secrets(monkeypatch) ->
     monkeypatch.setattr(probe_mod, "_free_port", lambda: next(ports))
 
     class _FakeProcess:
+        def poll(self):
+            return None
+
         def terminate(self):
             return None
 
@@ -275,6 +282,8 @@ def test_probe_controller_uses_unique_memory_only_bearer_secrets(monkeypatch) ->
     assert len(secrets) == 2
     assert len(set(secrets)) == 2
     assert all(len(value) >= 32 for value in secrets)
+    assert all(isinstance(config["mixed-port"], int) for config in configs)
+    assert all(config["bind-address"] == "127.0.0.1" for config in configs)
     controller_secrets = {
         f"http://{config['external-controller']}": str(config["secret"])
         for config in configs
@@ -371,6 +380,66 @@ def test_probe_node_task_exception_is_redacted_and_isolated(monkeypatch) -> None
     assert bad["rounds_passed"] == 0
     assert bad["error_category"] == "invalid_response"
     assert result["tested"] == 2
+
+
+def test_probe_process_exit_is_redacted_and_isolated(monkeypatch) -> None:
+    """Mihomo 提前退出只影响该节点，并保留有限错误分类。"""
+
+    class _ExitedProcess:
+        def poll(self):
+            return 1
+
+        def terminate(self):
+            return None
+
+        def kill(self):
+            return None
+
+        def wait(self, timeout=None):
+            return 1
+
+    monkeypatch.setattr(
+        probe_mod.subprocess, "Popen", lambda *args, **kwargs: _ExitedProcess()
+    )
+    result = probe_nodes(
+        [{"name": "failed-node"}],
+        mihomo_path="/fake/mihomo",
+        rounds=1,
+        timeout=1.0,
+    )
+
+    assert result["status"] == "performed"
+    assert result["tested"] == 1
+    assert result["stable"] == 0
+    assert result["error_categories"] == {"process_exit": 1}
+    row = cast("list[dict]", result["results"])[0]
+    assert row["error_category"] == "process_exit"
+    assert "failed-node" not in json.dumps(result)
+
+
+def test_probe_process_cleanup_kills_stuck_worker() -> None:
+    """worker 不响应 terminate 时必须进入 kill 路径。"""
+    events: list[str] = []
+
+    class _StuckProcess:
+        def poll(self):
+            return None
+
+        def terminate(self):
+            events.append("terminate")
+
+        def kill(self):
+            events.append("kill")
+
+        def wait(self, timeout=None):
+            events.append("wait")
+            if events.count("wait") == 1:
+                raise subprocess.TimeoutExpired("mihomo", timeout or 0)
+            return 0
+
+    probe_mod._stop_process(cast("subprocess.Popen[bytes]", _StuckProcess()))
+
+    assert events == ["terminate", "wait", "kill", "wait"]
 
 
 def test_probe_verdict_only_full_multi_round_pass_is_verified() -> None:
@@ -682,12 +751,86 @@ def test_probe_core_startup_failure_is_redacted(monkeypatch) -> None:
         "password": secret_password,
     }
 
-    with pytest.raises(CoreValidationError) as exc:
-        probe_nodes([node], mihomo_path="/fake/mihomo", timeout=0.05)
+    result = probe_nodes([node], mihomo_path="/fake/mihomo", timeout=0.05)
 
-    message = str(exc.value)
-    assert "probe_controller_timeout" in message
-    assert secret_uuid not in message
-    assert secret_password not in message
-    assert "leaky-node" not in message
-    assert "10.0.0.1" not in message
+    serialized = json.dumps(result)
+    assert result["status"] == "performed"
+    assert result["error_categories"] == {"controller_timeout": 1}
+    assert secret_uuid not in serialized
+    assert secret_password not in serialized
+    assert "leaky-node" not in serialized
+    assert "10.0.0.1" not in serialized
+
+
+def test_all_probe_failures_preserve_lkg_and_redacted_categories(
+    tmp_path: Path,
+) -> None:
+    """全节点无成功结果时只回退 LKG，不把未测节点发布。"""
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path, active_probe=False, node_count=2
+    )
+    assert run_pipeline(config_path, output_dir, state_dir).success is True
+    previous_manifest = (output_dir / "manifest.json").read_text(encoding="utf-8")
+
+    config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    config["settings"]["active_probe"] = True
+    config_path.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
+
+    def failed_probe(proxies):
+        return {
+            "status": "performed",
+            "tested": len(proxies),
+            "max_nodes": 30,
+            "rounds": 3,
+            "concurrency": 2,
+            "timeout_seconds": 10.0,
+            "results": [
+                {
+                    "name": proxy["name"],
+                    "rounds_passed": 0,
+                    "rounds_total": 3,
+                    "latency_ms": None,
+                    "p95_latency_ms": None,
+                    "error_category": "process_exit",
+                }
+                for proxy in proxies
+            ],
+        }
+
+    result = run_pipeline(config_path, output_dir, state_dir, probe_runner=failed_probe)
+
+    assert result.success is False
+    assert result.failure_reason == "probe_no_qualified_nodes"
+    assert result.used_last_known_good is True
+    assert (output_dir / "manifest.json").read_text(
+        encoding="utf-8"
+    ) == previous_manifest
+    health = json.loads((output_dir / "health.json").read_text(encoding="utf-8"))
+    assert health["verification"]["status"] == "performed"
+    assert health["verification"]["error_categories"] == {"process_exit": 2}
+    assert health["node_quality"]["failed_probe"] == 2
+    assert health["node_quality"]["published"] == 0
+    encoded = json.dumps(health, ensure_ascii=False)
+    assert "good-node" not in encoded
+    assert "bad-node" not in encoded
+
+
+def test_pipeline_maps_runner_failure_to_safe_category(tmp_path: Path) -> None:
+    """即使 runner 级异常发生，health 也只保留有限分类。"""
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path, active_probe=True, node_count=1
+    )
+
+    def failed_runner(_proxies):
+        raise CoreValidationError("probe_controller_timeout")
+
+    result = run_pipeline(
+        config_path, output_dir, state_dir, probe_runner=failed_runner
+    )
+
+    assert result.success is False
+    assert result.failure_reason == "probe_execution_failed"
+    health = json.loads((output_dir / "health.json").read_text(encoding="utf-8"))
+    assert health["verification"]["error_category"] == "controller_timeout"
+    assert "controller_timeout" in json.dumps(health)
+    assert "probe_controller_timeout" not in json.dumps(health)

@@ -204,6 +204,7 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf dist state pages
+          set +e
           python -m aggregator run \
             --config config/sources.yaml \
             --output dist \
@@ -218,6 +219,63 @@ jobs:
             --probe-concurrency 4 \
             --probe-min-verdict stable \
             --require-core
+          build_status=$?
+          set -e
+          if [ "$build_status" -ne 0 ]; then
+            python - <<'PY'
+            import json
+            import os
+            from pathlib import Path
+
+            allowed = {
+                "timeout",
+                "http_error",
+                "network_error",
+                "invalid_response",
+                "invalid_probe_result",
+                "invalid_probe_policy",
+                "probe_unavailable",
+                "process_start_error",
+                "process_exit",
+                "controller_timeout",
+                "controller_auth_error",
+                "controller_http_error",
+                "core_validation_error",
+                "probe_error",
+            }
+            categories = {}
+            try:
+                health = json.loads(Path("dist/health.json").read_text(encoding="utf-8"))
+                verification = health.get("verification", {})
+                raw_categories = (
+                    verification.get("error_categories", {})
+                    if isinstance(verification, dict)
+                    else {}
+                )
+                if isinstance(raw_categories, dict):
+                    categories = {
+                        key: value
+                        for key, value in raw_categories.items()
+                        if key in allowed
+                        and isinstance(value, int)
+                        and not isinstance(value, bool)
+                        and value >= 0
+                    }
+                single = (
+                    verification.get("error_category")
+                    if isinstance(verification, dict)
+                    else None
+                )
+                if not categories and single in allowed:
+                    categories = {single: 1}
+            except (OSError, ValueError, TypeError):
+                categories = {}
+            with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as env:
+                env.write(f"PROBE_ERROR_CATEGORIES={json.dumps(categories, sort_keys=True)}\n")
+                env.write(f"PROBE_ERROR_TOTAL={sum(categories.values())}\n")
+            PY
+          fi
+          exit "$build_status"
 
       - name: Check redacted release inputs
         id: artifact_check
@@ -505,6 +563,8 @@ jobs:
           NODE_QUALITY_FAILED_PROBE: ${{ steps.artifact_check.outputs.node_quality_failed_probe || '0' }}
           NODE_QUALITY_BELOW_THRESHOLD: ${{ steps.artifact_check.outputs.node_quality_below_quality_threshold || '0' }}
           NODE_QUALITY_DROPPED: ${{ steps.artifact_check.outputs.node_quality_dropped || '0' }}
+          PROBE_ERROR_TOTAL: ${{ env.PROBE_ERROR_TOTAL || '0' }}
+          PROBE_ERROR_CATEGORIES: ${{ env.PROBE_ERROR_CATEGORIES || 'not_available' }}
           MIN_SUCCESSFUL_PUBLIC_SOURCES: ${{ steps.artifact_check.outputs.min_successful_public_sources || '2' }}
           EMPTY_SOURCE_SUMMARY: ${{ steps.artifact_check.outputs.empty_source_summary || 'not_available' }}
           VERIFICATION_STATUS: ${{ steps.http_verify.outputs.verification_status || 'not_run' }}
@@ -519,6 +579,8 @@ jobs:
             echo "- node quality failed probe: ${NODE_QUALITY_FAILED_PROBE}"
             echo "- node quality below threshold: ${NODE_QUALITY_BELOW_THRESHOLD}"
             echo "- node quality dropped after probe: ${NODE_QUALITY_DROPPED}"
+            echo "- probe error total: ${PROBE_ERROR_TOTAL}"
+            echo "- probe error categories: ${PROBE_ERROR_CATEGORIES}"
             echo "- verification status: ${VERIFICATION_STATUS}"
             echo "- empty public source drops:"
             printf '%s\n' "${EMPTY_SOURCE_SUMMARY}"

@@ -25,7 +25,9 @@ python -m aggregator run --config config/sources.yaml --output dist --state stat
 - 每个节点保留独立的轮次结果、成功率、平均延迟、p95 延迟和错误分类。`verified` 只表示 3/3 轮成功；`stable` 表示至少 3 轮且成功率至少 2/3；`fast` 只是延迟标签（平均延迟不超过 800ms），不单独放宽 `stable` 发布门槛。
 - 只有达到发布配置的最低等级（发布 workflow 为 `stable`）的节点才进入最终产物。预算外节点记为 `not_tested_budget`，探测失败与成功率不足分别记为 `failed_probe`、`below_quality_threshold`；未实测不等于可用。
 - 目标固定为 `https://www.gstatic.com/generate_204`。结果只代表当前 runner 到这个目标的路径，受 runner 地域、出口网络、上游限速和目标站点策略影响，不代表全球或其他站点可用。
-- 本地回归只使用 fake Mihomo/网络夹具，不运行真实节点 probe 或真实 Mihomo 外联；真实探测仅由获授权的远程 workflow 执行。
+- 每个临时 worker 的 Mihomo 配置使用整数 `mixed-port`，并单独设置 `bind-address: 127.0.0.1`；这是 Mihomo 1.19.x 的兼容形状。controller readiness 会区分 `process_exit`、`controller_timeout`、`controller_auth_error`、`controller_http_error` 等有限分类。
+- 单个 worker 异常只计入该节点的 `error_category` 并继续其他节点；只有没有合格结果时才 fail-closed 并优先恢复 LKG。manifest、health 和 workflow 摘要只保留质量总数及分类计数，不写节点内容、endpoint、UUID、密码、stdout 或 stderr。
+- 本地回归使用 fake Mihomo/网络夹具；本轮另用本机 Clash Verge Rev Mihomo v1.19.32 对合成节点做了真实进程 smoke test。公开候选因来源加载受阻未取得可测试节点，未将该结果冒充真实节点可用性。
 - 探测失败、结果不完整、无合格节点或写入失败都会 fail-closed，并优先保留 `state/last-known-good/`。LKG 是上一份可回退产物，不是本轮节点可用性证明。
 - 每个临时 Mihomo worker 使用独立 loopback controller 和独立的 256-bit 随机 secret；secret 仅在 worker 生命周期内用于 `Authorization: Bearer`，不进入 manifest、health、日志或报告，worker 结束后随临时目录清理。
 

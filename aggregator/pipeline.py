@@ -5,6 +5,7 @@ import json
 import math
 import os
 import shutil
+import subprocess
 import tempfile
 import uuid
 from collections import Counter
@@ -27,7 +28,7 @@ from .parsing import (
     parse_source_payload_with_drops,
     quality_score,
 )
-from .probe import DEFAULT_TARGET_URL
+from .probe import DEFAULT_TARGET_URL, PROBE_ERROR_CATEGORIES
 from .quality import classify_node, node_key, probe_verdict, select_published
 from .validators import CoreValidationError
 
@@ -371,12 +372,19 @@ def _empty_node_quality(
 
 
 def _probe_error_category(exc: Exception) -> str:
-    if isinstance(exc, TimeoutError):
-        return "timeout"
+    core_categories = {
+        "probe_process_start_failed": "process_start_error",
+        "probe_process_exited": "process_exit",
+        "probe_controller_timeout": "controller_timeout",
+        "probe_controller_auth_failed": "controller_auth_error",
+        "probe_controller_http_error": "controller_http_error",
+    }
     if isinstance(exc, CoreValidationError):
-        return "core_validation_error"
+        return core_categories.get(str(exc), "core_validation_error")
+    if isinstance(exc, (TimeoutError, subprocess.TimeoutExpired)):
+        return "timeout"
     if isinstance(exc, OSError):
-        return "network_or_process_error"
+        return "network_error"
     if isinstance(exc, ValueError):
         return "invalid_probe_result"
     return "probe_error"
@@ -464,14 +472,7 @@ def _normalize_probe_rows(
 
     normalized: dict[str, dict[str, object]] = {}
     rows: list[dict[str, object]] = []
-    allowed_errors = {
-        "timeout",
-        "http_error",
-        "network_error",
-        "invalid_response",
-        "core_validation_error",
-        "probe_error",
-    }
+    allowed_errors = set(PROBE_ERROR_CATEGORIES)
     for row in raw_rows:
         name = row.get("name")
         key = row.get("node_key", row.get("name_hash"))

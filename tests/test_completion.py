@@ -641,3 +641,5 @@ def test_workflow_publish_probe_flags_are_explicitly_bounded() -> None:
     assert int(option("--probe-concurrency")) <= 4
     assert "--require-core" in publish_runs
     assert "--no-private" in publish_runs
+    assert "PROBE_ERROR_CATEGORIES" in publish_runs
+    assert "error_categories" in publish_runs

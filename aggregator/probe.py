@@ -7,6 +7,7 @@ import socket
 import subprocess
 import tempfile
 import time
+from collections import Counter
 from collections.abc import Iterable, Mapping
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -20,6 +21,32 @@ from .validators import CoreValidationError
 
 DEFAULT_TARGET_URL = "https://www.gstatic.com/generate_204"
 MAX_PROBE_TIMEOUT_SECONDS = 30.0
+PROBE_ERROR_CATEGORIES = frozenset(
+    {
+        "timeout",
+        "http_error",
+        "network_error",
+        "invalid_response",
+        "invalid_probe_result",
+        "invalid_probe_policy",
+        "probe_unavailable",
+        "process_start_error",
+        "process_exit",
+        "controller_timeout",
+        "controller_auth_error",
+        "controller_http_error",
+        "core_validation_error",
+        "probe_error",
+    }
+)
+
+_CORE_ERROR_CATEGORIES = {
+    "probe_process_start_failed": "process_start_error",
+    "probe_process_exited": "process_exit",
+    "probe_controller_timeout": "controller_timeout",
+    "probe_controller_auth_failed": "controller_auth_error",
+    "probe_controller_http_error": "controller_http_error",
+}
 
 
 def _free_port() -> int:
@@ -53,7 +80,7 @@ def _api_request(
 
 
 def _error_category(exc: Exception) -> str:
-    if isinstance(exc, TimeoutError) or (
+    if isinstance(exc, (TimeoutError, subprocess.TimeoutExpired)) or (
         isinstance(exc, URLError) and isinstance(exc.reason, TimeoutError)
     ):
         return "timeout"
@@ -61,9 +88,32 @@ def _error_category(exc: Exception) -> str:
         return "http_error"
     if isinstance(exc, (OSError, URLError)):
         return "network_error"
-    if isinstance(exc, ValueError):
+    if isinstance(exc, (TypeError, ValueError)):
         return "invalid_response"
     return "probe_error"
+
+
+def _stop_process(process: subprocess.Popen[bytes]) -> None:
+    """Stop a worker without masking the probe result or leaking a process."""
+    try:
+        if process.poll() is None:
+            process.terminate()
+    except (AttributeError, OSError):
+        pass
+    try:
+        process.wait(timeout=3)
+    except subprocess.TimeoutExpired:
+        try:
+            process.kill()
+        except OSError:
+            pass
+        else:
+            try:
+                process.wait(timeout=3)
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+    except OSError:
+        pass
 
 
 def _p95(values: list[float]) -> float | None:
@@ -90,7 +140,8 @@ def _probe_one_node(
         name = str(node["name"])
         controller_secret = secrets.token_urlsafe(32)
         config = {
-            "mixed-port": f"127.0.0.1:{mixed_port}",
+            "mixed-port": mixed_port,
+            "bind-address": "127.0.0.1",
             "allow-lan": False,
             "mode": "rule",
             "log-level": "silent",
@@ -121,6 +172,8 @@ def _probe_one_node(
         try:
             deadline = time.monotonic() + timeout
             while time.monotonic() < deadline:
+                if process.poll() is not None:
+                    raise CoreValidationError("probe_process_exited")
                 try:
                     _api_request(
                         controller,
@@ -129,6 +182,12 @@ def _probe_one_node(
                         headers=controller_headers,
                     )
                     break
+                except HTTPError as exc:
+                    if exc.code in {401, 403}:
+                        raise CoreValidationError(
+                            "probe_controller_auth_failed"
+                        ) from exc
+                    raise CoreValidationError("probe_controller_http_error") from exc
                 except (OSError, ValueError):
                     time.sleep(0.1)
             else:
@@ -180,12 +239,7 @@ def _probe_one_node(
                 error_category=errors[0] if errors else None,
             )
         finally:
-            process.terminate()
-            try:
-                process.wait(timeout=3)
-            except subprocess.TimeoutExpired:
-                process.kill()
-                process.wait(timeout=3)
+            _stop_process(process)
 
 
 def _probe_task(
@@ -210,11 +264,9 @@ def _probe_task(
         return result
     except CoreValidationError as exc:
         reason = str(exc)
-        if reason not in {"probe_process_start_failed", "probe_controller_timeout"}:
-            reason = "probe_worker_failed"
+        error_category = _CORE_ERROR_CATEGORIES.get(reason, "core_validation_error")
         return {
-            **probe_verdict(0, rounds, None, error_category="core_validation_error"),
-            "_fatal_reason": reason,
+            **probe_verdict(0, rounds, None, error_category=error_category),
         }
     except Exception as exc:  # noqa: BLE001 - never expose worker exception text
         return {
@@ -281,7 +333,6 @@ def probe_nodes(
             for proxy in bounded_nodes
         ]
         results: list[dict[str, object]] = []
-        fatal_reasons: list[str] = []
         for proxy, future in zip(bounded_nodes, futures):
             try:
                 verdict = dict(future.result())
@@ -294,17 +345,17 @@ def probe_nodes(
                         error_category=_error_category(exc),
                     ),
                 }
-            fatal_reason = verdict.pop("_fatal_reason", None)
-            if isinstance(fatal_reason, str):
-                fatal_reasons.append(fatal_reason)
             results.append({"node_key": node_key(proxy), **verdict})
 
-    if fatal_reasons and len(fatal_reasons) == len(results):
-        raise CoreValidationError(fatal_reasons[0])
     verified_count = sum(1 for item in results if item["verified"])
     fast_count = sum(1 for item in results if item["fast"])
     stable_count = sum(1 for item in results if item["stable"])
     failed_count = sum(1 for item in results if not item["stable"])
+    error_counts = Counter(
+        str(item["error_category"])
+        for item in results
+        if item.get("error_category") in PROBE_ERROR_CATEGORIES
+    )
     return {
         "status": "performed",
         "tested": len(results),
@@ -320,5 +371,6 @@ def probe_nodes(
             "parallel" if bounded_concurrency > 1 and len(results) > 1 else "serial"
         ),
         "target": DEFAULT_TARGET_URL,
+        "error_categories": dict(sorted(error_counts.items())),
         "results": results,
     }
