@@ -257,29 +257,94 @@ jobs:
 
           manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
           health = json.loads((root / "health.json").read_text(encoding="utf-8"))
+          MIN_SUCCESSFUL_PUBLIC_SOURCES = 2
+
+          def is_nonnegative_int(value: object) -> bool:
+              return (
+                  isinstance(value, int)
+                  and not isinstance(value, bool)
+                  and value >= 0
+              )
+
           if manifest.get("status") != "success":
               fail("manifest_status")
           if health.get("status") != "ok":
               fail("health_status")
           results = manifest.get("sources")
+          if not isinstance(results, list) or len(results) != 3:
+              fail("source_fetch_or_empty")
+          if [item.get("id") for item in results if isinstance(item, dict)] != [
+              item.get("id") for item in public
+          ]:
+              fail("source_identity")
+          empty_source_summary = []
+          for item in results:
+              if not isinstance(item, dict):
+                  fail("source_fetch_or_empty")
+              accepted = item.get("accepted", 0)
+              if not is_nonnegative_int(accepted):
+                  fail("source_fetch_or_empty")
+              drops = item.get("drops") or {}
+              if not isinstance(drops, dict) or any(
+                  not isinstance(reason, str)
+                  or not is_nonnegative_int(count)
+                  for reason, count in drops.items()
+              ):
+                  fail("source_fetch_or_empty")
+              if accepted == 0:
+                  drop_text = ", ".join(
+                      f"{reason}={count}" for reason, count in sorted(drops.items())
+                  ) or "none"
+                  empty_source_summary.append(
+                      f"- {str(item.get('id') or 'unknown')}: "
+                      f"accepted=0; drops: {drop_text}"
+                  )
+          health_results = health.get("sources")
           if (
-              not isinstance(results, list)
-              or len(results) != 3
-              or any(item.get("kind") != "public" for item in results)
-              or any(item.get("status") != "ok" for item in results)
-              or any(item.get("accepted", 0) <= 0 for item in results)
+              not isinstance(health_results, list)
+              or len(health_results) != len(results)
+              or any(not isinstance(item, dict) for item in health_results)
+              or [item.get("id") for item in health_results]
+              != [item.get("id") for item in results]
           ):
+              fail("health_source_structure")
+          if any(
+              item.get("drops", {}) != health_item.get("drops", {})
+              for item, health_item in zip(results, health_results)
+          ):
+              fail("health_source_drops")
+          if any(
+              item.get("kind") != "public" or item.get("status") != "ok"
+              for item in results
+          ):
+              fail("source_fetch_or_empty")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
+              output.write(
+                  f"min_successful_public_sources={MIN_SUCCESSFUL_PUBLIC_SOURCES}\n"
+              )
+              output.write("empty_source_summary<<EOF\n")
+              output.write(("\n".join(empty_source_summary) or "- none") + "\n")
+              output.write("EOF\n")
+          successful_public_sources = [
+              item for item in results if item.get("accepted", 0) > 0
+          ]
+          if len(successful_public_sources) < MIN_SUCCESSFUL_PUBLIC_SOURCES:
               fail("source_fetch_or_empty")
           validation = manifest.get("core_validation", {})
           mihomo = validation.get("clients", {}).get("mihomo", {})
           if mihomo.get("status") != "passed":
               fail("core_validation")
+          counts = manifest.get("counts")
+          if not isinstance(counts, dict):
+              fail("manifest_counts")
+          published = counts.get("published")
+          if not is_nonnegative_int(published) or published <= 0:
+              fail("manifest_published_count")
 
           clash = yaml.safe_load(
               (root / "clash/config.yaml").read_text(encoding="utf-8")
           )
           proxies = clash.get("proxies") if isinstance(clash, dict) else None
-          published = manifest.get("counts", {}).get("published")
           if (
               not isinstance(clash, dict)
               or not isinstance(proxies, list)
@@ -375,12 +440,17 @@ jobs:
         env:
           RELEASE_STATUS: ${{ job.status }}
           PUBLISHED_COUNT: ${{ steps.artifact_check.outputs.published_count || '0' }}
+          MIN_SUCCESSFUL_PUBLIC_SOURCES: ${{ steps.artifact_check.outputs.min_successful_public_sources || '2' }}
+          EMPTY_SOURCE_SUMMARY: ${{ steps.artifact_check.outputs.empty_source_summary || 'not_available' }}
           VERIFICATION_STATUS: ${{ steps.http_verify.outputs.verification_status || 'not_run' }}
         run: |
           {
             echo "## Public Pages release"
             echo "- status: ${RELEASE_STATUS}"
+            echo "- minimum successful public sources: ${MIN_SUCCESSFUL_PUBLIC_SOURCES}"
             echo "- published count: ${PUBLISHED_COUNT}"
             echo "- verification status: ${VERIFICATION_STATUS}"
+            echo "- empty public source drops:"
+            printf '%s\n' "${EMPTY_SOURCE_SUMMARY}"
             echo "- fixed URL: ${PUBLISH_CONFIG_URL}"
           } >> "$GITHUB_STEP_SUMMARY"

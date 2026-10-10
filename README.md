@@ -60,7 +60,7 @@ sources:
 - Pull Request 只运行 pytest、compileall 和 workflow 结构检查，不抓取来源、不生成发布产物、不部署 Pages；
 - 每 6 小时运行一次，也支持手动触发；手动输入 `publish_nodes` 默认关闭；
 - 发布仅允许在 `main`、非 fork、公开再分发授权闸门开启且手动明确发布或定时触发时进行；
-- 发布只读取 3 个当前已授权的 `sources.public` 来源，强制 `--no-private`，固定使用受摘要校验的 Mihomo 核心，并在核心校验、产物结构和固定 URL HTTP/YAML 检查全部通过后部署；
+- 发布只读取 3 个当前已授权的 `sources.public` 来源，强制 `--no-private`，固定使用受摘要校验的 Mihomo 核心；3 个来源都必须抓取/解析为 `status=ok`，但允许单个来源 `accepted=0`，只要至少 2 个来源 `accepted>0` 且 `manifest.counts.published>0`。核心校验、产物结构和固定 URL HTTP/YAML 检查全部通过后才部署；空来源的 drop 原因只写入 manifest/health 和脱敏 Step Summary，不会把缺字段节点发布；
 - Pages artifact 只包含 `pages/dist`，不包含仓库其他文件；Step Summary 只记录状态、发布数量、验证状态和固定导入地址，不输出节点正文或凭据。
 
 公开节点数据仍需由接入者核对各来源节点数据的使用与再分发条款；代码仓库公开不等于节点数据公开授权，工作流闸门也不替代这项责任。

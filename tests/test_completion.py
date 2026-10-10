@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 import yaml
@@ -317,6 +320,191 @@ def test_manifest_artifact_hashes_match_written_files(tmp_path: Path) -> None:
         content = (output_dir / artifact["path"]).read_bytes()
         assert hashlib.sha256(content).hexdigest() == artifact["sha256"]
         assert len(content) == artifact["bytes"]
+
+
+def test_two_public_sources_can_publish_when_one_source_is_empty(
+    tmp_path: Path,
+) -> None:
+    config_path = tmp_path / "sources.yaml"
+    source_a = tmp_path / "source-a.yaml"
+    source_b = tmp_path / "source-b.yaml"
+    empty_source = tmp_path / "empty-trojan.yaml"
+    for path, name in ((source_a, "source-a"), (source_b, "source-b")):
+        path.write_text(
+            "proxies:\n"
+            f"  - name: {name}\n"
+            "    type: http\n"
+            f"    server: {name}.example.invalid\n"
+            "    port: 8080\n",
+            encoding="utf-8",
+        )
+    empty_source.write_text(
+        "proxies:\n"
+        "  - name: missing-password\n"
+        "    type: trojan\n"
+        "    server: empty.example.invalid\n"
+        "    port: 443\n",
+        encoding="utf-8",
+    )
+    _write_config(
+        config_path,
+        [
+            {
+                "id": "source-a",
+                "path": str(source_a),
+                "enabled": True,
+                "publish": True,
+                "requires_review": False,
+            },
+            {
+                "id": "source-b",
+                "path": str(source_b),
+                "enabled": True,
+                "publish": True,
+                "requires_review": False,
+            },
+            {
+                "id": "empty-trojan",
+                "path": str(empty_source),
+                "enabled": True,
+                "publish": True,
+                "requires_review": False,
+            },
+        ],
+    )
+
+    output_dir = tmp_path / "dist"
+    state_dir = tmp_path / "state"
+    result = run_pipeline(config_path, output_dir, state_dir)
+
+    assert result.success is True
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    health = json.loads((output_dir / "health.json").read_text(encoding="utf-8"))
+    manifest_sources = {item["id"]: item for item in manifest["sources"]}
+    health_sources = {item["id"]: item for item in health["sources"]}
+
+    assert manifest["counts"]["published"] == 2
+    assert all(item["status"] == "ok" for item in manifest_sources.values())
+    assert manifest_sources["source-a"]["accepted"] == 1
+    assert manifest_sources["source-b"]["accepted"] == 1
+    assert manifest_sources["empty-trojan"]["accepted"] == 0
+    assert manifest_sources["empty-trojan"]["drops"] == {"missing_password": 1}
+    assert health["status"] == "ok"
+    assert health_sources["empty-trojan"]["drops"] == {"missing_password": 1}
+
+
+def test_release_workflow_gate_keeps_aggregate_thresholds(tmp_path: Path) -> None:
+    workflow = yaml.safe_load(
+        (Path(__file__).parents[1] / ".github" / "workflows" / "update.yml").read_text(
+            encoding="utf-8"
+        )
+    )
+    gate_step = next(
+        step
+        for step in workflow["jobs"]["publish"]["steps"]
+        if step.get("name") == "Check redacted release inputs"
+    )
+    gate_run = str(gate_step["run"])
+    script_start = gate_run.index("python - <<'PY'\n") + len("python - <<'PY'\n")
+    gate_script = gate_run[script_start : gate_run.index("\nPY", script_start)]
+
+    def run_gate(
+        case: str, accepted: list[int], published: int
+    ) -> subprocess.CompletedProcess[str]:
+        root = tmp_path / case
+        (root / "config").mkdir(parents=True)
+        (root / "dist" / "clash").mkdir(parents=True)
+        (root / "dist" / "clash" / "providers").mkdir()
+        (root / "dist" / "sing-box").mkdir()
+        sources = [
+            {
+                "id": f"source-{index}",
+                "kind": "public",
+                "url": f"https://example.invalid/source-{index}",
+                "enabled": True,
+                "publish": True,
+                "requires_review": False,
+            }
+            for index in range(3)
+        ]
+        (root / "config" / "sources.yaml").write_text(
+            yaml.safe_dump({"sources": {"public": sources, "private": []}}),
+            encoding="utf-8",
+        )
+        source_results = []
+        for index, count in enumerate(accepted):
+            source = {
+                "id": f"source-{index}",
+                "kind": "public",
+                "status": "ok",
+                "parsed": count,
+                "accepted": count,
+            }
+            if count == 0:
+                source["drops"] = {"missing_password": 1}
+            source_results.append(source)
+        manifest = {
+            "status": "success",
+            "counts": {"published": published},
+            "sources": source_results,
+            "core_validation": {"clients": {"mihomo": {"status": "passed"}}},
+        }
+        health = {"status": "ok", "sources": source_results}
+        proxies = [
+            {
+                "name": f"proxy-{index}",
+                "type": "http",
+                "server": f"proxy-{index}.example.invalid",
+                "port": 8080,
+            }
+            for index in range(published)
+        ]
+        (root / "dist" / "manifest.json").write_text(
+            json.dumps(manifest), encoding="utf-8"
+        )
+        (root / "dist" / "health.json").write_text(json.dumps(health), encoding="utf-8")
+        (root / "dist" / "clash" / "config.yaml").write_text(
+            yaml.safe_dump({"proxies": proxies, "proxy-groups": [], "rules": []}),
+            encoding="utf-8",
+        )
+        (root / "dist" / "clash" / "providers" / "aggregate.yaml").write_text(
+            "proxies: []\n", encoding="utf-8"
+        )
+        (root / "dist" / "sing-box" / "config.json").write_text(
+            json.dumps({"outbounds": []}), encoding="utf-8"
+        )
+        output_path = root / "github-output"
+        environment = os.environ.copy()
+        environment["GITHUB_OUTPUT"] = str(output_path)
+        return subprocess.run(
+            [sys.executable, "-c", gate_script],
+            cwd=root,
+            env=environment,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+    allowed = run_gate("allowed", [1, 1, 0], 2)
+    assert allowed.returncode == 0
+    assert "- source-2: accepted=0; drops: missing_password=1" in (
+        tmp_path / "allowed" / "github-output"
+    ).read_text(encoding="utf-8")
+    assert "example.invalid" not in (tmp_path / "allowed" / "github-output").read_text(
+        encoding="utf-8"
+    )
+
+    below_threshold = run_gate("below-threshold", [1, 0, 0], 1)
+    assert below_threshold.returncode != 0
+    assert "release_gate_failed:source_fetch_or_empty" in (
+        below_threshold.stdout + below_threshold.stderr
+    )
+
+    no_published_nodes = run_gate("no-published-nodes", [1, 1, 0], 0)
+    assert no_published_nodes.returncode != 0
+    assert "release_gate_failed:manifest_published_count" in (
+        no_published_nodes.stdout + no_published_nodes.stderr
+    )
 
 
 def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:

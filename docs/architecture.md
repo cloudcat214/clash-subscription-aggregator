@@ -14,7 +14,7 @@
 - `private` 节点只允许通过显式本机参数生成到 `dist-private/`（或调用者指定的本地目录），默认被 `.gitignore` 忽略；私有凭据与私有正文通过环境变量或本机目录注入，不进入公开 `dist`。
 - 公开仓库包含代码、文档、合成测试数据和 `config/sources.yaml` 中的公开来源清单；不包含真实节点内容、订阅令牌、节点凭据或私有来源正文。
 - GitHub Actions 在 Pull Request 上只运行离线测试、编译和 workflow 结构检查；schedule 每 6 小时运行一次，workflow_dispatch 默认不发布。
-- 发布 job 只在 `main`、非 fork、公开再分发授权闸门满足且允许发布的事件下运行；它强制 `--no-private`，只处理当前 3 个公开来源，并通过受摘要校验的 Mihomo 核心检查。
+- 发布 job 只在 `main`、非 fork、公开再分发授权闸门满足且允许发布的事件下运行；它强制 `--no-private`，只处理当前 3 个公开来源。3 个来源都必须抓取/解析为 `status=ok`，至少 2 个来源必须有 `accepted>0`，且 `manifest.counts.published>0`；单个来源为空时保留 manifest/health 的 drops 并写入脱敏 Step Summary，缺字段节点不会进入产物。
 - 发布权限为 `contents: read`、`pages: write`、`id-token: write`；Pages artifact 只上传 `pages/dist`，部署后还会检查固定 URL 的 HTTP 状态、Content-Type、大小、YAML 顶层结构和 `proxies` 数量。
 - 代码许可证不授予订阅节点数据的使用或再分发权；未来公开数据需要独立授权及条款核对。
 
