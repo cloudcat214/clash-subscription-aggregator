@@ -222,58 +222,7 @@ jobs:
           build_status=$?
           set -e
           if [ "$build_status" -ne 0 ]; then
-            python - <<'PY'
-            import json
-            import os
-            from pathlib import Path
-
-            allowed = {
-                "timeout",
-                "http_error",
-                "network_error",
-                "invalid_response",
-                "invalid_probe_result",
-                "invalid_probe_policy",
-                "probe_unavailable",
-                "process_start_error",
-                "process_exit",
-                "controller_timeout",
-                "controller_auth_error",
-                "controller_http_error",
-                "core_validation_error",
-                "probe_error",
-            }
-            categories = {}
-            try:
-                health = json.loads(Path("dist/health.json").read_text(encoding="utf-8"))
-                verification = health.get("verification", {})
-                raw_categories = (
-                    verification.get("error_categories", {})
-                    if isinstance(verification, dict)
-                    else {}
-                )
-                if isinstance(raw_categories, dict):
-                    categories = {
-                        key: value
-                        for key, value in raw_categories.items()
-                        if key in allowed
-                        and isinstance(value, int)
-                        and not isinstance(value, bool)
-                        and value >= 0
-                    }
-                single = (
-                    verification.get("error_category")
-                    if isinstance(verification, dict)
-                    else None
-                )
-                if not categories and single in allowed:
-                    categories = {single: 1}
-            except (OSError, ValueError, TypeError):
-                categories = {}
-            with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as env:
-                env.write(f"PROBE_ERROR_CATEGORIES={json.dumps(categories, sort_keys=True)}\n")
-                env.write(f"PROBE_ERROR_TOTAL={sum(categories.values())}\n")
-            PY
+            python -m aggregator.ci_probe_summary dist/health.json
           fi
           exit "$build_status"
 

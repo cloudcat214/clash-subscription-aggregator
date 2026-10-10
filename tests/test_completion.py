@@ -642,4 +642,4 @@ def test_workflow_publish_probe_flags_are_explicitly_bounded() -> None:
     assert "--require-core" in publish_runs
     assert "--no-private" in publish_runs
     assert "PROBE_ERROR_CATEGORIES" in publish_runs
-    assert "error_categories" in publish_runs
+    assert "aggregator.ci_probe_summary dist/health.json" in publish_runs
