@@ -98,6 +98,63 @@ function Invoke-Git {
     }
 }
 
+$MaterialArtifactPaths = @(
+    "docs/dist/clash/config.yaml",
+    "docs/dist/clash/providers/aggregate.yaml",
+    "docs/dist/sing-box/config.json"
+)
+
+function Get-MaterialHash {
+    param([Parameter(Mandatory = $true)][string]$Text)
+
+    $normalized = $Text -replace "`r`n", "`n"
+    $normalized = $normalized -replace "`r", "`n"
+    $normalized = [regex]::Replace(
+        $normalized,
+        '(?m)^[\t ]*"?(?:generated_at|updated_at|created_at|timestamp|last_checked|refreshed_at)"?\s*:\s*.*(?:\r?\n|$)',
+        ""
+    ).Trim()
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try {
+        return ([BitConverter]::ToString(
+            $sha.ComputeHash([Text.Encoding]::UTF8.GetBytes($normalized))
+        )).Replace("-", "").ToLowerInvariant()
+    } finally {
+        $sha.Dispose()
+    }
+}
+
+function Get-FileMaterialHash {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) {
+        return $null
+    }
+    return Get-MaterialHash (Get-Content -LiteralPath $Path -Raw -Encoding UTF8)
+}
+
+function Get-HeadMaterialHash {
+    param([Parameter(Mandatory = $true)][string]$RelativePath)
+
+    $text = (& git show ("HEAD:{0}" -f $RelativePath) 2>$null | Out-String)
+    if ($LASTEXITCODE -ne 0) {
+        return $null
+    }
+    return Get-MaterialHash $text
+}
+
+function Test-MaterialChange {
+    foreach ($relativePath in $MaterialArtifactPaths) {
+        $localPath = Join-Path $ProjectRoot $relativePath
+        $localHash = Get-FileMaterialHash $localPath
+        $headHash = Get-HeadMaterialHash $relativePath
+        if ([string]::IsNullOrWhiteSpace($headHash) -or $localHash -ne $headHash) {
+            return $true
+        }
+    }
+    return $false
+}
+
 try {
     New-Item -ItemType Directory -Path $LogDirectory -Force | Out-Null
     Start-Transcript -LiteralPath $LogPath -Force | Out-Null
@@ -259,18 +316,14 @@ try {
             }
         }
 
-        Invoke-Git @("add", "--all", "--", "docs/dist")
-        & git diff --cached --quiet -- docs/dist
-        $DiffExitCode = $LASTEXITCODE
-        if ($DiffExitCode -eq 0) {
-            Write-Host "docs/dist 无变化，不创建空提交。"
-        } elseif ($DiffExitCode -eq 1) {
+        if (-not (Test-MaterialChange)) {
+            Write-Host "no material change; skip commit/push."
+        } else {
+            Invoke-Git @("add", "--all", "--", "docs/dist")
             $CommitTime = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
             Invoke-Git @("commit", "-m", "refresh: verified nodes $CommitTime")
             Invoke-Git @("pull", "--rebase")
             Invoke-Git @("push", "origin", "main")
-        } else {
-            throw "git diff --cached 检查失败，exit code=$DiffExitCode。"
         }
     }
 } catch {

@@ -488,6 +488,12 @@ def test_refresh_publish_script_is_the_only_local_refresh_entrypoint() -> None:
         '"docs/dist"',
         '"pull", "--rebase"',
         '"push", "origin", "main"',
+        '"docs/dist/clash/config.yaml"',
+        '"docs/dist/clash/providers/aggregate.yaml"',
+        '"docs/dist/sing-box/config.json"',
+        "function Test-MaterialChange",
+        "Get-HeadMaterialHash",
+        "no material change; skip commit/push.",
         "node_quality",
     ):
         assert expected in script
