@@ -124,11 +124,7 @@ def _validate_fetch_url(
             value.version == _CONTROLLED_PROXY_DNS.version
             and value in _CONTROLLED_PROXY_DNS
         ):
-            if (
-                normalized_address not in controlled_proxy_addresses
-                or hostname != _CONTROLLED_PROXY_HOST
-                or hostname not in trust_hosts
-            ):
+            if hostname != _CONTROLLED_PROXY_HOST or hostname not in trust_hosts:
                 raise FetchError("controlled_proxy_address_not_trusted")
         elif _blocked_ip(normalized_address):
             raise FetchError("private_source_address")

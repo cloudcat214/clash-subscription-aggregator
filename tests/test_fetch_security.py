@@ -48,8 +48,10 @@ def test_controlled_proxy_allowlist_is_exact_and_private_addresses_stay_blocked(
         "198.18.0.21",
     )
 
-    with pytest.raises(FetchError, match="controlled_proxy_address_not_trusted"):
-        validate("198.18.0.22")
+    assert validate("198.18.0.22") == (
+        "raw.githubusercontent.com",
+        "198.18.0.22",
+    )
 
     with pytest.raises(FetchError, match="private_source_address"):
         validate("10.0.0.1")
@@ -134,7 +136,7 @@ def test_fetch_rejects_explicit_special_use_and_translation_addresses(
 
 
 @pytest.mark.parametrize("address", ["198.18.0.22", "::ffff:198.18.0.22"])
-def test_fetch_rejects_non_allowlisted_benchmark_address(
+def test_fetch_accepts_rotating_trusted_benchmark_address(
     monkeypatch, address: str
 ) -> None:
     monkeypatch.setattr(
@@ -145,12 +147,29 @@ def test_fetch_rejects_non_allowlisted_benchmark_address(
         ],
     )
 
+    assert fetch._validate_fetch_url(
+        "https://raw.githubusercontent.com/owner/repo/file",
+        allowed_hosts={"raw.githubusercontent.com"},
+        trust_hosts={"raw.githubusercontent.com"},
+        controlled_proxy_addresses={"198.18.0.21", "198.18.1.48"},
+    ) == ("raw.githubusercontent.com", "198.18.0.22")
+
+
+def test_fetch_rejects_controlled_range_for_untrusted_host(monkeypatch) -> None:
+    monkeypatch.setattr(
+        fetch.socket,
+        "getaddrinfo",
+        lambda *args, **kwargs: [
+            (socket.AF_INET, socket.SOCK_STREAM, 6, "", ("198.18.0.22", 443))
+        ],
+    )
+
     with pytest.raises(FetchError, match="controlled_proxy_address_not_trusted"):
         fetch._validate_fetch_url(
-            "https://raw.githubusercontent.com/owner/repo/file",
-            allowed_hosts={"raw.githubusercontent.com"},
-            trust_hosts={"raw.githubusercontent.com"},
-            controlled_proxy_addresses={"198.18.0.21", "198.18.1.48"},
+            "https://trusted.example/owner/repo/file",
+            allowed_hosts={"trusted.example"},
+            trust_hosts=set(),
+            controlled_proxy_addresses=set(),
         )
 
 
