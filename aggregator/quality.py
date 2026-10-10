@@ -222,6 +222,6 @@ def select_published(
         )
     selected.sort(key=lambda item: item[:3])
     if max_nodes is not None:
-        budget = max(0, min(30, _count(max_nodes)))
+        budget = max(0, min(500, _count(max_nodes)))
         selected = selected[:budget]
     return [item[3] for item in selected]

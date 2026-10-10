@@ -401,6 +401,17 @@ def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
             raise TypeError("invalid_probe_policy")
         return max(1, min(value, maximum))
 
+    for name, default, maximum in (
+        ("probe_max_nodes", 30, 500),
+        ("probe_concurrency", 1, 8),
+        ("probe_publish_max_nodes", 30, 500),
+    ):
+        value = settings.get(name, default)
+        if isinstance(value, bool) or not isinstance(value, int):
+            raise TypeError("invalid_probe_policy")
+        if value > maximum:
+            raise ValueError("probe_parameters_over_budget")
+
     try:
         stable_rate = float(settings.get("probe_min_success_rate", 2 / 3))
         fast_latency = float(settings.get("probe_fast_latency_ms", 800.0))
@@ -428,16 +439,16 @@ def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
         raise ValueError("probe_rounds_below_verified_min_rounds")
     return {
         "min_verdict": minimum,
-        "probe_max_nodes": bounded_int("probe_max_nodes", 30, 30),
+        "probe_max_nodes": bounded_int("probe_max_nodes", 30, 500),
         "probe_rounds": probe_rounds,
-        "probe_concurrency": bounded_int("probe_concurrency", 1, 4),
+        "probe_concurrency": bounded_int("probe_concurrency", 1, 8),
         "probe_timeout_seconds": timeout_seconds,
         "verified_min_rounds": verified_min_rounds,
         "stable_min_rounds": stable_min_rounds,
         "stable_success_rate": stable_rate,
         "fast_latency_ms": fast_latency,
         "latency_cap_ms": latency_cap,
-        "publish_max_nodes": bounded_int("probe_publish_max_nodes", 30, 30),
+        "publish_max_nodes": bounded_int("probe_publish_max_nodes", 30, 500),
     }
 
 
@@ -467,7 +478,7 @@ def _normalize_probe_rows(
         raw_rows = [dict(row) for row in raw]
     else:
         raise TypeError("probe_results_invalid")
-    if len(raw_rows) > 30:
+    if len(raw_rows) > 500:
         raise ValueError("probe_results_over_budget")
 
     normalized: dict[str, dict[str, object]] = {}
@@ -1060,6 +1071,7 @@ def run_pipeline(
             if policy_error not in {
                 "probe_rounds_below_stable_min_rounds",
                 "probe_rounds_below_verified_min_rounds",
+                "probe_parameters_over_budget",
             }:
                 policy_error = "invalid_probe_policy"
             verification = {
@@ -1156,6 +1168,8 @@ def run_pipeline(
                 for value in (raw_rounds, raw_max_nodes, raw_concurrency)
             ):
                 raise TypeError("probe_parameters_invalid")
+            if cast(int, raw_max_nodes) > 500 or cast(int, raw_concurrency) > 8:
+                raise ValueError("probe_parameters_over_budget")
             if isinstance(raw_timeout, bool) or not isinstance(
                 raw_timeout, (int, float)
             ):
@@ -1164,8 +1178,8 @@ def run_pipeline(
             if not math.isfinite(timeout_seconds) or timeout_seconds <= 0:
                 raise ValueError("probe_parameters_invalid")
             rounds_total = max(1, min(cast(int, raw_rounds), 3))
-            max_nodes = max(1, min(cast(int, raw_max_nodes), 30))
-            concurrency = max(1, min(cast(int, raw_concurrency), 4))
+            max_nodes = max(1, min(cast(int, raw_max_nodes), 500))
+            concurrency = max(1, min(cast(int, raw_concurrency), 8))
             if timeout_seconds > 30:
                 raise ValueError("probe_parameters_over_budget")
             result_map, probe_rows = _normalize_probe_rows(
@@ -1236,10 +1250,15 @@ def run_pipeline(
                 "latency_score_cap_ms": policy["latency_cap_ms"],
                 "error_categories": dict(sorted(error_counts.items())),
             }
-        except (TypeError, ValueError, OverflowError):
+        except (TypeError, ValueError, OverflowError) as exc:
+            failure_reason = (
+                "probe_parameters_over_budget"
+                if str(exc) == "probe_parameters_over_budget"
+                else "probe_results_invalid"
+            )
             verification = {
                 "status": "failed",
-                "reason": "probe_results_invalid",
+                "reason": failure_reason,
                 "error_category": "invalid_probe_result",
                 "target": DEFAULT_TARGET_URL,
                 "min_verdict": policy["min_verdict"],
@@ -1249,7 +1268,7 @@ def run_pipeline(
                 output_dir,
                 state_dir,
                 public_results,
-                "probe_results_invalid",
+                failure_reason,
                 generated_at,
                 active_probe=True,
                 verification=verification,

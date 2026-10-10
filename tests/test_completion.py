@@ -637,9 +637,35 @@ def test_workflow_publish_probe_flags_are_explicitly_bounded() -> None:
     assert "--probe" in publish_runs
     assert option("--probe-max-nodes") == "30"
     assert option("--probe-rounds") == "3"
-    assert float(option("--probe-timeout")) <= 30
-    assert int(option("--probe-concurrency")) <= 4
+    assert float(option("--probe-timeout")) == 10
+    assert int(option("--probe-concurrency")) == 4
     assert "--require-core" in publish_runs
     assert "--no-private" in publish_runs
     assert "PROBE_ERROR_CATEGORIES" in publish_runs
     assert "aggregator.ci_probe_summary dist/health.json" in publish_runs
+
+
+def test_local_refresh_script_uses_local_only_outputs_and_explicit_probe_args() -> None:
+    script_path = Path(__file__).parents[1] / "scripts" / "local-refresh.ps1"
+    script = script_path.read_text(encoding="utf-8")
+
+    for expected in (
+        "[int]$MaxNodes = 150",
+        "[int]$Rounds = 3",
+        "[double]$Timeout = 5",
+        "[int]$Concurrency = 6",
+        '[string]$MinVerdict = "stable"',
+        '"D:\\Program Files\\Clash Verge\\verge-mihomo.exe"',
+        '"C:\\Program Files\\Clash Verge\\verge-mihomo.exe"',
+        "--output dist-local",
+        "--state state-local",
+        "--no-private",
+        "--require-core",
+        "dist-local\\manifest.json",
+        "counts=",
+        "node_quality",
+    ):
+        assert expected in script
+    assert "Set-ItemProperty" not in script
+    assert "ProxyEnable" not in script
+    assert "secret" not in script.lower()

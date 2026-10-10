@@ -691,9 +691,9 @@ def test_pipeline_rejects_incompatible_probe_rounds_before_probe_runner(
 
 
 def test_probe_budget_is_clamped_to_hard_limits(monkeypatch) -> None:
-    """最大节点 30、轮数 3、并发 4，超出必须被钳制。"""
+    """最大节点 500、轮数 3、并发 8，超出必须被钳制。"""
     _patch_probe_runtime(monkeypatch)
-    nodes = [{"name": f"node-{index}"} for index in range(35)]
+    nodes = [{"name": f"node-{index}"} for index in range(505)]
 
     result = probe_nodes(
         nodes,
@@ -704,10 +704,71 @@ def test_probe_budget_is_clamped_to_hard_limits(monkeypatch) -> None:
         timeout=1.0,
     )
 
-    assert result["tested"] == 30
+    assert result["tested"] == 500
     assert result["rounds"] == 3
-    assert result["concurrency"] == 4
-    assert result["verified"] == 30
+    assert result["concurrency"] == 8
+    assert result["verified"] == 500
+
+
+@pytest.mark.parametrize(
+    ("setting", "value"),
+    [
+        ("probe_max_nodes", 501),
+        ("probe_concurrency", 9),
+        ("probe_publish_max_nodes", 501),
+    ],
+)
+def test_pipeline_rejects_probe_settings_over_budget(
+    tmp_path: Path, setting: str, value: int
+) -> None:
+    """配置的节点数/并发数超过本机探测预算时必须在 runner 前拒绝。"""
+    calls = {"count": 0}
+
+    def fake_probe(_proxies):
+        calls["count"] += 1
+        return {"status": "performed", "results": []}
+
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path,
+        active_probe=True,
+        settings_overrides={setting: value},
+    )
+
+    result = run_pipeline(config_path, output_dir, state_dir, probe_runner=fake_probe)
+
+    assert result.success is False
+    assert result.failure_reason == "probe_parameters_over_budget"
+    assert calls["count"] == 0
+    health = json.loads((output_dir / "health.json").read_text(encoding="utf-8"))
+    assert health["verification"]["policy_error"] == "probe_parameters_over_budget"
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [("max_nodes", 501), ("concurrency", 9)],
+)
+def test_pipeline_rejects_reported_probe_parameters_over_budget(
+    tmp_path: Path, field: str, value: int
+) -> None:
+    """runner 回报的节点数/并发数超过预算时不能被静默钳制。"""
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path, active_probe=True
+    )
+
+    def fake_probe(_proxies):
+        return {
+            "status": "performed",
+            "tested": 0,
+            "results": [],
+            field: value,
+        }
+
+    result = run_pipeline(config_path, output_dir, state_dir, probe_runner=fake_probe)
+
+    assert result.success is False
+    assert result.failure_reason == "probe_parameters_over_budget"
+    health = json.loads((output_dir / "health.json").read_text(encoding="utf-8"))
+    assert health["failure_reason"] == "probe_parameters_over_budget"
 
 
 def test_active_probe_default_false_does_not_trigger_probe(tmp_path: Path) -> None:

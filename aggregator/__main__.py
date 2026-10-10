@@ -40,7 +40,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--require-core", action="store_true", help="缺少核心或校验失败时禁止替换产物"
     )
     run.add_argument(
-        "--probe", action="store_true", help="独立临时 Mihomo 实测，最多 30 节点×3轮"
+        "--probe", action="store_true", help="独立临时 Mihomo 实测，最多 500 节点×3轮"
     )
     run.add_argument("--probe-max-nodes", type=int, default=30)
     run.add_argument("--probe-rounds", type=int, default=3)

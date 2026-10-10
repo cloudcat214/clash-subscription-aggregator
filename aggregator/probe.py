@@ -278,7 +278,7 @@ def probe_nodes(
     proxies: Iterable[Mapping[str, object]],
     *,
     mihomo_path: str,
-    max_nodes: int = 30,
+    max_nodes: int = 500,
     rounds: int = 3,
     timeout: float = 10.0,
     concurrency: int = 1,
@@ -289,10 +289,10 @@ def probe_nodes(
         raise CoreValidationError("mihomo_path_missing_for_probe")
     if target_url != DEFAULT_TARGET_URL:
         raise CoreValidationError("probe_target_not_allowed")
-    bounded_max_nodes = max(1, min(max_nodes, 30))
+    bounded_max_nodes = max(1, min(max_nodes, 500))
     bounded_nodes = [dict(proxy) for proxy in proxies][:bounded_max_nodes]
     bounded_rounds = max(1, min(rounds, 3))
-    bounded_concurrency = max(1, min(concurrency, 4))
+    bounded_concurrency = max(1, min(concurrency, 8))
     try:
         requested_timeout = float(timeout)
     except (TypeError, ValueError):

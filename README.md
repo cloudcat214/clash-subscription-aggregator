@@ -21,7 +21,7 @@ python -m aggregator run --config config/sources.yaml --output dist --state stat
 ### 节点主动探测与质量口径
 
 - `settings.active_probe` 默认是 `false`；普通本地运行不会主动连接节点。只有显式传入 `--probe` 才启用主动探测。
-- 发布 job 显式使用 `--probe --probe-max-nodes 30 --probe-rounds 3 --probe-timeout 10 --probe-concurrency 4 --probe-min-verdict stable --require-core --no-private`。单次最多探测 30 个节点、3 轮、30 秒以内超时上限、最多 4 个 worker；超出配置会被代码再次钳制。
+- 代码对主动探测的硬上限是最多 500 个节点、3 轮、30 秒 timeout、最多 8 个 worker；超出 pipeline 配置或 runner 回报的节点数/并发数会以 `probe_parameters_over_budget` fail-closed。GitHub 发布 job 仍显式使用 `--probe-max-nodes 30 --probe-rounds 3 --probe-timeout 10 --probe-concurrency 4`，不因本机上限放宽而改变 CI 行为。
 - 每个节点保留独立的轮次结果、成功率、平均延迟、p95 延迟和错误分类。`verified` 只表示 3/3 轮成功；`stable` 表示至少 3 轮且成功率至少 2/3；`fast` 只是延迟标签（平均延迟不超过 800ms），不单独放宽 `stable` 发布门槛。
 - 只有达到发布配置的最低等级（发布 workflow 为 `stable`）的节点才进入最终产物。预算外节点记为 `not_tested_budget`，探测失败与成功率不足分别记为 `failed_probe`、`below_quality_threshold`；未实测不等于可用。
 - 目标固定为 `https://www.gstatic.com/generate_204`。结果只代表当前 runner 到这个目标的路径，受 runner 地域、出口网络、上游限速和目标站点策略影响，不代表全球或其他站点可用。
@@ -30,6 +30,24 @@ python -m aggregator run --config config/sources.yaml --output dist --state stat
 - 本地回归使用 fake Mihomo/网络夹具；本轮另用本机 Clash Verge Rev Mihomo v1.19.32 对合成节点做了真实进程 smoke test。公开候选因来源加载受阻未取得可测试节点，未将该结果冒充真实节点可用性。
 - 探测失败、结果不完整、无合格节点或写入失败都会 fail-closed，并优先保留 `state/last-known-good/`。LKG 是上一份可回退产物，不是本轮节点可用性证明。
 - 每个临时 Mihomo worker 使用独立 loopback controller 和独立的 256-bit 随机 secret；secret 仅在 worker 生命周期内用于 `Authorization: Bearer`，不进入 manifest、health、日志或报告，worker 结束后随临时目录清理。
+
+### 本机实测模式
+
+GitHub Runner 的网络出口在海外，而用户本机可能使用中国网络、Clash Verge Rev 或其他隧道，因此“Runner 可用”不等于“本机可用”。本机实测模式使用用户本机的 Clash Verge Rev Mihomo 内核，逐节点启动独立临时 worker，在本机网络上对固定目标 `https://www.gstatic.com/generate_204` 做 3 轮探测，只把达到最低等级的节点写入本地订阅文件。
+
+在项目根目录按需运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/local-refresh.ps1
+# 需要自定义参数或核心路径时：
+powershell -ExecutionPolicy Bypass -File scripts/local-refresh.ps1 -MaxNodes 150 -Rounds 3 -Timeout 5 -Concurrency 6 -MinVerdict stable -Core "D:\Program Files\Clash Verge\verge-mihomo.exe"
+```
+
+脚本默认按 `D:\Program Files\Clash Verge\verge-mihomo.exe`、`C:\Program Files\Clash Verge\verge-mihomo.exe` 的顺序定位核心；找不到时使用 `-Core`。它只生成 `dist-local/` 与 `state-local/`，不读取密钥、不修改系统代理、不启停或修改 Clash Verge 配置，也不发布 Pages。完成后可在 `dist-local/manifest.json` 查看脱敏计数摘要。
+
+在 Clash Verge Rev 中导入本地配置：选择 `dist-local/clash/config.yaml`。该文件自包含 `proxies` 与代理组，不需要另行下载 provider。刷新频率为手动、按需执行；`dist-local/` 和 `state-local/` 已加入 Git 忽略，不应提交。
+
+本机探测结果只代表当前本机网络与当前来源快照。如果本机启用了 Mihomo/Wintun/TUN，探测流量可能继续经过现有隧道；运行前应记录这一限制，不能把结果解释为未经过隧道的直连能力。
 
 如需自定义本机配置，最小结构如下（没有来源，不能生成可用订阅）：
 
