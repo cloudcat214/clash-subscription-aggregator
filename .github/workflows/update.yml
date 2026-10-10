@@ -57,7 +57,13 @@ jobs:
       ${{
         needs.tests.result == 'success' &&
         github.ref == 'refs/heads/main' &&
-        (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&
+        (
+          github.event_name == 'workflow_dispatch' ||
+          (
+            github.event_name == 'push' &&
+            contains(toJSON(github.event.commits), 'docs/dist/')
+          )
+        ) &&
         vars.PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true' &&
         github.event.repository.fork == false
       }}

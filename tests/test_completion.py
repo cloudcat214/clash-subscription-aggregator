@@ -425,6 +425,8 @@ def test_workflow_keeps_pull_requests_offline_and_gates_publication() -> None:
     assert "actions/upload-pages-artifact@v3" in serialized
     assert "actions/deploy-pages@v4" in serialized
     assert '"path": "docs"' in serialized
+    assert "toJSON(github.event.commits)" in str(workflow["jobs"]["deploy"]["if"])
+    assert "docs/dist/" in str(workflow["jobs"]["deploy"]["if"])
     assert "schedule" not in serialized
     assert "mihomo" not in serialized.lower()
     assert "secrets." not in serialized
