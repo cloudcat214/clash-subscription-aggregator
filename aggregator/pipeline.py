@@ -502,7 +502,8 @@ def _normalize_probe_rows(
         raw_rows = [dict(row) for row in raw]
     else:
         raise TypeError("probe_results_invalid")
-    if len(raw_rows) > 500:
+    max_rows = cast(int, policy.get("max_nodes_cap", 500))
+    if len(raw_rows) > max_rows:
         raise ValueError("probe_results_over_budget")
 
     normalized: dict[str, dict[str, object]] = {}

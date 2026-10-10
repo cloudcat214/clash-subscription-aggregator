@@ -938,6 +938,50 @@ def test_pipeline_allows_delay_backend_limits(tmp_path: Path) -> None:
     assert verification["stage2_stable"] == 2
 
 
+def test_pipeline_accepts_more_than_spawn_rows_for_delay_backend(
+    tmp_path: Path,
+) -> None:
+    """delay 后端的结果行数不应被旧的 500 行 spawn 上限截断。"""
+
+    def fake_probe(proxies):
+        return {
+            "status": "performed",
+            "backend": "delay",
+            "tested": len(proxies),
+            "max_nodes": 501,
+            "rounds": 3,
+            "concurrency": 16,
+            "timeout_seconds": 8.0,
+            "results": [
+                {
+                    "name": proxy["name"],
+                    "rounds_passed": 3,
+                    "rounds_total": 3,
+                    "latency_ms": 100.0,
+                    "p95_latency_ms": 100.0,
+                }
+                for proxy in proxies
+            ],
+        }
+
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path,
+        active_probe=True,
+        node_count=501,
+        settings_overrides={
+            "probe_backend": "delay",
+            "probe_interface": "WLAN",
+            "probe_max_nodes": 501,
+            "probe_concurrency": 16,
+        },
+    )
+    result = run_pipeline(config_path, output_dir, state_dir, probe_runner=fake_probe)
+
+    assert result.success is True
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["node_quality"]["tested"] == 501
+
+
 @pytest.mark.parametrize(
     ("setting", "value"),
     [("probe_max_nodes", 2001), ("probe_concurrency", 17)],
