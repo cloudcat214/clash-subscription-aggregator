@@ -8,11 +8,11 @@
       "tag": "proxy",
       "outbounds": [
         "direct",
-        "[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1762080840",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1754725706",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-1551127541",
         "[au1rxx-free-vpn-subscriptions] vless-1766466795",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1551127541",
+        "[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523",
         "[au1rxx-free-vpn-subscriptions] hysteria2-689011839",
         "[au1rxx-free-vpn-subscriptions] vless-1766487925"
       ]
@@ -20,14 +20,6 @@
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523",
-      "server": "46.29.166.27",
-      "server_port": 20221,
-      "method": "aes-256-gcm",
-      "password": "6b39ae3234dfd68b"
     },
     {
       "type": "shadowsocks",
@@ -44,18 +36,6 @@
       "server_port": 443,
       "method": "aes-256-cfb",
       "password": "amazonskr05"
-    },
-    {
-      "type": "hysteria2",
-      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1551127541",
-      "server": "s3.huhiuh.space",
-      "server_port": 18642,
-      "password": "user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
-      }
     },
     {
       "type": "vless",
@@ -77,6 +57,26 @@
           "short_id": "eba7ad82c6344ab6"
         }
       }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1551127541",
+      "server": "s3.huhiuh.space",
+      "server_port": 18642,
+      "password": "user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523",
+      "server": "46.29.166.27",
+      "server_port": 20221,
+      "method": "aes-256-gcm",
+      "password": "6b39ae3234dfd68b"
     },
     {
       "type": "hysteria2",
