@@ -7,7 +7,7 @@
 3. `aggregator.parsing` 解析 Clash YAML/JSON、Base64 和 URI，保留协议的传输、TLS、Reality、插件等结构；不做节点拨测。
 4. `aggregator.probe` 是默认的 `spawn` 后端，只在显式启用时为最多 500 个节点启动独立临时 Mihomo worker，最多 8 个并发；每个 worker 使用整数 loopback `mixed-port`、独立 `bind-address`、loopback controller、独立 256-bit secret 和 `Authorization: Bearer`，目标为 `https://www.gstatic.com/generate_204`。
 5. `aggregator.fastprobe` 是本机 `delay` 后端：必须绑定物理网卡，先用临时 Mihomo、直连 DNS、`MATCH,DIRECT` 和 mixed-port 请求 `http://www.baidu.com` 做控制测试；通过后以每批最多 400 个节点加载临时 Mihomo，调用 `/proxies/{id}/delay`，第一阶段 6000ms，第二阶段对通过者做最多 3 轮 8000ms delay，至少 2/3 成功才算稳定。后端上限为 2000 节点、16 并发。
-6. `aggregator.pipeline` 做规范化、来源标记、去重、过滤、数量上限与 shrink guard，然后按所选后端的逐节点结果计算 `verified`、`stable`、`fast` 并筛选最终发布集合，再构建 manifest/health；verification 只增加后端与阶段计数，不改变 `quality.py` 的分层和发布选择。
+6. `aggregator.pipeline` 做规范化、来源标记、去重、过滤、数量上限与 shrink guard；主动探测时先复检 `verified-pool.json` 中的旧节点，再按来源轮询新候选，合格新节点进入池，单次失败保留、连续两次失败淘汰，最终发布池内仍有效的节点，再构建 manifest/health。上轮发布达到 10 个节点时，池发布集低于上轮 50% 会触发防抖并保留旧产物。池路径和探测预算由 CLI/刷新脚本参数控制。
 7. `aggregator.outputs` 生成本机 Clash 单文件配置、provider 辅助文件和 sing-box 映射。`dist/clash/config.yaml` 自带 `proxies` 与 `select`、`url-test`、`fallback` 三类组，不依赖相对 provider；本机自动刷新使用 `dist-local/`，公开 Pages 镜像使用 `docs/dist/`。
 
 ## 主动探测语义

@@ -50,7 +50,7 @@ powershell -ExecutionPolicy Bypass -File scripts/refresh-publish.ps1 -MaxNodes 2
 powershell -ExecutionPolicy Bypass -File scripts/refresh-publish.ps1 -Publish
 ```
 
-脚本默认定位 `D:\Program Files\Clash Verge\verge-mihomo.exe`，找不到时再尝试 `C:\Program Files\Clash Verge\verge-mihomo.exe`，也可用 `-Core` 指定。未传 `-ProbeInterface` 时自动排除 Meta/Tunnel/Wintun/TAP/VPN 后选择物理网卡，并打印检测结果；`-MinStable` 默认 5，`-MaxNodes` 默认 1500，输出和状态目录默认是 `dist-local/`、`state-local/`。每次过程写入 `reports/refresh-<时间戳>.log`，只记录脱敏计数和流程状态，不写节点凭据。
+脚本默认定位 `D:\Program Files\Clash Verge\verge-mihomo.exe`，找不到时再尝试 `C:\Program Files\Clash Verge\verge-mihomo.exe`，也可用 `-Core` 指定。未传 `-ProbeInterface` 时自动排除 Meta/Tunnel/Wintun/TAP/VPN 后选择物理网卡，并打印检测结果；`-MinStable` 默认 5，`-MaxNodes` 默认 1500，输出和状态目录默认是 `dist-local/`、`state-local/`，已验证节点池默认是 `state/verified-pool.json`，也可用 `-VerifiedPool` 或 CLI 的 `--verified-pool` 改路径。启用主动探测时，池内节点先复检，剩余预算按来源轮询新候选；单次失败保留，连续两次失败才移出，发布集取池内当前有效节点。上轮发布达到 10 个节点时，拟发布集低于上轮 50% 会触发防抖并保留旧产物。每次过程写入 `reports/refresh-<时间戳>.log`，只记录脱敏计数和流程状态，不写节点凭据。
 
 本机产物仍可直接导入 Clash Verge Rev：`dist-local/clash/config.yaml`。公开发布后的固定订阅 URL 是：
 

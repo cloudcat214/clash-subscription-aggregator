@@ -7,6 +7,7 @@ param(
     [int]$MaxNodes = 1500,
     [string]$Output = "dist-local",
     [string]$State = "state-local",
+    [string]$VerifiedPool = "state/verified-pool.json",
     [string]$ProbeInterface,
     [string]$Core
 )
@@ -101,7 +102,8 @@ function Invoke-Git {
 $MaterialArtifactPaths = @(
     "docs/dist/clash/config.yaml",
     "docs/dist/clash/providers/aggregate.yaml",
-    "docs/dist/sing-box/config.json"
+    "docs/dist/sing-box/config.json",
+    "state/verified-pool.json"
 )
 
 function Get-MaterialHash {
@@ -196,6 +198,7 @@ try {
 
     $OutputPath = Resolve-ProjectPath $Output
     $StatePath = Resolve-ProjectPath $State
+    $VerifiedPoolPath = Resolve-ProjectPath $VerifiedPool
     $SnapshotRoot = Join-Path ([IO.Path]::GetTempPath()) "clash-refresh-$Timestamp-$PID"
     New-Item -ItemType Directory -Path $SnapshotRoot -Force | Out-Null
     $OutputSnapshot = Join-Path $SnapshotRoot "output"
@@ -208,6 +211,7 @@ try {
         "--config", "config/sources.yaml",
         "--output", $OutputPath,
         "--state", $StatePath,
+        "--verified-pool", $VerifiedPoolPath,
         "--no-private",
         "--mihomo", $Core,
         "--probe",
@@ -241,6 +245,7 @@ try {
     $Counts = $Manifest.counts
     $Quality = $Manifest.node_quality
     $Stable = [int]$Quality.stable
+    $PublishedCount = [int]$Quality.published
     Write-Host "本机直连实测完成（仅计数摘要，不显示节点明细）"
     Write-Host ("counts=" + (@{
         sources = $Counts.sources
@@ -254,26 +259,33 @@ try {
         stage1_tested = $Manifest.verification.stage1_tested
         stage1_passed = $Manifest.verification.stage1_passed
         stage2_tested = $Manifest.verification.stage2_tested
-        stage2_stable = $Manifest.verification.stage2_stable
-        stable = $Stable
-        published = $Quality.published
-    } | ConvertTo-Json -Compress))
+         stage2_stable = $Manifest.verification.stage2_stable
+         stable = $Stable
+         published = $Quality.published
+         probe_queue = $Manifest.verification.probe_queue
+         pool_probe_candidates = $Manifest.verification.pool_probe_candidates
+         pool_size_before = $Manifest.verification.pool_size_before
+         pool_size = $Manifest.verification.pool_size
+         pool_retested = $Manifest.verification.pool_retested
+         new_candidates_tested = $Manifest.verification.new_candidates_tested
+         retained_count = $Manifest.verification.retained_count
+     } | ConvertTo-Json -Compress))
 
     if ([string]$Health.fallback -eq "last-known-good") {
         Restore-Snapshot $OutputPath $OutputSnapshot $OutputHadSnapshot
         Restore-Snapshot $StatePath $StateSnapshot $StateHadSnapshot
         throw "本轮使用 last-known-good 回退，拒绝继续发布。"
     }
-    if ($Stable -lt $MinStable) {
+    if ($PublishedCount -lt $MinStable) {
         if ($Publish) {
             Restore-Snapshot $OutputPath $OutputSnapshot $OutputHadSnapshot
             Restore-Snapshot $StatePath $StateSnapshot $StateHadSnapshot
-            throw "stable=$Stable 小于 MinStable=$MinStable，拒绝发布并保留旧内容。"
+            throw "published=$PublishedCount 小于 MinStable=$MinStable，拒绝发布并保留旧内容。"
         }
-        Write-Warning "stable=$Stable 小于 MinStable=$MinStable；仅保留本机刷新结果，不执行发布。"
+        Write-Warning "published=$PublishedCount 小于 MinStable=$MinStable；仅保留本机刷新结果，不执行发布。"
     }
 
-    if ($Publish -and $Stable -ge $MinStable) {
+    if ($Publish -and $PublishedCount -ge $MinStable) {
         $credentialHelper = (& git config --get credential.helper 2>$null | Out-String).Trim()
         if ([string]::IsNullOrWhiteSpace($credentialHelper)) {
             if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
@@ -319,7 +331,7 @@ try {
         if (-not (Test-MaterialChange)) {
             Write-Host "no material change; skip commit/push."
         } else {
-            Invoke-Git @("add", "--all", "--", "docs/dist")
+            Invoke-Git @("add", "--all", "--", "docs/dist", "state/verified-pool.json")
             $CommitTime = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
             Invoke-Git @("commit", "-m", "refresh: verified nodes $CommitTime")
             Invoke-Git @("pull", "--rebase")

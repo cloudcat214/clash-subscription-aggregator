@@ -30,8 +30,15 @@ from .parsing import (
     quality_score,
 )
 from .probe import DEFAULT_TARGET_URL, PROBE_ERROR_CATEGORIES
-from .quality import classify_node, node_key, probe_verdict, select_published
+from .quality import classify_node, node_key, probe_verdict
 from .validators import CoreValidationError
+from .verified_pool import (
+    active_pool_nodes,
+    load_verified_pool,
+    merge_verified_pool,
+    pool_document,
+    round_robin_by_source,
+)
 
 
 class SourceError(RuntimeError):
@@ -334,6 +341,7 @@ def _sort_and_limit(
     proxies: list[dict[str, object]],
     settings: dict[str, Any],
     drops: dict[str, int] | None = None,
+    source_by_key: dict[str, str] | None = None,
 ) -> list[dict[str, object]]:
     unique = deduplicate_proxies(proxies)
     duplicate_count = len(proxies) - len(unique)
@@ -344,6 +352,7 @@ def _sort_and_limit(
     )
     used_names: set[str] = set()
     for proxy in unique:
+        original_key = node_key(proxy)
         original = str(proxy.get("name") or "proxy")
         name = original
         suffix = 2
@@ -352,6 +361,8 @@ def _sort_and_limit(
             suffix += 1
         proxy["name"] = name
         used_names.add(name)
+        if source_by_key is not None and original_key in source_by_key:
+            source_by_key[node_key(proxy)] = source_by_key[original_key]
     max_nodes = int(settings.get("max_nodes", 0) or 0)
     limited = unique[:max_nodes] if max_nodes > 0 else unique
     if drops is not None and len(limited) < len(unique):
@@ -950,6 +961,7 @@ def run_pipeline(
     private_output_dir: Path | None = None,
     validator: ArtifactValidator | None = None,
     probe_runner: ProbeRunner | None = None,
+    verified_pool_path: Path | None = None,
 ) -> PipelineResult:
     """Run the safe publish pipeline and preserve the previous good output on failure."""
     generated_at = utc_now()
@@ -966,6 +978,7 @@ def run_pipeline(
     public_results: list[SourceResult] = []
     private_results: list[SourceResult] = []
     candidates: list[dict[str, object]] = []
+    candidate_source_by_key: dict[str, str] = {}
     private_candidates: list[dict[str, object]] = []
     aggregate_drops: dict[str, int] = {}
     enabled_public = 0
@@ -1027,6 +1040,8 @@ def run_pipeline(
                 private_candidates.extend(accepted)
             else:
                 result.status = "ok"
+                for node in accepted:
+                    candidate_source_by_key.setdefault(node_key(node), source_id)
                 candidates.extend(accepted)
                 live_public += 1
         except (ParseError, SourceError, OSError, ValueError) as exc:
@@ -1055,6 +1070,10 @@ def run_pipeline(
                     if kind == "private":
                         private_candidates.extend(accepted)
                     else:
+                        for node in accepted:
+                            candidate_source_by_key.setdefault(
+                                node_key(node), source_id
+                            )
                         candidates.extend(accepted)
                 except (ParseError, SourceError, OSError, ValueError):
                     result.status = "error"
@@ -1064,35 +1083,43 @@ def run_pipeline(
                 result.error = _safe_error(exc)
         (private_results if kind == "private" else public_results).append(result)
 
-    proxies = _sort_and_limit(candidates, settings, aggregate_drops)
+    proxies = _sort_and_limit(
+        candidates, settings, aggregate_drops, candidate_source_by_key
+    )
     if enabled_public and live_public == 0:
         return _write_failure(
             output_dir, state_dir, public_results, "all_sources_failed", generated_at
         )
-    if not proxies:
+    previous_count = _previous_published_count(output_dir, state_dir)
+    min_publish_nodes = int(settings.get("min_publish_nodes", 1))
+    max_shrink_ratio = float(settings.get("max_shrink_ratio", 0.0) or 0.0)
+    active_probe = bool(settings.get("active_probe", False))
+    configured_pool_path = settings.get("verified_pool_path")
+    pool_path = verified_pool_path or (
+        Path(str(configured_pool_path))
+        if configured_pool_path
+        else state_dir / "verified-pool.json"
+    )
+    if not active_probe and not proxies:
         failure = _write_failure(
             output_dir, state_dir, public_results, "empty_result", generated_at
         )
         failure.source_results = [*public_results, *private_results]
         return failure
+    if not active_probe:
+        if len(proxies) < min_publish_nodes:
+            return _write_failure(
+                output_dir, state_dir, public_results, "min_publish_nodes", generated_at
+            )
+        if (
+            previous_count > 0
+            and 0 < max_shrink_ratio <= 1
+            and len(proxies) < previous_count * max_shrink_ratio
+        ):
+            return _write_failure(
+                output_dir, state_dir, public_results, "shrink_guard", generated_at
+            )
 
-    previous_count = _previous_published_count(output_dir, state_dir)
-    min_publish_nodes = int(settings.get("min_publish_nodes", 1))
-    max_shrink_ratio = float(settings.get("max_shrink_ratio", 0.0) or 0.0)
-    if len(proxies) < min_publish_nodes:
-        return _write_failure(
-            output_dir, state_dir, public_results, "min_publish_nodes", generated_at
-        )
-    if (
-        previous_count > 0
-        and 0 < max_shrink_ratio <= 1
-        and len(proxies) < previous_count * max_shrink_ratio
-    ):
-        return _write_failure(
-            output_dir, state_dir, public_results, "shrink_guard", generated_at
-        )
-
-    active_probe = bool(settings.get("active_probe", False))
     requested_backend = str(settings.get("probe_backend", "spawn"))
     verification: dict[str, object] = {
         "status": "not_tested",
@@ -1103,6 +1130,9 @@ def run_pipeline(
         len(proxies), published=0 if active_probe else len(proxies)
     )
     if active_probe:
+        pool_shrink_ratio = max_shrink_ratio
+        if previous_count >= 10:
+            pool_shrink_ratio = max(pool_shrink_ratio, 0.5)
         try:
             policy = _probe_policy(settings)
         except (TypeError, ValueError) as exc:
@@ -1158,7 +1188,47 @@ def run_pipeline(
                 node_quality=node_quality,
             )
         candidate_pool = proxies
-        candidates_before_probe = candidate_pool[: cast(int, policy["probe_max_nodes"])]
+        try:
+            pool_entries = load_verified_pool(pool_path)
+        except (TypeError, ValueError) as exc:
+            verification = {
+                "status": "failed",
+                "reason": "verified_pool_invalid",
+                "error_category": "verified_pool_invalid",
+                "backend": policy["backend"],
+            }
+            return _write_failure(
+                output_dir,
+                state_dir,
+                public_results,
+                str(exc),
+                generated_at,
+                active_probe=True,
+                verification=verification,
+                node_quality=_empty_node_quality(len(candidate_pool)),
+            )
+        probe_budget = cast(int, policy["probe_max_nodes"])
+        pool_nodes: list[dict[str, object]] = [
+            cast(dict[str, object], entry["node"])
+            for entry in pool_entries
+            if isinstance(entry.get("node"), dict)
+        ]
+        pool_keys = {node_key(node) for node in pool_nodes}
+        new_candidates = [
+            node for node in candidate_pool if node_key(node) not in pool_keys
+        ]
+        pool_probe_nodes = pool_nodes[:probe_budget]
+        new_probe_nodes = round_robin_by_source(
+            new_candidates,
+            candidate_source_by_key,
+            max(0, probe_budget - len(pool_probe_nodes)),
+        )
+        candidates_before_probe = [*pool_probe_nodes, *new_probe_nodes]
+        candidate_keys = {node_key(item) for item in candidate_pool}
+        pool_only_count = sum(
+            1 for node in pool_nodes if node_key(node) not in candidate_keys
+        )
+        total_probe_candidates = len(candidate_pool) + pool_only_count
         if not candidates_before_probe:
             return _write_failure(
                 output_dir,
@@ -1168,7 +1238,7 @@ def run_pipeline(
                 generated_at,
                 active_probe=True,
                 verification=verification,
-                node_quality=_empty_node_quality(len(candidate_pool)),
+                node_quality=_empty_node_quality(total_probe_candidates),
             )
         try:
             raw_verification = probe_runner(candidates_before_probe)
@@ -1288,7 +1358,7 @@ def run_pipeline(
             )
             if timeout_seconds > 30:
                 raise ValueError("probe_parameters_over_budget")
-            result_map, probe_rows = _normalize_probe_rows(
+            _result_map, probe_rows = _normalize_probe_rows(
                 raw_verification.get("results"),
                 candidates_before_probe,
                 rounds_default=rounds_total,
@@ -1309,31 +1379,32 @@ def run_pipeline(
                 raise ValueError("probe_results_invalid")
             if len(probe_rows) > max_nodes:
                 raise ValueError("probe_results_over_budget")
-            selected = select_published(
+            results_by_key = {str(row["node_key"]): row for row in probe_rows}
+            pool_entries, pool_stats = merge_verified_pool(
+                pool_entries,
                 candidates_before_probe,
-                result_map,
+                results_by_key,
+                candidate_source_by_key,
+                now=generated_at,
                 min_verdict=cast(str, policy["min_verdict"]),
-                max_nodes=cast(int, policy["publish_max_nodes"]),
                 verified_min_rounds=cast(int, policy["verified_min_rounds"]),
                 stable_min_rounds=cast(int, policy["stable_min_rounds"]),
                 stable_success_rate=cast(float, policy["stable_success_rate"]),
                 fast_latency_ms=cast(float, policy["fast_latency_ms"]),
-                latency_cap_ms=cast(float, policy["latency_cap_ms"]),
             )
-            original_by_name = {
-                str(proxy.get("name") or ""): proxy for proxy in candidates_before_probe
-            }
-            proxies = [
-                original_by_name[str(item["name"])]
-                for item in selected
-                if str(item.get("name") or "") in original_by_name
-            ]
+            try:
+                _write_json(pool_path, pool_document(pool_entries, generated_at))
+            except OSError:
+                raise ValueError("verified_pool_write_failed")
+            proxies = active_pool_nodes(
+                pool_entries, cast(int, policy["publish_max_nodes"])
+            )
             node_quality = _node_quality_counts(
-                len(candidate_pool),
+                total_probe_candidates,
                 probe_rows,
                 len(proxies),
                 policy,
-                not_tested_budget=len(candidate_pool) - len(candidates_before_probe),
+                not_tested_budget=total_probe_candidates - len(candidates_before_probe),
             )
             error_counts = Counter(
                 str(row["error_category"])
@@ -1356,6 +1427,18 @@ def run_pipeline(
                 "fast_latency_ms": policy["fast_latency_ms"],
                 "latency_score_cap_ms": policy["latency_cap_ms"],
                 "error_categories": dict(sorted(error_counts.items())),
+                "pool_size_before": len(pool_keys),
+                "pool_size": len(pool_entries),
+                "probe_queue": "verified_pool_first",
+                "pool_probe_candidates": len(pool_probe_nodes),
+                "pool_retested": pool_stats["retested"],
+                "new_candidates_tested": sum(
+                    1 for key in results_by_key if key not in pool_keys
+                ),
+                "pool_added": pool_stats["added"],
+                "pool_evicted": pool_stats["evicted"],
+                "retained_count": pool_stats["retained"],
+                "shrink_guard_ratio": pool_shrink_ratio,
             }
             verification.update(stage_stats)
             if raw_probe_interface:
@@ -1367,8 +1450,9 @@ def run_pipeline(
                 }
         except (TypeError, ValueError, OverflowError) as exc:
             failure_reason = (
-                "probe_parameters_over_budget"
-                if str(exc) == "probe_parameters_over_budget"
+                str(exc)
+                if str(exc)
+                in {"probe_parameters_over_budget", "verified_pool_write_failed"}
                 else "probe_results_invalid"
             )
             verification = {
@@ -1413,8 +1497,8 @@ def run_pipeline(
             )
         if (
             previous_count > 0
-            and 0 < max_shrink_ratio <= 1
-            and len(proxies) < previous_count * max_shrink_ratio
+            and 0 < pool_shrink_ratio <= 1
+            and len(proxies) < previous_count * pool_shrink_ratio
         ):
             return _write_failure(
                 output_dir,

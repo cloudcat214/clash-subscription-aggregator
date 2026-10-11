@@ -6,7 +6,8 @@ __pycache__/
 venv/
 build/
 *.egg-info/
-/state/
+/state/*
+!/state/verified-pool.json
 /dist-private/
 /local-private/
 /.cache/
@@ -16,5 +17,6 @@ build/
 /dist/
 /dist-local/
 /state-local/
-reports/
+reports/*
+!reports/retention-pool-report.md
 .ruff_cache/
