@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T01:42:38Z",
+  "generated_at": "2026-10-11T02:00:07Z",
   "status": "ok",
   "active_probe": true,
-  "published": 35,
+  "published": 27,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1450,
-      "accepted": 1343,
+      "parsed": 1478,
+      "accepted": 1367,
       "drops": {
-        "invalid_uuid": 7,
-        "duplicate": 100
+        "invalid_uuid": 8,
+        "duplicate": 103
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "23929db21a7e8c0ba12932cc5b70c5ba2dbf86b0ff38e6935ce7691b5c1ca675"
+      "sha256": "069ed1287bf4e51b5e44c39ba17fb47c0a7fa40554ee68ef9283f87e439c0fa6"
     },
     {
       "id": "p-configs-vless",
@@ -204,12 +204,13 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1365
+      "http_error": 1396,
+      "network_error": 1
     },
-    "stage1_tested": 1400,
-    "stage1_passed": 38,
-    "stage2_tested": 38,
-    "stage2_stable": 37,
+    "stage1_tested": 1424,
+    "stage1_passed": 32,
+    "stage2_tested": 32,
+    "stage2_stable": 30,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -219,19 +220,19 @@
     }
   },
   "node_quality": {
-    "candidates": 1400,
-    "tested": 1400,
-    "verified": 35,
-    "fast": 5,
-    "stable": 35,
-    "failed": 1365,
+    "candidates": 1424,
+    "tested": 1424,
+    "verified": 27,
+    "fast": 4,
+    "stable": 27,
+    "failed": 1397,
     "not_tested": 0,
     "not_tested_budget": 0,
-    "failed_probe": 1362,
-    "below_quality_threshold": 3,
-    "dropped": 1365,
-    "published": 35,
-    "success_rate": 0.02619047619047619
+    "failed_probe": 1392,
+    "below_quality_threshold": 5,
+    "dropped": 1397,
+    "published": 27,
+    "success_rate": 0.020833333333333332
   },
   "core_validation": {
     "status": "not_tested",
