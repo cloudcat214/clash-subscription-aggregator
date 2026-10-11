@@ -57,6 +57,43 @@ def test_controlled_proxy_allowlist_is_exact_and_private_addresses_stay_blocked(
         validate("10.0.0.1")
 
 
+@pytest.mark.parametrize(
+    ("hostname", "address"),
+    [
+        ("www.gitlabip.xyz", "198.18.0.236"),
+        ("gitlab.com", "198.18.0.237"),
+    ],
+)
+def test_configured_gitlab_hosts_allow_controlled_dns(
+    monkeypatch, hostname, address
+) -> None:
+    config = yaml.safe_load(
+        (Path(__file__).parents[1] / "config" / "sources.yaml").read_text(
+            encoding="utf-8"
+        )
+    )
+    settings = config["settings"]
+    allowed_hosts = set(settings["allowed_source_hosts"])
+    trust_hosts = set(settings["trust_hosts"])
+    assert hostname in allowed_hosts
+    assert hostname in trust_hosts
+
+    monkeypatch.setattr(
+        fetch.socket,
+        "getaddrinfo",
+        lambda *args, **kwargs: [
+            (socket.AF_INET, socket.SOCK_STREAM, 6, "", (address, 443))
+        ],
+    )
+
+    assert fetch._validate_fetch_url(
+        f"https://{hostname}/source",
+        allowed_hosts=allowed_hosts,
+        trust_hosts=trust_hosts,
+        controlled_proxy_addresses=set(settings["controlled_proxy_addresses"]),
+    ) == (hostname, address)
+
+
 def test_controlled_dns_exception_is_limited_to_trusted_host(monkeypatch) -> None:
     monkeypatch.setattr(
         fetch.socket,

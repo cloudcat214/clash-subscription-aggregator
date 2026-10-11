@@ -25,11 +25,15 @@ settings:
   probe_min_success_rate: 0.6666666667
   probe_fast_latency_ms: 800
   probe_score_latency_cap_ms: 5000
-  # Only these public GitHub raw endpoints are trusted for source retrieval.
+  # Only these explicitly approved public endpoints are trusted for source retrieval.
   allowed_source_hosts:
     - raw.githubusercontent.com
+    - www.gitlabip.xyz
+    - gitlab.com
   trust_hosts:
     - raw.githubusercontent.com
+    - www.gitlabip.xyz
+    - gitlab.com
   # Controlled DNS addresses may drift: register each observed address explicitly
   # and re-validate it. This is for the controlled environment, not a general proxy.
   controlled_proxy_addresses:
@@ -44,6 +48,153 @@ settings:
 
 sources:
   public:
+    # Chrome147 static analysis sources. License status was not independently
+    # verified; these entries keep the approved public-source gate flags and
+    # must be reviewed separately before treating that as a legal conclusion.
+    - id: alvin-ip1
+      kind: public
+      name: Chrome147 clash.meta channel 1 (gitlabip primary)
+      url: https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/1/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://www.gitlabip.xyz/Alvin9999/PAC
+      license: unknown
+
+    - id: alvin-ip2
+      kind: public
+      name: Chrome147 clash.meta channel 2 (gitlabip primary)
+      url: https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/2/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://www.gitlabip.xyz/Alvin9999/PAC
+      license: unknown
+
+    - id: alvin-ip3
+      kind: public
+      name: Chrome147 clash.meta channel 3 (gitlabip primary)
+      url: https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/3/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://www.gitlabip.xyz/Alvin9999/PAC
+      license: unknown
+
+    - id: alvin-ip4
+      kind: public
+      name: Chrome147 clash.meta channel 4 (gitlabip primary)
+      url: https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/4/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://www.gitlabip.xyz/Alvin9999/PAC
+      license: unknown
+
+    - id: alvin-ip5
+      kind: public
+      name: Chrome147 clash.meta channel 5 (gitlabip primary)
+      url: https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/5/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://www.gitlabip.xyz/Alvin9999/PAC
+      license: unknown
+
+    - id: alvin-ip6
+      kind: public
+      name: Chrome147 clash.meta channel 6 (gitlabip primary)
+      url: https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/6/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://www.gitlabip.xyz/Alvin9999/PAC
+      license: unknown
+
+    - id: alvin-ip1-mirror
+      kind: public
+      name: Chrome147 clash.meta channel 1 (gitlab mirror fallback)
+      url: https://gitlab.com/free9999/ipupdate/-/raw/master/backup/img/1/2/ipp/clash.meta2/1/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://gitlab.com/free9999/ipupdate
+      license: unknown
+
+    - id: alvin-ip2-mirror
+      kind: public
+      name: Chrome147 clash.meta channel 2 (gitlab mirror fallback)
+      url: https://gitlab.com/free9999/ipupdate/-/raw/master/backup/img/1/2/ipp/clash.meta2/2/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://gitlab.com/free9999/ipupdate
+      license: unknown
+
+    - id: alvin-ip3-mirror
+      kind: public
+      name: Chrome147 clash.meta channel 3 (gitlab mirror fallback)
+      url: https://gitlab.com/free9999/ipupdate/-/raw/master/backup/img/1/2/ipp/clash.meta2/3/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://gitlab.com/free9999/ipupdate
+      license: unknown
+
+    - id: alvin-ip4-mirror
+      kind: public
+      name: Chrome147 clash.meta channel 4 (gitlab mirror fallback)
+      url: https://gitlab.com/free9999/ipupdate/-/raw/master/backup/img/1/2/ipp/clash.meta2/4/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://gitlab.com/free9999/ipupdate
+      license: unknown
+
+    - id: alvin-ip5-mirror
+      kind: public
+      name: Chrome147 clash.meta channel 5 (gitlab mirror fallback)
+      url: https://gitlab.com/free9999/ipupdate/-/raw/master/backup/img/1/2/ipp/clash.meta2/5/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://gitlab.com/free9999/ipupdate
+      license: unknown
+
+    - id: alvin-ip6-mirror
+      kind: public
+      name: Chrome147 clash.meta channel 6 (gitlab mirror fallback)
+      url: https://gitlab.com/free9999/ipupdate/-/raw/master/backup/img/1/2/ipp/clash.meta2/6/config.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://gitlab.com/free9999/ipupdate
+      license: unknown
+
     - id: free-v2ray-verified-clash
       kind: public
       name: 0xRadikal Free-v2ray-Configs verified Clash profile
