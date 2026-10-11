@@ -1,28 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T09:15:08Z",
+  "generated_at": "2026-10-11T09:30:07Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 30,
+    "published": 16,
     "sources": 25,
     "parsed": 4989,
     "accepted": 4075
   },
   "protocols": {
-    "http": 17,
-    "hysteria": 2,
-    "socks5": 4,
-    "ss": 3,
-    "vless": 4
+    "http": 7,
+    "socks5": 2,
+    "ss": 1,
+    "vless": 6
   },
   "sources": [
     {
       "id": "alvin-ip1",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://www.gitlabip.xyz/Alvin9999/PAC",
       "license": "unknown",
       "publicly_offered": true,
@@ -31,9 +31,10 @@
     {
       "id": "alvin-ip2",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://www.gitlabip.xyz/Alvin9999/PAC",
       "license": "unknown",
       "publicly_offered": true,
@@ -42,9 +43,10 @@
     {
       "id": "alvin-ip3",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://www.gitlabip.xyz/Alvin9999/PAC",
       "license": "unknown",
       "publicly_offered": true,
@@ -53,9 +55,10 @@
     {
       "id": "alvin-ip4",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://www.gitlabip.xyz/Alvin9999/PAC",
       "license": "unknown",
       "publicly_offered": true,
@@ -64,9 +67,10 @@
     {
       "id": "alvin-ip5",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://www.gitlabip.xyz/Alvin9999/PAC",
       "license": "unknown",
       "publicly_offered": true,
@@ -75,9 +79,10 @@
     {
       "id": "alvin-ip6",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://www.gitlabip.xyz/Alvin9999/PAC",
       "license": "unknown",
       "publicly_offered": true,
@@ -86,9 +91,10 @@
     {
       "id": "alvin-ip1-mirror",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -332,18 +338,18 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "19594c0556e40b62266c8110b2ac71cb07fe748ff3b854d64fc57fe063775e5e",
-      "bytes": 8690
+      "sha256": "ce58f07f7b7a205f6c3631e63e408eb403505bf36d5d947751f224bba5784168",
+      "bytes": 5530
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "5ee37f5b0e6631c1512ee9adb096da6227e549e37268e55bfdee099dc963735f",
-      "bytes": 5408
+      "sha256": "0b14d446fd0c491692474c5e0b5b6a79a9cb3f2555eb9bbc48831561cb7bdcc1",
+      "bytes": 3550
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "220f32a92a77f141896fc31db674a4ee28c6a9abd94b63ee3a67b5a3dfd63fc6",
-      "bytes": 9004
+      "sha256": "c297ea3399d788f8f616e2cbb50b5c3a9dc847bceb28bfd74a75177f7cd3e7c4",
+      "bytes": 6250
     }
   ],
   "drops": {
@@ -355,10 +361,8 @@
     "unsupported proxy type": 19
   },
   "sing_box": {
-    "unsupported": 2,
-    "drop_reasons": {
-      "unsupported_protocol:hysteria": 2
-    }
+    "unsupported": 0,
+    "drop_reasons": {}
   },
   "verification": {
     "status": "performed",
@@ -379,20 +383,20 @@
       "http_error": 1487,
       "network_error": 3
     },
-    "pool_size_before": 31,
-    "pool_size": 30,
+    "pool_size_before": 30,
+    "pool_size": 16,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 31,
-    "pool_retested": 31,
-    "new_candidates_tested": 1469,
-    "pool_added": 1,
-    "pool_evicted": 2,
-    "retained_count": 30,
+    "pool_probe_candidates": 30,
+    "pool_retested": 30,
+    "new_candidates_tested": 1470,
+    "pool_added": 5,
+    "pool_evicted": 19,
+    "retained_count": 16,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 57,
-    "stage2_tested": 57,
-    "stage2_stable": 27,
+    "stage1_passed": 38,
+    "stage2_tested": 38,
+    "stage2_stable": 18,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -405,16 +409,16 @@
     "candidates": 3877,
     "tested": 1500,
     "verified": 10,
-    "fast": 6,
+    "fast": 2,
     "stable": 10,
     "failed": 1490,
     "not_tested": 2377,
     "not_tested_budget": 2377,
-    "failed_probe": 1457,
-    "below_quality_threshold": 33,
+    "failed_probe": 1476,
+    "below_quality_threshold": 14,
     "dropped": 1490,
-    "published": 30,
-    "success_rate": 0.017777777777777778
+    "published": 16,
+    "success_rate": 0.011555555555555555
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
