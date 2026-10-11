@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T16:22:52Z",
+  "generated_at": "2026-10-11T20:26:24Z",
   "status": "ok",
   "active_probe": true,
   "published": 500,
@@ -141,33 +141,32 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1184,
-      "accepted": 1117,
+      "parsed": 1219,
+      "accepted": 1155,
       "drops": {
-        "invalid_uuid": 6,
-        "duplicate": 61
+        "invalid_uuid": 7,
+        "duplicate": 57
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "337323e2b858b3558b2367839e1389da903473493f4c5bb35171d5c41ed87976"
+      "sha256": "8bc9bfa87e8719d312e39cafb1f39b3b5a3fa346038fc1f0b3ea73b46919b504"
     },
     {
       "id": "p-configs-vless",
       "kind": "public",
       "status": "ok",
-      "parsed": 116,
-      "accepted": 81,
+      "parsed": 83,
+      "accepted": 59,
       "drops": {
-        "invalid_uuid": 1,
-        "duplicate": 34
+        "duplicate": 24
       },
       "source_repo": "https://github.com/VovaplusEXP/p-configs",
       "license": "GPL-3.0",
       "evidence": "https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "bee518a4293215813b2d9290e36076d17bb825785867956eae8fb2e3c1d12921"
+      "sha256": "79e1470986b4b1f29a19667f8f606e3045e6fddc40d8c8f2a9578a240d2cf14c"
     },
     {
       "id": "p-configs-trojan",
@@ -188,12 +187,12 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 10,
-      "accepted": 10,
+      "parsed": 8,
+      "accepted": 8,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "947f23a933d8a057267c523e27be1be53a37d969a17c932bd6ac98715f381e36"
+      "sha256": "e45da28bd55b4bb0eea1b9041095483d801c4e53ebd9fd175b4072a352115062"
     },
     {
       "id": "anaer-sub",
@@ -256,15 +255,15 @@
       "id": "zhuhaiuk-free-nodes",
       "kind": "public",
       "status": "ok",
-      "parsed": 31,
-      "accepted": 30,
+      "parsed": 28,
+      "accepted": 23,
       "drops": {
-        "unsupported proxy type": 1
+        "unsupported proxy type": 5
       },
       "source_repo": "https://github.com/zhuhaiuk/free-nodes",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "1687a91cc60fe68de6de79cc221557ce50b43c5df25117385a567a885f531c33"
+      "sha256": "ee6f18692d168895a7e0989c11d5784e5df9c19386094d3a165c32dbb5dcb000"
     },
     {
       "id": "freefq-free",
@@ -285,15 +284,15 @@
       "kind": "public",
       "status": "ok",
       "parsed": 1860,
-      "accepted": 1205,
+      "accepted": 1212,
       "drops": {
-        "invalid_uuid": 2,
-        "duplicate": 653
+        "invalid_uuid": 3,
+        "duplicate": 645
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "0be34f433517561465b85bc979aed357a3e0b8970e81ae433f880e5a621990b0"
+      "sha256": "113e20dc70aed7c28c1c1f3c1bb841d6420db85dc34801525b089eb3af20379d"
     },
     {
       "id": "mfuu-freeproxies",
@@ -336,22 +335,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 427
+      "http_error": 366
     },
-    "pool_size_before": 536,
-    "pool_size": 624,
+    "pool_size_before": 624,
+    "pool_size": 665,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 536,
-    "pool_retested": 536,
-    "new_candidates_tested": 464,
-    "pool_added": 100,
-    "pool_evicted": 12,
-    "retained_count": 624,
+    "pool_probe_candidates": 624,
+    "pool_retested": 624,
+    "new_candidates_tested": 376,
+    "pool_added": 67,
+    "pool_evicted": 26,
+    "retained_count": 665,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1000,
-    "stage1_passed": 616,
-    "stage2_tested": 616,
-    "stage2_stable": 593,
+    "stage1_passed": 658,
+    "stage2_tested": 658,
+    "stage2_stable": 653,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -360,19 +359,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4899,
+    "candidates": 4947,
     "tested": 1000,
-    "verified": 573,
-    "fast": 454,
-    "stable": 573,
-    "failed": 427,
-    "not_tested": 3899,
-    "not_tested_budget": 3899,
-    "failed_probe": 392,
-    "below_quality_threshold": 35,
-    "dropped": 427,
+    "verified": 634,
+    "fast": 497,
+    "stable": 634,
+    "failed": 366,
+    "not_tested": 3947,
+    "not_tested_budget": 3947,
+    "failed_probe": 342,
+    "below_quality_threshold": 24,
+    "dropped": 366,
     "published": 500,
-    "success_rate": 0.5913333333333334
+    "success_rate": 0.6483333333333333
   },
   "core_validation": {
     "status": "not_tested",
