@@ -98,21 +98,6 @@ proxies:
   servername: addons.mozilla.org
   client-fingerprint: chrome
   network: tcp
-- name: '[clashfree-daily] 未知 VLESS-234 | free-nodes'
-  server: 157.228.160.166
-  port: 443
-  type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
-    short-id: 3cef317b
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  network: tcp
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 37BFC1'
   server: 95.133.247.98
   port: 995
@@ -539,6 +524,57 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国'
+  type: vless
+  server: us22.sofast.live
+  port: 58011
+  uuid: 0afc6426-606c-48e7-bd70-3c424a416842
+  tls: false
+  skip-cert-verify: true
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
+  server: 147.45.39.4
+  port: 443
+  type: vless
+  uuid: ee18d188-14cc-417e-beb1-70e4add6d023
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: de5.nztvpn.com
+  reality-opts:
+    public-key: 7vGRh29DmlE13UV_fLUfl2bUpqkmJprSenLZXS8XJEc
+    short-id: 3560f3d77a767c3a
+  client-fingerprint: random
+  network: tcp
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7'
+  server: 144.31.238.115
+  port: 2443
+  type: vless
+  uuid: b8df3f50-ffef-4c7e-9ef3-d5b156a47c02
+  udp: true
+  tls: true
+  servername: api-maps.yandex.ru
+  reality-opts:
+    public-key: rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE
+    short-id: ef567890
+  client-fingerprint: random
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F52D1A'
+  server: 144.31.165.102
+  port: 443
+  type: vless
+  uuid: b1936288-a353-4ff1-89b3-edaead599c6b
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: www.lovelive-anime.jp
+  reality-opts:
+    public-key: Ego9_BM1Sy20swG1UaGOucL_o94l3F6uw8TOTH2jYRI
+    short-id: 5347d9d0b588c111
+  client-fingerprint: random
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
@@ -556,7 +592,6 @@ proxy-groups:
   - '[ermaozi-subscribe] NL_speednode_0008'
   - '[ermaozi-subscribe] RO_speednode_0045'
   - '[clashfree-daily] 未知 VLESS-233 | free-nodes'
-  - '[clashfree-daily] 未知 VLESS-234 | free-nodes'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 37BFC1'
   - '[alvin-ip1] https://github.com/Alvin9999-newpac/fanqiang'
   - '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
@@ -606,6 +641,10 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇩🇪DE_6|2.3MB/s'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 77D6F1'
   - '[ermaozi-subscribe] 🇪🇪EE_1|1.5MB/s'
+  - '[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F52D1A'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -621,7 +660,6 @@ proxy-groups:
   - '[ermaozi-subscribe] NL_speednode_0008'
   - '[ermaozi-subscribe] RO_speednode_0045'
   - '[clashfree-daily] 未知 VLESS-233 | free-nodes'
-  - '[clashfree-daily] 未知 VLESS-234 | free-nodes'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 37BFC1'
   - '[alvin-ip1] https://github.com/Alvin9999-newpac/fanqiang'
   - '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
@@ -671,6 +709,10 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇩🇪DE_6|2.3MB/s'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 77D6F1'
   - '[ermaozi-subscribe] 🇪🇪EE_1|1.5MB/s'
+  - '[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F52D1A'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100

@@ -20,7 +20,6 @@
         "[ermaozi-subscribe] NL_speednode_0008",
         "[ermaozi-subscribe] RO_speednode_0045",
         "[clashfree-daily] 未知 VLESS-233 | free-nodes",
-        "[clashfree-daily] 未知 VLESS-234 | free-nodes",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 37BFC1",
         "[zhuhaiuk-free-nodes] FI - zhuhai.uk",
         "[zhuhaiuk-free-nodes] KR - zhuhai.uk",
@@ -66,7 +65,11 @@
         "[ermaozi-subscribe] 🇩🇪DE_5|3.0MB/s",
         "[ermaozi-subscribe] 🇩🇪DE_6|2.3MB/s",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 77D6F1",
-        "[ermaozi-subscribe] 🇪🇪EE_1|1.5MB/s"
+        "[ermaozi-subscribe] 🇪🇪EE_1|1.5MB/s",
+        "[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国",
+        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE",
+        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7",
+        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F52D1A"
       ]
     },
     {
@@ -209,27 +212,6 @@
           "enabled": true,
           "public_key": "QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws",
           "short_id": "06e00e7c"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[clashfree-daily] 未知 VLESS-234 | free-nodes",
-      "server": "157.228.160.166",
-      "server_port": 443,
-      "uuid": "df53b6c2-8005-475c-9eb9-74e1be785dc8",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "addons.mozilla.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M",
-          "short_id": "3cef317b"
         }
       }
     },
@@ -808,6 +790,79 @@
       "tls": {
         "enabled": true,
         "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国",
+      "server": "us22.sofast.live",
+      "server_port": 58011,
+      "uuid": "0afc6426-606c-48e7-bd70-3c424a416842"
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE",
+      "server": "147.45.39.4",
+      "server_port": 443,
+      "uuid": "ee18d188-14cc-417e-beb1-70e4add6d023",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "de5.nztvpn.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "7vGRh29DmlE13UV_fLUfl2bUpqkmJprSenLZXS8XJEc",
+          "short_id": "3560f3d77a767c3a"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7",
+      "server": "144.31.238.115",
+      "server_port": 2443,
+      "uuid": "b8df3f50-ffef-4c7e-9ef3-d5b156a47c02",
+      "tls": {
+        "enabled": true,
+        "server_name": "api-maps.yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE",
+          "short_id": "ef567890"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F52D1A",
+      "server": "144.31.165.102",
+      "server_port": 443,
+      "uuid": "b1936288-a353-4ff1-89b3-edaead599c6b",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.lovelive-anime.jp",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "Ego9_BM1Sy20swG1UaGOucL_o94l3F6uw8TOTH2jYRI",
+          "short_id": "5347d9d0b588c111"
+        }
       }
     }
   ]
