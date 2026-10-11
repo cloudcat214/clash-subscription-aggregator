@@ -1,0 +1,34 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+proxy-providers:
+  aggregate:
+    type: http
+    url: https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/providers/aggregate.yaml
+    path: ./providers/aggregate.yaml
+    interval: 3600
+    health-check:
+      enable: false
+proxy-groups:
+- name: PROXY
+  type: select
+  use:
+  - aggregate
+  proxies:
+  - DIRECT
+- name: AUTO
+  type: url-test
+  use:
+  - aggregate
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 100
+- name: FALLBACK
+  type: fallback
+  use:
+  - aggregate
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+rules:
+- MATCH,PROXY
