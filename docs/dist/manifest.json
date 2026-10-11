@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T20:15:07Z",
+  "generated_at": "2026-10-11T20:45:07Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 71,
+    "published": 68,
     "sources": 25,
-    "parsed": 5990,
-    "accepted": 5020
+    "parsed": 5965,
+    "accepted": 5003
   },
   "protocols": {
     "http": 40,
     "hysteria": 1,
     "hysteria2": 3,
     "socks5": 3,
-    "ss": 4,
+    "ss": 5,
     "trojan": 1,
-    "vless": 19
+    "vless": 15
   },
   "sources": [
     {
@@ -88,10 +88,9 @@
     {
       "id": "alvin-ip1-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -100,10 +99,9 @@
     {
       "id": "alvin-ip2-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -112,10 +110,9 @@
     {
       "id": "alvin-ip3-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -124,10 +121,9 @@
     {
       "id": "alvin-ip4-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -136,10 +132,9 @@
     {
       "id": "alvin-ip5-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -148,10 +143,9 @@
     {
       "id": "alvin-ip6-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -161,17 +155,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1153,
-      "accepted": 1084,
+      "parsed": 1135,
+      "accepted": 1067,
       "drops": {
-        "invalid_uuid": 7,
-        "duplicate": 62
+        "invalid_uuid": 8,
+        "duplicate": 60
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "7ab5dddac5da007b409a6353403e850f7dbbf4bad67ae4ce0fd130fda8412175"
+      "sha256": "ecde8a41b4a623bd049d02848d1eebf749174a8572f6cca2b648a1dc9a913d91"
     },
     {
       "id": "p-configs-vless",
@@ -191,13 +185,12 @@
     {
       "id": "p-configs-trojan",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 2,
       "accepted": 0,
       "drops": {
         "missing_password": 2
       },
-      "cached": true,
       "source_repo": "https://github.com/VovaplusEXP/p-configs",
       "license": "GPL-3.0",
       "evidence": "https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE",
@@ -207,26 +200,24 @@
     {
       "id": "pawdroid-free-servers",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 8,
       "accepted": 8,
-      "cached": true,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "7da29a132d189f0f95503675314a058b9a13b53cdad8852c572dc1f38ab62a6a"
+      "sha256": "e45da28bd55b4bb0eea1b9041095483d801c4e53ebd9fd175b4072a352115062"
     },
     {
       "id": "anaer-sub",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1689,
       "accepted": 1642,
       "drops": {
         "private_server": 10,
         "invalid_uuid": 37
       },
-      "cached": true,
       "source_repo": "https://github.com/anaer/Sub",
       "license": "unknown",
       "publicly_offered": true,
@@ -235,7 +226,7 @@
     {
       "id": "clashfree-daily",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 592,
       "accepted": 443,
       "drops": {
@@ -243,7 +234,6 @@
         "private_server": 2,
         "duplicate": 145
       },
-      "cached": true,
       "source_repo": "https://github.com/free-nodes/clashfree",
       "license": "unknown",
       "publicly_offered": true,
@@ -252,14 +242,13 @@
     {
       "id": "ermaozi-subscribe",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 512,
       "accepted": 493,
       "drops": {
         "private_server": 10,
         "unsupported proxy type": 9
       },
-      "cached": true,
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
@@ -268,10 +257,9 @@
     {
       "id": "vxiaov-free-proxies",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 28,
       "accepted": 28,
-      "cached": true,
       "source_repo": "https://github.com/vxiaov/free_proxies",
       "license": "unknown",
       "publicly_offered": true,
@@ -280,13 +268,12 @@
     {
       "id": "zhuhaiuk-free-nodes",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 28,
       "accepted": 23,
       "drops": {
         "unsupported proxy type": 5
       },
-      "cached": true,
       "source_repo": "https://github.com/zhuhaiuk/free-nodes",
       "license": "unknown",
       "publicly_offered": true,
@@ -295,13 +282,12 @@
     {
       "id": "freefq-free",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 14,
       "accepted": 14,
       "drops": {
         "proxy port is outside 1..65535": 1
       },
-      "cached": true,
       "source_repo": "https://github.com/freefq/free",
       "license": "unknown",
       "publicly_offered": true,
@@ -310,18 +296,17 @@
     {
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
-      "status": "stale_cache",
-      "parsed": 1867,
+      "status": "ok",
+      "parsed": 1860,
       "accepted": 1212,
       "drops": {
-        "invalid_uuid": 4,
-        "duplicate": 651
+        "invalid_uuid": 3,
+        "duplicate": 645
       },
-      "cached": true,
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "723126ff6e88ff83cd1b28da719ab41dc7b9512ae0377f424a78bba6b4310791"
+      "sha256": "113e20dc70aed7c28c1c1f3c1bb841d6420db85dc34801525b089eb3af20379d"
     },
     {
       "id": "mfuu-freeproxies",
@@ -347,23 +332,23 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "992f928207c3561de85e22b3deac274dbdae7f00990c0212cb0e053947871759",
-      "bytes": 23346
+      "sha256": "83ddf45b42b7e1ba9dc06f775f96fc68efac6b93fe2cd10b9756526969268752",
+      "bytes": 21664
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "6089fb4563f9a682d304b9cceed6015d781ad330d97a8c82b01bf56f82f40c65",
-      "bytes": 15838
+      "sha256": "cc86b7664925efbc728f22b7dd0b4ed9e2be6d20abd53588f581c7dcef4ba7bb",
+      "bytes": 14434
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "c0758277764698e36f610904488bc74780fab7cc892f9b5d724b18c65daa84c7",
-      "bytes": 27325
+      "sha256": "3f7c529abe3bd64f28c8a56af411e4da44dbbf7d8e6f253e3064ba80ae608e7b",
+      "bytes": 25003
     }
   ],
   "drops": {
     "invalid_uuid": 50,
-    "duplicate": 1196,
+    "duplicate": 1187,
     "missing_password": 2,
     "private_server": 22,
     "unsupported proxy type": 14,
@@ -392,22 +377,23 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1434
+      "http_error": 1482,
+      "network_error": 2
     },
-    "pool_size_before": 36,
-    "pool_size": 71,
+    "pool_size_before": 71,
+    "pool_size": 68,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 36,
-    "pool_retested": 36,
-    "new_candidates_tested": 1464,
-    "pool_added": 36,
-    "pool_evicted": 1,
-    "retained_count": 71,
+    "pool_probe_candidates": 71,
+    "pool_retested": 71,
+    "new_candidates_tested": 1429,
+    "pool_added": 1,
+    "pool_evicted": 4,
+    "retained_count": 68,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 74,
-    "stage2_tested": 74,
-    "stage2_stable": 69,
+    "stage1_passed": 82,
+    "stage2_tested": 82,
+    "stage2_stable": 40,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -417,19 +403,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4713,
+    "candidates": 4696,
     "tested": 1500,
-    "verified": 66,
-    "fast": 15,
-    "stable": 66,
-    "failed": 1434,
-    "not_tested": 3213,
-    "not_tested_budget": 3213,
-    "failed_probe": 1428,
-    "below_quality_threshold": 6,
-    "dropped": 1434,
-    "published": 71,
-    "success_rate": 0.046
+    "verified": 16,
+    "fast": 16,
+    "stable": 16,
+    "failed": 1484,
+    "not_tested": 3196,
+    "not_tested_budget": 3196,
+    "failed_probe": 1439,
+    "below_quality_threshold": 45,
+    "dropped": 1484,
+    "published": 68,
+    "success_rate": 0.026
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
