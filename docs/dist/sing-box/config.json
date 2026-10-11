@@ -14,10 +14,8 @@
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 77D6F1",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE",
         "[pawdroid-free-servers] 安徽省滁州市+电信-2",
-        "[zhuhaiuk-free-nodes] KR - zhuhai.uk 02",
         "[pawdroid-free-servers] 北京市+腾讯云",
         "[pawdroid-free-servers] 北京市+腾讯云-2",
-        "[zhuhaiuk-free-nodes] KR - zhuhai.uk",
         "[clashfree-daily] 未知 VLESS-233 | free-nodes",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996",
         "[pawdroid-free-servers] 巴西+V2CROSS.COM",
@@ -31,7 +29,9 @@
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk 03",
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk 04",
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk",
-        "[ermaozi-subscribe] RO_speednode_0124"
+        "[ermaozi-subscribe] RO_speednode_0124",
+        "[zhuhaiuk-free-nodes] US - zhuhai.uk 06",
+        "[au1rxx-free-vpn-subscriptions] shadowsocks-1774402392"
       ]
     },
     {
@@ -114,13 +114,6 @@
       "uuid": "0afc6426-606c-48e7-bd70-3c424a416842"
     },
     {
-      "type": "socks",
-      "tag": "[zhuhaiuk-free-nodes] KR - zhuhai.uk 02",
-      "server": "121.169.46.116",
-      "server_port": 1090,
-      "username": "VkRKamJFMHdVV3hOTUZFMk9nPT06"
-    },
-    {
       "type": "vless",
       "tag": "[pawdroid-free-servers] 北京市+腾讯云",
       "server": "jp.sofast.live",
@@ -133,14 +126,6 @@
       "server": "us22.sofast.live",
       "server_port": 58011,
       "uuid": "0afc6426-606c-48e7-bd70-3c424a416842"
-    },
-    {
-      "type": "socks",
-      "tag": "[zhuhaiuk-free-nodes] KR - zhuhai.uk",
-      "server": "121.169.46.116",
-      "server_port": 1090,
-      "username": "Og%3D%3D",
-      "password": "Og%3D%3D"
     },
     {
       "type": "vless",
@@ -350,6 +335,24 @@
         "enabled": true,
         "insecure": true
       }
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] US - zhuhai.uk 06",
+      "server": "45.145.73.240",
+      "server_port": 8443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1774402392",
+      "server": "103.136.68.30",
+      "server_port": 8388,
+      "method": "aes-256-gcm",
+      "password": "H3epGAIO5GGkhNJB"
     }
   ]
 }

@@ -52,11 +52,6 @@ proxies:
   port: 58011
   uuid: 0afc6426-606c-48e7-bd70-3c424a416842
   client-fingerprint: chrome
-- name: '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
-  type: socks5
-  server: 121.169.46.116
-  port: 1090
-  username: VkRKamJFMHdVV3hOTUZFMk9nPT06
 - name: '[pawdroid-free-servers] 北京市+腾讯云'
   type: vless
   server: jp.sofast.live
@@ -69,12 +64,6 @@ proxies:
   port: 58011
   uuid: 0afc6426-606c-48e7-bd70-3c424a416842
   network: tcp
-- name: '[zhuhaiuk-free-nodes] KR - zhuhai.uk'
-  type: socks5
-  server: 121.169.46.116
-  port: 1090
-  username: Og%3D%3D
-  password: Og%3D%3D
 - name: '[clashfree-daily] 未知 VLESS-233 | free-nodes'
   server: 157.228.128.59
   port: 443
@@ -210,4 +199,17 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+  udp: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
+  type: http
+  server: 45.145.73.240
+  port: 8443
+  tls: true
+  skip-cert-verify: true
+- cipher: aes-256-gcm
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1774402392'
+  password: H3epGAIO5GGkhNJB
+  port: 8388
+  server: 103.136.68.30
+  type: ss
   udp: true
