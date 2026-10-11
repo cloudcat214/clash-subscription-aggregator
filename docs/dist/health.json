@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T17:00:08Z",
+  "generated_at": "2026-10-11T18:45:09Z",
   "status": "ok",
   "active_probe": true,
-  "published": 77,
+  "published": 75,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -141,33 +141,32 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1205,
-      "accepted": 1138,
+      "parsed": 1115,
+      "accepted": 1063,
       "drops": {
-        "invalid_uuid": 7,
-        "duplicate": 60
+        "invalid_uuid": 4,
+        "duplicate": 48
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "97859ef385551a55886a8f4c5294269cfec0ad2980bef5a5e4d29e62d5a72e1a"
+      "sha256": "c4da8616e4b292618ce37eb5e97f55334e819e67230d871fd2774a1c9877c932"
     },
     {
       "id": "p-configs-vless",
       "kind": "public",
       "status": "ok",
-      "parsed": 116,
-      "accepted": 81,
+      "parsed": 83,
+      "accepted": 59,
       "drops": {
-        "invalid_uuid": 1,
-        "duplicate": 34
+        "duplicate": 24
       },
       "source_repo": "https://github.com/VovaplusEXP/p-configs",
       "license": "GPL-3.0",
       "evidence": "https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "bee518a4293215813b2d9290e36076d17bb825785867956eae8fb2e3c1d12921"
+      "sha256": "79e1470986b4b1f29a19667f8f606e3045e6fddc40d8c8f2a9578a240d2cf14c"
     },
     {
       "id": "p-configs-trojan",
@@ -187,9 +186,10 @@
     {
       "id": "pawdroid-free-servers",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 10,
       "accepted": 10,
+      "cached": true,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
@@ -198,13 +198,14 @@
     {
       "id": "anaer-sub",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1689,
       "accepted": 1642,
       "drops": {
         "private_server": 10,
         "invalid_uuid": 37
       },
+      "cached": true,
       "source_repo": "https://github.com/anaer/Sub",
       "license": "unknown",
       "publicly_offered": true,
@@ -230,13 +231,14 @@
     {
       "id": "ermaozi-subscribe",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 512,
       "accepted": 493,
       "drops": {
         "private_server": 10,
         "unsupported proxy type": 9
       },
+      "cached": true,
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
@@ -245,9 +247,10 @@
     {
       "id": "vxiaov-free-proxies",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 28,
       "accepted": 28,
+      "cached": true,
       "source_repo": "https://github.com/vxiaov/free_proxies",
       "license": "unknown",
       "publicly_offered": true,
@@ -256,12 +259,13 @@
     {
       "id": "zhuhaiuk-free-nodes",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 31,
       "accepted": 30,
       "drops": {
         "unsupported proxy type": 1
       },
+      "cached": true,
       "source_repo": "https://github.com/zhuhaiuk/free-nodes",
       "license": "unknown",
       "publicly_offered": true,
@@ -270,12 +274,13 @@
     {
       "id": "freefq-free",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 14,
       "accepted": 14,
       "drops": {
         "proxy port is outside 1..65535": 1
       },
+      "cached": true,
       "source_repo": "https://github.com/freefq/free",
       "license": "unknown",
       "publicly_offered": true,
@@ -284,13 +289,14 @@
     {
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1860,
       "accepted": 1205,
       "drops": {
         "invalid_uuid": 2,
         "duplicate": 653
       },
+      "cached": true,
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
@@ -337,23 +343,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1473,
-      "network_error": 3
+      "http_error": 1430
     },
-    "pool_size_before": 75,
-    "pool_size": 77,
+    "pool_size_before": 31,
+    "pool_size": 75,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 75,
-    "pool_retested": 75,
-    "new_candidates_tested": 1425,
-    "pool_added": 2,
-    "pool_evicted": 0,
-    "retained_count": 77,
+    "pool_probe_candidates": 31,
+    "pool_retested": 31,
+    "new_candidates_tested": 1469,
+    "pool_added": 47,
+    "pool_evicted": 3,
+    "retained_count": 75,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
     "stage1_passed": 88,
     "stage2_tested": 88,
-    "stage2_stable": 41,
+    "stage2_stable": 76,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -363,19 +368,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4787,
+    "candidates": 4697,
     "tested": 1500,
-    "verified": 24,
-    "fast": 10,
-    "stable": 24,
-    "failed": 1476,
-    "not_tested": 3287,
-    "not_tested_budget": 3287,
-    "failed_probe": 1441,
-    "below_quality_threshold": 35,
-    "dropped": 1476,
-    "published": 77,
-    "success_rate": 0.027555555555555555
+    "verified": 70,
+    "fast": 14,
+    "stable": 70,
+    "failed": 1430,
+    "not_tested": 3197,
+    "not_tested_budget": 3197,
+    "failed_probe": 1421,
+    "below_quality_threshold": 9,
+    "dropped": 1430,
+    "published": 75,
+    "success_rate": 0.05
   },
   "core_validation": {
     "status": "not_tested",
