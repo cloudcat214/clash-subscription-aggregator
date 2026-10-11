@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T04:00:07Z",
+  "generated_at": "2026-10-11T04:15:07Z",
   "status": "ok",
   "active_probe": true,
-  "published": 29,
+  "published": 30,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -107,9 +107,10 @@
     {
       "id": "alvin-ip4-mirror",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -141,17 +142,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1430,
-      "accepted": 1319,
+      "parsed": 1446,
+      "accepted": 1345,
       "drops": {
         "invalid_uuid": 7,
-        "duplicate": 104
+        "duplicate": 94
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "99d19c886bbac46f3836e7494588ee1b87cf8b099b2fa9dcd76f2dac484036b0"
+      "sha256": "bb2a68e3768fd3901e45f7fdf41b02aad0f4e11bcb15b5e9549288e0ceeaf99c"
     },
     {
       "id": "p-configs-vless",
@@ -205,13 +206,12 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1354,
-      "network_error": 1
+      "http_error": 1380
     },
-    "stage1_tested": 1384,
-    "stage1_passed": 44,
-    "stage2_tested": 44,
-    "stage2_stable": 38,
+    "stage1_tested": 1410,
+    "stage1_passed": 38,
+    "stage2_tested": 38,
+    "stage2_stable": 33,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -221,19 +221,19 @@
     }
   },
   "node_quality": {
-    "candidates": 1384,
-    "tested": 1384,
-    "verified": 29,
-    "fast": 6,
-    "stable": 29,
-    "failed": 1355,
+    "candidates": 1410,
+    "tested": 1410,
+    "verified": 30,
+    "fast": 1,
+    "stable": 30,
+    "failed": 1380,
     "not_tested": 0,
     "not_tested_budget": 0,
-    "failed_probe": 1343,
-    "below_quality_threshold": 12,
-    "dropped": 1355,
-    "published": 29,
-    "success_rate": 0.02601156069364162
+    "failed_probe": 1376,
+    "below_quality_threshold": 4,
+    "dropped": 1380,
+    "published": 30,
+    "success_rate": 0.02293144208037825
   },
   "core_validation": {
     "status": "not_tested",
