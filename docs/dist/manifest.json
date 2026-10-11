@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T06:00:08Z",
+  "generated_at": "2026-10-11T06:15:08Z",
   "status": "success",
   "active_probe": true,
   "counts": {
     "published": 6,
     "sources": 25,
-    "parsed": 5164,
-    "accepted": 4267
+    "parsed": 5185,
+    "accepted": 4283
   },
   "protocols": {
     "hysteria2": 2,
@@ -151,17 +151,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1401,
-      "accepted": 1325,
+      "parsed": 1419,
+      "accepted": 1344,
       "drops": {
         "invalid_uuid": 8,
-        "duplicate": 68
+        "duplicate": 67
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "a7965097db2138a116027f0b85ad1bc19a93e6c5bd3e9a803418bde4eaf1c412"
+      "sha256": "9ea76f0062c682367b2c3abb54cce3f3f501ddecb78b3c16a7312db5be8787c1"
     },
     {
       "id": "p-configs-vless",
@@ -203,7 +203,7 @@
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "8921cd511e5b3781dd013f33e09f0d0478583ea43ead5fb8cc4c4155a0edbab2"
+      "sha256": "c25bdd8f35a243609bc90c6de9dd989be507d7491c9a067453af977e9e1528f8"
     },
     {
       "id": "anaer-sub",
@@ -295,16 +295,16 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1804,
-      "accepted": 1205,
+      "parsed": 1807,
+      "accepted": 1202,
       "drops": {
         "invalid_uuid": 1,
-        "duplicate": 598
+        "duplicate": 604
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "fc7a451423c41b63692aacf0a2b64280183d37b0ac7c24c945b0bd0f23854f1b"
+      "sha256": "5c672dd0d417ed4f1b07619d908a36ae113d6ae24bcb5dce912e10174d8d04d8"
     },
     {
       "id": "mfuu-freeproxies",
@@ -330,23 +330,23 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "3c28cf84f0d63f23186e47917c1c57a8eb0ea67a7c807a53399418dd8f9e79e6",
-      "bytes": 2663
+      "sha256": "f390d9084a98f73e96552f009efb0fcd44cd1e0d41e4238da1ee0040e3d77096",
+      "bytes": 2695
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "9cbcdb3c4f477ef65049768edc4d8aa1be649659147398c30cc014e86c8d9fe0",
-      "bytes": 1579
+      "sha256": "2d8c3f7ff82b3d9296a0be36da5c50cbb837bd4a17745326b18c320f7dd513a9",
+      "bytes": 1613
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "192730587f1c77f3dc7b729af6959ddeaf3fde2105084f922c251a6f18453f8f",
-      "bytes": 2885
+      "sha256": "a3bf0c2fe27adc0601783fdbed5a22dd3a4a9b14a9079340d56dcb948f0735b2",
+      "bytes": 3021
     }
   ],
   "drops": {
     "invalid_uuid": 23,
-    "duplicate": 1042,
+    "duplicate": 1043,
     "missing_password": 7,
     "proxy port is outside 1..65535": 2,
     "private_server": 12,
@@ -375,9 +375,9 @@
       "http_error": 1494
     },
     "stage1_tested": 1500,
-    "stage1_passed": 7,
-    "stage2_tested": 7,
-    "stage2_stable": 7,
+    "stage1_passed": 6,
+    "stage2_tested": 6,
+    "stage2_stable": 6,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -387,19 +387,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4062,
+    "candidates": 4082,
     "tested": 1500,
     "verified": 6,
     "fast": 0,
     "stable": 6,
     "failed": 1494,
-    "not_tested": 2562,
-    "not_tested_budget": 2562,
-    "failed_probe": 1493,
-    "below_quality_threshold": 1,
+    "not_tested": 2582,
+    "not_tested_budget": 2582,
+    "failed_probe": 1494,
+    "below_quality_threshold": 0,
     "dropped": 1494,
     "published": 6,
-    "success_rate": 0.0044444444444444444
+    "success_rate": 0.004
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
