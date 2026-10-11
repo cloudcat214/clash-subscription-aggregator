@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T07:15:09Z",
+  "generated_at": "2026-10-11T07:30:08Z",
   "status": "success",
   "active_probe": true,
   "counts": {
     "published": 5,
     "sources": 25,
-    "parsed": 5098,
-    "accepted": 4195
+    "parsed": 5050,
+    "accepted": 4153
   },
   "protocols": {
     "hysteria2": 2,
-    "ss": 2,
-    "vless": 1
+    "ss": 1,
+    "vless": 2
   },
   "sources": [
     {
@@ -150,19 +150,18 @@
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
-      "status": "stale_cache",
-      "parsed": 1337,
-      "accepted": 1263,
+      "status": "ok",
+      "parsed": 1289,
+      "accepted": 1221,
       "drops": {
         "invalid_uuid": 7,
-        "duplicate": 67
+        "duplicate": 61
       },
-      "cached": true,
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "12ad676ef270e5cef5f214f95aeba4038d85655e6110183c4baf7bbbc1ef1df2"
+      "sha256": "88e30564fac0d6c5dd950e0ad126fdba0c5952e34547f02ab5089c83d38d947d"
     },
     {
       "id": "p-configs-vless",
@@ -298,13 +297,14 @@
     {
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1807,
       "accepted": 1202,
       "drops": {
         "invalid_uuid": 1,
         "duplicate": 604
       },
+      "cached": true,
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
@@ -334,23 +334,23 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "0df27e5268c746132b6d0bdbbf84cf46c7a0f9df57f66d9dc1d24fe5259769af",
-      "bytes": 2162
+      "sha256": "32896f547e4a320928deb0650edb58a58d4e9f6c655e54d51599c552bd1cfe6a",
+      "bytes": 2365
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "bcd7a75533808658bb79cf49a38ddc2e3f78aec207536317bf24f42ceb81e078",
-      "bytes": 1190
+      "sha256": "5e4295da4b905f25b545b998b89aa1f464c6eff6119e461a18a5e2cda91c6ea0",
+      "bytes": 1405
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "0e6c8b103a56e86bcb5e8ce6a4bd7d68b993a20cfb0ed2ad6a7b8fb3c0e04308",
-      "bytes": 2324
+      "sha256": "9f07ef133545932b094c7f58bb70425b34f21b699eba4c889c36fe072673c8a6",
+      "bytes": 2682
     }
   ],
   "drops": {
     "invalid_uuid": 23,
-    "duplicate": 1047,
+    "duplicate": 1042,
     "missing_password": 7,
     "proxy port is outside 1..65535": 2,
     "private_server": 12,
@@ -379,9 +379,9 @@
       "http_error": 1495
     },
     "stage1_tested": 1500,
-    "stage1_passed": 7,
-    "stage2_tested": 7,
-    "stage2_stable": 7,
+    "stage1_passed": 6,
+    "stage2_tested": 6,
+    "stage2_stable": 5,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -391,19 +391,19 @@
     }
   },
   "node_quality": {
-    "candidates": 3990,
+    "candidates": 3947,
     "tested": 1500,
     "verified": 5,
-    "fast": 0,
+    "fast": 2,
     "stable": 5,
     "failed": 1495,
-    "not_tested": 2490,
-    "not_tested_budget": 2490,
-    "failed_probe": 1493,
-    "below_quality_threshold": 2,
+    "not_tested": 2447,
+    "not_tested_budget": 2447,
+    "failed_probe": 1494,
+    "below_quality_threshold": 1,
     "dropped": 1495,
     "published": 5,
-    "success_rate": 0.004222222222222222
+    "success_rate": 0.0035555555555555557
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
