@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T08:15:07Z",
+  "generated_at": "2026-10-11T08:30:07Z",
   "status": "ok",
   "active_probe": true,
-  "published": 13,
+  "published": 14,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -140,19 +140,18 @@
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
-      "status": "stale_cache",
-      "parsed": 1256,
-      "accepted": 1190,
+      "status": "ok",
+      "parsed": 1281,
+      "accepted": 1212,
       "drops": {
-        "invalid_uuid": 7,
-        "duplicate": 59
+        "invalid_uuid": 8,
+        "duplicate": 61
       },
-      "cached": true,
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "122a57e076d8d18e431f2ab3d00d2387729234247c8eec327909184b3a9450bf"
+      "sha256": "621858107bb1bf7daa6bff41bd77fe0be0751f0ade42a0faa0e1831b290c61e3"
     },
     {
       "id": "p-configs-vless",
@@ -285,18 +284,16 @@
     {
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
-      "status": "stale_cache",
-      "parsed": 1807,
-      "accepted": 1202,
+      "status": "ok",
+      "parsed": 1810,
+      "accepted": 1203,
       "drops": {
-        "invalid_uuid": 1,
-        "duplicate": 604
+        "duplicate": 607
       },
-      "cached": true,
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "5c672dd0d417ed4f1b07619d908a36ae113d6ae24bcb5dce912e10174d8d04d8"
+      "sha256": "077030a5d8c09503879cc3c22ddcac3e03be46742829846f814c6e83a5ca74e3"
     },
     {
       "id": "mfuu-freeproxies",
@@ -339,20 +336,20 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1485,
-      "network_error": 2
+      "http_error": 1488,
+      "network_error": 3
     },
-    "pool_size_before": 0,
-    "pool_size": 13,
-    "pool_retested": 0,
-    "new_candidates_tested": 1500,
-    "pool_added": 13,
+    "pool_size_before": 13,
+    "pool_size": 14,
+    "pool_retested": 13,
+    "new_candidates_tested": 1487,
+    "pool_added": 1,
     "pool_evicted": 0,
-    "retained_count": 13,
+    "retained_count": 14,
     "stage1_tested": 1500,
-    "stage1_passed": 65,
-    "stage2_tested": 65,
-    "stage2_stable": 22,
+    "stage1_passed": 47,
+    "stage2_tested": 47,
+    "stage2_stable": 17,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -362,19 +359,19 @@
     }
   },
   "node_quality": {
-    "candidates": 3915,
+    "candidates": 3943,
     "tested": 1500,
-    "verified": 13,
-    "fast": 7,
-    "stable": 13,
-    "failed": 1487,
-    "not_tested": 2415,
-    "not_tested_budget": 2415,
-    "failed_probe": 1464,
+    "verified": 9,
+    "fast": 1,
+    "stable": 9,
+    "failed": 1491,
+    "not_tested": 2443,
+    "not_tested_budget": 2443,
+    "failed_probe": 1468,
     "below_quality_threshold": 23,
-    "dropped": 1487,
-    "published": 13,
-    "success_rate": 0.01577777777777778
+    "dropped": 1491,
+    "published": 14,
+    "success_rate": 0.012888888888888889
   },
   "core_validation": {
     "status": "not_tested",

@@ -99,6 +99,15 @@ proxies:
   server: 46.29.166.27
   type: ss
   udp: true
+- name: '[ermaozi-subscribe] US_speednode_0131'
+  password: 'null'
+  port: 9002
+  server: 138.199.35.216
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  username: 'null'
 proxy-groups:
 - name: PROXY
   type: select
@@ -117,6 +126,7 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国'
   - '[ermaozi-subscribe] 🇩🇪 德国 | DEU 7'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
+  - '[ermaozi-subscribe] US_speednode_0131'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -133,6 +143,7 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国'
   - '[ermaozi-subscribe] 🇩🇪 德国 | DEU 7'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
+  - '[ermaozi-subscribe] US_speednode_0131'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100
