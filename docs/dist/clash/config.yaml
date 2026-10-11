@@ -50,67 +50,17 @@ proxies:
     short-id: 3560f3d77a767c3a
   client-fingerprint: random
   network: tcp
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7'
-  server: 144.31.238.115
-  port: 2443
-  type: vless
-  uuid: b8df3f50-ffef-4c7e-9ef3-d5b156a47c02
-  udp: true
-  tls: true
-  servername: api-maps.yandex.ru
-  reality-opts:
-    public-key: rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE
-    short-id: ef567890
-  client-fingerprint: random
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc
-- name: '[pawdroid-free-servers] 安徽省滁州市+电信'
-  type: vless
-  server: jp.sofast.live
-  port: 52683
-  uuid: 5aaa5259-f924-4682-a4a3-149d472a9dcc
-  network: tcp
 - name: '[pawdroid-free-servers] 安徽省滁州市+电信-2'
   type: vless
   server: us22.sofast.live
   port: 58011
   uuid: 0afc6426-606c-48e7-bd70-3c424a416842
   client-fingerprint: chrome
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8CA037'
-  server: 5.252.33.175
-  port: 9882
-  type: vless
-  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
-  udp: true
-  tls: true
-  servername: dl.google.com
-  reality-opts:
-    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-    short-id: aabbccdd
-  client-fingerprint: random
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc-tunnel
-- name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
-  type: http
-  server: 193.176.84.17
-  port: 9002
-  tls: true
-  sni: www.bing.com
-  skip-cert-verify: true
 - name: '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
   type: socks5
   server: 121.169.46.116
   port: 1090
   username: VkRKamJFMHdVV3hOTUZFMk9nPT06
-- name: '[ermaozi-subscribe] RO_speednode_0124'
-  port: 9002
-  server: 193.176.84.32
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[pawdroid-free-servers] 北京市+腾讯云'
   type: vless
   server: jp.sofast.live
@@ -129,14 +79,6 @@ proxies:
   port: 1090
   username: Og%3D%3D
   password: Og%3D%3D
-- name: '[ermaozi-subscribe] NL_speednode_0008'
-  password: None
-  port: 9002
-  server: 84.17.47.148
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[clashfree-daily] 未知 VLESS-233 | free-nodes'
   server: 157.228.128.59
   port: 443
@@ -152,129 +94,6 @@ proxies:
   servername: addons.mozilla.org
   client-fingerprint: chrome
   network: tcp
-- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
-  type: http
-  server: 51.159.225.196
-  port: 23856
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 04'
-  type: http
-  server: 51.159.225.196
-  port: 23856
-  username: 'null'
-  password: None
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
-  type: http
-  server: 193.176.84.21
-  port: 9002
-  username: 'null'
-  password: 'null'
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] SG - zhuhai.uk 02'
-  type: http
-  server: 146.70.29.45
-  port: 443
-  username: testuser1
-  password: e4b72b531a2d10900519
-  tls: true
-  sni: 92461d2d.acsnet.co
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk'
-  type: http
-  server: 138.199.35.209
-  port: 9002
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 05'
-  type: http
-  server: 138.199.35.206
-  port: 9002
-  username: 'null'
-  password: 'null'
-  tls: true
-  sni: 138.199.35.206
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
-  type: http
-  server: 138.199.35.219
-  port: 9002
-  tls: true
-  skip-cert-verify: true
-- name: '[ermaozi-subscribe] NL_speednode_0004'
-  port: 9002
-  server: 84.17.47.125
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
-  type: http
-  server: 138.199.35.216
-  port: 9002
-  username: 'null'
-  password: 'null'
-  tls: true
-  skip-cert-verify: true
-- name: '[ermaozi-subscribe] NL_speednode_0006'
-  port: 9002
-  server: 84.17.47.150
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] NL_speednode_0010'
-  port: 9002
-  server: 84.17.47.149
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0042'
-  port: 9002
-  server: 193.176.84.30
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0044'
-  port: 9002
-  server: 193.176.84.35
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0045'
-  port: 9002
-  server: 193.176.84.17
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0097'
-  password: None
-  port: 9002
-  server: 193.176.84.23
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8C9D34'
-  server: geow.nohezar.ir
-  port: 41234
-  type: vless
-  uuid: 2c5f2d6e-d683-49f7-a12b-a95460b90a92
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: beacons4.gvt2.com
-  reality-opts:
-    public-key: mspqBbivIdV4MdqiZLGnNIn2LH3Dg8nkL0aRbJ0xS24
-    short-id: 16700a53381e4f8d
-  client-fingerprint: qq
-  network: tcp
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
   server: 177.1.187.251
   port: 443
@@ -289,79 +108,6 @@ proxies:
     short-id: 4be4110078ebed4a
   client-fingerprint: randomized
   network: tcp
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C08D18'
-  server: 177.3.213.25
-  port: 443
-  type: vless
-  uuid: b1936288-a353-4ff1-89b3-edaead599c6b
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.lovelive-anime.jp
-  reality-opts:
-    public-key: pXwkQ1rn3miSop9LpI9f6UwhSLtF18uUkKbQD2Kz2Vo
-    short-id: f4940939dff6f31b
-  client-fingerprint: random
-  network: tcp
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C85482'
-  server: geow.nohezar.ir
-  port: 4357
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: K63q-WhHdJoC_AIxT6E4r_IIuGIb6CuV
-  udp: true
-- name: '[ermaozi-subscribe] 🇩🇪DE_1|2.7MB/s'
-  password: None
-  port: 443
-  server: 149.36.50.1
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[ermaozi-subscribe] 🇩🇪DE_2|2.7MB/s'
-  password: None
-  port: 9443
-  server: 87.249.132.97
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[ermaozi-subscribe] 🇩🇪DE_3|4.1MB/s'
-  port: 443
-  server: 172.64.68.89
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[ermaozi-subscribe] 🇩🇪DE_4|2.1MB/s'
-  port: 9002
-  server: 158.173.154.3
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[ermaozi-subscribe] 🇩🇪DE_6|2.3MB/s'
-  port: 9443
-  server: 213.177.229.161
-  skip-cert-verify: true
-  tls: true
-  type: http
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1775932221'
-  password: ml_pQUkjwoJ262ZSeI6g0A
-  port: 34120
-  server: f45e.donyumvps.tr
-  type: ss
-  udp: true
-- name: '[zhuhaiuk-free-nodes] FI - zhuhai.uk'
-  type: vless
-  server: 157.228.128.59
-  port: 443
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  flow: xtls-rprx-vision
-  tls: true
-  servername: addons.mozilla.org
-  skip-cert-verify: true
-  client-fingerprint: randomized
-  reality-opts:
-    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
-    short-id: 06e00e7c
 - name: '[pawdroid-free-servers] 巴西+V2CROSS.COM'
   type: vless
   server: de2.srv.vbuste.ru
@@ -379,16 +125,92 @@ proxies:
   type: socks5
   server: 36.155.23.163
   port: 10808
-- name: '[ermaozi-subscribe] NL_speednode_0009'
-  port: 9002
-  server: 84.17.47.146
-  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
+  type: vless
+  server: 43.247.132.85
+  port: 41563
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  flow: xtls-rprx-vision
   tls: true
-  type: http
+  servername: iosapps.itunes.apple.com
+  client-fingerprint: random
+  reality-opts:
+    public-key: HrcXRHtsitc_AVlN-_8fZuRgaP-Mqa_9JJotI9OnkVc
+    short-id: 25c79e5856c7
+- name: '[zhuhaiuk-free-nodes] RU - zhuhai.uk 02'
+  type: socks5
+  server: 188.232.115.151
+  port: 8083
+- name: '[ermaozi-subscribe] 🇩🇪 德国 | DEU 3'
+  server: 95.133.247.98
+  port: 995
+  type: vless
+  uuid: df275727-c25a-450b-99c3-29e4e6b0b6b9
+  tls: true
+  servername: love-paris.roxa.org
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /api/v1
+    headers:
+      Host: love-paris.roxa.org
+    v2ray-http-upgrade: true
   udp: true
-- name: '[ermaozi-subscribe] US_speednode_0143'
+- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  type: http
+  server: 5.255.118.82
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- name: '[clashfree-daily] 未知 VLESS-234 | free-nodes'
+  server: 157.228.160.166
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
+    short-id: 3cef317b
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+  network: tcp
+- name: '[zhuhaiuk-free-nodes] DE - zhuhai.uk 02'
+  type: vless
+  server: gw1.edgemedia.lol
+  port: 8443
+  uuid: 9ebf4fda-7395-4800-b42f-b2dda649880a
+  flow: xtls-rprx-vision
+  tls: true
+  servername: ya.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 1MLoHw7RVkGefh7XUyuGg4ndxwv4vDU9en-f9JxpXRQ
+    short-id: d2061bb1
+- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
+  type: http
+  server: 185.238.168.20
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 04'
+  type: http
+  server: 51.158.243.91
+  port: 443
+  username: 'null'
+  password: None
+  tls: true
+  sni: 51.158.243.91
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
+  type: socks5
+  server: 37.77.148.12
+  port: 9101
+- name: '[ermaozi-subscribe] RO_speednode_0124'
   port: 9002
-  server: 138.199.35.198
+  server: 193.176.84.32
   skip-cert-verify: true
   tls: true
   type: http
@@ -403,48 +225,25 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 77D6F1'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7'
-  - '[pawdroid-free-servers] 安徽省滁州市+电信'
   - '[pawdroid-free-servers] 安徽省滁州市+电信-2'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8CA037'
-  - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
-  - '[ermaozi-subscribe] RO_speednode_0124'
   - '[pawdroid-free-servers] 北京市+腾讯云'
   - '[pawdroid-free-servers] 北京市+腾讯云-2'
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk'
-  - '[ermaozi-subscribe] NL_speednode_0008'
   - '[clashfree-daily] 未知 VLESS-233 | free-nodes'
-  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
-  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 04'
-  - '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
-  - '[zhuhaiuk-free-nodes] SG - zhuhai.uk 02'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 05'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
-  - '[ermaozi-subscribe] NL_speednode_0004'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
-  - '[ermaozi-subscribe] NL_speednode_0006'
-  - '[ermaozi-subscribe] NL_speednode_0010'
-  - '[ermaozi-subscribe] RO_speednode_0042'
-  - '[ermaozi-subscribe] RO_speednode_0044'
-  - '[ermaozi-subscribe] RO_speednode_0045'
-  - '[ermaozi-subscribe] RO_speednode_0097'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8C9D34'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C08D18'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C85482'
-  - '[ermaozi-subscribe] 🇩🇪DE_1|2.7MB/s'
-  - '[ermaozi-subscribe] 🇩🇪DE_2|2.7MB/s'
-  - '[ermaozi-subscribe] 🇩🇪DE_3|4.1MB/s'
-  - '[ermaozi-subscribe] 🇩🇪DE_4|2.1MB/s'
-  - '[ermaozi-subscribe] 🇩🇪DE_6|2.3MB/s'
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1775932221'
-  - '[zhuhaiuk-free-nodes] FI - zhuhai.uk'
   - '[pawdroid-free-servers] 巴西+V2CROSS.COM'
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
-  - '[ermaozi-subscribe] NL_speednode_0009'
-  - '[ermaozi-subscribe] US_speednode_0143'
+  - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
+  - '[zhuhaiuk-free-nodes] RU - zhuhai.uk 02'
+  - '[ermaozi-subscribe] 🇩🇪 德国 | DEU 3'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  - '[clashfree-daily] 未知 VLESS-234 | free-nodes'
+  - '[zhuhaiuk-free-nodes] DE - zhuhai.uk 02'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 04'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
+  - '[ermaozi-subscribe] RO_speednode_0124'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -453,48 +252,25 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 77D6F1'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7'
-  - '[pawdroid-free-servers] 安徽省滁州市+电信'
   - '[pawdroid-free-servers] 安徽省滁州市+电信-2'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8CA037'
-  - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
-  - '[ermaozi-subscribe] RO_speednode_0124'
   - '[pawdroid-free-servers] 北京市+腾讯云'
   - '[pawdroid-free-servers] 北京市+腾讯云-2'
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk'
-  - '[ermaozi-subscribe] NL_speednode_0008'
   - '[clashfree-daily] 未知 VLESS-233 | free-nodes'
-  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
-  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 04'
-  - '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
-  - '[zhuhaiuk-free-nodes] SG - zhuhai.uk 02'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 05'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
-  - '[ermaozi-subscribe] NL_speednode_0004'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
-  - '[ermaozi-subscribe] NL_speednode_0006'
-  - '[ermaozi-subscribe] NL_speednode_0010'
-  - '[ermaozi-subscribe] RO_speednode_0042'
-  - '[ermaozi-subscribe] RO_speednode_0044'
-  - '[ermaozi-subscribe] RO_speednode_0045'
-  - '[ermaozi-subscribe] RO_speednode_0097'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8C9D34'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C08D18'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C85482'
-  - '[ermaozi-subscribe] 🇩🇪DE_1|2.7MB/s'
-  - '[ermaozi-subscribe] 🇩🇪DE_2|2.7MB/s'
-  - '[ermaozi-subscribe] 🇩🇪DE_3|4.1MB/s'
-  - '[ermaozi-subscribe] 🇩🇪DE_4|2.1MB/s'
-  - '[ermaozi-subscribe] 🇩🇪DE_6|2.3MB/s'
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1775932221'
-  - '[zhuhaiuk-free-nodes] FI - zhuhai.uk'
   - '[pawdroid-free-servers] 巴西+V2CROSS.COM'
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
-  - '[ermaozi-subscribe] NL_speednode_0009'
-  - '[ermaozi-subscribe] US_speednode_0143'
+  - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
+  - '[zhuhaiuk-free-nodes] RU - zhuhai.uk 02'
+  - '[ermaozi-subscribe] 🇩🇪 德国 | DEU 3'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  - '[clashfree-daily] 未知 VLESS-234 | free-nodes'
+  - '[zhuhaiuk-free-nodes] DE - zhuhai.uk 02'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 04'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
+  - '[ermaozi-subscribe] RO_speednode_0124'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100
