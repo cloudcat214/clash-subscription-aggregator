@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T05:15:08Z",
+  "generated_at": "2026-10-11T05:30:07Z",
   "status": "success",
   "active_probe": true,
   "counts": {
@@ -150,13 +150,14 @@
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1437,
       "accepted": 1360,
       "drops": {
         "invalid_uuid": 7,
         "duplicate": 70
       },
+      "cached": true,
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
@@ -294,13 +295,14 @@
     {
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1799,
       "accepted": 1194,
       "drops": {
         "invalid_uuid": 1,
         "duplicate": 604
       },
+      "cached": true,
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
@@ -330,17 +332,17 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "266d2292e9c5c053865b7140a5b3e64df3da2d348ca02624355ff4add803c87f",
+      "sha256": "27f4a13c7eb1a6e5d12311dacdf0f4d4ebde36c3e889dc42d5430c3d727ee965",
       "bytes": 2702
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "1dc27799229fe6749a015bc827f94fbfdb54666d4736c33b97ea620b60fa7ca7",
+      "sha256": "87985dc246248e34a2f2ec7f4fd9397dc9dffc2a279c35db700a1e5ed75af8fe",
       "bytes": 1618
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "837e35bcbe9d199d13ac9ab1c3ad1d9075fa0f9017fd699f65793a2d3c9c05c9",
+      "sha256": "f37050df159b6d925e6f36f180bdfd08a0b90828a1c4182d86ca2501869d4d92",
       "bytes": 2924
     }
   ],
@@ -390,7 +392,7 @@
     "candidates": 4078,
     "tested": 1500,
     "verified": 6,
-    "fast": 3,
+    "fast": 2,
     "stable": 6,
     "failed": 1494,
     "not_tested": 2578,
