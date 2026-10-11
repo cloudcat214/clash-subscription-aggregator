@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T02:15:12Z",
+  "generated_at": "2026-10-11T02:30:08Z",
   "status": "ok",
   "active_probe": true,
   "published": 33,
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1453,
-      "accepted": 1333,
+      "parsed": 1496,
+      "accepted": 1380,
       "drops": {
-        "invalid_uuid": 8,
-        "duplicate": 112
+        "invalid_uuid": 7,
+        "duplicate": 109
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "210dde0d4e748fa9723734b3d211296068eb022aadd9dcd8a9ac2ab5eee7214c"
+      "sha256": "30dc045ca3e32086404ed828361bf68ade9f9c9d6f933a316a622b06b588c9cb"
     },
     {
       "id": "p-configs-vless",
@@ -205,12 +205,13 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1365
+      "http_error": 1411,
+      "network_error": 1
     },
-    "stage1_tested": 1398,
-    "stage1_passed": 40,
-    "stage2_tested": 40,
-    "stage2_stable": 35,
+    "stage1_tested": 1445,
+    "stage1_passed": 37,
+    "stage2_tested": 37,
+    "stage2_stable": 33,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -220,19 +221,19 @@
     }
   },
   "node_quality": {
-    "candidates": 1398,
-    "tested": 1398,
+    "candidates": 1445,
+    "tested": 1445,
     "verified": 33,
-    "fast": 1,
+    "fast": 3,
     "stable": 33,
-    "failed": 1365,
+    "failed": 1412,
     "not_tested": 0,
     "not_tested_budget": 0,
-    "failed_probe": 1361,
-    "below_quality_threshold": 4,
-    "dropped": 1365,
+    "failed_probe": 1410,
+    "below_quality_threshold": 2,
+    "dropped": 1412,
     "published": 33,
-    "success_rate": 0.02503576537911302
+    "success_rate": 0.023298731257208764
   },
   "core_validation": {
     "status": "not_tested",
