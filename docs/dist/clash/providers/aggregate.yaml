@@ -159,21 +159,6 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: grpc-tunnel
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 87BAAC'
-  server: 144.31.238.115
-  port: 2443
-  type: vless
-  uuid: b8df3f50-ffef-4c7e-9ef3-d5b156a47c02
-  udp: true
-  tls: true
-  servername: api-maps.yandex.ru
-  reality-opts:
-    public-key: rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE
-    short-id: ef567890
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpc
 - name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
   type: http
   server: 84.17.47.148
@@ -182,18 +167,6 @@ proxies:
   password: 'null'
   tls: true
   skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
-  type: vless
-  server: 157.228.160.166
-  port: 443
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  flow: xtls-rprx-vision
-  tls: true
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
-    short-id: 3cef317b
 - name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
   type: http
   server: 193.176.84.18
@@ -221,19 +194,6 @@ proxies:
   port: 9002
   tls: true
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | F37D43'
-  server: p11real1.greewebservices.ir
-  port: 1020
-  type: vless
-  uuid: ff3b79c1-1fd9-4e86-95a5-cf3863b3d162
-  udp: true
-  tls: true
-  servername: play.googleapis.com
-  reality-opts:
-    public-key: GzjL8Jq6iNwatTxuqL9gXElWIUgtOfbbCDaZ_wHG5SY
-    short-id: 9b60d3
-  client-fingerprint: ios
-  network: tcp
 - name: '[ermaozi-subscribe] RO_speednode_0083'
   port: 9002
   server: 193.176.84.25
@@ -241,21 +201,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[clashfree-daily] 未知 VLESS-217 | free-nodes'
-  server: c20s5.portablesubmarines.com
-  port: 443
-  type: vless
-  uuid: 85fe968d-fbb5-40dc-8422-30635eccb149
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE
-    short-id: 051f20c2344a2dfd
-  servername: portal.citygrainla.com
-  client-fingerprint: chrome
-  network: tcp
 - name: '[alvin-ip1] https://github.com/Alvin9999-newpac/fanqiang'
   type: hysteria
   server: 62.210.70.191
@@ -642,4 +587,34 @@ proxies:
   uuid: 7474b6d6-d6d1-42d6-a0b1-a591a01ffedc
   udp: true
   tls: false
+  network: tcp
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8CA037'
+  server: 5.252.33.175
+  port: 9882
+  type: vless
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  udp: true
+  tls: true
+  servername: dl.google.com
+  reality-opts:
+    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+    short-id: aabbccdd
+  client-fingerprint: random
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+- name: '[clashfree-daily] 未知 VLESS-242 | free-nodes'
+  server: 157.228.128.59
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
+    short-id: 06e00e7c
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
   network: tcp

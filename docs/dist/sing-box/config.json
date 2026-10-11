@@ -25,16 +25,12 @@
         "[ermaozi-subscribe] 🇫🇷FR_5|1.5MB/s",
         "[pawdroid-free-servers] 广东省广州市+腾讯云",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | E95A9E",
-        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 87BAAC",
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk",
-        "[zhuhaiuk-free-nodes] NL - zhuhai.uk 02",
         "[zhuhaiuk-free-nodes] RO - zhuhai.uk",
         "[zhuhaiuk-free-nodes] RO - zhuhai.uk 02",
         "[ermaozi-subscribe] RO_speednode_0087",
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 03",
-        "[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | F37D43",
         "[ermaozi-subscribe] RO_speednode_0083",
-        "[clashfree-daily] 未知 VLESS-217 | free-nodes",
         "[pawdroid-free-servers] 美国+CloudFlare节点-2",
         "[zhuhaiuk-free-nodes] ID - zhuhai.uk",
         "[zhuhaiuk-free-nodes] ID - zhuhai.uk 02",
@@ -78,7 +74,9 @@
         "[clashfree-daily] 未知 VLESS-234 | free-nodes",
         "[ermaozi-subscribe] 🇭🇰 香港 | HKG 9",
         "[ermaozi-subscribe] 🇮🇹IT_1|1.1MB/s",
-        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F8F6D9"
+        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F8F6D9",
+        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8CA037",
+        "[clashfree-daily] 未知 VLESS-242 | free-nodes"
       ]
     },
     {
@@ -293,30 +291,6 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 87BAAC",
-      "server": "144.31.238.115",
-      "server_port": 2443,
-      "uuid": "b8df3f50-ffef-4c7e-9ef3-d5b156a47c02",
-      "tls": {
-        "enabled": true,
-        "server_name": "api-maps.yandex.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE",
-          "short_id": "ef567890"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc"
-      }
-    },
-    {
       "type": "http",
       "tag": "[zhuhaiuk-free-nodes] NL - zhuhai.uk",
       "server": "84.17.47.148",
@@ -326,27 +300,6 @@
       "tls": {
         "enabled": true,
         "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[zhuhaiuk-free-nodes] NL - zhuhai.uk 02",
-      "server": "157.228.160.166",
-      "server_port": 443,
-      "uuid": "df53b6c2-8005-475c-9eb9-74e1be785dc8",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "addons.mozilla.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M",
-          "short_id": "3cef317b"
-        }
       }
     },
     {
@@ -392,26 +345,6 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | F37D43",
-      "server": "p11real1.greewebservices.ir",
-      "server_port": 1020,
-      "uuid": "ff3b79c1-1fd9-4e86-95a5-cf3863b3d162",
-      "tls": {
-        "enabled": true,
-        "server_name": "play.googleapis.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "GzjL8Jq6iNwatTxuqL9gXElWIUgtOfbbCDaZ_wHG5SY",
-          "short_id": "9b60d3"
-        }
-      }
-    },
-    {
       "type": "http",
       "tag": "[ermaozi-subscribe] RO_speednode_0083",
       "server": "193.176.84.25",
@@ -419,27 +352,6 @@
       "tls": {
         "enabled": true,
         "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[clashfree-daily] 未知 VLESS-217 | free-nodes",
-      "server": "c20s5.portablesubmarines.com",
-      "server_port": 443,
-      "uuid": "85fe968d-fbb5-40dc-8422-30635eccb149",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "portal.citygrainla.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE",
-          "short_id": "051f20c2344a2dfd"
-        }
       }
     },
     {
@@ -961,6 +873,51 @@
       "server": "46.225.2.249",
       "server_port": 41400,
       "uuid": "7474b6d6-d6d1-42d6-a0b1-a591a01ffedc"
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8CA037",
+      "server": "5.252.33.175",
+      "server_port": 9882,
+      "uuid": "5d16ac22-6eea-426f-b778-6f4c2961faef",
+      "tls": {
+        "enabled": true,
+        "server_name": "dl.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+          "short_id": "aabbccdd"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc-tunnel"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[clashfree-daily] 未知 VLESS-242 | free-nodes",
+      "server": "157.228.128.59",
+      "server_port": 443,
+      "uuid": "df53b6c2-8005-475c-9eb9-74e1be785dc8",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws",
+          "short_id": "06e00e7c"
+        }
+      }
     }
   ]
 }
