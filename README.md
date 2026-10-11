@@ -4,6 +4,13 @@
 
 此公开仓库包含项目代码、文档、合成测试数据，以及 `config/sources.yaml` 中的公开来源清单（公开 URL、来源元数据和发布开关）。该文件不含订阅令牌、节点凭据或私有正文；`sources.private` 通过环境变量或本机目录注入，仅用于本机处理，不进入公开 `dist`。GitHub Actions 在 Pull Request 上只执行离线检查；定时和手动发布都经过公开再分发授权闸门，只处理当前清单中的公开来源。
 
+## 订阅地址
+
+- **本机实测版（推荐）**：`https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`。电脑开机时每 15 分钟刷新一次，节点经过你的网络实测。
+- **云端自动版**：`https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config.yaml`。GitHub 云端每 15 分钟自动刷新，无需电脑开机。
+
+两条地址都可以直接粘贴到 Clash Verge Rev；本机版更贴近你的实际网络，云端版适合电脑不在线时继续自动更新。
+
 ## 本地运行
 
 ```powershell
@@ -21,7 +28,7 @@ python -m aggregator run --config config/sources.yaml --output dist --state stat
 ### 节点主动探测与质量口径
 
 - `settings.active_probe` 默认是 `false`；普通本地运行不会主动连接节点。只有显式传入 `--probe` 才启用主动探测。
-- `--probe-backend spawn` 是默认兼容后端，硬上限为 500 个节点、3 轮、30 秒 timeout、8 并发；`--probe-backend delay` 是本机直连后端，硬上限放宽到 2000 个节点、3 轮、30 秒 timeout、16 并发，但必须同时提供 `--probe-interface`。超出对应后端上限会以 `probe_parameters_over_budget` fail-closed。
+- `--probe-backend spawn` 是默认兼容后端，硬上限为 500 个节点、3 轮、30 秒 timeout、8 并发；`--probe-backend delay` 是直连后端，硬上限放宽到 2000 个节点、3 轮、30 秒 timeout、16 并发。本机传入 `--probe-interface` 绑定物理网卡；云端留空时由系统自动选网卡。超出对应后端上限会以 `probe_parameters_over_budget` fail-closed。
 - `delay` 后端先用临时 Mihomo、`MATCH,DIRECT` 和 mixed-port 请求 `http://www.baidu.com` 做控制测试；控制失败直接以 `probe_direct_control_failed` 中止。通过后按每批最多 400 个节点调用 controller `/proxies/{id}/delay`：第一阶段使用 6000ms，第二阶段对第一阶段通过者使用 8000ms、最多 3 轮，至少 2/3 成功才算 `stable`。
 - 每个节点保留独立的轮次结果、成功率、平均延迟、p95 延迟和错误分类。`verified` 只表示 3/3 轮成功；`stable` 表示至少 3 轮且成功率至少 2/3；`fast` 只是延迟标签（平均延迟不超过 800ms），不单独放宽 `stable` 发布门槛。
 - 只有达到发布配置的最低等级（发布 workflow 为 `stable`）的节点才进入最终产物。预算外节点记为 `not_tested_budget`，探测失败与成功率不足分别记为 `failed_probe`、`below_quality_threshold`；未实测不等于可用。
@@ -34,7 +41,7 @@ python -m aggregator run --config config/sources.yaml --output dist --state stat
 
 ### 本机验证与自动更新闭环
 
-GitHub Runner 的网络出口不等于用户本机网络，因此本项目把“本机直连实测”作为唯一可发布标准：`fetch` 来源 → 本机绑定物理网卡直连实测 → 生成本机产物 → 可选发布到 `docs/dist/` → GitHub Pages 固定 URL → Clash Verge Rev 订阅。Pages 只负责托管已经由本机验证过的静态结果，不在 runner 侧重新探测节点。
+GitHub Runner 的网络出口不等于用户本机网络，因此本项目提供两条独立通道：本机版按 `fetch` → 本机绑定物理网卡直连实测 → `docs/dist/` 发布；云端版按 `fetch` → Runner 使用 Mihomo delay 后端实测 → `docs/auto/` 发布。两条通道互不共享已验证节点池，订阅地址见上方。
 
 手动刷新（默认只更新本机目录，不发布）：
 
@@ -52,9 +59,7 @@ powershell -ExecutionPolicy Bypass -File scripts/refresh-publish.ps1 -Publish
 
 脚本默认定位 `D:\Program Files\Clash Verge\verge-mihomo.exe`，找不到时再尝试 `C:\Program Files\Clash Verge\verge-mihomo.exe`，也可用 `-Core` 指定。未传 `-ProbeInterface` 时自动排除 Meta/Tunnel/Wintun/TAP/VPN 后选择物理网卡，并打印检测结果；`-MinStable` 默认 5，`-MaxNodes` 默认 1500，输出和状态目录默认是 `dist-local/`、`state-local/`，已验证节点池默认是 `state/verified-pool.json`，也可用 `-VerifiedPool` 或 CLI 的 `--verified-pool` 改路径。启用主动探测时，池内节点先复检，剩余预算按来源轮询新候选；单次失败保留，连续两次失败才移出，发布集取池内当前有效节点。上轮发布达到 10 个节点时，拟发布集低于上轮 50% 会触发防抖并保留旧产物。每次过程写入 `reports/refresh-<时间戳>.log`，只记录脱敏计数和流程状态，不写节点凭据。
 
-本机产物仍可直接导入 Clash Verge Rev：`dist-local/clash/config.yaml`。公开发布后的固定订阅 URL 是：
-
-`https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`
+本机产物仍可直接导入 Clash Verge Rev：`dist-local/clash/config.yaml`。公开订阅地址见上方“订阅地址”一节。
 
 建议在 Verge 中为该订阅设置自动更新间隔（例如 1–6 小时），并保留手动刷新入口以便在网络环境变化时立即复核。本项目不读取密钥、不修改系统代理、不启停或修改用户 Clash Verge 配置。
 
@@ -78,14 +83,14 @@ sources:
 ## 来源与隐私边界
 
 - `sources.public` 只有 `enabled=true`、`publish=true`、`requires_review=false` 才能进入公开聚合。
-- `sources.private` 默认不发布。需要本机混合验证时显式使用 `--include-private --private-output dist-private`；私有产物只落在本机目录，已加入 `.gitignore`。CI 不运行聚合器。
+- `sources.private` 默认不发布。需要本机混合验证时显式使用 `--include-private --private-output dist-private`；私有产物只落在本机目录，已加入 `.gitignore`。云端工作流始终使用 `--no-private`。
 - 公开节点产物可能包含来源本身提供的连接凭据，这是公开订阅内容的一部分；程序、日志和报告不打印节点 URI、UUID、密码或完整敏感载荷。
 - 来源抓取只允许使用者配置的 HTTPS host。受控 fake-IP 例外仅允许 `trust_hosts` 中的主机落入 `198.18.0.0/15`；当前信任主机为 `raw.githubusercontent.com`、`www.gitlabip.xyz`、`gitlab.com`。`settings.controlled_proxy_addresses` 保留为兼容配置但不再逐个限制轮换地址；非信任主机仍拒绝该网段。该项是针对本机 fake-IP DNS 的受控收窄放宽：通过 `curl --resolve` 固定已校验地址，但不能借此放行其他主机。IPv4-mapped IPv6（`::ffff:a.b.c.d`）先解包为 IPv4 再走同一拒绝逻辑；常见 NAT64 `64:ff9b::/96` 与 `64:ff9b:1::/48` 显式拒绝。`100.64.0.0/10`、文档/基准测试地址、私网、回环、metadata 和链路本地地址拒绝。每一跳 redirect 都重新校验。
 - 当前实现接受“解析校验后用 `curl --resolve` 固定地址”的跨平台折中：它避免再次按 hostname 解析，但不宣称消除操作系统解析到连接之间的全部 TOCTOU 窗口。该项保留为低风险残余，不以文档或测试伪装成已解决。
 
 ## 输出目录
 
-直接运行 `aggregator run` 时，下面的 `dist/` 是默认输出目录；`refresh-publish.ps1` 使用被忽略的 `dist-local/`，公开发布镜像使用受 Git 跟踪的 `docs/dist/`。
+直接运行 `aggregator run` 时，下面的 `dist/` 是默认输出目录；`refresh-publish.ps1` 使用被忽略的 `dist-local/`，本机公开发布镜像使用受 Git 跟踪的 `docs/dist/`，云端工作流镜像使用受 Git 跟踪的 `docs/auto/`。
 
 | 文件 | 用途 |
 |---|---|
@@ -95,17 +100,19 @@ sources:
 | `dist/sing-box/config.json` | 能明确映射的 sing-box outbounds；无法安全映射的协议会计入 dropped，不伪装成可用配置 |
 | `dist/manifest.json` | 直接运行聚合器时的来源状态、节点数、协议数、dropped 统计、校验结果和 SHA256 |
 | `dist/health.json` | 直接运行聚合器时的本轮状态、失败原因和 LKG 回退状态 |
+| `docs/auto/clash/config.yaml` | 云端自动版公开订阅主文件 |
 
-本地文件导入时选择 `dist-local/clash/config.yaml`（或直接运行聚合器产生的 `dist/clash/config.yaml`），不需要另行下载 provider 文件。公开发布成功后，固定导入地址为 `https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`；`dist/`、`state/`、`dist-local/`、`state-local/`、缓存和报告仍按各自用途处理，只有 `docs/dist/` 进入公开 Pages。
+本地文件导入时选择 `dist-local/clash/config.yaml`（或直接运行聚合器产生的 `dist/clash/config.yaml`），不需要另行下载 provider 文件。公开发布成功后的固定导入地址见“订阅地址”一节；`dist/`、`state/`、`dist-local/`、`state-local/`、缓存和报告仍按各自用途处理，`docs/dist/` 与 `docs/auto/` 进入公开 Pages。
 
 ## GitHub Actions：离线检查与受门禁的公开发布
 
-`.github/workflows/update.yml` 的行为是：
+`.github/workflows/update.yml` 与 `.github/workflows/auto-refresh.yml` 的行为是：
 
 - Pull Request 只运行 pytest、compileall 和 workflow 结构检查，不抓取来源、不生成发布产物、不部署 Pages；
 - `main` 上 `docs/**` 的 push 或手动 `workflow_dispatch` 才进入部署 job；部署前只检查已提交的 `docs/dist/clash/config.yaml` 存在且 YAML 顶层结构可解析；
-- `vars.PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true'` 仍是发布总闸，Pages 权限只授予部署 job；workflow 不在 runner 侧下载核心、不抓取来源、不运行 probe，也不使用 secrets；
-- Pages artifact 路径是 `docs`，因此固定 URL 下的 `dist/clash/config.yaml`、manifest、health 和其他脱敏产物保持同一目录结构。首次全量发布和本机定时任务另行执行，不由 GitHub Actions 代替。
+- `vars.PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true'` 仍是本机公开发布的总闸；`auto-refresh.yml` 使用 `--no-private`，只处理配置中的公开来源；
+- `auto-refresh.yml` 每 15 分钟运行一次，也支持手动触发；它在 Ubuntu Runner 下载固定且校验过的 Mihomo、运行公开来源聚合与 delay 探测，把成功结果写入 `docs/auto/`，并在同一工作流中部署 Pages。失败或结果不足时不覆盖旧的 `docs/auto/`；
+- Pages artifact 路径是 `docs`，因此固定 URL 下的 `dist/clash/config.yaml` 与 `auto/clash/config.yaml` 以及各自的 manifest、health 保持同一目录结构。本机计划任务仍负责本机通道，不由云端通道替代。
 
 公开节点数据仍需由接入者核对各来源节点数据的使用与再分发条款；代码仓库公开不等于节点数据公开授权，工作流闸门也不替代这项责任。
 

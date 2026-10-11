@@ -212,7 +212,7 @@ def _run_direct_control_attempt(
     *,
     mihomo_path: str,
     timeout: float,
-    probe_interface: str,
+    probe_interface: str | None,
     interface_mode: str,
     proxy: Mapping[str, object],
 ) -> bool:
@@ -287,9 +287,19 @@ def _run_direct_control(
     *,
     mihomo_path: str,
     timeout: float,
-    probe_interface: str,
+    probe_interface: str | None,
     proxy: Mapping[str, object],
 ) -> str:
+    if not probe_interface:
+        if _run_direct_control_attempt(
+            mihomo_path=mihomo_path,
+            timeout=timeout,
+            probe_interface=None,
+            interface_mode="auto",
+            proxy=proxy,
+        ):
+            return "auto"
+        raise CoreValidationError("probe_direct_control_failed")
     for interface_mode in ("top-level", "proxy"):
         if _run_direct_control_attempt(
             mihomo_path=mihomo_path,

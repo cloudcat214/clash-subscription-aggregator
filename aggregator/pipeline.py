@@ -429,10 +429,8 @@ def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
         raise ValueError("invalid_probe_policy")
     if backend == "delay":
         interface = settings.get("probe_interface")
-        if not isinstance(interface, str):
+        if interface is not None and not isinstance(interface, str):
             raise ValueError("probe_interface_invalid")
-        if not interface.strip():
-            raise ValueError("probe_interface_required")
     minimum = str(settings.get("probe_min_verdict", "stable"))
     if minimum not in {"stable", "verified", "fast"}:
         raise ValueError("invalid_probe_min_verdict")
@@ -1313,6 +1311,7 @@ def run_pipeline(
             if raw_interface_mode is not None and raw_interface_mode not in {
                 "top-level",
                 "proxy",
+                "auto",
             }:
                 raise ValueError("probe_parameters_invalid")
             if raw_direct_control is not None and not isinstance(
@@ -1441,9 +1440,11 @@ def run_pipeline(
                 "shrink_guard_ratio": pool_shrink_ratio,
             }
             verification.update(stage_stats)
-            if raw_probe_interface:
-                verification["probe_interface"] = raw_probe_interface
-                verification["interface_mode"] = raw_interface_mode
+            if raw_probe_interface or raw_interface_mode:
+                if raw_probe_interface:
+                    verification["probe_interface"] = raw_probe_interface
+                if raw_interface_mode:
+                    verification["interface_mode"] = raw_interface_mode
                 verification["direct_control"] = raw_direct_control or {
                     "status": "not_tested",
                     "reason": "probe_interface_missing_control_result",

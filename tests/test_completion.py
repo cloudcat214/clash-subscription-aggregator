@@ -459,6 +459,37 @@ def test_workflow_deploy_check_requires_committed_config_without_heredoc() -> No
     )
 
 
+def test_cloud_workflow_runs_probe_commits_only_auto_artifacts_and_deploys_pages() -> (
+    None
+):
+    workflow_path = (
+        Path(__file__).parents[1] / ".github" / "workflows" / "auto-refresh.yml"
+    )
+    workflow = yaml.safe_load(workflow_path.read_text(encoding="utf-8"))
+    triggers = workflow.get("on", workflow.get(True))
+    assert triggers["schedule"] == [{"cron": "*/15 * * * *"}]
+    assert "workflow_dispatch" in triggers
+    assert workflow["permissions"] == {
+        "contents": "write",
+        "pages": "write",
+        "id-token": "write",
+    }
+    refresh = workflow["jobs"]["refresh"]
+    assert refresh["timeout-minutes"] == 20
+    assert workflow["concurrency"] == {
+        "group": "public-pages-release",
+        "cancel-in-progress": False,
+    }
+    serialized = json.dumps(workflow)
+    assert "--probe-backend delay" in serialized
+    assert "state/verified-pool-auto.json" in serialized
+    assert "docs/auto" in serialized
+    assert "git pull --rebase origin main" in serialized
+    assert "git push origin HEAD:main" in serialized
+    assert "actions/upload-pages-artifact@v3" in serialized
+    assert "actions/deploy-pages@v4" in serialized
+
+
 def test_refresh_publish_script_is_the_only_local_refresh_entrypoint() -> None:
     root = Path(__file__).parents[1]
     script_path = root / "scripts" / "refresh-publish.ps1"

@@ -1011,23 +1011,40 @@ def test_pipeline_rejects_delay_backend_over_budget(
     assert calls["count"] == 0
 
 
-def test_pipeline_requires_interface_for_delay_backend(tmp_path: Path) -> None:
-    calls = {"count": 0}
-
-    def fake_probe(_proxies):
-        calls["count"] += 1
-        return {"status": "performed", "backend": "delay", "results": []}
-
+def test_pipeline_allows_automatic_interface_for_delay_backend(tmp_path: Path) -> None:
     config_path, output_dir, state_dir = _write_pipeline_inputs(
         tmp_path,
         active_probe=True,
         settings_overrides={"probe_backend": "delay", "probe_interface": ""},
     )
+
+    def fake_probe(proxies):
+        return {
+            "status": "performed",
+            "backend": "delay",
+            "interface_mode": "auto",
+            "tested": len(proxies),
+            "max_nodes": 30,
+            "rounds": 3,
+            "concurrency": 1,
+            "timeout_seconds": 8.0,
+            "results": [
+                {
+                    "name": proxy["name"],
+                    "rounds_passed": 3,
+                    "rounds_total": 3,
+                    "latency_ms": 100.0,
+                    "p95_latency_ms": 100.0,
+                }
+                for proxy in proxies
+            ],
+        }
+
     result = run_pipeline(config_path, output_dir, state_dir, probe_runner=fake_probe)
 
-    assert result.success is False
-    assert result.failure_reason == "probe_interface_required"
-    assert calls["count"] == 0
+    assert result.success is True
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["verification"]["interface_mode"] == "auto"
 
 
 @pytest.mark.parametrize(

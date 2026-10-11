@@ -113,16 +113,14 @@ def _batch_config(
     mixed_port: int,
     controller_port: int,
     controller_secret: str,
-    probe_interface: str,
+    probe_interface: str | None,
 ) -> dict[str, object]:
-    return {
+    config: dict[str, object] = {
         "mixed-port": mixed_port,
         "bind-address": "127.0.0.1",
         "allow-lan": False,
         "mode": "rule",
         "log-level": "silent",
-        "interface-name": probe_interface,
-        "dns": dict(DIRECT_DNS_CONFIG),
         "external-controller": f"127.0.0.1:{controller_port}",
         "secret": controller_secret,
         "proxies": nodes,
@@ -131,6 +129,10 @@ def _batch_config(
         ],
         "rules": ["MATCH,PROBE"],
     }
+    if probe_interface:
+        config["interface-name"] = probe_interface
+        config["dns"] = dict(DIRECT_DNS_CONFIG)
+    return config
 
 
 def _run_delay_batch(
@@ -140,7 +142,7 @@ def _run_delay_batch(
     timeout_ms: int,
     concurrency: int,
     timeout: float,
-    probe_interface: str,
+    probe_interface: str | None,
 ) -> list[dict[str, object]]:
     if not nodes:
         return []
@@ -281,9 +283,7 @@ def probe_nodes(
         raise CoreValidationError("mihomo_path_missing_for_probe")
     if target_url != TARGET_URL:
         raise CoreValidationError("probe_target_not_allowed")
-    if probe_interface is None or not str(probe_interface).strip():
-        raise CoreValidationError("probe_interface_required")
-    if not isinstance(probe_interface, str):
+    if probe_interface is not None and not isinstance(probe_interface, str):
         raise CoreValidationError("probe_interface_invalid")
 
     bounded_nodes = [dict(proxy) for proxy in proxies][
@@ -300,7 +300,7 @@ def probe_nodes(
         if math.isfinite(requested_timeout)
         else 10.0
     )
-    interface = probe_interface.strip()
+    interface = probe_interface.strip() if probe_interface else None
     if not bounded_nodes:
         return {
             "status": "not_tested",
@@ -318,7 +318,7 @@ def probe_nodes(
             "execution_mode": "serial",
             "target": TARGET_URL,
             "probe_interface": interface,
-            "interface_mode": None,
+            "interface_mode": "auto" if interface is None else None,
             "direct_control": {"status": "not_tested", "reason": "no_nodes"},
             "stage1_tested": 0,
             "stage1_passed": 0,

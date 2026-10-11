@@ -9,6 +9,7 @@ import pytest
 import yaml
 
 from aggregator import fastprobe
+from aggregator import probe as probe_mod
 from aggregator.__main__ import main
 from aggregator.quality import node_key
 from aggregator.validators import CoreValidationError
@@ -196,13 +197,58 @@ def test_delay_backend_batches_stage1_and_stage2(
     assert result["stable"] == 401
 
 
-def test_delay_backend_requires_interface(monkeypatch: pytest.MonkeyPatch) -> None:
-    with pytest.raises(CoreValidationError, match="probe_interface_required"):
-        fastprobe.probe_nodes(
-            [_node("node")],
+def test_delay_backend_supports_automatic_interface(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        fastprobe,
+        "_run_direct_control",
+        lambda **_kwargs: "auto",
+    )
+    monkeypatch.setattr(
+        fastprobe,
+        "_run_delay_batch",
+        lambda nodes, **_kwargs: [
+            {"node_key": node_key(node), "ok": True, "delay": 100.0, "error": None}
+            for node in nodes
+        ],
+    )
+
+    result = fastprobe.probe_nodes(
+        [_node("node")],
+        mihomo_path="/fake/mihomo",
+        max_nodes=1,
+        rounds=3,
+        timeout=8,
+        concurrency=1,
+        probe_interface=None,
+    )
+
+    assert result["interface_mode"] == "auto"
+    assert result["probe_interface"] is None
+
+
+def test_delay_backend_automatic_control_uses_default_route(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[tuple[object, str]] = []
+
+    def fake_control(**kwargs: object) -> bool:
+        calls.append((kwargs["probe_interface"], str(kwargs["interface_mode"])))
+        return True
+
+    monkeypatch.setattr(probe_mod, "_run_direct_control_attempt", fake_control)
+
+    assert (
+        fastprobe._run_direct_control(
             mihomo_path="/fake/mihomo",
+            timeout=1.0,
             probe_interface=None,
+            proxy=_node("node"),
         )
+        == "auto"
+    )
+    assert calls == [(None, "auto")]
 
 
 def test_delay_backend_control_failure_is_fail_closed(
@@ -229,19 +275,26 @@ def test_delay_backend_control_failure_is_fail_closed(
     assert calls["batches"] == 0
 
 
-def test_cli_delay_backend_requires_explicit_interface(
-    capsys: pytest.CaptureFixture[str],
-) -> None:
-    result = main(
-        [
-            "run",
-            "--probe",
-            "--probe-backend",
-            "delay",
-            "--mihomo",
-            "/fake/mihomo",
-        ]
+def test_cli_delay_backend_allows_automatic_interface(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "aggregator.__main__.run_pipeline",
+        lambda *args, **kwargs: type(
+            "Result",
+            (),
+            {"success": False, "failure_reason": "stop", "used_last_known_good": False},
+        )(),
     )
 
-    assert result == 2
-    assert "--probe-backend delay requires --probe-interface" in capsys.readouterr().err
+    assert (
+        main(
+            [
+                "run",
+                "--probe",
+                "--probe-backend",
+                "delay",
+                "--mihomo",
+                "/fake/mihomo",
+            ]
+        )
+        == 2
+    )

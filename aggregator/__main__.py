@@ -115,12 +115,6 @@ def main(argv: list[str] | None = None) -> int:
         if not args.mihomo:
             print("--probe requires --mihomo", file=sys.stderr)
             return 2
-        if (
-            args.probe_backend == "delay"
-            and not str(args.probe_interface or "").strip()
-        ):
-            print("--probe-backend delay requires --probe-interface", file=sys.stderr)
-            return 2
 
         def _probe_runner(proxies: list[dict[str, object]]) -> dict[str, object]:
             runner = probe_nodes if args.probe_backend == "spawn" else delay_probe_nodes

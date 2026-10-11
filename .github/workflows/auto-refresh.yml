@@ -1,0 +1,140 @@
+name: Cloud auto refresh
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: public-pages-release
+  cancel-in-progress: false
+
+env:
+  MIHOMO_VERSION: v1.19.32
+  MIHOMO_ASSET: mihomo-linux-amd64-v1.19.32.gz
+  # Source: official MetaCubeX/mihomo v1.19.32 release asset, checked 2026-10-11.
+  MIHOMO_SHA256: 8451100836c9eda194331c2babfad490b2faf30cebc1a04b0e76fd8ac2d35d10
+  AUTO_PROBE_MAX_NODES: "1000"
+  AUTO_PROBE_CONCURRENCY: "16"
+  AUTO_PROBE_TIMEOUT: "8"
+
+jobs:
+  refresh:
+    name: Refresh and deploy cloud subscription
+    if: vars.PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true' && github.event.repository.fork == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install project
+        run: python -m pip install -e .
+
+      - name: Download and verify Mihomo
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 2 --silent --show-error \
+            "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/${MIHOMO_ASSET}" \
+            --output mihomo.gz
+          echo "${MIHOMO_SHA256}  mihomo.gz" | sha256sum --check --status
+          gzip --decompress --stdout mihomo.gz > mihomo
+          chmod +x mihomo
+          ./mihomo -v
+
+      - name: Run cloud aggregation and probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          started_at=$(date +%s)
+          python -m aggregator run \
+            --config config/sources.yaml \
+            --output dist-auto \
+            --state state-auto \
+            --verified-pool state/verified-pool-auto.json \
+            --no-private \
+            --mihomo "$GITHUB_WORKSPACE/mihomo" \
+            --require-core \
+            --probe \
+            --probe-backend delay \
+            --probe-max-nodes "$AUTO_PROBE_MAX_NODES" \
+            --probe-rounds 3 \
+            --probe-timeout "$AUTO_PROBE_TIMEOUT" \
+            --probe-concurrency "$AUTO_PROBE_CONCURRENCY" \
+            --probe-min-verdict stable \
+            --base-url "https://cloudcat214.github.io/clash-subscription-aggregator/auto"
+          finished_at=$(date +%s)
+          echo "cloud refresh duration_seconds=$((finished_at - started_at)) probe_max_nodes=$AUTO_PROBE_MAX_NODES"
+          test -s dist-auto/clash/config.yaml
+          python -c "import json; from pathlib import Path; m=json.loads(Path('dist-auto/manifest.json').read_text(encoding='utf-8')); q=m.get('node_quality', {}); print('cloud publish counts: published=%s tested=%s pool_retested=%s' % (m.get('counts', {}).get('published', 0), q.get('tested', 0), m.get('verification', {}).get('pool_retested', 0)))"
+
+      - name: Stage auto Pages channel
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf docs/auto
+          mkdir -p docs/auto
+          cp -a dist-auto/. docs/auto/
+
+      - name: Commit changed auto artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add -- docs/auto state/verified-pool-auto.json
+          if git diff --cached --quiet; then
+            echo "no material change; skip commit/push."
+          else
+            changed_paths=$(git diff --cached --name-only)
+            if printf '%s\n' "$changed_paths" | grep -Ev '^(docs/auto/|state/verified-pool-auto\.json$)' | grep -q .; then
+              echo "unexpected staged path" >&2
+              printf '%s\n' "$changed_paths" >&2
+              exit 1
+            fi
+            git commit -m "refresh: cloud verified nodes"
+            pushed=false
+            for attempt in 1 2 3; do
+              if git push origin HEAD:main; then
+                pushed=true
+                break
+              fi
+              if [ "$attempt" -lt 3 ]; then
+                git pull --rebase origin main
+              fi
+            done
+            if [ "$pushed" != true ]; then
+              echo "push failed after 3 attempts" >&2
+              exit 1
+            fi
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
