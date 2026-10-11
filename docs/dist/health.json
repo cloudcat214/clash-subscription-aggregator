@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T08:00:08Z",
+  "generated_at": "2026-10-11T08:15:07Z",
   "status": "ok",
   "active_probe": true,
-  "published": 6,
+  "published": 13,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -140,13 +140,14 @@
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1256,
       "accepted": 1190,
       "drops": {
         "invalid_uuid": 7,
         "duplicate": 59
       },
+      "cached": true,
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
@@ -188,15 +189,12 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 10,
-      "accepted": 10,
-      "drops": {
-        "invalid_uuid": 1
-      },
+      "parsed": 11,
+      "accepted": 11,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "f030b3c4087af113db646d6a06d70daced67db9ba594f2c0e6c9533a3b8f0479"
+      "sha256": "e4ab33a969c1b8139a8a9c2763cd409203d1de30251a7f30ab4c0832729bb2fd"
     },
     {
       "id": "anaer-sub",
@@ -341,12 +339,20 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1494
+      "http_error": 1485,
+      "network_error": 2
     },
+    "pool_size_before": 0,
+    "pool_size": 13,
+    "pool_retested": 0,
+    "new_candidates_tested": 1500,
+    "pool_added": 13,
+    "pool_evicted": 0,
+    "retained_count": 13,
     "stage1_tested": 1500,
-    "stage1_passed": 7,
-    "stage2_tested": 7,
-    "stage2_stable": 6,
+    "stage1_passed": 65,
+    "stage2_tested": 65,
+    "stage2_stable": 22,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -356,19 +362,19 @@
     }
   },
   "node_quality": {
-    "candidates": 3914,
+    "candidates": 3915,
     "tested": 1500,
-    "verified": 6,
-    "fast": 0,
-    "stable": 6,
-    "failed": 1494,
-    "not_tested": 2414,
-    "not_tested_budget": 2414,
-    "failed_probe": 1494,
-    "below_quality_threshold": 0,
-    "dropped": 1494,
-    "published": 6,
-    "success_rate": 0.004
+    "verified": 13,
+    "fast": 7,
+    "stable": 13,
+    "failed": 1487,
+    "not_tested": 2415,
+    "not_tested_budget": 2415,
+    "failed_probe": 1464,
+    "below_quality_threshold": 23,
+    "dropped": 1487,
+    "published": 13,
+    "success_rate": 0.01577777777777778
   },
   "core_validation": {
     "status": "not_tested",
