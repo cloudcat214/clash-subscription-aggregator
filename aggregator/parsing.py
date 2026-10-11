@@ -49,6 +49,7 @@ _URI_SCHEMES = {
     "hysteria2",
     "tuic",
 }
+_FORMAT_ALIASES = {"clash-yaml": "yaml", "clash_yaml": "yaml"}
 _PROXY_FIELDS = {
     "alpn",
     "alterId",
@@ -631,7 +632,7 @@ def parse_source_payload_with_drops(
     """Parse Clash YAML/JSON, Base64-wrapped text, or one-URI-per-line input."""
     if not isinstance(payload, str) or not payload.strip():
         raise ParseError("source payload is empty")
-    format_hint = format_hint.lower()
+    format_hint = _FORMAT_ALIASES.get(format_hint.lower(), format_hint.lower())
     if format_hint not in {"auto", "base64", "json", "yaml", "uri"}:
         raise ParseError(f"unsupported format hint: {format_hint}")
     if format_hint == "base64":

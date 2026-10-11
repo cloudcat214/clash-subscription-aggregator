@@ -51,6 +51,22 @@ proxies:
     assert "node.example.invalid" in output
 
 
+def test_clash_yaml_format_alias_is_parsed() -> None:
+    payload = """\
+proxies:
+  - name: hysteria-sample
+    type: hysteria
+    server: node.example.invalid
+    port: 443
+    auth-str: secret
+"""
+
+    proxies = parse_source_payload(payload, format_hint="clash-yaml")
+
+    assert proxies[0]["type"] == "hysteria"
+    assert proxies[0]["auth-str"] == "secret"
+
+
 def test_clash_json_is_parsed() -> None:
     payload = '{"proxies":[{"name":"json-sample","type":"http","server":"node.example.invalid","port":8080}]}'
 

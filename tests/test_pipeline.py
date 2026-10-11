@@ -2,6 +2,7 @@ from pathlib import Path
 
 import yaml
 
+from aggregator import pipeline
 from aggregator.pipeline import initialize_dist, run_pipeline
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -85,6 +86,99 @@ def test_empty_result_without_last_known_good_is_rejected(tmp_path: Path) -> Non
     assert result.success is False
     assert result.used_last_known_good is False
     assert "empty_result" in result.failure_reason
+
+
+def test_repo_root_relative_file_source_parses_and_counts_hysteria_nodes(
+    tmp_path: Path,
+) -> None:
+    project_root = tmp_path / "project"
+    config_dir = project_root / "config"
+    config_dir.mkdir(parents=True)
+    source_path = config_dir / "embedded-nodes.yaml"
+    source_path.write_text(
+        "proxies:\n"
+        "  - name: embedded-a\n"
+        "    type: hysteria\n"
+        "    server: a.example.invalid\n"
+        "    port: 443\n"
+        "    auth-str: secret-a\n"
+        "  - name: embedded-b\n"
+        "    type: hysteria\n"
+        "    server: b.example.invalid\n"
+        "    port: 443\n"
+        "    auth-str: secret-b\n",
+        encoding="utf-8",
+    )
+    config_path = config_dir / "sources.yaml"
+    config_path.write_text(
+        yaml.safe_dump(
+            {
+                "settings": {"active_probe": False},
+                "sources": {
+                    "public": [
+                        {
+                            "id": "embedded",
+                            "kind": "file",
+                            "path": "config/embedded-nodes.yaml",
+                            "format": "clash-yaml",
+                            "enabled": True,
+                            "publish": True,
+                            "requires_review": False,
+                        }
+                    ],
+                    "private": [],
+                },
+            },
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+
+    result = run_pipeline(config_path, project_root / "dist", project_root / "state")
+
+    assert result.success is True
+    manifest = yaml.safe_load(
+        (project_root / "dist" / "manifest.json").read_text(encoding="utf-8")
+    )
+    assert manifest["counts"]["sources"] == 1
+    assert manifest["counts"]["parsed"] == 2
+    assert manifest["protocols"] == {"hysteria": 2}
+    assert manifest["sources"][0]["status"] == "ok"
+    assert manifest["sources"][0]["parsed"] == 2
+
+
+def test_date_placeholder_uses_utc_date_for_remote_source(
+    monkeypatch, tmp_path: Path
+) -> None:
+    real_datetime = pipeline.datetime
+
+    class FixedDatetime(real_datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return cls(2026, 10, 12, 1, 2, tzinfo=tz)
+
+    requested: list[str] = []
+
+    def fake_fetch(url: str, *args, **kwargs):
+        requested.append(url)
+        return "proxies: []\n", {}
+
+    monkeypatch.setattr(pipeline, "datetime", FixedDatetime)
+    monkeypatch.setattr(pipeline, "fetch_http_source_with_meta", fake_fetch)
+
+    payload = pipeline.load_source(
+        {
+            "id": "daily",
+            "url": "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash{YYYYMMDD}.yml",
+        },
+        tmp_path,
+        {"allowed_source_hosts": [], "trust_hosts": []},
+    )
+
+    assert payload == "proxies: []\n"
+    assert requested == [
+        "https://raw.githubusercontent.com/free-nodes/clashfree/main/clash20261012.yml"
+    ]
 
 
 def test_private_source_never_enters_public_dist_even_when_publish_is_true(

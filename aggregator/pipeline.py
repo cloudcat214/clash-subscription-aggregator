@@ -87,6 +87,10 @@ def utc_now() -> str:
     return datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+def _expand_source_url(url: str) -> str:
+    return url.replace("{YYYYMMDD}", datetime.now(UTC).strftime("%Y%m%d"))
+
+
 def load_config(config_path: Path) -> dict[str, Any]:
     try:
         document = yaml.safe_load(config_path.read_text(encoding="utf-8"))
@@ -224,7 +228,12 @@ def load_source(
     if source.get("path"):
         path = Path(str(source["path"]))
         if not path.is_absolute():
-            path = config_dir / path
+            config_relative = config_dir / path
+            path = (
+                config_relative
+                if config_relative.is_file()
+                else config_dir.parent / path
+            )
         return _read_file(path, max_bytes)
     if source.get("url"):
         if offline:
@@ -236,7 +245,10 @@ def load_source(
             request_headers["If-None-Match"] = str(cache["etag"])
         if cache and cache.get("last_modified"):
             request_headers["If-Modified-Since"] = str(cache["last_modified"])
-        return fetch(str(source["url"]), str(source.get("id") or "unnamed"))
+        return fetch(
+            _expand_source_url(str(source["url"])),
+            str(source.get("id") or "unnamed"),
+        )
     if source.get("env"):
         env_name = str(source["env"])
         value = os.environ.get(env_name, "").strip()

@@ -1,0 +1,27 @@
+# 来源：F:\i哆啦A梦\软件分类\浏览器\Chrome147_AllNew_2026.4.12\clash.meta\config.yaml 与 config.yaml_backup_original_20261011
+# 整合日期：2026-10-11；仅收录 reports/chrome147-embedded-candidates.json 中 stable=true 的 2 条 hysteria 节点。
+proxies:
+  - name: "[原版] clash.meta hysteria"
+    type: hysteria
+    server: 62.210.70.191
+    port: 23556
+    auth-str: github.com/Alvin9999-newpac/fanqiang
+    sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: "11 Mbps"
+    down: "55 Mbps"
+  - name: "[内嵌] hysteria v1"
+    type: hysteria
+    server: 5.83.129.153
+    port: 20088
+    auth-str: dongtaiwang.com
+    sni: apple.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: "11 Mbps"
+    down: "55 Mbps"

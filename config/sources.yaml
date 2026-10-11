@@ -234,6 +234,117 @@ sources:
       license: GPL-3.0
       license_evidence: https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE
 
+    - id: pawdroid-free-servers
+      name: Pawdroid Free-servers 订阅（base64 通用订阅）
+      url: https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/Pawdroid/Free-servers
+      license: unknown
+
+    - id: anaer-sub
+      name: anaer/Sub Clash 订阅（自用整理）
+      url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/anaer/Sub
+      license: unknown
+
+    - id: clashfree-daily
+      name: free-nodes/clashfree 每日 Clash 节点文件（日期滚动）
+      url: https://raw.githubusercontent.com/free-nodes/clashfree/main/clash{YYYYMMDD}.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/free-nodes/clashfree
+      license: unknown
+
+    - id: ermaozi-subscribe
+      name: ermaozi/get_subscribe Clash 订阅
+      url: https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/ermaozi/get_subscribe
+      license: GPL-3.0
+
+    - id: vxiaov-free-proxies
+      name: vxiaov/free_proxies Clash provider 节点集
+      url: https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/vxiaov/free_proxies
+      license: unknown
+
+    - id: zhuhaiuk-free-nodes
+      name: zhuhaiuk/free-nodes Clash 订阅（每小时更新）
+      url: https://raw.githubusercontent.com/zhuhaiuk/free-nodes/main/clash_config.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/zhuhaiuk/free-nodes
+      license: unknown
+
+    - id: freefq-free
+      name: freefq/free 通用订阅（base64）
+      url: https://raw.githubusercontent.com/freefq/free/master/v2
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/freefq/free
+      license: unknown
+
+    - id: au1rxx-free-vpn-subscriptions
+      name: Au1rxx/free-vpn-subscriptions（Clash/sing-box/v2ray 三格式）
+      url: https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/Au1rxx/free-vpn-subscriptions
+      license: unknown
+
+    - id: mfuu-freeproxies
+      name: mfuu/FreeProxies Clash 订阅
+      url: https://raw.githubusercontent.com/mfuu/FreeProxies/master/sub.yaml
+      format: clash-yaml
+      enabled: false
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      source_repo: https://github.com/mfuu/FreeProxies
+      license: unknown
+      disabled_reason: "invalid YAML source after targeted retry on 2026-10-11"
+
+    - id: chrome147-embedded-hysteria
+      kind: file
+      name: Chrome147 stable 内嵌 hysteria 节点
+      path: config/embedded-nodes.yaml
+      format: yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      license: unknown
+
   private:
     - id: private-sample
       kind: private
