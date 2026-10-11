@@ -3,11 +3,14 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
 import yaml
 
 from aggregator.pipeline import run_pipeline
 from aggregator.quality import node_key, probe_verdict
 from aggregator.verified_pool import (
+    active_pool_nodes,
+    load_verified_pool,
     merge_verified_pool,
     pool_document,
     round_robin_by_source,
@@ -25,6 +28,26 @@ def _node(name: str) -> dict[str, object]:
 
 def _passed(node: dict[str, object]) -> dict[str, object]:
     return {"node_key": node_key(node), **probe_verdict(3, 3, 120.0)}
+
+
+def _failed(node: dict[str, object]) -> dict[str, object]:
+    return {
+        "node_key": node_key(node),
+        **probe_verdict(0, 3, None, error_category="timeout"),
+    }
+
+
+def _entry(node: dict[str, object], source_id: str, failures: int) -> dict[str, object]:
+    return {
+        "key": node_key(node),
+        "node": node,
+        "source_id": source_id,
+        "first_seen_at": "2026-10-11T00:00:00Z",
+        "last_rechecked_at": "2026-10-11T00:10:00Z",
+        "last_conclusion": "failed",
+        "consecutive_failures": failures,
+        "total_passes": 1,
+    }
 
 
 def test_round_robin_sampling_balances_sources() -> None:
@@ -390,3 +413,174 @@ def test_pipeline_shrink_guard_keeps_previous_output(tmp_path: Path) -> None:
     ) == previous
     health = json.loads((output_dir / "health.json").read_text(encoding="utf-8"))
     assert health["failure_reason"] == "shrink_guard"
+
+
+def test_pool_merge_keeps_protected_user_node_until_four_failures() -> None:
+    node = _node("protected-user-node")
+    merged = [_entry(node, "chrome147-embedded-hysteria", failures=0)]
+
+    for expected_failures in (1, 2, 3):
+        merged, stats = merge_verified_pool(
+            merged,
+            [node],
+            {node_key(node): _failed(node)},
+            {},
+            now="2026-10-11T00:20:00Z",
+            min_verdict="stable",
+            verified_min_rounds=3,
+            stable_min_rounds=3,
+            stable_success_rate=2 / 3,
+            fast_latency_ms=800.0,
+        )
+        assert len(merged) == 1
+        assert merged[0]["consecutive_failures"] == expected_failures
+        assert stats["evicted"] == 0
+
+    merged, stats = merge_verified_pool(
+        merged,
+        [node],
+        {node_key(node): _failed(node)},
+        {},
+        now="2026-10-11T00:30:00Z",
+        min_verdict="stable",
+        verified_min_rounds=3,
+        stable_min_rounds=3,
+        stable_success_rate=2 / 3,
+        fast_latency_ms=800.0,
+    )
+
+    assert merged == []
+    assert stats["evicted"] == 1
+
+
+def test_load_verified_pool_enforces_protected_failure_limit(tmp_path: Path) -> None:
+    node = _node("protected-user-node")
+
+    def write_pool(failures: int, source_id: str) -> Path:
+        path = tmp_path / f"pool-{failures}-{source_id}.json"
+        path.write_text(
+            json.dumps(
+                pool_document(
+                    [_entry(node, source_id, failures)],
+                    "2026-10-11T00:20:00Z",
+                )
+            ),
+            encoding="utf-8",
+        )
+        return path
+
+    assert len(load_verified_pool(write_pool(3, "chrome147-embedded-hysteria"))) == 1
+
+    with pytest.raises(ValueError):
+        load_verified_pool(write_pool(4, "chrome147-embedded-hysteria"))
+
+    with pytest.raises(ValueError):
+        load_verified_pool(write_pool(2, "source-a"))
+
+
+def test_active_pool_nodes_keeps_protected_user_node_with_transient_failures() -> None:
+    regular = _node("regular-node")
+    protected = _node("protected-user-node")
+    expired = _node("expired-protected-node")
+    entries = [
+        _entry(regular, "source-a", failures=1),
+        _entry(protected, "chrome147-embedded-hysteria", failures=3),
+        _entry(expired, "chrome147-embedded-hysteria", failures=4),
+    ]
+
+    active = active_pool_nodes(entries, 10)
+
+    assert [node["name"] for node in active] == ["regular-node", "protected-user-node"]
+
+
+def test_pipeline_publishes_protected_user_node_during_transient_failures(
+    tmp_path: Path,
+) -> None:
+    source_path = tmp_path / "source.yaml"
+    source_path.write_text(
+        yaml.safe_dump(
+            {
+                "proxies": [
+                    {
+                        "name": "candidate-0",
+                        "type": "http",
+                        "server": "candidate-0.example.invalid",
+                        "port": 8080,
+                    }
+                ]
+            },
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    config_path = tmp_path / "sources.yaml"
+    config_path.write_text(
+        yaml.safe_dump(
+            {
+                "settings": {
+                    "active_probe": True,
+                    "probe_max_nodes": 2,
+                    "filters": {"min_quality_score": 0},
+                },
+                "sources": {
+                    "public": [
+                        {
+                            "id": "fixture",
+                            "path": str(source_path),
+                            "enabled": True,
+                            "publish": True,
+                            "requires_review": False,
+                        }
+                    ],
+                    "private": [],
+                },
+            },
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    protected = _node("protected-user-node")
+    pool_path = tmp_path / "state" / "verified-pool.json"
+    pool_path.parent.mkdir()
+    pool_path.write_text(
+        json.dumps(
+            pool_document(
+                [_entry(protected, "chrome147-embedded-hysteria", failures=2)],
+                "2026-10-11T00:10:00Z",
+            )
+        ),
+        encoding="utf-8",
+    )
+
+    def probe(nodes: list[dict[str, object]]) -> dict[str, object]:
+        return {
+            "status": "performed",
+            "tested": len(nodes),
+            "results": [
+                _failed(node)
+                if node["name"] == "protected-user-node"
+                else _passed(node)
+                for node in nodes
+            ],
+        }
+
+    result = run_pipeline(
+        config_path,
+        tmp_path / "dist",
+        tmp_path / "state",
+        probe_runner=probe,
+        verified_pool_path=pool_path,
+    )
+
+    assert result.success is True
+    manifest = json.loads((tmp_path / "dist" / "manifest.json").read_text())
+    assert manifest["counts"]["published"] == 2
+    clash = (tmp_path / "dist" / "clash" / "config.yaml").read_text(encoding="utf-8")
+    assert "protected-user-node" in clash
+    pool = json.loads(pool_path.read_text(encoding="utf-8"))
+    kept = [
+        item
+        for item in pool["nodes"]
+        if item["node"]["name"] == "protected-user-node"
+    ]
+    assert kept and kept[0]["consecutive_failures"] == 3

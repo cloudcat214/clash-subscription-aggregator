@@ -11,7 +11,16 @@ from .quality import classify_node, node_key
 
 POOL_SCHEMA_VERSION = 1
 EVICTION_FAILURES = 2
+PROTECTED_SOURCE_PREFIX = "chrome147-embedded"
+PROTECTED_EVICTION_FAILURES = 4
 _VERDICT_ORDER = {"fast": 0, "verified": 1, "stable": 2, "not_tested": 3}
+
+
+def _eviction_limit(source_id: str) -> int:
+    """User-provided nodes keep a larger failure budget against transient probe errors."""
+    if source_id.startswith(PROTECTED_SOURCE_PREFIX):
+        return PROTECTED_EVICTION_FAILURES
+    return EVICTION_FAILURES
 
 
 def load_verified_pool(path: Path) -> list[dict[str, object]]:
@@ -54,7 +63,7 @@ def load_verified_pool(path: Path) -> list[dict[str, object]]:
             value = raw_entry.get(field)
             if isinstance(value, bool) or not isinstance(value, int) or value < 0:
                 raise TypeError("verified_pool_invalid")
-        if cast(int, raw_entry["consecutive_failures"]) >= EVICTION_FAILURES:
+        if cast(int, raw_entry["consecutive_failures"]) >= _eviction_limit(source_id):
             raise ValueError("verified_pool_invalid")
         entries.append(copy.deepcopy(raw_entry))
         seen.add(key)
@@ -145,7 +154,7 @@ def merge_verified_pool(
         else:
             failures = cast(int, entry["consecutive_failures"]) + 1
             entry["consecutive_failures"] = failures
-            if failures >= EVICTION_FAILURES:
+            if failures >= _eviction_limit(str(entry.get("source_id", ""))):
                 del current[key]
                 stats["evicted"] += 1
             else:
@@ -190,6 +199,7 @@ def active_pool_nodes(
     valid = [
         cast(dict[str, object], entry["node"])
         for entry in entries
-        if cast(int, entry["consecutive_failures"]) < EVICTION_FAILURES
+        if cast(int, entry["consecutive_failures"])
+        < _eviction_limit(str(entry.get("source_id", "")))
     ]
     return [copy.deepcopy(node) for node in valid[: max(0, max_nodes)]]
