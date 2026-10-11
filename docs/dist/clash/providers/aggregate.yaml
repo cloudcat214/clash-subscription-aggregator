@@ -13,6 +13,13 @@ proxies:
   server: ruot.ayucloudservices.nl
   type: ss
   udp: true
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1754725706'
+  password: amazonskr05
+  port: 443
+  server: 13.40.25.145
+  type: ss
+  udp: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1551127541'
   password: user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2
   port: 18642
@@ -34,6 +41,13 @@ proxies:
   type: vless
   udp: true
   uuid: c6db98c5-9959-425e-9340-300779fc4e4b
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-689011839'
+  password: github.com/Alvin9999-newpac/fanqiang
+  port: 43115
+  server: 62.210.147.2
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: hysteria2
 - client-fingerprint: random
   flow: xtls-rprx-vision
   name: '[au1rxx-free-vpn-subscriptions] vless-1766487925'
@@ -48,10 +62,3 @@ proxies:
   type: vless
   udp: true
   uuid: fe0721ac-c577-4938-b7ca-8ab5f43bb8da
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-689011839'
-  password: github.com/Alvin9999-newpac/fanqiang
-  port: 43115
-  server: 62.210.147.2
-  skip-cert-verify: true
-  sni: www.microsoft.com
-  type: hysteria2

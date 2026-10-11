@@ -10,10 +10,11 @@
         "direct",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1762080840",
+        "[au1rxx-free-vpn-subscriptions] shadowsocks-1754725706",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1551127541",
         "[au1rxx-free-vpn-subscriptions] vless-1766466795",
-        "[au1rxx-free-vpn-subscriptions] vless-1766487925",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-689011839"
+        "[au1rxx-free-vpn-subscriptions] hysteria2-689011839",
+        "[au1rxx-free-vpn-subscriptions] vless-1766487925"
       ]
     },
     {
@@ -35,6 +36,14 @@
       "server_port": 22073,
       "method": "aes-256-gcm",
       "password": "bd962c9a-d6f2-4561-bd80-34206c4d5279"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1754725706",
+      "server": "13.40.25.145",
+      "server_port": 443,
+      "method": "aes-256-cfb",
+      "password": "amazonskr05"
     },
     {
       "type": "hysteria2",
@@ -70,6 +79,18 @@
       }
     },
     {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-689011839",
+      "server": "62.210.147.2",
+      "server_port": 43115,
+      "password": "github.com/Alvin9999-newpac/fanqiang",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
+        "insecure": true
+      }
+    },
+    {
       "type": "vless",
       "tag": "[au1rxx-free-vpn-subscriptions] vless-1766487925",
       "server": "45.207.157.24",
@@ -88,18 +109,6 @@
           "public_key": "0hIFPaEn4RdFib8_eP8HYxMywR5izEwM3JA2W1Zo8U4",
           "short_id": "b390142456517acc"
         }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-689011839",
-      "server": "62.210.147.2",
-      "server_port": 43115,
-      "password": "github.com/Alvin9999-newpac/fanqiang",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.microsoft.com",
-        "insecure": true
       }
     }
   ]
