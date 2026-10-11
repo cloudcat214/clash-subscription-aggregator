@@ -29,7 +29,6 @@
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 10",
         "[zhuhaiuk-free-nodes] DE - zhuhai.uk 02",
         "[pawdroid-free-servers] 北京市+惟译天创信息技术有限公司",
-        "[zhuhaiuk-free-nodes] RO - zhuhai.uk 02",
         "[zhuhaiuk-free-nodes] SG - zhuhai.uk 02",
         "[zhuhaiuk-free-nodes] JP - zhuhai.uk 02",
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk 01",
@@ -51,7 +50,9 @@
         "[clashfree-daily] 未知 VLESS-223 | free-nodes",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 3890F7",
         "[ermaozi-subscribe] 🇮🇹IT_1|1.1MB/s",
-        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 50F6CC"
+        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 50F6CC",
+        "[zhuhaiuk-free-nodes] US - zhuhai.uk 03",
+        "[clashfree-daily] 未知 SS-102 | free-nodes"
       ]
     },
     {
@@ -332,16 +333,6 @@
     },
     {
       "type": "http",
-      "tag": "[zhuhaiuk-free-nodes] RO - zhuhai.uk 02",
-      "server": "193.176.84.31",
-      "server_port": 9002,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "http",
       "tag": "[zhuhaiuk-free-nodes] SG - zhuhai.uk 02",
       "server": "104.248.148.240",
       "server_port": 443,
@@ -608,6 +599,22 @@
           "fingerprint": "chrome"
         }
       }
+    },
+    {
+      "type": "socks",
+      "tag": "[zhuhaiuk-free-nodes] US - zhuhai.uk 03",
+      "server": "185.145.99.41",
+      "server_port": 1080,
+      "username": "test123",
+      "password": "test123"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[clashfree-daily] 未知 SS-102 | free-nodes",
+      "server": "ruot.ayucloudservices.nl",
+      "server_port": 22073,
+      "method": "aes-256-gcm",
+      "password": "bd962c9a-d6f2-4561-bd80-34206c4d5279"
     }
   ]
 }

@@ -174,12 +174,6 @@ proxies:
   port: 52683
   uuid: 5aaa5259-f924-4682-a4a3-149d472a9dcc
   client-fingerprint: chrome
-- name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
-  type: http
-  server: 193.176.84.31
-  port: 9002
-  tls: true
-  skip-cert-verify: true
 - name: '[zhuhaiuk-free-nodes] SG - zhuhai.uk 02'
   type: http
   server: 104.248.148.240
@@ -377,3 +371,15 @@ proxies:
   sni: b1.3danimation3.com
   client-fingerprint: chrome
   network: tcp
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
+  type: socks5
+  server: 185.145.99.41
+  port: 1080
+  username: test123
+  password: test123
+- name: '[clashfree-daily] 未知 SS-102 | free-nodes'
+  server: ruot.ayucloudservices.nl
+  port: 22073
+  type: ss
+  cipher: aes-256-gcm
+  password: bd962c9a-d6f2-4561-bd80-34206c4d5279

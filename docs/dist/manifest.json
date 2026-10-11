@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T23:15:07Z",
+  "generated_at": "2026-10-11T23:45:20Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 45,
+    "published": 46,
     "sources": 25,
-    "parsed": 6264,
+    "parsed": 6262,
     "accepted": 5274
   },
   "protocols": {
-    "http": 25,
+    "http": 24,
     "hysteria": 1,
-    "socks5": 4,
-    "ss": 3,
+    "socks5": 5,
+    "ss": 4,
     "trojan": 1,
     "vless": 11
   },
@@ -87,10 +87,9 @@
     {
       "id": "alvin-ip1-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -99,10 +98,9 @@
     {
       "id": "alvin-ip2-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -111,10 +109,9 @@
     {
       "id": "alvin-ip3-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -123,10 +120,9 @@
     {
       "id": "alvin-ip4-mirror",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://gitlab.com/free9999/ipupdate",
       "license": "unknown",
       "publicly_offered": true,
@@ -158,17 +154,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1418,
+      "parsed": 1416,
       "accepted": 1330,
       "drops": {
         "invalid_uuid": 11,
-        "duplicate": 77
+        "duplicate": 75
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "523aa6fb6613d964f26bcfa217982d0b4599468b073dc1329f7073ef6a406939"
+      "sha256": "92cdb9194d683cf161f5529493758e222b28a5c6015e397d8f8379f92c8ec30d"
     },
     {
       "id": "p-configs-vless",
@@ -335,23 +331,23 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "b7ba3670cb47cd86af3aab54120d01be2d59f24a91c2d63e54ea0f4d035cd1ad",
-      "bytes": 14335
+      "sha256": "ed3b6018309e86332ea7c0f24eee6e1da250ded25b49255eef92d59648bf69e5",
+      "bytes": 14628
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "cdc637a49ece079582dba98aeb56e004b9440c4771fe317fc80a88f3b6894af1",
-      "bytes": 9445
+      "sha256": "f0f9ea2674ec91890cfd71796a49acc306f2419bea35e2961afbf38800238646",
+      "bytes": 9636
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "793fe5127061d47ee15304acf72d0fae17155f377040f5622bd532493b283322",
-      "bytes": 16869
+      "sha256": "60e1664201ed6c41f76ac03d8c641969fc48972bda91d030532237d6a0a697d7",
+      "bytes": 17173
     }
   ],
   "drops": {
     "invalid_uuid": 53,
-    "duplicate": 1227,
+    "duplicate": 1231,
     "missing_password": 2,
     "private_server": 22,
     "unsupported proxy type": 14,
@@ -379,23 +375,23 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1457,
-      "network_error": 2
+      "http_error": 1475,
+      "network_error": 3
     },
-    "pool_size_before": 26,
-    "pool_size": 45,
+    "pool_size_before": 45,
+    "pool_size": 46,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 26,
-    "pool_retested": 26,
-    "new_candidates_tested": 1474,
-    "pool_added": 22,
-    "pool_evicted": 3,
-    "retained_count": 45,
+    "pool_probe_candidates": 45,
+    "pool_retested": 45,
+    "new_candidates_tested": 1455,
+    "pool_added": 2,
+    "pool_evicted": 1,
+    "retained_count": 46,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 52,
-    "stage2_tested": 52,
-    "stage2_stable": 44,
+    "stage1_passed": 61,
+    "stage2_tested": 61,
+    "stage2_stable": 31,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -405,19 +401,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4955,
+    "candidates": 4949,
     "tested": 1500,
-    "verified": 41,
-    "fast": 0,
-    "stable": 41,
-    "failed": 1459,
-    "not_tested": 3455,
-    "not_tested_budget": 3455,
-    "failed_probe": 1451,
-    "below_quality_threshold": 8,
-    "dropped": 1459,
-    "published": 45,
-    "success_rate": 0.029777777777777778
+    "verified": 22,
+    "fast": 9,
+    "stable": 22,
+    "failed": 1478,
+    "not_tested": 3449,
+    "not_tested_budget": 3449,
+    "failed_probe": 1458,
+    "below_quality_threshold": 20,
+    "dropped": 1478,
+    "published": 46,
+    "success_rate": 0.021111111111111112
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
