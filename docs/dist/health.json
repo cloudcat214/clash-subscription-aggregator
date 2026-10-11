@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T02:00:07Z",
+  "generated_at": "2026-10-11T02:15:12Z",
   "status": "ok",
   "active_probe": true,
-  "published": 27,
+  "published": 33,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -141,47 +141,48 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1478,
-      "accepted": 1367,
+      "parsed": 1453,
+      "accepted": 1333,
       "drops": {
         "invalid_uuid": 8,
-        "duplicate": 103
+        "duplicate": 112
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "069ed1287bf4e51b5e44c39ba17fb47c0a7fa40554ee68ef9283f87e439c0fa6"
+      "sha256": "210dde0d4e748fa9723734b3d211296068eb022aadd9dcd8a9ac2ab5eee7214c"
     },
     {
       "id": "p-configs-vless",
       "kind": "public",
       "status": "ok",
-      "parsed": 77,
-      "accepted": 54,
+      "parsed": 85,
+      "accepted": 62,
       "drops": {
-        "duplicate": 23
+        "invalid_uuid": 1,
+        "duplicate": 22
       },
       "source_repo": "https://github.com/VovaplusEXP/p-configs",
       "license": "GPL-3.0",
       "evidence": "https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "4387ab350c59e3626d6a5860575186d6c2ac449e076d8de30d4a0482e35c0f5d"
+      "sha256": "0139eec505d6c7f7c021b60d14c6b36a7a458da2344d09ffec158f629fb41758"
     },
     {
       "id": "p-configs-trojan",
       "kind": "public",
       "status": "ok",
-      "parsed": 1,
+      "parsed": 7,
       "accepted": 0,
       "drops": {
-        "missing_password": 1
+        "missing_password": 7
       },
       "source_repo": "https://github.com/VovaplusEXP/p-configs",
       "license": "GPL-3.0",
       "evidence": "https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "f2ebee0557b66a3352fe86c91faa119ac2cd4d3b4d9479fe8e34c097cacb4e24"
+      "sha256": "1ec675e4c18427c575a9320576a59d5326a20a8ead62e982614d5ae778edc7c8"
     }
   ],
   "checks": {
@@ -204,13 +205,12 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1396,
-      "network_error": 1
+      "http_error": 1365
     },
-    "stage1_tested": 1424,
-    "stage1_passed": 32,
-    "stage2_tested": 32,
-    "stage2_stable": 30,
+    "stage1_tested": 1398,
+    "stage1_passed": 40,
+    "stage2_tested": 40,
+    "stage2_stable": 35,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -220,19 +220,19 @@
     }
   },
   "node_quality": {
-    "candidates": 1424,
-    "tested": 1424,
-    "verified": 27,
-    "fast": 4,
-    "stable": 27,
-    "failed": 1397,
+    "candidates": 1398,
+    "tested": 1398,
+    "verified": 33,
+    "fast": 1,
+    "stable": 33,
+    "failed": 1365,
     "not_tested": 0,
     "not_tested_budget": 0,
-    "failed_probe": 1392,
-    "below_quality_threshold": 5,
-    "dropped": 1397,
-    "published": 27,
-    "success_rate": 0.020833333333333332
+    "failed_probe": 1361,
+    "below_quality_threshold": 4,
+    "dropped": 1365,
+    "published": 33,
+    "success_rate": 0.02503576537911302
   },
   "core_validation": {
     "status": "not_tested",
