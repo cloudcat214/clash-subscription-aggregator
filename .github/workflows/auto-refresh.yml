@@ -99,7 +99,6 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           git add -- docs/auto state/verified-pool-auto.json
           if git diff --cached --quiet; then
             echo "no material change; skip commit/push."
@@ -113,12 +112,14 @@ jobs:
             git commit -m "refresh: cloud verified nodes"
             pushed=false
             for attempt in 1 2 3; do
+              if ! git pull --rebase origin main; then
+                git rebase --abort 2>/dev/null || true
+                echo "pull --rebase failed" >&2
+                exit 1
+              fi
               if git push origin HEAD:main; then
                 pushed=true
                 break
-              fi
-              if [ "$attempt" -lt 3 ]; then
-                git pull --rebase origin main
               fi
             done
             if [ "$pushed" != true ]; then

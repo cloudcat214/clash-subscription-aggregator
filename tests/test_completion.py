@@ -484,8 +484,18 @@ def test_cloud_workflow_runs_probe_commits_only_auto_artifacts_and_deploys_pages
     assert "--probe-backend delay" in serialized
     assert "state/verified-pool-auto.json" in serialized
     assert "docs/auto" in serialized
-    assert "git pull --rebase origin main" in serialized
-    assert "git push origin HEAD:main" in serialized
+    commit_run = next(
+        step["run"]
+        for step in refresh["steps"]
+        if step.get("name") == "Commit changed auto artifacts"
+    )
+    assert commit_run.index("git add") < commit_run.index("git commit")
+    assert commit_run.index("git commit") < commit_run.index(
+        "git pull --rebase origin main"
+    )
+    assert commit_run.index("git pull --rebase origin main") < commit_run.index(
+        "git push origin HEAD:main"
+    )
     assert "actions/upload-pages-artifact@v3" in serialized
     assert "actions/deploy-pages@v4" in serialized
 
