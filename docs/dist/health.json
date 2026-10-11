@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T04:45:07Z",
-  "status": "degraded",
+  "generated_at": "2026-10-11T05:00:08Z",
+  "status": "ok",
   "active_probe": true,
-  "published": 7,
+  "published": 6,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1449,
-      "accepted": 1345,
+      "parsed": 1388,
+      "accepted": 1283,
       "drops": {
         "invalid_uuid": 7,
-        "duplicate": 97
+        "duplicate": 98
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "d6753554de88140da1c8038c75a6c24192d2e7242651c8b05897e42e75bddb54"
+      "sha256": "f04ed642266d8a1a2845bc7091b70c26190d3066bc08cd0877f244674b540685"
     },
     {
       "id": "p-configs-vless",
@@ -232,7 +232,7 @@
     {
       "id": "ermaozi-subscribe",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 610,
       "accepted": 583,
       "drops": {
@@ -240,7 +240,6 @@
         "unsupported proxy type": 16,
         "invalid_uuid": 1
       },
-      "cached": true,
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
@@ -303,14 +302,12 @@
     {
       "id": "mfuu-freeproxies",
       "kind": "public",
-      "status": "error",
+      "status": "disabled",
       "parsed": 0,
       "accepted": 0,
-      "error": "ParseError",
       "source_repo": "https://github.com/mfuu/FreeProxies",
       "license": "unknown",
-      "publicly_offered": true,
-      "sha256": "c4410ca52161f926db06afa96c2e0eb21e0d6d35feaf0ed768b83aeced1a0423"
+      "publicly_offered": true
     },
     {
       "id": "chrome147-embedded-hysteria",
@@ -343,7 +340,7 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1493
+      "http_error": 1494
     },
     "stage1_tested": 1500,
     "stage1_passed": 7,
@@ -358,19 +355,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4067,
+    "candidates": 4006,
     "tested": 1500,
-    "verified": 7,
+    "verified": 6,
     "fast": 0,
-    "stable": 7,
-    "failed": 1493,
-    "not_tested": 2567,
-    "not_tested_budget": 2567,
+    "stable": 6,
+    "failed": 1494,
+    "not_tested": 2506,
+    "not_tested_budget": 2506,
     "failed_probe": 1493,
-    "below_quality_threshold": 0,
-    "dropped": 1493,
-    "published": 7,
-    "success_rate": 0.004666666666666667
+    "below_quality_threshold": 1,
+    "dropped": 1494,
+    "published": 6,
+    "success_rate": 0.0044444444444444444
   },
   "core_validation": {
     "status": "not_tested",
