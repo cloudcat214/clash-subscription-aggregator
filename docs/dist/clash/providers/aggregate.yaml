@@ -171,36 +171,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[clashfree-daily] 未知 VLESS-217 | free-nodes'
-  server: c20s5.portablesubmarines.com
-  port: 443
-  type: vless
-  uuid: 85fe968d-fbb5-40dc-8422-30635eccb149
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: BlSccfT5tvDIOS7v9VaPd0ulUNhUdvlMjGiNzDNDUHE
-    short-id: 051f20c2344a2dfd
-  servername: portal.citygrainla.com
-  client-fingerprint: chrome
-  network: tcp
-- name: '[clashfree-daily] 未知 VLESS-234 | free-nodes'
-  server: 157.228.160.166
-  port: 443
-  type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
-    short-id: 3cef317b
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  network: tcp
 - name: '[ermaozi-subscribe] 🇩🇪DE_3|4.1MB/s'
   port: 443
   server: 172.64.68.89
@@ -227,3 +197,33 @@ proxies:
   server: ruot.ayucloudservices.nl
   type: ss
   udp: true
+- name: '[alvin-ip1] https://github.com/Alvin9999-newpac/fanqiang'
+  type: hysteria
+  server: 62.210.70.191
+  port: 23556
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
+  type: hysteria
+  server: 5.83.129.153
+  port: 20088
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: '[pawdroid-free-servers] 安徽省滁州市+电信'
+  type: vless
+  server: us22.sofast.live
+  port: 58011
+  uuid: 0afc6426-606c-48e7-bd70-3c424a416842
+  client-fingerprint: chrome
