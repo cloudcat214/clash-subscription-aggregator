@@ -3,11 +3,18 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1754725706'
+  password: amazonskr05
+  port: 443
+  server: 13.40.25.145
+  type: ss
+  udp: true
 - cipher: aes-256-gcm
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1762080840'
-  password: bd962c9a-d6f2-4561-bd80-34206c4d5279
-  port: 22073
-  server: ruot.ayucloudservices.nl
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
+  password: 6b39ae3234dfd68b
+  port: 20221
+  server: 46.29.166.27
   type: ss
   udp: true
 - client-fingerprint: firefox
@@ -31,27 +38,6 @@ proxies:
   skip-cert-verify: true
   sni: www.bing.com
   type: hysteria2
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: '[au1rxx-free-vpn-subscriptions] vless-1766487925'
-  network: tcp
-  port: 9443
-  reality-opts:
-    public-key: 0hIFPaEn4RdFib8_eP8HYxMywR5izEwM3JA2W1Zo8U4
-    short-id: b390142456517acc
-  server: 45.207.157.24
-  servername: www.amazon.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: fe0721ac-c577-4938-b7ca-8ab5f43bb8da
-- cipher: aes-256-gcm
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
-  password: 6b39ae3234dfd68b
-  port: 20221
-  server: 46.29.166.27
-  type: ss
-  udp: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-689011839'
   password: github.com/Alvin9999-newpac/fanqiang
   port: 43115
@@ -64,20 +50,18 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1762080840'
+  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1754725706'
+  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
   - '[au1rxx-free-vpn-subscriptions] vless-1766466795'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1551127541'
-  - '[au1rxx-free-vpn-subscriptions] vless-1766487925'
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-689011839'
 - name: AUTO
   type: url-test
   proxies: &id001
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1762080840'
+  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1754725706'
+  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
   - '[au1rxx-free-vpn-subscriptions] vless-1766466795'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1551127541'
-  - '[au1rxx-free-vpn-subscriptions] vless-1766487925'
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1757234523'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-689011839'
   url: https://www.gstatic.com/generate_204
   interval: 600

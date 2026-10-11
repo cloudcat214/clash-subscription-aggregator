@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T07:00:07Z",
+  "generated_at": "2026-10-11T07:15:09Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 6,
+    "published": 5,
     "sources": 25,
-    "parsed": 5102,
-    "accepted": 4199
+    "parsed": 5098,
+    "accepted": 4195
   },
   "protocols": {
     "hysteria2": 2,
     "ss": 2,
-    "vless": 2
+    "vless": 1
   },
   "sources": [
     {
@@ -150,13 +150,14 @@
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1337,
       "accepted": 1263,
       "drops": {
         "invalid_uuid": 7,
         "duplicate": 67
       },
+      "cached": true,
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
@@ -198,12 +199,15 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 14,
-      "accepted": 14,
+      "parsed": 10,
+      "accepted": 10,
+      "drops": {
+        "invalid_uuid": 1
+      },
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "c25bdd8f35a243609bc90c6de9dd989be507d7491c9a067453af977e9e1528f8"
+      "sha256": "f030b3c4087af113db646d6a06d70daced67db9ba594f2c0e6c9533a3b8f0479"
     },
     {
       "id": "anaer-sub",
@@ -330,22 +334,22 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "90ef28d775577a9a64b7d6bdfd2c135b9ad2c5cb9874162b7612c4a72265dad5",
-      "bytes": 2695
+      "sha256": "0df27e5268c746132b6d0bdbbf84cf46c7a0f9df57f66d9dc1d24fe5259769af",
+      "bytes": 2162
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "469db76ca133a8ae300c9eb68ecb974f9d3002b1675ae404cf7267180852ca9c",
-      "bytes": 1613
+      "sha256": "bcd7a75533808658bb79cf49a38ddc2e3f78aec207536317bf24f42ceb81e078",
+      "bytes": 1190
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "b3ab634951665f512f867e0088d54467241d31b275e1579d114219d1631b3d4b",
-      "bytes": 3021
+      "sha256": "0e6c8b103a56e86bcb5e8ce6a4bd7d68b993a20cfb0ed2ad6a7b8fb3c0e04308",
+      "bytes": 2324
     }
   ],
   "drops": {
-    "invalid_uuid": 22,
+    "invalid_uuid": 23,
     "duplicate": 1047,
     "missing_password": 7,
     "proxy port is outside 1..65535": 2,
@@ -372,12 +376,12 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1494
+      "http_error": 1495
     },
     "stage1_tested": 1500,
     "stage1_passed": 7,
     "stage2_tested": 7,
-    "stage2_stable": 6,
+    "stage2_stable": 7,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -387,19 +391,19 @@
     }
   },
   "node_quality": {
-    "candidates": 3994,
+    "candidates": 3990,
     "tested": 1500,
-    "verified": 6,
+    "verified": 5,
     "fast": 0,
-    "stable": 6,
-    "failed": 1494,
-    "not_tested": 2494,
-    "not_tested_budget": 2494,
-    "failed_probe": 1494,
-    "below_quality_threshold": 0,
-    "dropped": 1494,
-    "published": 6,
-    "success_rate": 0.004
+    "stable": 5,
+    "failed": 1495,
+    "not_tested": 2490,
+    "not_tested_budget": 2490,
+    "failed_probe": 1493,
+    "below_quality_threshold": 2,
+    "dropped": 1495,
+    "published": 5,
+    "success_rate": 0.004222222222222222
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
