@@ -141,27 +141,6 @@ proxies:
       Host: love-paris.roxa.org
     v2ray-http-upgrade: true
   udp: true
-- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
-  type: http
-  server: 5.255.118.82
-  port: 443
-  tls: true
-  skip-cert-verify: true
-- name: '[clashfree-daily] 未知 VLESS-234 | free-nodes'
-  server: 157.228.160.166
-  port: 443
-  type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
-    short-id: 3cef317b
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  network: tcp
 - name: '[zhuhaiuk-free-nodes] DE - zhuhai.uk 02'
   type: vless
   server: gw1.edgemedia.lol
@@ -180,26 +159,10 @@ proxies:
   port: 443
   tls: true
   skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 04'
-  type: http
-  server: 51.158.243.91
-  port: 443
-  username: 'null'
-  password: None
-  tls: true
-  sni: 51.158.243.91
-  skip-cert-verify: true
 - name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
   type: socks5
   server: 37.77.148.12
   port: 9101
-- name: '[ermaozi-subscribe] RO_speednode_0124'
-  port: 9002
-  server: 193.176.84.32
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
   type: http
   server: 45.145.73.240
@@ -213,3 +176,62 @@ proxies:
   server: 103.136.68.30
   type: ss
   udp: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 05'
+  type: http
+  server: 138.199.35.211
+  port: 9002
+  username: 'null'
+  password: 'null'
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 10'
+  type: http
+  server: 138.199.35.212
+  port: 9002
+  username: 'null'
+  password: 'null'
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] HK - zhuhai.uk 02'
+  type: socks5
+  server: 123.58.219.171
+  port: 10808
+- name: '[zhuhaiuk-free-nodes] KR - zhuhai.uk'
+  type: socks5
+  server: 121.169.46.116
+  port: 1090
+  username: Vm0xMFUxTXlSbkpQVm1SU1lrWmFjRnBYY0VKTmF6bHVVRlF3TmpvPTo=
+- name: '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
+  type: socks5
+  server: 121.169.46.116
+  port: 1090
+  username: VDJjbE0wUWxNMFE2Og==
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 555DCE'
+  server: 185.244.28.177
+  port: 443
+  type: vless
+  uuid: 3e0c1fbf-467a-49d7-abd2-3a158628f3d0
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: de3.gigobingo.ru
+  reality-opts:
+    public-key: Aj6Op88j_eYXxoBw095KS_NnKCBm5uwa874uumXdiDQ
+    short-id: ef7c4e4302bd52d7
+  client-fingerprint: firefox
+  network: tcp
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8CA037'
+  server: 5.252.33.175
+  port: 9882
+  type: vless
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  udp: true
+  tls: true
+  servername: dl.google.com
+  reality-opts:
+    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+    short-id: aabbccdd
+  client-fingerprint: random
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
