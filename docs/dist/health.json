@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T04:30:07Z",
+  "generated_at": "2026-10-11T04:45:07Z",
   "status": "degraded",
   "active_probe": true,
   "published": 7,
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1481,
-      "accepted": 1374,
+      "parsed": 1449,
+      "accepted": 1345,
       "drops": {
         "invalid_uuid": 7,
-        "duplicate": 100
+        "duplicate": 97
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "a330bcc2bf96e9d887d6cbe67a48dd13877cb4ff8e483754266802ab67902b08"
+      "sha256": "d6753554de88140da1c8038c75a6c24192d2e7242651c8b05897e42e75bddb54"
     },
     {
       "id": "p-configs-vless",
@@ -232,7 +232,7 @@
     {
       "id": "ermaozi-subscribe",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 610,
       "accepted": 583,
       "drops": {
@@ -240,6 +240,7 @@
         "unsupported proxy type": 16,
         "invalid_uuid": 1
       },
+      "cached": true,
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
@@ -248,13 +249,13 @@
     {
       "id": "vxiaov-free-proxies",
       "kind": "public",
-      "status": "error",
-      "parsed": 0,
-      "accepted": 0,
-      "error": "SourceError",
+      "status": "ok",
+      "parsed": 28,
+      "accepted": 28,
       "source_repo": "https://github.com/vxiaov/free_proxies",
       "license": "unknown",
-      "publicly_offered": true
+      "publicly_offered": true,
+      "sha256": "78caeb8e6878fc4351fa120efdff57230498dd20db4e0d366af99462c5fc3d7d"
     },
     {
       "id": "zhuhaiuk-free-nodes",
@@ -357,14 +358,14 @@
     }
   },
   "node_quality": {
-    "candidates": 4066,
+    "candidates": 4067,
     "tested": 1500,
     "verified": 7,
     "fast": 0,
     "stable": 7,
     "failed": 1493,
-    "not_tested": 2566,
-    "not_tested_budget": 2566,
+    "not_tested": 2567,
+    "not_tested_budget": 2567,
     "failed_probe": 1493,
     "below_quality_threshold": 0,
     "dropped": 1493,
