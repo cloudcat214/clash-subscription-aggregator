@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T05:00:08Z",
+  "generated_at": "2026-10-11T05:15:08Z",
   "status": "success",
   "active_probe": true,
   "counts": {
     "published": 6,
     "sources": 25,
-    "parsed": 5150,
-    "accepted": 4217
+    "parsed": 5196,
+    "accepted": 4291
   },
   "protocols": {
     "hysteria2": 2,
@@ -151,17 +151,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1388,
-      "accepted": 1283,
+      "parsed": 1437,
+      "accepted": 1360,
       "drops": {
         "invalid_uuid": 7,
-        "duplicate": 98
+        "duplicate": 70
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "f04ed642266d8a1a2845bc7091b70c26190d3066bc08cd0877f244674b540685"
+      "sha256": "8677dd224737af40ba4f2b6917f21690d6bdc2114863134779676231c0e86d89"
     },
     {
       "id": "p-configs-vless",
@@ -198,15 +198,12 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 17,
-      "accepted": 17,
-      "drops": {
-        "invalid_uuid": 1
-      },
+      "parsed": 14,
+      "accepted": 14,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "1dae5c52651cb55188f6c5ee5a5ba88fd9832b3322f9addd9382ed91c19ad843"
+      "sha256": "8921cd511e5b3781dd013f33e09f0d0478583ea43ead5fb8cc4c4155a0edbab2"
     },
     {
       "id": "anaer-sub",
@@ -333,23 +330,23 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "71031880c97e0380617fac3517b712a5a845f2c96b8418e7e13e98d549ccfa33",
-      "bytes": 2706
+      "sha256": "266d2292e9c5c053865b7140a5b3e64df3da2d348ca02624355ff4add803c87f",
+      "bytes": 2702
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "3ae948394dfb88d99b79ea89e5b885ce52ad9deb5c2f3014b404302b22bdbadb",
-      "bytes": 1622
+      "sha256": "1dc27799229fe6749a015bc827f94fbfdb54666d4736c33b97ea620b60fa7ca7",
+      "bytes": 1618
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "260562174844a1f4d478a4463456c475367af5a62ddbbff492b686b63eea6b40",
-      "bytes": 2928
+      "sha256": "837e35bcbe9d199d13ac9ab1c3ad1d9075fa0f9017fd699f65793a2d3c9c05c9",
+      "bytes": 2924
     }
   ],
   "drops": {
-    "invalid_uuid": 23,
-    "duplicate": 1084,
+    "invalid_uuid": 22,
+    "duplicate": 1058,
     "missing_password": 7,
     "proxy port is outside 1..65535": 2,
     "private_server": 12,
@@ -378,9 +375,9 @@
       "http_error": 1494
     },
     "stage1_tested": 1500,
-    "stage1_passed": 7,
-    "stage2_tested": 7,
-    "stage2_stable": 7,
+    "stage1_passed": 6,
+    "stage2_tested": 6,
+    "stage2_stable": 6,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -390,19 +387,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4006,
+    "candidates": 4078,
     "tested": 1500,
     "verified": 6,
-    "fast": 0,
+    "fast": 3,
     "stable": 6,
     "failed": 1494,
-    "not_tested": 2506,
-    "not_tested_budget": 2506,
-    "failed_probe": 1493,
-    "below_quality_threshold": 1,
+    "not_tested": 2578,
+    "not_tested_budget": 2578,
+    "failed_probe": 1494,
+    "below_quality_threshold": 0,
     "dropped": 1494,
     "published": 6,
-    "success_rate": 0.0044444444444444444
+    "success_rate": 0.004
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
