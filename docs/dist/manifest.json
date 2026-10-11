@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T03:00:07Z",
+  "generated_at": "2026-10-11T03:15:07Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 39,
+    "published": 31,
     "sources": 15,
-    "parsed": 1642,
-    "accepted": 1492
+    "parsed": 1561,
+    "accepted": 1416
   },
   "protocols": {
     "hysteria": 1,
     "trojan": 1,
-    "vless": 37
+    "vless": 29
   },
   "sources": [
     {
@@ -151,17 +151,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1538,
-      "accepted": 1418,
+      "parsed": 1457,
+      "accepted": 1342,
       "drops": {
-        "invalid_uuid": 8,
-        "duplicate": 112
+        "invalid_uuid": 7,
+        "duplicate": 108
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "dca0d5f87e8e06e09e923545ee73a3a4f6f7a796d2abe712e1134b1a53b4a73e"
+      "sha256": "fe5a6385adad0f530ff231d10e3479f69d6848843c61801f62a79c18a8e95786"
     },
     {
       "id": "p-configs-vless",
@@ -198,30 +198,30 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "5ff84bde8c70e72a3dfee83e4f0f3c37b51cfb6dc18861dcbd0e1e10814dc85e",
-      "bytes": 20998
+      "sha256": "fd797a25701ed49f8dae1a06e923aea5288f045739545acff0a5928c849df6a7",
+      "bytes": 16534
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "ac94aff5782bdf7f39f2a7d371e7f6d4e7bf331b9a1c307adeca6c832466f5ce",
-      "bytes": 15320
+      "sha256": "e0e0084790375dcd28224389d063ad7ae4fc2eec99be7294bb37e92fa4881f05",
+      "bytes": 11944
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "207746913056d6394e6a3ef58aec40c937fbd2d6e552bacb7a40467a2066dacc",
-      "bytes": 18871
+      "sha256": "2660e4a07760f9fdd82b9156149aec2e6e8be5ba83cff84cafdd27815f147259",
+      "bytes": 15291
     }
   ],
   "drops": {
-    "invalid_uuid": 9,
-    "duplicate": 143,
+    "invalid_uuid": 8,
+    "duplicate": 139,
     "missing_password": 7
   },
   "sing_box": {
-    "unsupported": 12,
+    "unsupported": 9,
     "drop_reasons": {
       "unsupported_protocol:hysteria": 1,
-      "unsupported_transport:xhttp": 11
+      "unsupported_transport:xhttp": 8
     }
   },
   "verification": {
@@ -240,13 +240,12 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1443,
-      "network_error": 1
+      "http_error": 1376
     },
-    "stage1_tested": 1483,
-    "stage1_passed": 43,
-    "stage2_tested": 43,
-    "stage2_stable": 41,
+    "stage1_tested": 1407,
+    "stage1_passed": 35,
+    "stage2_tested": 35,
+    "stage2_stable": 32,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -256,19 +255,19 @@
     }
   },
   "node_quality": {
-    "candidates": 1483,
-    "tested": 1483,
-    "verified": 39,
-    "fast": 6,
-    "stable": 39,
-    "failed": 1444,
+    "candidates": 1407,
+    "tested": 1407,
+    "verified": 31,
+    "fast": 5,
+    "stable": 31,
+    "failed": 1376,
     "not_tested": 0,
     "not_tested_budget": 0,
-    "failed_probe": 1440,
-    "below_quality_threshold": 4,
-    "dropped": 1444,
-    "published": 39,
-    "success_rate": 0.027646662171274445
+    "failed_probe": 1374,
+    "below_quality_threshold": 2,
+    "dropped": 1376,
+    "published": 31,
+    "success_rate": 0.022743425728500355
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
