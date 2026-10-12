@@ -77,13 +77,6 @@ proxies:
     short-id: 3560f3d77a767c3a
   client-fingerprint: random
   network: tcp
-- name: '[ermaozi-subscribe] NL_speednode_0007'
-  port: 9002
-  server: 84.17.47.148
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | 84C4C3'
   server: 31.76.102.60
   port: 443
@@ -98,13 +91,6 @@ proxies:
     short-id: dee20bb2421604f8
   client-fingerprint: random
   network: tcp
-- name: '[ermaozi-subscribe] RO_speednode_0045'
-  port: 9002
-  server: 193.176.84.17
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 04'
   type: http
   server: 193.176.84.31
@@ -147,6 +133,35 @@ proxies:
     short-id: 4be4110078ebed4a
   client-fingerprint: randomized
   network: tcp
+- name: '[ermaozi-subscribe] NL_speednode_0005'
+  password: None
+  port: 9002
+  server: 84.17.47.125
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] NL_speednode_0006'
+  port: 9002
+  server: 84.17.47.150
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] RO_speednode_0042'
+  port: 9002
+  server: 193.176.84.30
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1784945214'
+  password: amazonskr05
+  port: 443
+  server: 15.223.120.64
+  type: ss
+  udp: true
 proxy-groups:
 - name: PROXY
   type: select
@@ -163,14 +178,16 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
-  - '[ermaozi-subscribe] NL_speednode_0007'
   - '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | 84C4C3'
-  - '[ermaozi-subscribe] RO_speednode_0045'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 04'
   - '[ermaozi-subscribe] NL_speednode_0009'
   - '[ermaozi-subscribe] RO_speednode_0044'
   - '[ermaozi-subscribe] 🇩🇪DE_4|1.1MB/s'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
+  - '[ermaozi-subscribe] NL_speednode_0005'
+  - '[ermaozi-subscribe] NL_speednode_0006'
+  - '[ermaozi-subscribe] RO_speednode_0042'
+  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1784945214'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -185,14 +202,16 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
-  - '[ermaozi-subscribe] NL_speednode_0007'
   - '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | 84C4C3'
-  - '[ermaozi-subscribe] RO_speednode_0045'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 04'
   - '[ermaozi-subscribe] NL_speednode_0009'
   - '[ermaozi-subscribe] RO_speednode_0044'
   - '[ermaozi-subscribe] 🇩🇪DE_4|1.1MB/s'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
+  - '[ermaozi-subscribe] NL_speednode_0005'
+  - '[ermaozi-subscribe] NL_speednode_0006'
+  - '[ermaozi-subscribe] RO_speednode_0042'
+  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1784945214'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100

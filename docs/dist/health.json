@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T14:45:11Z",
+  "generated_at": "2026-10-12T15:00:09Z",
   "status": "ok",
   "active_probe": true,
-  "published": 19,
+  "published": 21,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -141,8 +141,8 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1096,
-      "accepted": 1031,
+      "parsed": 1127,
+      "accepted": 1062,
       "drops": {
         "invalid_uuid": 6,
         "duplicate": 59
@@ -151,7 +151,7 @@
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "94410efc2d0c0a5588b0f059d38d6dd39ae611b94de293945493df40c96aafd2"
+      "sha256": "5df6f806b19af78b21e6401eec3b9db2f436c7ec7e6fc1bad11d493190530f82"
     },
     {
       "id": "p-configs-vless",
@@ -335,22 +335,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1480,
+      "http_error": 1481,
       "network_error": 3
     },
-    "pool_size_before": 14,
-    "pool_size": 19,
+    "pool_size_before": 19,
+    "pool_size": 21,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 14,
-    "pool_retested": 14,
-    "new_candidates_tested": 1486,
-    "pool_added": 5,
-    "pool_evicted": 0,
-    "retained_count": 19,
+    "pool_probe_candidates": 19,
+    "pool_retested": 19,
+    "new_candidates_tested": 1481,
+    "pool_added": 4,
+    "pool_evicted": 2,
+    "retained_count": 21,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 41,
-    "stage2_tested": 41,
+    "stage1_passed": 36,
+    "stage2_tested": 36,
     "stage2_stable": 25,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
@@ -361,19 +361,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4708,
+    "candidates": 4735,
     "tested": 1500,
-    "verified": 17,
-    "fast": 2,
-    "stable": 17,
-    "failed": 1483,
-    "not_tested": 3208,
-    "not_tested_budget": 3208,
-    "failed_probe": 1466,
-    "below_quality_threshold": 17,
-    "dropped": 1483,
-    "published": 19,
-    "success_rate": 0.016888888888888887
+    "verified": 16,
+    "fast": 1,
+    "stable": 16,
+    "failed": 1484,
+    "not_tested": 3235,
+    "not_tested_budget": 3235,
+    "failed_probe": 1469,
+    "below_quality_threshold": 15,
+    "dropped": 1484,
+    "published": 21,
+    "success_rate": 0.016
   },
   "core_validation": {
     "status": "not_tested",

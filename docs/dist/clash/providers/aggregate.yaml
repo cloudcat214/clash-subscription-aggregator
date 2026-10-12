@@ -73,13 +73,6 @@ proxies:
     short-id: 3560f3d77a767c3a
   client-fingerprint: random
   network: tcp
-- name: '[ermaozi-subscribe] NL_speednode_0007'
-  port: 9002
-  server: 84.17.47.148
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | 84C4C3'
   server: 31.76.102.60
   port: 443
@@ -94,13 +87,6 @@ proxies:
     short-id: dee20bb2421604f8
   client-fingerprint: random
   network: tcp
-- name: '[ermaozi-subscribe] RO_speednode_0045'
-  port: 9002
-  server: 193.176.84.17
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 04'
   type: http
   server: 193.176.84.31
@@ -143,3 +129,32 @@ proxies:
     short-id: 4be4110078ebed4a
   client-fingerprint: randomized
   network: tcp
+- name: '[ermaozi-subscribe] NL_speednode_0005'
+  password: None
+  port: 9002
+  server: 84.17.47.125
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] NL_speednode_0006'
+  port: 9002
+  server: 84.17.47.150
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] RO_speednode_0042'
+  port: 9002
+  server: 193.176.84.30
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1784945214'
+  password: amazonskr05
+  port: 443
+  server: 15.223.120.64
+  type: ss
+  udp: true
