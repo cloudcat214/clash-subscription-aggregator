@@ -35,18 +35,6 @@ proxies:
   type: socks5
   server: 123.58.219.171
   port: 10808
-- name: '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
-  type: vless
-  server: 43.247.132.85
-  port: 41563
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-  flow: xtls-rprx-vision
-  tls: true
-  servername: iosapps.itunes.apple.com
-  client-fingerprint: random
-  reality-opts:
-    public-key: HrcXRHtsitc_AVlN-_8fZuRgaP-Mqa_9JJotI9OnkVc
-    short-id: 25c79e5856c7
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
   type: http
   server: 45.145.72.122
@@ -174,21 +162,6 @@ proxies:
   tls: false
   skip-cert-verify: true
   udp: true
-- name: '[clashfree-daily] 未知 VLESS-244 | free-nodes'
-  server: 157.228.160.166
-  port: 443
-  type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
-    short-id: 3cef317b
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  network: tcp
 - name: '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
   type: http
   server: 158.173.154.4
@@ -502,6 +475,12 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[clashfree-daily] 未知 SS-102 | free-nodes'
+  server: ruot.ayucloudservices.nl
+  port: 22073
+  type: ss
+  cipher: aes-256-gcm
+  password: bd962c9a-d6f2-4561-bd80-34206c4d5279
 proxy-groups:
 - name: PROXY
   type: select
@@ -513,7 +492,6 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk 02'
-  - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7'
@@ -526,7 +504,6 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇧🇬BG_3|1.8MB/s'
   - '[pawdroid-free-servers] 北京市+惟译天创信息技术有限公司'
   - '[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国'
-  - '[clashfree-daily] 未知 VLESS-244 | free-nodes'
   - '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk 02'
@@ -566,6 +543,7 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇫🇷FR_5|2.8MB/s'
   - '[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s'
   - '[ermaozi-subscribe] 🇫🇷FR_7|3.1MB/s'
+  - '[clashfree-daily] 未知 SS-102 | free-nodes'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -575,7 +553,6 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk 02'
-  - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | C897F7'
@@ -588,7 +565,6 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇧🇬BG_3|1.8MB/s'
   - '[pawdroid-free-servers] 北京市+惟译天创信息技术有限公司'
   - '[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国'
-  - '[clashfree-daily] 未知 VLESS-244 | free-nodes'
   - '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk 02'
@@ -628,6 +604,7 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇫🇷FR_5|2.8MB/s'
   - '[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s'
   - '[ermaozi-subscribe] 🇫🇷FR_7|3.1MB/s'
+  - '[clashfree-daily] 未知 SS-102 | free-nodes'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100

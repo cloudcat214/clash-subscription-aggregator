@@ -31,18 +31,6 @@ proxies:
   type: socks5
   server: 123.58.219.171
   port: 10808
-- name: '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
-  type: vless
-  server: 43.247.132.85
-  port: 41563
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-  flow: xtls-rprx-vision
-  tls: true
-  servername: iosapps.itunes.apple.com
-  client-fingerprint: random
-  reality-opts:
-    public-key: HrcXRHtsitc_AVlN-_8fZuRgaP-Mqa_9JJotI9OnkVc
-    short-id: 25c79e5856c7
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
   type: http
   server: 45.145.72.122
@@ -170,21 +158,6 @@ proxies:
   tls: false
   skip-cert-verify: true
   udp: true
-- name: '[clashfree-daily] 未知 VLESS-244 | free-nodes'
-  server: 157.228.160.166
-  port: 443
-  type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
-    short-id: 3cef317b
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  network: tcp
 - name: '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
   type: http
   server: 158.173.154.4
@@ -498,3 +471,9 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[clashfree-daily] 未知 SS-102 | free-nodes'
+  server: ruot.ayucloudservices.nl
+  port: 22073
+  type: ss
+  cipher: aes-256-gcm
+  password: bd962c9a-d6f2-4561-bd80-34206c4d5279
