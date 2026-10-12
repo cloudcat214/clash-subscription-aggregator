@@ -116,3 +116,4 @@
 - `tests/test_verified_pool.py`（+194）
 - 本报告
 - commit：`56b98ee` `fix(publish): include chrome147 user nodes in dist + protect from transient eviction`（代码+测试；已推送）
+- commit：`fb58f61` `docs: add user-nodes fix report + gitignore whitelist`（本报告 + `.gitignore` 白名单；已推送）
