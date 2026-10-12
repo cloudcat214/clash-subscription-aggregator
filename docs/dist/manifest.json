@@ -1,20 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T05:15:52Z",
+  "generated_at": "2026-10-12T05:45:14Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 71,
+    "published": 75,
     "sources": 25,
-    "parsed": 6362,
-    "accepted": 5398
+    "parsed": 6407,
+    "accepted": 5431
   },
   "protocols": {
     "http": 55,
-    "hysteria": 1,
-    "hysteria2": 3,
+    "hysteria": 2,
+    "hysteria2": 5,
     "socks5": 3,
     "ss": 2,
+    "trojan": 1,
     "vless": 7
   },
   "sources": [
@@ -154,17 +155,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1487,
-      "accepted": 1395,
+      "parsed": 1534,
+      "accepted": 1436,
       "drops": {
-        "invalid_uuid": 10,
-        "duplicate": 82
+        "invalid_uuid": 9,
+        "duplicate": 89
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "b707d76ccad64efb7022dd2e0ff8a40cf7bf81acb793805f5cc44f1fa693add6"
+      "sha256": "b6bbb6c9486b7176bdd3fd4d72ea3a5e51cb3ce850db71cf918c409db6a9acdc"
     },
     {
       "id": "p-configs-vless",
@@ -297,16 +298,16 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1810,
-      "accepted": 1182,
+      "parsed": 1808,
+      "accepted": 1174,
       "drops": {
         "invalid_uuid": 1,
-        "duplicate": 627
+        "duplicate": 633
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "37763a37190a81bfdb2de129e993ab9c871f885f57211d5c448d3ddde7eeb97a"
+      "sha256": "e3ee4e68bf56e7bac94871fad67065fc4fc45bab89e7cfb3c380a12604cb9e13"
     },
     {
       "id": "mfuu-freeproxies",
@@ -332,23 +333,23 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "7c8b54a4c28e65a33975a90074154f4e9d91682a646485d60e8d2caf3fe89a9d",
-      "bytes": 21305
+      "sha256": "8a7db03798c1ce0cb405aafd1f79cde35dd2f5d780d25395ece71a1f4416868f",
+      "bytes": 21042
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "be467f3c0c3aafb7ab2d7773bd5fc7439f3ac39d66d7c6e6550eecd80364a16f",
-      "bytes": 14223
+      "sha256": "aad64185cf6f0cb700b3804957407aec94dd84751c96e1fa62b076578c17916b",
+      "bytes": 13524
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "60954ce2001252d5f16442607cdb1b8c97563343353a664359bc91e2c8f484fd",
-      "bytes": 21325
+      "sha256": "72cb6d7657a93af8a2c9623b1d48cb8a8a90707b8f7e618c6a52cfbf7984c7c5",
+      "bytes": 23242
     }
   ],
   "drops": {
-    "invalid_uuid": 50,
-    "duplicate": 1161,
+    "invalid_uuid": 49,
+    "duplicate": 1174,
     "missing_password": 2,
     "private_server": 22,
     "unsupported proxy type": 12,
@@ -357,8 +358,8 @@
   "sing_box": {
     "unsupported": 3,
     "drop_reasons": {
-      "unsupported_protocol:hysteria": 1,
-      "unsupported_transport:xhttp": 2
+      "unsupported_protocol:hysteria": 2,
+      "unsupported_transport:xhttp": 1
     }
   },
   "verification": {
@@ -377,22 +378,21 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1437,
-      "network_error": 1
+      "http_error": 1430
     },
-    "pool_size_before": 47,
-    "pool_size": 71,
+    "pool_size_before": 71,
+    "pool_size": 75,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 47,
-    "pool_retested": 47,
-    "new_candidates_tested": 1453,
-    "pool_added": 25,
-    "pool_evicted": 1,
-    "retained_count": 71,
+    "pool_probe_candidates": 71,
+    "pool_retested": 71,
+    "new_candidates_tested": 1429,
+    "pool_added": 9,
+    "pool_evicted": 5,
+    "retained_count": 75,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 85,
-    "stage2_tested": 85,
+    "stage1_passed": 80,
+    "stage2_tested": 80,
     "stage2_stable": 73,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
@@ -403,19 +403,19 @@
     }
   },
   "node_quality": {
-    "candidates": 5117,
+    "candidates": 5150,
     "tested": 1500,
-    "verified": 62,
-    "fast": 3,
-    "stable": 62,
-    "failed": 1438,
-    "not_tested": 3617,
-    "not_tested_budget": 3617,
-    "failed_probe": 1426,
-    "below_quality_threshold": 12,
-    "dropped": 1438,
-    "published": 71,
-    "success_rate": 0.04644444444444444
+    "verified": 70,
+    "fast": 9,
+    "stable": 70,
+    "failed": 1430,
+    "not_tested": 3650,
+    "not_tested_budget": 3650,
+    "failed_probe": 1425,
+    "below_quality_threshold": 5,
+    "dropped": 1430,
+    "published": 75,
+    "success_rate": 0.04844444444444444
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
