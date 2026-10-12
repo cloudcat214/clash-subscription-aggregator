@@ -95,26 +95,6 @@ proxies:
   password: None
   tls: true
   skip-cert-verify: true
-- name: '[ermaozi-subscribe] NL_speednode_0009'
-  port: 9002
-  server: 84.17.47.146
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0044'
-  port: 9002
-  server: 193.176.84.35
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] 🇩🇪DE_4|1.1MB/s'
-  port: 9002
-  server: 158.173.154.4
-  skip-cert-verify: true
-  tls: true
-  type: http
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
   server: 177.1.187.251
   port: 443
@@ -156,5 +136,31 @@ proxies:
   password: amazonskr05
   port: 443
   server: 15.223.120.64
+  type: ss
+  udp: true
+- name: '[pawdroid-free-servers] 北京市+聚龙无限信息技术有限公司'
+  type: vless
+  server: jp.sofast.live
+  port: 52683
+  uuid: 399b6b23-cc40-4831-a494-61948e2df133
+  network: tcp
+- name: '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
+  type: http
+  server: 193.233.75.115
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- cipher: aes-256-gcm
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1787606892'
+  password: d8a115ba7ee0d990
+  port: 20119
+  server: 176.32.32.108
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1792117687'
+  password: amazonskr05
+  port: 443
+  server: 3.99.191.16
   type: ss
   udp: true
