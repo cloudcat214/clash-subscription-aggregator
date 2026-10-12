@@ -5,19 +5,6 @@ proxies:
   port: 8443
   tls: true
   skip-cert-verify: true
-- name: '[pawdroid-free-servers] 巴西+V2CROSS.COM'
-  type: vless
-  server: de2.srv.vbuste.ru
-  port: 443
-  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
-  tls: true
-  sni: de2.srv.vbuste.ru
-  network: tcp
-  client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-    short-id: 4be4110078ebed4a
 - name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
   type: http
   server: 185.238.168.20
@@ -140,12 +127,6 @@ proxies:
   type: socks5
   server: 31.77.19.92
   port: 443
-- name: '[clashfree-daily] 未知 SS-101 | free-nodes'
-  server: ruot.ayucloudservices.nl
-  port: 22069
-  type: ss
-  cipher: aes-256-gcm
-  password: bd962c9a-d6f2-4561-bd80-34206c4d5279
 - name: '[clashfree-daily] 未知 SS-102 | free-nodes'
   server: ruot.ayucloudservices.nl
   port: 22073
@@ -169,41 +150,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] NL_speednode_0009'
-  port: 9002
-  server: 84.17.47.146
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] NL_speednode_0010'
-  port: 9002
-  server: 84.17.47.149
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0083'
-  port: 9002
-  server: 193.176.84.25
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 3155BB'
-  server: 62.113.210.10
-  port: 443
-  type: vless
-  uuid: 3e0c1fbf-467a-49d7-abd2-3a158628f3d0
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: de-5.gigobingo.ru
-  reality-opts:
-    public-key: Aj6Op88j_eYXxoBw095KS_NnKCBm5uwa874uumXdiDQ
-    short-id: ef7c4e4302bd52d7
-  client-fingerprint: firefox
-  network: tcp
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
   type: socks5
   server: 185.145.99.41
@@ -288,4 +234,45 @@ proxies:
     path: /OCrp5Ajs
     host: www.yahoo.com
     mode: auto
+  udp: true
+- name: '[pawdroid-free-servers] 日本+V2CROSS.COM'
+  type: vless
+  server: 43.174.195.1
+  port: 443
+  uuid: 24916ad0-847d-4522-9e17-f4347dee57fd
+  tls: true
+  sni: kv.074167.xyz
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: kv.074167.xyz
+- name: '[pawdroid-free-servers] 美国+V2CROSS.COM'
+  type: vless
+  server: 45.131.208.4
+  port: 80
+  uuid: 424fa201-3f94-479e-b533-d5257cf9a207
+  sni: 45.131.208.4
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /pyip=Telegram🇨🇳+@WangCai2
+    headers:
+      Host: floral-thunder-10d3.82-67d.workers.dev
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk'
+  type: http
+  server: 138.199.35.218
+  port: 9002
+  username: 'null'
+  password: None
+  tls: true
+  sni: 138.199.35.218
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] US_speednode_0141'
+  port: 443
+  server: 38.28.193.188
+  skip-cert-verify: true
+  tls: true
+  type: http
   udp: true

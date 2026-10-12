@@ -9,7 +9,6 @@
       "outbounds": [
         "direct",
         "[zhuhaiuk-free-nodes] SE - zhuhai.uk",
-        "[pawdroid-free-servers] 巴西+V2CROSS.COM",
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk 03",
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 06",
         "[zhuhaiuk-free-nodes] KR - zhuhai.uk",
@@ -25,20 +24,19 @@
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 05",
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 10",
         "[zhuhaiuk-free-nodes] DE - zhuhai.uk 02",
-        "[clashfree-daily] 未知 SS-101 | free-nodes",
         "[clashfree-daily] 未知 SS-102 | free-nodes",
         "[ermaozi-subscribe] US_speednode_0131",
         "[ermaozi-subscribe] NL_speednode_0005",
-        "[ermaozi-subscribe] NL_speednode_0009",
-        "[ermaozi-subscribe] NL_speednode_0010",
-        "[ermaozi-subscribe] RO_speednode_0083",
-        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 3155BB",
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 03",
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 07",
         "[ermaozi-subscribe] ProxyPool | 🇺🇸 美国 | USA 5",
         "[ermaozi-subscribe] 🇩🇪DE_1|3.5MB/s",
         "[ermaozi-subscribe] 🇩🇪DE_2|3.4MB/s",
-        "[ermaozi-subscribe] 🇩🇪DE_5|3.2MB/s"
+        "[ermaozi-subscribe] 🇩🇪DE_5|3.2MB/s",
+        "[pawdroid-free-servers] 日本+V2CROSS.COM",
+        "[pawdroid-free-servers] 美国+V2CROSS.COM",
+        "[zhuhaiuk-free-nodes] US - zhuhai.uk",
+        "[ermaozi-subscribe] US_speednode_0141"
       ]
     },
     {
@@ -53,27 +51,6 @@
       "tls": {
         "enabled": true,
         "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[pawdroid-free-servers] 巴西+V2CROSS.COM",
-      "server": "de2.srv.vbuste.ru",
-      "server_port": 443,
-      "uuid": "318c935d-c195-41d3-99ad-9bbcfdab3386",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "de2.srv.vbuste.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08",
-          "short_id": "4be4110078ebed4a"
-        }
       }
     },
     {
@@ -275,14 +252,6 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "[clashfree-daily] 未知 SS-101 | free-nodes",
-      "server": "ruot.ayucloudservices.nl",
-      "server_port": 22069,
-      "method": "aes-256-gcm",
-      "password": "bd962c9a-d6f2-4561-bd80-34206c4d5279"
-    },
-    {
-      "type": "shadowsocks",
       "tag": "[clashfree-daily] 未知 SS-102 | free-nodes",
       "server": "ruot.ayucloudservices.nl",
       "server_port": 22073,
@@ -310,57 +279,6 @@
       "tls": {
         "enabled": true,
         "insecure": true
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[ermaozi-subscribe] NL_speednode_0009",
-      "server": "84.17.47.146",
-      "server_port": 9002,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[ermaozi-subscribe] NL_speednode_0010",
-      "server": "84.17.47.149",
-      "server_port": 9002,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[ermaozi-subscribe] RO_speednode_0083",
-      "server": "193.176.84.25",
-      "server_port": 9002,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 3155BB",
-      "server": "62.113.210.10",
-      "server_port": 443,
-      "uuid": "3e0c1fbf-467a-49d7-abd2-3a158628f3d0",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "de-5.gigobingo.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Aj6Op88j_eYXxoBw095KS_NnKCBm5uwa874uumXdiDQ",
-          "short_id": "ef7c4e4302bd52d7"
-        }
       }
     },
     {
@@ -426,6 +344,73 @@
       "tag": "[ermaozi-subscribe] 🇩🇪DE_5|3.2MB/s",
       "server": "158.173.154.5",
       "server_port": 9002,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[pawdroid-free-servers] 日本+V2CROSS.COM",
+      "server": "43.174.195.1",
+      "server_port": 443,
+      "uuid": "24916ad0-847d-4522-9e17-f4347dee57fd",
+      "tls": {
+        "enabled": true,
+        "server_name": "kv.074167.xyz",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "kv.074167.xyz"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[pawdroid-free-servers] 美国+V2CROSS.COM",
+      "server": "45.131.208.4",
+      "server_port": 80,
+      "uuid": "424fa201-3f94-479e-b533-d5257cf9a207",
+      "tls": {
+        "enabled": true,
+        "server_name": "45.131.208.4",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/pyip=Telegram🇨🇳+@WangCai2",
+        "headers": {
+          "Host": "floral-thunder-10d3.82-67d.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] US - zhuhai.uk",
+      "server": "138.199.35.218",
+      "server_port": 9002,
+      "username": "null",
+      "password": "None",
+      "tls": {
+        "enabled": true,
+        "server_name": "138.199.35.218",
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[ermaozi-subscribe] US_speednode_0141",
+      "server": "38.28.193.188",
+      "server_port": 443,
       "tls": {
         "enabled": true,
         "insecure": true
