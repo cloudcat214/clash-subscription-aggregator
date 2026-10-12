@@ -3737,12 +3737,6 @@ proxies:
   skip-cert-verify: true
   sni: vpn-tw-002.fastervpn.world%5cu0026insecure%3d1%5cu0026allowinsecure%3d1
   type: hysteria2
-- name: '[clashfree-daily] 未知 SS-53 | free-nodes'
-  server: 45.76.9.57
-  port: 8389
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 6054f059036c3ff1e907aeb51377b2ac54e61ceb666226fd
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CFE731'
   server: 188.114.97.3
   port: 443
@@ -4232,18 +4226,6 @@ proxies:
   skip-cert-verify: true
   sni: ''
   type: hysteria2
-- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
-  type: vless
-  server: 157.228.160.166
-  port: 443
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  flow: xtls-rprx-vision
-  tls: true
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
-    short-id: 3cef317b
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1393931791'
   password: we9_I1893UFj3149xbr1_k8qvJ8734ic_Mx82gH
   port: 8443
@@ -4328,3 +4310,19 @@ proxies:
     path: /api/voip/updates/static/fr2035
     headers:
       Host: fr.api-music-fa.com
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1515688053'
+  password: my_super_password_123
+  port: 443
+  server: open.2ml.bid
+  skip-cert-verify: false
+  sni: open.2ml.bid
+  type: hysteria2
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 09'
+  type: http
+  server: 138.199.35.219
+  port: 9002
+  username: 'null'
+  password: 'null'
+  tls: true
+  sni: 138.199.35.219
+  skip-cert-verify: true

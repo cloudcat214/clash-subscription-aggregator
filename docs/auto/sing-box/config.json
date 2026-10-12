@@ -434,7 +434,6 @@
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C63706",
         "[au1rxx-free-vpn-subscriptions] hysteria2-856461941",
         "[au1rxx-free-vpn-subscriptions] hysteria2-856679747",
-        "[clashfree-daily] 未知 SS-53 | free-nodes",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CFE731",
         "[au1rxx-free-vpn-subscriptions] hysteria2-857369683",
         "[au1rxx-free-vpn-subscriptions] hysteria2-863226972",
@@ -490,7 +489,6 @@
         "[au1rxx-free-vpn-subscriptions] hysteria2-1276640916",
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk 01",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1333159811",
-        "[zhuhaiuk-free-nodes] NL - zhuhai.uk 02",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1393931791",
         "[zhuhaiuk-free-nodes] RO - zhuhai.uk 03",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1473969939",
@@ -501,7 +499,9 @@
         "[clashfree-daily] 未知 SS-102 | free-nodes",
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 04",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1501727512",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 07C418"
+        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 07C418",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1515688053",
+        "[zhuhaiuk-free-nodes] US - zhuhai.uk 09"
       ]
     },
     {
@@ -5959,14 +5959,6 @@
       }
     },
     {
-      "type": "shadowsocks",
-      "tag": "[clashfree-daily] 未知 SS-53 | free-nodes",
-      "server": "45.76.9.57",
-      "server_port": 8389,
-      "method": "chacha20-ietf-poly1305",
-      "password": "6054f059036c3ff1e907aeb51377b2ac54e61ceb666226fd"
-    },
-    {
       "type": "trojan",
       "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CFE731",
       "server": "188.114.97.3",
@@ -6698,27 +6690,6 @@
       "password": "HysTeria2026!Proxy"
     },
     {
-      "type": "vless",
-      "tag": "[zhuhaiuk-free-nodes] NL - zhuhai.uk 02",
-      "server": "157.228.160.166",
-      "server_port": 443,
-      "uuid": "df53b6c2-8005-475c-9eb9-74e1be785dc8",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "addons.mozilla.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M",
-          "short_id": "3cef317b"
-        }
-      }
-    },
-    {
       "type": "hysteria2",
       "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1393931791",
       "server": "82.38.64.229",
@@ -6850,6 +6821,30 @@
         "headers": {
           "Host": "fr.api-music-fa.com"
         }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1515688053",
+      "server": "open.2ml.bid",
+      "server_port": 443,
+      "password": "my_super_password_123",
+      "tls": {
+        "enabled": true,
+        "server_name": "open.2ml.bid"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] US - zhuhai.uk 09",
+      "server": "138.199.35.219",
+      "server_port": 9002,
+      "username": "null",
+      "password": "null",
+      "tls": {
+        "enabled": true,
+        "server_name": "138.199.35.219",
+        "insecure": true
       }
     }
   ]
