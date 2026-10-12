@@ -117,20 +117,6 @@ proxies:
   sni: f3a61d8406d537345747f99f8a281007-3f754ed5da1bba09.apache-iv.com
   tls: true
   type: http
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
-  server: 177.1.187.251
-  port: 443
-  type: vless
-  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: de2.srv.vbuste.ru
-  reality-opts:
-    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-    short-id: 4be4110078ebed4a
-  client-fingerprint: randomized
-  network: tcp
 - name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
   type: http
   server: 193.176.84.19
@@ -434,6 +420,12 @@ proxies:
     short-id: dee20bb2421604f8
   client-fingerprint: random
   network: tcp
+- name: '[zhuhaiuk-free-nodes] PT - zhuhai.uk'
+  type: ss
+  server: ruot.ayucloudservices.nl
+  port: 35014
+  cipher: aes-128-gcm
+  password: b1a1f89b-63ed-4b5b-81a1-91a7c5b76ca9
 proxy-groups:
 - name: PROXY
   type: select
@@ -456,7 +448,6 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇩🇪DE_5|3.2MB/s'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1784945214'
   - '[ermaozi-subscribe] 🇫🇷FR_5|2.8MB/s'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
   - '[ermaozi-subscribe] NL_speednode_0005'
   - '[ermaozi-subscribe] RO_speednode_0082'
@@ -494,6 +485,7 @@ proxy-groups:
   - '[ermaozi-subscribe] US_speednode_0143'
   - '[ermaozi-subscribe] 🇩🇪DE_4|1.1MB/s'
   - '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | 84C4C3'
+  - '[zhuhaiuk-free-nodes] PT - zhuhai.uk'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -514,7 +506,6 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇩🇪DE_5|3.2MB/s'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1784945214'
   - '[ermaozi-subscribe] 🇫🇷FR_5|2.8MB/s'
-  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
   - '[ermaozi-subscribe] NL_speednode_0005'
   - '[ermaozi-subscribe] RO_speednode_0082'
@@ -552,6 +543,7 @@ proxy-groups:
   - '[ermaozi-subscribe] US_speednode_0143'
   - '[ermaozi-subscribe] 🇩🇪DE_4|1.1MB/s'
   - '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | 84C4C3'
+  - '[zhuhaiuk-free-nodes] PT - zhuhai.uk'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100
