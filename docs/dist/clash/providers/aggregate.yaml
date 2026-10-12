@@ -56,31 +56,6 @@ proxies:
   port: 8443
   tls: true
   skip-cert-verify: true
-- client-fingerprint: firefox
-  encryption: none
-  name: '[ermaozi-subscribe] 🇧🇬BG_3|1.8MB/s'
-  network: xhttp
-  port: 8443
-  server: 78.159.246.179
-  servername: randomquaint.net
-  tls: true
-  type: vless
-  udp: true
-  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
-  xhttp-opts:
-    host: randomquaint.net
-    path: /api/v1/upload
-    reuse-settings:
-      c-max-reuse-times: 64-128
-      h-keep-alive-period: 0
-      h-max-request-times: '0'
-      h-max-reusable-secs: '0'
-      max-concurrency: 16-32
-      max-connections: '0'
-    session-length: '0'
-    x-padding-bytes: 100-1000
-    x-padding-obfs-mode: false
-  xudp: true
 - name: '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   type: socks5
   server: 47.242.19.215
@@ -336,19 +311,6 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: '[pawdroid-free-servers] 伊朗+V2CROSS.COM'
-  type: vless
-  server: edge.luxcloud.space
-  port: 443
-  uuid: fc87e0d6-0f6a-423a-828e-1fed7e7ef29c
-  tls: true
-  sni: edge.luxcloud.space
-  network: tcp
-  alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  flow: xtls-rprx-vision
 - name: '[zhuhaiuk-free-nodes] FR - zhuhai.uk 03'
   type: http
   server: 62.210.70.194
@@ -361,12 +323,6 @@ proxies:
   port: 20111
   cipher: aes-256-gcm
   password: 994ccabf6f0950d6
-- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
-  type: http
-  server: 5.255.97.220
-  port: 443
-  tls: true
-  skip-cert-verify: true
 - name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 03'
   type: http
   server: 193.176.84.39
@@ -394,13 +350,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1348802435'
-  password: a2c74ce7-5daa-4bee-a1eb-52863873b3c3
-  port: 443
-  server: 194.48.250.233
-  skip-cert-verify: true
-  sni: mol.ultimagamest.com
-  type: hysteria2
 - name: '[ermaozi-subscribe] RO_speednode_0042'
   port: 9002
   server: 193.176.84.30
@@ -491,12 +440,6 @@ proxies:
 - name: '[ermaozi-subscribe] 🇩🇪DE_4|2.2MB/s'
   port: 9002
   server: 158.173.154.2
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[ermaozi-subscribe] 🇭🇺HU_1|3.0MB/s'
-  port: 443
-  server: 146.70.203.18
   skip-cert-verify: true
   tls: true
   type: http

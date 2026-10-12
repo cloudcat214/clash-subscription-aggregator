@@ -49,15 +49,12 @@
         "[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s",
         "[ermaozi-subscribe] 🇫🇷FR_7|3.1MB/s",
         "[zhuhaiuk-free-nodes] AU - zhuhai.uk",
-        "[pawdroid-free-servers] 伊朗+V2CROSS.COM",
         "[zhuhaiuk-free-nodes] FR - zhuhai.uk 03",
         "[pawdroid-free-servers] 爱尔兰+V2CROSS.COM-2",
-        "[zhuhaiuk-free-nodes] NL - zhuhai.uk",
         "[zhuhaiuk-free-nodes] RO - zhuhai.uk 03",
         "[ermaozi-subscribe] NL_speednode_0004",
         "[ermaozi-subscribe] NL_speednode_0007",
         "[ermaozi-subscribe] NL_speednode_0010",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-1348802435",
         "[ermaozi-subscribe] RO_speednode_0042",
         "[ermaozi-subscribe] RO_speednode_0045",
         "[ermaozi-subscribe] RO_speednode_0082",
@@ -71,7 +68,6 @@
         "[ermaozi-subscribe] US_speednode_0141",
         "[ermaozi-subscribe] US_speednode_0143",
         "[ermaozi-subscribe] 🇩🇪DE_4|2.2MB/s",
-        "[ermaozi-subscribe] 🇭🇺HU_1|3.0MB/s",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1786602664",
         "[ermaozi-subscribe] 🇧🇷 巴西 | BRA",
         "[clashfree-daily] 未知 VLESS-242 | free-nodes",
@@ -540,26 +536,6 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "[pawdroid-free-servers] 伊朗+V2CROSS.COM",
-      "server": "edge.luxcloud.space",
-      "server_port": 443,
-      "uuid": "fc87e0d6-0f6a-423a-828e-1fed7e7ef29c",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "edge.luxcloud.space",
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
       "type": "http",
       "tag": "[zhuhaiuk-free-nodes] FR - zhuhai.uk 03",
       "server": "62.210.70.194",
@@ -576,16 +552,6 @@
       "server_port": 20111,
       "method": "aes-256-gcm",
       "password": "994ccabf6f0950d6"
-    },
-    {
-      "type": "http",
-      "tag": "[zhuhaiuk-free-nodes] NL - zhuhai.uk",
-      "server": "5.255.97.220",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
     },
     {
       "type": "http",
@@ -624,18 +590,6 @@
       "server_port": 9002,
       "tls": {
         "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1348802435",
-      "server": "194.48.250.233",
-      "server_port": 443,
-      "password": "a2c74ce7-5daa-4bee-a1eb-52863873b3c3",
-      "tls": {
-        "enabled": true,
-        "server_name": "mol.ultimagamest.com",
         "insecure": true
       }
     },
@@ -769,16 +723,6 @@
       "tag": "[ermaozi-subscribe] 🇩🇪DE_4|2.2MB/s",
       "server": "158.173.154.2",
       "server_port": 9002,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[ermaozi-subscribe] 🇭🇺HU_1|3.0MB/s",
-      "server": "146.70.203.18",
-      "server_port": 443,
       "tls": {
         "enabled": true,
         "insecure": true
