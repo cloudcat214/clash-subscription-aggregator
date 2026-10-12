@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T14:00:10Z",
+  "generated_at": "2026-10-12T14:15:09Z",
   "status": "ok",
   "active_probe": true,
   "published": 32,
@@ -63,9 +63,10 @@
     {
       "id": "alvin-ip6",
       "kind": "public",
-      "status": "ok",
+      "status": "stale_cache",
       "parsed": 1,
       "accepted": 1,
+      "cached": true,
       "source_repo": "https://www.gitlabip.xyz/Alvin9999/PAC",
       "license": "unknown",
       "publicly_offered": true,
@@ -140,19 +141,18 @@
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
-      "status": "stale_cache",
-      "parsed": 1169,
-      "accepted": 1098,
+      "status": "ok",
+      "parsed": 1126,
+      "accepted": 1066,
       "drops": {
-        "invalid_uuid": 11,
-        "duplicate": 60
+        "invalid_uuid": 6,
+        "duplicate": 54
       },
-      "cached": true,
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "6da85832d7869f1670c1b78862bf924f4f0355b9415f2be5131ede9d2294d2c2"
+      "sha256": "4105570bc1741b381dc0216b94ada291e4657d2906e6ecfc5e6a933def6a038d"
     },
     {
       "id": "p-configs-vless",
@@ -193,7 +193,7 @@
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "0e3146f3f894596a2acb4c59d4b95a88ce2560f65490780045dba3e3a934ced3"
+      "sha256": "7fb1a01bb49bcdb9461c6f306be311bc12af46519381c30ac64ce62b7c34ba7f"
     },
     {
       "id": "anaer-sub",
@@ -284,16 +284,16 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1781,
-      "accepted": 1164,
+      "parsed": 1816,
+      "accepted": 1183,
       "drops": {
-        "invalid_uuid": 4,
-        "duplicate": 613
+        "invalid_uuid": 7,
+        "duplicate": 626
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "7e34602f01cc5a0147a46f6de1dc58191418fe59a4243e1a723df0c9aab73e3a"
+      "sha256": "575732836e6faeb4f3924c8933a7ba9d6796fe2e2c8256761c3c4c27aea65744"
     },
     {
       "id": "mfuu-freeproxies",
@@ -336,23 +336,23 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1468,
-      "network_error": 3
+      "http_error": 1488,
+      "network_error": 2
     },
-    "pool_size_before": 55,
+    "pool_size_before": 32,
     "pool_size": 32,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 55,
-    "pool_retested": 55,
-    "new_candidates_tested": 1445,
-    "pool_added": 3,
-    "pool_evicted": 26,
+    "pool_probe_candidates": 32,
+    "pool_retested": 32,
+    "new_candidates_tested": 1468,
+    "pool_added": 0,
+    "pool_evicted": 0,
     "retained_count": 32,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 34,
-    "stage2_tested": 34,
-    "stage2_stable": 29,
+    "stage1_passed": 61,
+    "stage2_tested": 61,
+    "stage2_stable": 21,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -362,19 +362,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4752,
+    "candidates": 4736,
     "tested": 1500,
-    "verified": 29,
+    "verified": 10,
     "fast": 2,
-    "stable": 29,
-    "failed": 1471,
-    "not_tested": 3252,
-    "not_tested_budget": 3252,
-    "failed_probe": 1471,
-    "below_quality_threshold": 0,
-    "dropped": 1471,
+    "stable": 10,
+    "failed": 1490,
+    "not_tested": 3236,
+    "not_tested_budget": 3236,
+    "failed_probe": 1459,
+    "below_quality_threshold": 31,
+    "dropped": 1490,
     "published": 32,
-    "success_rate": 0.019333333333333334
+    "success_rate": 0.016
   },
   "core_validation": {
     "status": "not_tested",
