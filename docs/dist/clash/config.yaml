@@ -236,6 +236,13 @@ proxies:
     grpc-mode: gun
     grpc-service-name: update
   udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 3E35EF'
+  server: feow.nomush.ir
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: K63q-WhHdJoC_AIxT6E4r_IIuGIb6CuV
+  udp: true
 proxy-groups:
 - name: PROXY
   type: select
@@ -271,6 +278,7 @@ proxy-groups:
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F997DF'
   - '[ermaozi-subscribe] 🇭🇺HU_1|1.8MB/s'
   - '[ermaozi-subscribe] 🇯🇵 日本 | JPN'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 3E35EF'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -304,6 +312,7 @@ proxy-groups:
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F997DF'
   - '[ermaozi-subscribe] 🇭🇺HU_1|1.8MB/s'
   - '[ermaozi-subscribe] 🇯🇵 日本 | JPN'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 3E35EF'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100
