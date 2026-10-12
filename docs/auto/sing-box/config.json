@@ -23,7 +23,6 @@
         "[free-v2ray-verified-clash] AM 🇦🇲 | @Raydikalx | 911010",
         "[zhuhaiuk-free-nodes] JP - zhuhai.uk",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1066924724",
-        "[pawdroid-free-servers] 美国+CloudFlare节点",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1066924734",
         "[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 6D786F",
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk",
@@ -157,7 +156,6 @@
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 639D87",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1582653577",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1589277556",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6E6475",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1589277560",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 714453",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1591550745",
@@ -172,7 +170,6 @@
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F5870",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1604107043",
         "[clashfree-daily] 未知 SS-74 | free-nodes",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 815648",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1617548076",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1649531969",
         "[clashfree-daily] 未知 SS-76 | free-nodes",
@@ -314,7 +311,6 @@
         "[clashfree-daily] 未知 TROJAN-148 | free-nodes",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1754502465",
         "[clashfree-daily] 未知 TROJAN-149 | free-nodes",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F09F46",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1756083246",
         "[clashfree-daily] 未知 TROJAN-150 | free-nodes",
         "[ermaozi-subscribe] RO_speednode_0124",
@@ -359,7 +355,6 @@
         "[ermaozi-subscribe] US_speednode_0134",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 09E65E",
         "[au1rxx-free-vpn-subscriptions] hysteria2-220439716",
-        "[clashfree-daily] 未知 VLESS-167 | free-nodes",
         "[ermaozi-subscribe] US_speednode_0140",
         "[au1rxx-free-vpn-subscriptions] hysteria2-307174592",
         "[ermaozi-subscribe] US_speednode_0141",
@@ -409,7 +404,6 @@
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 404682",
         "[au1rxx-free-vpn-subscriptions] hysteria2-591633775",
         "[au1rxx-free-vpn-subscriptions] hysteria2-650314288",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4B2186",
         "[au1rxx-free-vpn-subscriptions] hysteria2-650663575",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 50395D",
         "[au1rxx-free-vpn-subscriptions] hysteria2-650667501",
@@ -421,7 +415,6 @@
         "[au1rxx-free-vpn-subscriptions] hysteria2-655819436",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 63EC35",
         "[au1rxx-free-vpn-subscriptions] hysteria2-655838404",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 74CFF1",
         "[au1rxx-free-vpn-subscriptions] hysteria2-656706481",
         "[au1rxx-free-vpn-subscriptions] hysteria2-656706489",
         "[au1rxx-free-vpn-subscriptions] hysteria2-667703181",
@@ -501,7 +494,14 @@
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 2ACF01",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 2C5E20",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1001848837",
-        "[anaer-sub] 中国 002"
+        "[anaer-sub] 中国 002",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-106798541",
+        "[anaer-sub] 中国 003",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1121839551",
+        "[zhuhaiuk-free-nodes] ID - zhuhai.uk",
+        "[zhuhaiuk-free-nodes] ID - zhuhai.uk 02",
+        "[anaer-sub] 中国 006",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1276640916"
       ]
     },
     {
@@ -716,31 +716,6 @@
         "enabled": true,
         "server_name": "off",
         "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[pawdroid-free-servers] 美国+CloudFlare节点",
-      "server": "vpn.kovira.site",
-      "server_port": 443,
-      "uuid": "22e6604e-0481-411f-8028-ffbd65f624b6",
-      "tls": {
-        "enabled": true,
-        "server_name": "vpn.kovira.site",
-        "alpn": [
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws-738d2d0c5eba7609f3c37de2",
-        "headers": {
-          "Host": "vpn.kovira.site"
-        }
       }
     },
     {
@@ -2488,24 +2463,6 @@
       }
     },
     {
-      "type": "trojan",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6E6475",
-      "server": "us3-2.998998.best",
-      "server_port": 443,
-      "password": "5504eaa8-1395-402f-8e0e-75ecd762e627",
-      "tls": {
-        "enabled": true,
-        "server_name": "nat3.xxai.dpdns.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/anyway",
-        "headers": {
-          "Host": "nat3.xxai.dpdns.org"
-        }
-      }
-    },
-    {
       "type": "hysteria2",
       "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1589277560",
       "server": "202.146.222.29",
@@ -2706,24 +2663,6 @@
       "server_port": 8388,
       "method": "chacha20-ietf-poly1305",
       "password": "NcAXc0UZI6yQJE1p8QmOv8"
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 815648",
-      "server": "104.24.18.119",
-      "server_port": 443,
-      "uuid": "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46",
-      "tls": {
-        "enabled": true,
-        "server_name": "a.cwvps.eu.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "a.cwvps.eu.org"
-        }
-      }
     },
     {
       "type": "hysteria2",
@@ -4467,24 +4406,6 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F09F46",
-      "server": "104.16.111.193",
-      "server_port": 443,
-      "uuid": "3c52e091-6714-4915-949f-2149fe69951b",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2ray.simspeedup.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "v2ray.simspeedup.com"
-        }
-      }
-    },
-    {
       "type": "hysteria2",
       "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1756083246",
       "server": "43.203.225.50",
@@ -5037,22 +4958,6 @@
       "tls": {
         "enabled": true,
         "server_name": "hy2.561891.xyz"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[clashfree-daily] 未知 VLESS-167 | free-nodes",
-      "server": "77.110.105.122",
-      "server_port": 443,
-      "uuid": "019fbe0f-2d9f-4b89-9f81-e1e36129892a",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "co-pl.speedtec.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
       }
     },
     {
@@ -5690,24 +5595,6 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4B2186",
-      "server": "104.24.54.160",
-      "server_port": 443,
-      "uuid": "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46",
-      "tls": {
-        "enabled": true,
-        "server_name": "a.cwvps.eu.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "a.cwvps.eu.org"
-        }
-      }
-    },
-    {
       "type": "hysteria2",
       "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-650663575",
       "server": "202.146.222.174",
@@ -5859,28 +5746,6 @@
         "enabled": true,
         "server_name": "https://t.me/wangcai2🇨🇳",
         "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 74CFF1",
-      "server": "www.large-files.info",
-      "server_port": 8443,
-      "uuid": "7c99dc89-bf49-45c9-acc5-e43f36657518",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.large-files.info",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/var/www/html/video/preview/download/i8o0la",
-        "headers": {
-          "Host": "www.large-files.info"
-        }
       }
     },
     {
@@ -6964,6 +6829,88 @@
         "headers": {
           "Host": "platform101.halalkhor.info"
         }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-106798541",
+      "server": "155.248.209.237",
+      "server_port": 33333,
+      "password": "bce6c821-200d-421f-bf3d-7159e5246ea0"
+    },
+    {
+      "type": "vless",
+      "tag": "[anaer-sub] 中国 003",
+      "server": "platform103.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "tls": {
+        "enabled": true,
+        "server_name": "platform103.halalkhor.info"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/platform103",
+        "headers": {
+          "Host": "platform103.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1121839551",
+      "server": "mz.hkychina.com",
+      "server_port": 8443,
+      "password": "HysTeria2026!Proxy",
+      "tls": {
+        "enabled": true,
+        "server_name": "mz.hkychina.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] ID - zhuhai.uk",
+      "server": "103.86.117.202",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] ID - zhuhai.uk 02",
+      "server": "103.86.116.118",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[anaer-sub] 中国 006",
+      "server": "45.195.69.230",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform103",
+        "headers": {
+          "Host": "platform103.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1276640916",
+      "server": "202.146.222.29",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "https://t.me/wangcai2ðð",
+        "insecure": true
       }
     }
   ]
