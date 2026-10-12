@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T11:09:39Z",
+  "generated_at": "2026-10-12T16:41:15Z",
   "status": "success",
   "active_probe": true,
   "counts": {
     "published": 500,
     "sources": 25,
-    "parsed": 6014,
-    "accepted": 5069
+    "parsed": 5890,
+    "accepted": 4950
   },
   "protocols": {
-    "http": 44,
-    "hysteria": 2,
-    "hysteria2": 243,
-    "socks5": 2,
-    "ss": 29,
+    "http": 46,
+    "hysteria": 1,
+    "hysteria2": 239,
+    "socks5": 3,
+    "ss": 25,
     "trojan": 66,
-    "vless": 100,
-    "vmess": 14
+    "vless": 105,
+    "vmess": 15
   },
   "sources": [
     {
@@ -156,17 +156,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1151,
-      "accepted": 1079,
+      "parsed": 1057,
+      "accepted": 994,
       "drops": {
-        "invalid_uuid": 5,
-        "duplicate": 67
+        "invalid_uuid": 4,
+        "duplicate": 59
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "396738be72e9acda24e0e36e1fac5534a30a71fbbe90c95b129fb863357858f7"
+      "sha256": "c5059927469928d4b61b5db3775eeaef3aa9f8d3bd4b27a2449284f5ac608913"
     },
     {
       "id": "p-configs-vless",
@@ -202,12 +202,12 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 7,
-      "accepted": 7,
+      "parsed": 8,
+      "accepted": 8,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "d6a9b3dab64ef1b70b5751b610ddb504f62eaec15948fe0e5cac6251b030fe8f"
+      "sha256": "d77c4a8f94ed82a0b3a4ab33694c83dfd942067b121bd981916e2a96694b336e"
     },
     {
       "id": "anaer-sub",
@@ -244,16 +244,16 @@
       "id": "ermaozi-subscribe",
       "kind": "public",
       "status": "ok",
-      "parsed": 600,
-      "accepted": 580,
+      "parsed": 532,
+      "accepted": 517,
       "drops": {
         "private_server": 10,
-        "unsupported proxy type": 10
+        "unsupported proxy type": 5
       },
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
-      "sha256": "134bce4618596f43709b6cbb9f3f1cba330c5cb055ab9b02c3e0c0198d6f2642"
+      "sha256": "b600ec68478277b03d5d625f537587ad5c9298d0cca384ece75e51b3caaf0fd9"
     },
     {
       "id": "vxiaov-free-proxies",
@@ -270,15 +270,15 @@
       "id": "zhuhaiuk-free-nodes",
       "kind": "public",
       "status": "ok",
-      "parsed": 26,
-      "accepted": 24,
+      "parsed": 31,
+      "accepted": 30,
       "drops": {
-        "unsupported proxy type": 2
+        "unsupported proxy type": 1
       },
       "source_repo": "https://github.com/zhuhaiuk/free-nodes",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "f2b45b4bd0c36dab59f674b3729c10c95cdd3865b3e053697cd053a47a51059a"
+      "sha256": "1443b5f672e5a3b8c48d87f00cd0775da92ff83081713e9cbca338f97767458d"
     },
     {
       "id": "freefq-free",
@@ -298,15 +298,16 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1802,
-      "accepted": 1171,
+      "parsed": 1834,
+      "accepted": 1193,
       "drops": {
-        "duplicate": 631
+        "invalid_uuid": 4,
+        "duplicate": 637
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "32f5741c59fa0d67c0438c6d55c03d2d623a820b9f2e5faa3f211700f83c613f"
+      "sha256": "2eb374c98eee5d8777ce635392d5f2c538590aef452f8875e262d23d0a717fac"
     },
     {
       "id": "mfuu-freeproxies",
@@ -332,38 +333,38 @@
   "artifacts": [
     {
       "path": "clash/config-provider.yaml",
-      "sha256": "b46a587c0909a6d54a9b27a37654798b6282bf6f574ee16f3303b9eaf1574e2c",
+      "sha256": "ca6faed12cdd02d4cc9185dd65ef8a30f689a431d0c35aed8ca82d4419440727",
       "bytes": 655
     },
     {
       "path": "clash/config.yaml",
-      "sha256": "a0d823cda356f806e9f5db33dbc5cfc45d3e65776bb57678e37c9af9dd37552c",
-      "bytes": 178186
+      "sha256": "c9de4b313df680b668e90f92fd97de8492c7c123c02c0a2767c05660b0ddcc27",
+      "bytes": 178288
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "09e1ae9a20ba39fd04b2d307fbb2daf5a6eb4ae4dbac0f7f4898ac1a5ebc8bd2",
-      "bytes": 118916
+      "sha256": "811036deeaaa7a797c07a4e17424d6389cef1a21740ab7cfa5fe5ecf861b2cef",
+      "bytes": 118898
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "a23081eabb7ddbbae9a64adf02678d1d890032f0127d74a2d6eb1def14ed7ec6",
-      "bytes": 205825
+      "sha256": "bd8681bdf58bc7aaba62040a130f45a7f549a321a15aace059e8c7e239c8e74b",
+      "bytes": 205845
     }
   ],
   "drops": {
-    "invalid_uuid": 44,
-    "duplicate": 1121,
+    "invalid_uuid": 47,
+    "duplicate": 1134,
     "missing_password": 2,
     "private_server": 22,
-    "unsupported proxy type": 12,
+    "unsupported proxy type": 6,
     "proxy port is outside 1..65535": 1
   },
   "sing_box": {
     "unsupported": 6,
     "drop_reasons": {
-      "unsupported_protocol:hysteria": 2,
-      "unsupported_transport:xhttp": 4
+      "unsupported_protocol:hysteria": 1,
+      "unsupported_transport:xhttp": 5
     }
   },
   "verification": {
@@ -382,23 +383,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 309,
-      "network_error": 1
+      "http_error": 353
     },
-    "pool_size_before": 809,
-    "pool_size": 825,
+    "pool_size_before": 825,
+    "pool_size": 747,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 809,
-    "pool_retested": 809,
-    "new_candidates_tested": 191,
+    "pool_probe_candidates": 825,
+    "pool_retested": 825,
+    "new_candidates_tested": 175,
     "pool_added": 28,
-    "pool_evicted": 12,
-    "retained_count": 825,
+    "pool_evicted": 106,
+    "retained_count": 747,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1000,
-    "stage1_passed": 716,
-    "stage2_tested": 716,
-    "stage2_stable": 705,
+    "stage1_passed": 723,
+    "stage2_tested": 723,
+    "stage2_stable": 700,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -407,19 +407,19 @@
     }
   },
   "node_quality": {
-    "candidates": 5144,
+    "candidates": 5022,
     "tested": 1000,
-    "verified": 690,
-    "fast": 534,
-    "stable": 690,
-    "failed": 310,
-    "not_tested": 4144,
-    "not_tested_budget": 4144,
-    "failed_probe": 287,
-    "below_quality_threshold": 23,
-    "dropped": 310,
+    "verified": 647,
+    "fast": 542,
+    "stable": 647,
+    "failed": 353,
+    "not_tested": 4022,
+    "not_tested_budget": 4022,
+    "failed_probe": 281,
+    "below_quality_threshold": 72,
+    "dropped": 353,
     "published": 500,
-    "success_rate": 0.7026666666666667
+    "success_rate": 0.6886666666666666
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
@@ -427,10 +427,10 @@
     "Source host addresses are pinned for each request and every HTTPS redirect is revalidated."
   ],
   "publish": {
-    "base_url": "https://cloudcat214.github.io/clash-subscription-aggregator/auto",
-    "clash_config": "https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config.yaml",
-    "clash_http_provider_config": "https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config-provider.yaml",
-    "provider": "https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/providers/aggregate.yaml"
+    "base_url": "https://cloudcat214.github.io/clash-subscription-aggregator/dist",
+    "clash_config": "https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml",
+    "clash_http_provider_config": "https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config-provider.yaml",
+    "provider": "https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/providers/aggregate.yaml"
   },
   "core_validation": {
     "status": "not_tested",
