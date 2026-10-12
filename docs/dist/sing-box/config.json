@@ -15,9 +15,7 @@
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 05",
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 10",
         "[zhuhaiuk-free-nodes] HK - zhuhai.uk",
-        "[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国",
         "[zhuhaiuk-free-nodes] US - zhuhai.uk 04",
-        "[zhuhaiuk-free-nodes] US - zhuhai.uk",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE",
         "[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | 84C4C3",
         "[zhuhaiuk-free-nodes] RO - zhuhai.uk 04",
@@ -61,7 +59,9 @@
         "[ermaozi-subscribe] US_speednode_0133",
         "[ermaozi-subscribe] US_speednode_0141",
         "[ermaozi-subscribe] 🇩🇪DE_4|1.1MB/s",
-        "[ermaozi-subscribe] 🇭🇺HU_1|1.8MB/s"
+        "[ermaozi-subscribe] 🇭🇺HU_1|1.8MB/s",
+        "[zhuhaiuk-free-nodes] FI - zhuhai.uk",
+        "[zhuhaiuk-free-nodes] PL - zhuhai.uk 02"
       ]
     },
     {
@@ -137,27 +137,10 @@
       "password": "admin"
     },
     {
-      "type": "vless",
-      "tag": "[ermaozi-subscribe] 🇨🇳_CN_中国->🇺🇸_US_美国",
-      "server": "jp.sofast.live",
-      "server_port": 52683,
-      "uuid": "399b6b23-cc40-4831-a494-61948e2df133"
-    },
-    {
       "type": "socks",
       "tag": "[zhuhaiuk-free-nodes] US - zhuhai.uk 04",
       "server": "67.207.92.87",
       "server_port": 1088
-    },
-    {
-      "type": "http",
-      "tag": "[zhuhaiuk-free-nodes] US - zhuhai.uk",
-      "server": "45.145.72.122",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
     },
     {
       "type": "vless",
@@ -653,6 +636,48 @@
       "tls": {
         "enabled": true,
         "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[zhuhaiuk-free-nodes] FI - zhuhai.uk",
+      "server": "157.228.128.59",
+      "server_port": 443,
+      "uuid": "df53b6c2-8005-475c-9eb9-74e1be785dc8",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws",
+          "short_id": "06e00e7c"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[zhuhaiuk-free-nodes] PL - zhuhai.uk 02",
+      "server": "80.47.12.94",
+      "server_port": 443,
+      "uuid": "c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8",
+      "tls": {
+        "enabled": true,
+        "server_name": "pl-1-1.unturned-rust-dead.lol",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "gS0qvWKumWcOVoAgf8SHt6Sm3tqpBw07c5sA_Clb1hg",
+          "short_id": ""
+        }
       }
     }
   ]
