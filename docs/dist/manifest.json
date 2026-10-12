@@ -1,20 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T14:15:09Z",
+  "generated_at": "2026-10-12T14:45:11Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 32,
+    "published": 19,
     "sources": 25,
-    "parsed": 5937,
-    "accepted": 5007
+    "parsed": 5907,
+    "accepted": 4972
   },
   "protocols": {
-    "http": 21,
-    "hysteria": 1,
+    "http": 13,
     "socks5": 2,
-    "ss": 3,
-    "vless": 5
+    "vless": 4
   },
   "sources": [
     {
@@ -75,10 +73,9 @@
     {
       "id": "alvin-ip6",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 1,
       "accepted": 1,
-      "cached": true,
       "source_repo": "https://www.gitlabip.xyz/Alvin9999/PAC",
       "license": "unknown",
       "publicly_offered": true,
@@ -154,17 +151,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1126,
-      "accepted": 1066,
+      "parsed": 1096,
+      "accepted": 1031,
       "drops": {
         "invalid_uuid": 6,
-        "duplicate": 54
+        "duplicate": 59
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "4105570bc1741b381dc0216b94ada291e4657d2906e6ecfc5e6a933def6a038d"
+      "sha256": "94410efc2d0c0a5588b0f059d38d6dd39ae611b94de293945493df40c96aafd2"
     },
     {
       "id": "p-configs-vless",
@@ -331,33 +328,31 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "623b190d0b3b60e93c73aa1032652bb6544a4734d1d1c6cdb011e4b4d7ec7e79",
-      "bytes": 9443
+      "sha256": "0144cb303faece701edbb53c177ae510b10ddf6a716168f9b620b885bf994d6a",
+      "bytes": 5764
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "1aa3256477db0880f3ea758e56f1b57bd6326a071f222aa4826385bde96dfe0a",
-      "bytes": 5955
+      "sha256": "08c68a3572114cc9b4a298b60d67c378b4c84ef8f12b1d5ed0129bc741d9af46",
+      "bytes": 3500
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "45305702968e3c507c9ce35132eb634c4af54193c93c2e26b973222663be2d19",
-      "bytes": 10511
+      "sha256": "dc940ba5b65f8a72a7d0c18b923d3fb73c157b3ae3d8b4a38d6cad58bd056d07",
+      "bytes": 6618
     }
   ],
   "drops": {
     "invalid_uuid": 52,
-    "duplicate": 1127,
+    "duplicate": 1122,
     "missing_password": 2,
     "private_server": 22,
     "unsupported proxy type": 7,
     "proxy port is outside 1..65535": 1
   },
   "sing_box": {
-    "unsupported": 1,
-    "drop_reasons": {
-      "unsupported_protocol:hysteria": 1
-    }
+    "unsupported": 0,
+    "drop_reasons": {}
   },
   "verification": {
     "status": "performed",
@@ -375,23 +370,23 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1488,
-      "network_error": 2
+      "http_error": 1480,
+      "network_error": 3
     },
-    "pool_size_before": 32,
-    "pool_size": 32,
+    "pool_size_before": 14,
+    "pool_size": 19,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 32,
-    "pool_retested": 32,
-    "new_candidates_tested": 1468,
-    "pool_added": 0,
+    "pool_probe_candidates": 14,
+    "pool_retested": 14,
+    "new_candidates_tested": 1486,
+    "pool_added": 5,
     "pool_evicted": 0,
-    "retained_count": 32,
+    "retained_count": 19,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 61,
-    "stage2_tested": 61,
-    "stage2_stable": 21,
+    "stage1_passed": 41,
+    "stage2_tested": 41,
+    "stage2_stable": 25,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -401,19 +396,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4736,
+    "candidates": 4708,
     "tested": 1500,
-    "verified": 10,
+    "verified": 17,
     "fast": 2,
-    "stable": 10,
-    "failed": 1490,
-    "not_tested": 3236,
-    "not_tested_budget": 3236,
-    "failed_probe": 1459,
-    "below_quality_threshold": 31,
-    "dropped": 1490,
-    "published": 32,
-    "success_rate": 0.016
+    "stable": 17,
+    "failed": 1483,
+    "not_tested": 3208,
+    "not_tested_budget": 3208,
+    "failed_probe": 1466,
+    "below_quality_threshold": 17,
+    "dropped": 1483,
+    "published": 19,
+    "success_rate": 0.016888888888888887
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
