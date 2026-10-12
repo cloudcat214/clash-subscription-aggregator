@@ -7,7 +7,7 @@
 ## 订阅地址
 
 - **本机实测版（推荐）**：`https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`。电脑开机时每 15 分钟刷新一次，节点经过你的网络实测。
-- **云端自动版**：`https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config.yaml`。GitHub 云端每 15 分钟自动刷新，无需电脑开机。
+- **云端自动版**：`https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config.yaml`。GitHub 云端自动刷新：每 15 分钟触发一次、无需电脑开机，GitHub 调度高峰时可能延后；本机实测版为 15 分钟可靠刷新。
 
 两条地址都可以直接粘贴到 Clash Verge Rev；本机版更贴近你的实际网络，云端版适合电脑不在线时继续自动更新。
 
