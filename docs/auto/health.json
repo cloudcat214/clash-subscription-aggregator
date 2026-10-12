@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T01:25:35Z",
+  "generated_at": "2026-10-12T03:17:47Z",
   "status": "degraded",
   "active_probe": true,
   "published": 500,
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1591,
-      "accepted": 1493,
+      "parsed": 1667,
+      "accepted": 1571,
       "drops": {
-        "invalid_uuid": 11,
-        "duplicate": 87
+        "invalid_uuid": 12,
+        "duplicate": 84
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "c67ae7b4bdfcb71ec489e42f7aee6eafc4fca8f87e87e5d573f39634c5bcdef7"
+      "sha256": "67552f37bf478fdd76a60351f29f9df4fd85463d40900db6833ad4542fc6f0de"
     },
     {
       "id": "p-configs-vless",
@@ -187,12 +187,12 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 16,
-      "accepted": 16,
+      "parsed": 12,
+      "accepted": 12,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "022a8f2fee416b8bc8cfaad9528df41296baf81c14648e3477e5ce8150814ac2"
+      "sha256": "6ca13e7dcd9977074aed3c04207143aacdf4b408c3f231ed8daced9c93ef9b2a"
     },
     {
       "id": "anaer-sub",
@@ -251,15 +251,15 @@
       "id": "zhuhaiuk-free-nodes",
       "kind": "public",
       "status": "ok",
-      "parsed": 36,
-      "accepted": 31,
+      "parsed": 31,
+      "accepted": 29,
       "drops": {
-        "unsupported proxy type": 5
+        "unsupported proxy type": 2
       },
       "source_repo": "https://github.com/zhuhaiuk/free-nodes",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "9b067b4a3247ea16eeade738446e65d4e64fbecc9e82d8444c4ab6661ea6cb77"
+      "sha256": "501f4dbf680983919682a6d23a08167ea958072bcc9cbb5a81bb3e59158d8017"
     },
     {
       "id": "freefq-free",
@@ -279,15 +279,16 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1862,
-      "accepted": 1205,
+      "parsed": 1815,
+      "accepted": 1176,
       "drops": {
-        "duplicate": 657
+        "invalid_uuid": 1,
+        "duplicate": 638
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "f696342551a394488ca6c619d8685b599cbf82029f5610c4c9bc67d377d6a7db"
+      "sha256": "a32d3647defade2b27057e610a35a0a217677e91a38cd5aea3cdb8e9859d83b8"
     },
     {
       "id": "mfuu-freeproxies",
@@ -330,22 +331,23 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 270
+      "http_error": 213,
+      "network_error": 1
     },
-    "pool_size_before": 665,
-    "pool_size": 762,
+    "pool_size_before": 762,
+    "pool_size": 809,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 665,
-    "pool_retested": 665,
-    "new_candidates_tested": 335,
-    "pool_added": 111,
-    "pool_evicted": 14,
-    "retained_count": 762,
+    "pool_probe_candidates": 762,
+    "pool_retested": 762,
+    "new_candidates_tested": 238,
+    "pool_added": 65,
+    "pool_evicted": 18,
+    "retained_count": 809,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1000,
-    "stage1_passed": 754,
-    "stage2_tested": 754,
-    "stage2_stable": 748,
+    "stage1_passed": 799,
+    "stage2_tested": 799,
+    "stage2_stable": 793,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -354,19 +356,19 @@
     }
   },
   "node_quality": {
-    "candidates": 5029,
+    "candidates": 5131,
     "tested": 1000,
-    "verified": 730,
-    "fast": 639,
-    "stable": 730,
-    "failed": 270,
-    "not_tested": 4029,
-    "not_tested_budget": 4029,
-    "failed_probe": 246,
-    "below_quality_threshold": 24,
-    "dropped": 270,
+    "verified": 786,
+    "fast": 665,
+    "stable": 786,
+    "failed": 214,
+    "not_tested": 4131,
+    "not_tested_budget": 4131,
+    "failed_probe": 206,
+    "below_quality_threshold": 8,
+    "dropped": 214,
     "published": 500,
-    "success_rate": 0.744
+    "success_rate": 0.791
   },
   "core_validation": {
     "status": "not_tested",
