@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T01:30:33Z",
+  "generated_at": "2026-10-12T01:45:09Z",
   "status": "ok",
   "active_probe": true,
-  "published": 31,
+  "published": 25,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1591,
-      "accepted": 1493,
+      "parsed": 1635,
+      "accepted": 1536,
       "drops": {
-        "invalid_uuid": 11,
+        "invalid_uuid": 12,
         "duplicate": 87
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "c67ae7b4bdfcb71ec489e42f7aee6eafc4fca8f87e87e5d573f39634c5bcdef7"
+      "sha256": "459e771987d6a6c65b202b96b29c1287de6bf49320d4d5fb63dfb970a378287a"
     },
     {
       "id": "p-configs-vless",
@@ -335,23 +335,23 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1478,
-      "network_error": 2
+      "http_error": 1480,
+      "network_error": 3
     },
-    "pool_size_before": 33,
-    "pool_size": 31,
+    "pool_size_before": 31,
+    "pool_size": 25,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 33,
-    "pool_retested": 33,
-    "new_candidates_tested": 1467,
-    "pool_added": 4,
-    "pool_evicted": 6,
-    "retained_count": 31,
+    "pool_probe_candidates": 31,
+    "pool_retested": 31,
+    "new_candidates_tested": 1469,
+    "pool_added": 3,
+    "pool_evicted": 9,
+    "retained_count": 25,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 92,
-    "stage2_tested": 92,
-    "stage2_stable": 35,
+    "stage1_passed": 51,
+    "stage2_tested": 51,
+    "stage2_stable": 28,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -361,19 +361,19 @@
     }
   },
   "node_quality": {
-    "candidates": 5234,
+    "candidates": 5285,
     "tested": 1500,
-    "verified": 20,
-    "fast": 8,
-    "stable": 20,
-    "failed": 1480,
-    "not_tested": 3734,
-    "not_tested_budget": 3734,
-    "failed_probe": 1437,
-    "below_quality_threshold": 43,
-    "dropped": 1480,
-    "published": 31,
-    "success_rate": 0.026222222222222223
+    "verified": 17,
+    "fast": 4,
+    "stable": 17,
+    "failed": 1483,
+    "not_tested": 3785,
+    "not_tested_budget": 3785,
+    "failed_probe": 1460,
+    "below_quality_threshold": 23,
+    "dropped": 1483,
+    "published": 25,
+    "success_rate": 0.01888888888888889
   },
   "core_validation": {
     "status": "not_tested",
