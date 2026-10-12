@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T00:30:07Z",
+  "generated_at": "2026-10-12T01:00:06Z",
   "status": "ok",
   "active_probe": true,
-  "published": 29,
+  "published": 33,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -140,30 +140,28 @@
     {
       "id": "free-v2ray-verified-clash",
       "kind": "public",
-      "status": "stale_cache",
-      "parsed": 1416,
-      "accepted": 1330,
+      "status": "ok",
+      "parsed": 1600,
+      "accepted": 1512,
       "drops": {
         "invalid_uuid": 11,
-        "duplicate": 75
+        "duplicate": 77
       },
-      "cached": true,
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "92cdb9194d683cf161f5529493758e222b28a5c6015e397d8f8379f92c8ec30d"
+      "sha256": "2bad07dcfbe75122e1a764431e8423c88857751171a8a8ffb0a25e25e378ecb2"
     },
     {
       "id": "p-configs-vless",
       "kind": "public",
-      "status": "stale_cache",
+      "status": "ok",
       "parsed": 83,
       "accepted": 59,
       "drops": {
         "duplicate": 24
       },
-      "cached": true,
       "source_repo": "https://github.com/VovaplusEXP/p-configs",
       "license": "GPL-3.0",
       "evidence": "https://raw.githubusercontent.com/VovaplusEXP/p-configs/main/LICENSE",
@@ -232,16 +230,16 @@
       "id": "ermaozi-subscribe",
       "kind": "public",
       "status": "ok",
-      "parsed": 512,
-      "accepted": 493,
+      "parsed": 600,
+      "accepted": 580,
       "drops": {
         "private_server": 10,
-        "unsupported proxy type": 9
+        "unsupported proxy type": 10
       },
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
-      "sha256": "9dc2566e340ed353c2506e8d8ae73c91b368f59a19af03dde677d4d0c9e0c97e"
+      "sha256": "134bce4618596f43709b6cbb9f3f1cba330c5cb055ab9b02c3e0c0198d6f2642"
     },
     {
       "id": "vxiaov-free-proxies",
@@ -285,18 +283,17 @@
     {
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
-      "status": "stale_cache",
-      "parsed": 1866,
-      "accepted": 1210,
+      "status": "ok",
+      "parsed": 1865,
+      "accepted": 1212,
       "drops": {
-        "invalid_uuid": 3,
-        "duplicate": 653
+        "invalid_uuid": 1,
+        "duplicate": 652
       },
-      "cached": true,
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "69d981bc78261c86f8d447d3a5f18aec78a942440429f4a74eebeacf3c849a1c"
+      "sha256": "10cfb930dca43f22d332a0a9321ed9d530a2fa2bf80210bdcbd58e59658e506b"
     },
     {
       "id": "mfuu-freeproxies",
@@ -342,20 +339,20 @@
       "http_error": 1474,
       "network_error": 3
     },
-    "pool_size_before": 26,
-    "pool_size": 29,
+    "pool_size_before": 29,
+    "pool_size": 33,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 26,
-    "pool_retested": 26,
-    "new_candidates_tested": 1474,
-    "pool_added": 5,
-    "pool_evicted": 2,
-    "retained_count": 29,
+    "pool_probe_candidates": 29,
+    "pool_retested": 29,
+    "new_candidates_tested": 1471,
+    "pool_added": 8,
+    "pool_evicted": 4,
+    "retained_count": 33,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 61,
-    "stage2_tested": 61,
-    "stage2_stable": 36,
+    "stage1_passed": 81,
+    "stage2_tested": 81,
+    "stage2_stable": 42,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -365,19 +362,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4946,
+    "candidates": 5246,
     "tested": 1500,
     "verified": 23,
-    "fast": 10,
+    "fast": 4,
     "stable": 23,
     "failed": 1477,
-    "not_tested": 3446,
-    "not_tested_budget": 3446,
-    "failed_probe": 1450,
-    "below_quality_threshold": 27,
+    "not_tested": 3746,
+    "not_tested_budget": 3746,
+    "failed_probe": 1443,
+    "below_quality_threshold": 34,
     "dropped": 1477,
-    "published": 29,
-    "success_rate": 0.02422222222222222
+    "published": 33,
+    "success_rate": 0.02711111111111111
   },
   "core_validation": {
     "status": "not_tested",
