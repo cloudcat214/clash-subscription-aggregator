@@ -99,6 +99,12 @@ jobs:
       - name: Install YAML parser
         run: python -m pip install "PyYAML>=6,<7"
 
+      - name: Sync workspace to latest main before deploy
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git restore --source=origin/main -- docs
+
       - name: Validate committed public config
         run: >-
           python -c "from pathlib import Path; import yaml; path=Path('docs/dist/clash/config.yaml'); assert path.is_file(), 'missing docs/dist/clash/config.yaml'; document=yaml.safe_load(path.read_text(encoding='utf-8')); assert isinstance(document, dict), 'config root must be a mapping'; assert {'proxies', 'proxy-groups', 'rules'} <= document.keys(), 'config structure incomplete'; assert isinstance(document['proxies'], list), 'proxies must be a list'; print('committed public config: passed')"

@@ -79,18 +79,19 @@ jobs:
             --probe-timeout "$AUTO_PROBE_TIMEOUT" \
             --probe-concurrency "$AUTO_PROBE_CONCURRENCY" \
             --probe-min-verdict stable \
-            --base-url "https://cloudcat214.github.io/clash-subscription-aggregator/auto"
+            --base-url "https://cloudcat214.github.io/clash-subscription-aggregator/dist"
           finished_at=$(date +%s)
           echo "cloud refresh duration_seconds=$((finished_at - started_at)) probe_max_nodes=$AUTO_PROBE_MAX_NODES"
           test -s dist-auto/clash/config.yaml
           python -c "import json; from pathlib import Path; m=json.loads(Path('dist-auto/manifest.json').read_text(encoding='utf-8')); q=m.get('node_quality', {}); print('cloud publish counts: published=%s tested=%s pool_retested=%s' % (m.get('counts', {}).get('published', 0), q.get('tested', 0), m.get('verification', {}).get('pool_retested', 0)))"
 
-      - name: Stage auto Pages channel
+      - name: Stage dist and auto Pages channels
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf docs/auto
-          mkdir -p docs/auto
+          rm -rf docs/dist docs/auto
+          mkdir -p docs/dist docs/auto
+          cp -a dist-auto/. docs/dist/
           cp -a dist-auto/. docs/auto/
 
       - name: Commit changed auto artifacts
@@ -99,12 +100,12 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- docs/auto state/verified-pool-auto.json
+          git add -- docs/dist docs/auto state/verified-pool-auto.json
           if git diff --cached --quiet; then
             echo "no material change; skip commit/push."
           else
             changed_paths=$(git diff --cached --name-only)
-            if printf '%s\n' "$changed_paths" | grep -Ev '^(docs/auto/|state/verified-pool-auto\.json$)' | grep -q .; then
+            if printf '%s\n' "$changed_paths" | grep -Ev '^(docs/(dist|auto)/|state/verified-pool-auto\.json$)' | grep -q .; then
               echo "unexpected staged path" >&2
               printf '%s\n' "$changed_paths" >&2
               exit 1
@@ -127,6 +128,13 @@ jobs:
               exit 1
             fi
           fi
+
+      - name: Sync workspace to latest main before deploy
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git restore --source=origin/main -- docs
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

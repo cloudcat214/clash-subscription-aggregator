@@ -157,6 +157,12 @@ function Test-MaterialChange {
     return $false
 }
 
+$PauseLockPath = Join-Path $ProjectRoot ".cache\publish-pause.lock"
+if ($Publish -and (Test-Path -LiteralPath $PauseLockPath)) {
+    Write-Host "publish paused by temporary migration lock; this cycle skips all work."
+    exit 0
+}
+
 try {
     New-Item -ItemType Directory -Path $LogDirectory -Force | Out-Null
     Start-Transcript -LiteralPath $LogPath -Force | Out-Null

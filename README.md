@@ -6,10 +6,10 @@
 
 ## 订阅地址
 
-- **本机实测版（推荐）**：`https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`。电脑开机时每 15 分钟刷新一次，节点经过你的网络实测。
-- **云端自动版**：`https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config.yaml`。GitHub 云端自动刷新：每 15 分钟触发一次、无需电脑开机，GitHub 调度高峰时可能延后；本机实测版为 15 分钟可靠刷新。
+- **主订阅（云端自动）**：`https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`。由 GitHub Actions 云端采集、主动测评并发布，电脑关机不影响。GitHub schedule 只代表触发请求，实际触发时间受 GitHub 调度影响，不是准点 15 分钟 SLA。
+- **同源兼容镜像**：`https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config.yaml`。与主订阅是同一份云端产物（同源镜像），保留供已有 /auto 使用者继续使用。
 
-两条地址都可以直接粘贴到 Clash Verge Rev；本机版更贴近你的实际网络，云端版适合电脑不在线时继续自动更新。
+两条地址都可以直接粘贴到 Clash Verge Rev，指向同一份云端产物。
 
 ## 本地运行
 
@@ -39,9 +39,9 @@ python -m aggregator run --config config/sources.yaml --output dist --state stat
 - 探测失败、结果不完整、无合格节点或写入失败都会 fail-closed，并优先保留 `state/last-known-good/`。LKG 是上一份可回退产物，不是本轮节点可用性证明。
 - 每个临时 Mihomo worker 使用独立 loopback controller 和独立的 256-bit 随机 secret；secret 仅在 worker 生命周期内用于 `Authorization: Bearer`，不进入 manifest、health、日志或报告，worker 结束后随临时目录清理。
 
-### 本机验证与自动更新闭环
+### 云端生产链与可逆回退
 
-GitHub Runner 的网络出口不等于用户本机网络，因此本项目提供两条独立通道：本机版按 `fetch` → 本机绑定物理网卡直连实测 → `docs/dist/` 发布；云端版按 `fetch` → Runner 使用 Mihomo delay 后端实测 → `docs/auto/` 发布。两条通道互不共享已验证节点池，订阅地址见上方。
+GitHub Runner 的网络出口不等于用户本机网络。生产链为单条云端链：GitHub Actions 按 `fetch` → Runner 使用 Mihomo delay 后端实测 → 发布 `docs/dist/`，并把同一份产物镜像到 `docs/auto/`（同源）。本机刷新脚本保留为可逆回退通道，不是正常依赖；启用回退时它使用独立的 `state/verified-pool.json` 池，与云端池 `state/verified-pool-auto.json` 互不共享。
 
 手动刷新（默认只更新本机目录，不发布）：
 
@@ -90,7 +90,7 @@ sources:
 
 ## 输出目录
 
-直接运行 `aggregator run` 时，下面的 `dist/` 是默认输出目录；`refresh-publish.ps1` 使用被忽略的 `dist-local/`，本机公开发布镜像使用受 Git 跟踪的 `docs/dist/`，云端工作流镜像使用受 Git 跟踪的 `docs/auto/`。
+直接运行 `aggregator run` 时，下面的 `dist/` 是默认输出目录；`refresh-publish.ps1` 使用被忽略的 `dist-local/`；公开 Pages 上的 `docs/dist/` 与 `docs/auto/` 由云端工作流发布（`docs/auto/` 为 `docs/dist/` 的同源镜像）。
 
 | 文件 | 用途 |
 |---|---|
@@ -100,7 +100,8 @@ sources:
 | `dist/sing-box/config.json` | 能明确映射的 sing-box outbounds；无法安全映射的协议会计入 dropped，不伪装成可用配置 |
 | `dist/manifest.json` | 直接运行聚合器时的来源状态、节点数、协议数、dropped 统计、校验结果和 SHA256 |
 | `dist/health.json` | 直接运行聚合器时的本轮状态、失败原因和 LKG 回退状态 |
-| `docs/auto/clash/config.yaml` | 云端自动版公开订阅主文件 |
+| `docs/dist/clash/config.yaml` | 云端发布的公开订阅主文件（固定订阅地址指向此处） |
+| `docs/auto/clash/config.yaml` | 与 `docs/dist/` 同源的兼容镜像 |
 
 本地文件导入时选择 `dist-local/clash/config.yaml`（或直接运行聚合器产生的 `dist/clash/config.yaml`），不需要另行下载 provider 文件。公开发布成功后的固定导入地址见“订阅地址”一节；`dist/`、`state/`、`dist-local/`、`state-local/`、缓存和报告仍按各自用途处理，`docs/dist/` 与 `docs/auto/` 进入公开 Pages。
 
@@ -111,8 +112,8 @@ sources:
 - Pull Request 只运行 pytest、compileall 和 workflow 结构检查，不抓取来源、不生成发布产物、不部署 Pages；
 - `main` 上 `docs/**` 的 push 或手动 `workflow_dispatch` 才进入部署 job；部署前只检查已提交的 `docs/dist/clash/config.yaml` 存在且 YAML 顶层结构可解析；
 - `vars.PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true'` 仍是本机公开发布的总闸；`auto-refresh.yml` 使用 `--no-private`，只处理配置中的公开来源；
-- `auto-refresh.yml` 每 15 分钟运行一次，也支持手动触发；它在 Ubuntu Runner 下载固定且校验过的 Mihomo、运行公开来源聚合与 delay 探测，把成功结果写入 `docs/auto/`，并在同一工作流中部署 Pages。失败或结果不足时不覆盖旧的 `docs/auto/`；
-- Pages artifact 路径是 `docs`，因此固定 URL 下的 `dist/clash/config.yaml` 与 `auto/clash/config.yaml` 以及各自的 manifest、health 保持同一目录结构。本机计划任务仍负责本机通道，不由云端通道替代。
+- `auto-refresh.yml` 每 15 分钟计划触发一次（实际触发时间受 GitHub 调度影响），也支持手动触发；它在 Ubuntu Runner 下载固定且校验过的 Mihomo、运行公开来源聚合与 delay 探测，把成功结果写入 `docs/dist/`（并镜像到 `docs/auto/`），并在同一工作流中部署 Pages。失败或结果不足时不覆盖旧产物；
+- Pages artifact 路径是 `docs`，因此固定 URL 下的 `dist/clash/config.yaml` 与 `auto/clash/config.yaml` 以及各自的 manifest、health 保持同一目录结构。`/dist` 与 `/auto` 由云端同源产物维护；本机刷新通道只作为可逆回退保留，不是正常依赖。
 
 公开节点数据仍需由接入者核对各来源节点数据的使用与再分发条款；代码仓库公开不等于节点数据公开授权，工作流闸门也不替代这项责任。
 

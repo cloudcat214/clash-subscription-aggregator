@@ -17,7 +17,7 @@
 - 每个探测行保留成功轮数、总轮数、成功率、平均/p95 延迟和错误类别；`delay` 后端另外保留每轮延迟以及 `stage1_tested`、`stage1_passed`、`stage2_tested`、`stage2_stable`。spawn 硬上限为 500 节点/8 并发，delay 硬上限为 2000 节点/16 并发，二者轮数上限均为 3、单次 timeout 上限均为 30 秒；超出对应后端的 pipeline 参数或 runner 回报以 `probe_parameters_over_budget` fail-closed，预算以内但未进入本轮的候选记为 `not_tested_budget`。进程提前退出、controller 超时/认证/HTTP 错误和网络错误均使用有限枚举，worker 异常不会中止其他节点。
 - `failed_probe` 表示没有成功轮次，`below_quality_threshold` 表示有成功但未达到最低等级，其他候选可能是未测。未实测不等于可用；发布 job 使用 `--probe-min-verdict stable`，失败/不完整/无合格节点时失败并保留 LKG。
 - 结果受执行机器的区域、出口网络、目标站点和上游限速影响，只能证明当前机器到固定目标的观测，不能推导全球或其他站点可用。
-- 本地验证默认不运行真实节点 probe；需要按本机网络验证公开候选时，运行 `scripts/refresh-publish.ps1`，它使用本机 Clash Verge Rev Mihomo，自动选择物理网卡，生成被 Git 忽略的 `dist-local/` 与 `state-local/`，默认不发布 Pages。传入 `-Publish` 后才会把通过门槛的输出原子镜像到 `docs/dist/` 并推送 `main`。真实结果只代表本机当前网络；若存在其他隧道或 TUN，探测流量可能经过现有隧道。公开候选无法取得时不发布未测节点。
+- 本地验证默认不运行真实节点 probe；需要按本机网络验证公开候选时，运行 `scripts/refresh-publish.ps1`，它使用本机 Clash Verge Rev Mihomo，自动选择物理网卡，生成被 Git 忽略的 `dist-local/` 与 `state-local/`，默认不发布 Pages。传入 `-Publish` 后才会把通过门槛的输出原子镜像到 `docs/dist/` 并推送 `main`。真实结果只代表本机当前网络；若存在其他隧道或 TUN，探测流量可能经过现有隧道。公开候选无法取得时不发布未测节点。公开 Pages 的 `/dist` 与 `/auto` 由云端 `auto-refresh.yml` 发布（同一产物、同源镜像）；本机脚本保留为可逆回退通道，不是正常依赖。
 
 ## 发布边界
 
@@ -25,8 +25,8 @@
 - `private` 节点只允许通过显式本机参数生成到 `dist-private/`（或调用者指定的本地目录），默认被 `.gitignore` 忽略；私有凭据与私有正文通过环境变量或本机目录注入，不进入公开 `dist`。
 - 公开仓库包含代码、文档、合成测试数据和 `config/sources.yaml` 中的公开来源清单；不包含真实节点内容、订阅令牌、节点凭据或私有来源正文。
 - GitHub Actions 在 Pull Request 上只运行离线测试、编译和 workflow 结构检查；`main` 上 `docs/**` 的 push 或手动 `workflow_dispatch` 才进入 Pages 部署。
-- 部署 job 只在 `main`、非 fork、`PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true'` 且事件允许时运行；它不抓取来源、不下载核心、不运行 probe，只检查已经由本机刷新脚本提交的 `docs/dist/clash/config.yaml` 是否存在且 YAML 可解析。
-- Pages 权限为 `contents: read`、`pages: write`、`id-token: write`；artifact 路径为 `docs`，因此公开固定 URL 保持 `dist/clash/config.yaml` 路径。首次全量发布和本机定时任务不由 CI 代替。
+- 部署 job 只在 `main`、非 fork、`PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true'` 且事件允许时运行；它不抓取来源、不下载核心、不运行 probe，部署前先把工作区 `docs` 同步到最新 `main`（sync-before-deploy），再检查 `docs/dist/clash/config.yaml` 是否存在且 YAML 可解析。
+- Pages 权限为 `contents: read`、`pages: write`、`id-token: write`；artifact 路径为 `docs`，因此公开固定 URL 保持 `dist/clash/config.yaml` 路径。`/dist` 与 `/auto` 的持续更新由云端 `auto-refresh.yml` 负责；本机刷新脚本保留为可逆回退。
 - 代码许可证不授予订阅节点数据的使用或再分发权；未来公开数据需要独立授权及条款核对。
 
 ## 失败处理
