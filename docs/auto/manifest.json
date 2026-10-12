@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T16:41:15Z",
+  "generated_at": "2026-10-12T16:48:12Z",
   "status": "success",
   "active_probe": true,
   "counts": {
@@ -10,14 +10,14 @@
     "accepted": 4950
   },
   "protocols": {
-    "http": 46,
+    "http": 42,
     "hysteria": 1,
-    "hysteria2": 239,
+    "hysteria2": 235,
     "socks5": 3,
-    "ss": 25,
-    "trojan": 66,
-    "vless": 105,
-    "vmess": 15
+    "ss": 37,
+    "trojan": 62,
+    "vless": 104,
+    "vmess": 16
   },
   "sources": [
     {
@@ -338,18 +338,18 @@
     },
     {
       "path": "clash/config.yaml",
-      "sha256": "c9de4b313df680b668e90f92fd97de8492c7c123c02c0a2767c05660b0ddcc27",
-      "bytes": 178288
+      "sha256": "c96876111fd7e106e8bc894441f73f467dc7cdca598484b495da4928f11ffaf4",
+      "bytes": 177657
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "811036deeaaa7a797c07a4e17424d6389cef1a21740ab7cfa5fe5ecf861b2cef",
-      "bytes": 118898
+      "sha256": "b00eada8a235246ac6c714bee2657b559b829213f269e9090c5dba9f46772c4e",
+      "bytes": 118265
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "bd8681bdf58bc7aaba62040a130f45a7f549a321a15aace059e8c7e239c8e74b",
-      "bytes": 205845
+      "sha256": "a6886b019b643ca86f683e7814995a959c87699dd192d53cb928752f98b39e3f",
+      "bytes": 204416
     }
   ],
   "drops": {
@@ -383,22 +383,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 353
+      "http_error": 270
     },
-    "pool_size_before": 825,
-    "pool_size": 747,
+    "pool_size_before": 747,
+    "pool_size": 761,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 825,
-    "pool_retested": 825,
-    "new_candidates_tested": 175,
-    "pool_added": 28,
-    "pool_evicted": 106,
-    "retained_count": 747,
+    "pool_probe_candidates": 747,
+    "pool_retested": 747,
+    "new_candidates_tested": 253,
+    "pool_added": 46,
+    "pool_evicted": 32,
+    "retained_count": 761,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1000,
-    "stage1_passed": 723,
-    "stage2_tested": 723,
-    "stage2_stable": 700,
+    "stage1_passed": 770,
+    "stage2_tested": 770,
+    "stage2_stable": 757,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -407,19 +407,19 @@
     }
   },
   "node_quality": {
-    "candidates": 5022,
+    "candidates": 4933,
     "tested": 1000,
-    "verified": 647,
-    "fast": 542,
-    "stable": 647,
-    "failed": 353,
-    "not_tested": 4022,
-    "not_tested_budget": 4022,
-    "failed_probe": 281,
-    "below_quality_threshold": 72,
-    "dropped": 353,
+    "verified": 730,
+    "fast": 533,
+    "stable": 730,
+    "failed": 270,
+    "not_tested": 3933,
+    "not_tested_budget": 3933,
+    "failed_probe": 232,
+    "below_quality_threshold": 38,
+    "dropped": 270,
     "published": 500,
-    "success_rate": 0.6886666666666666
+    "success_rate": 0.7516666666666667
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
