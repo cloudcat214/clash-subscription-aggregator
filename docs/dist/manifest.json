@@ -1,21 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T11:30:27Z",
+  "generated_at": "2026-10-12T12:30:10Z",
   "status": "success",
   "active_probe": true,
   "counts": {
-    "published": 67,
+    "published": 37,
     "sources": 25,
-    "parsed": 6058,
-    "accepted": 5114
+    "parsed": 6038,
+    "accepted": 5101
   },
   "protocols": {
-    "http": 48,
-    "hysteria": 1,
-    "hysteria2": 4,
+    "http": 28,
+    "hysteria2": 1,
     "socks5": 2,
-    "ss": 5,
-    "vless": 7
+    "ss": 2,
+    "vless": 4
   },
   "sources": [
     {
@@ -154,17 +153,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1195,
-      "accepted": 1124,
+      "parsed": 1190,
+      "accepted": 1118,
       "drops": {
-        "invalid_uuid": 8,
-        "duplicate": 63
+        "invalid_uuid": 11,
+        "duplicate": 61
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "b454f2a24649625aa5f3c6900ecd7803a70f33083102a2d59d8d1a7aeb307519"
+      "sha256": "12cca811045bf0bea557d0a2d8a813f6c30ee60161e86c8e2d2e9e282723f604"
     },
     {
       "id": "p-configs-vless",
@@ -205,7 +204,7 @@
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "d6a9b3dab64ef1b70b5751b610ddb504f62eaec15948fe0e5cac6251b030fe8f"
+      "sha256": "060e38bc3fe2245dc75edbd5d3ce156ba58a68e6c7ef35ed3deb29478229e3fb"
     },
     {
       "id": "anaer-sub",
@@ -296,15 +295,16 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1802,
-      "accepted": 1171,
+      "parsed": 1787,
+      "accepted": 1164,
       "drops": {
-        "duplicate": 631
+        "invalid_uuid": 1,
+        "duplicate": 622
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "32f5741c59fa0d67c0438c6d55c03d2d623a820b9f2e5faa3f211700f83c613f"
+      "sha256": "ec85c2be55eff7ea925e005d8587a62893e918f59fe9d25ac23e0c1aa0946b4b"
     },
     {
       "id": "mfuu-freeproxies",
@@ -330,33 +330,32 @@
   "artifacts": [
     {
       "path": "clash/config.yaml",
-      "sha256": "34a128c698622a53d120dc63ff532f3f921a68b4b76835dea59c1c7697ece6b0",
-      "bytes": 20799
+      "sha256": "a5c06eb11c1f860e078c17e941c19cf6afbe2fd9e3915cca376c4e3a2f51d121",
+      "bytes": 10451
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "9e94a663eb37736168bb6e79b51981e20f6c7da6a73f17970f42653f1aff6ad3",
-      "bytes": 13981
+      "sha256": "c3a5a931aeaccb7cf1fd31a94cc5fa0883db198e72dfb24d35e6b1be61ecd622",
+      "bytes": 6529
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "207a5694a5ac2da9c4a30bb6c738b388a7602175a83b62ffee11f635f44177a2",
-      "bytes": 20677
+      "sha256": "fa277ed555e51fa1ee45ac408ccf9b3cc13ed29dc380688872ef855d91183763",
+      "bytes": 11236
     }
   ],
   "drops": {
-    "invalid_uuid": 47,
-    "duplicate": 1128,
+    "invalid_uuid": 51,
+    "duplicate": 1118,
     "missing_password": 2,
     "private_server": 22,
     "unsupported proxy type": 12,
     "proxy port is outside 1..65535": 1
   },
   "sing_box": {
-    "unsupported": 3,
+    "unsupported": 1,
     "drop_reasons": {
-      "unsupported_protocol:hysteria": 1,
-      "unsupported_transport:xhttp": 2
+      "unsupported_transport:xhttp": 1
     }
   },
   "verification": {
@@ -375,23 +374,23 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1485,
+      "http_error": 1462,
       "network_error": 2
     },
-    "pool_size_before": 70,
-    "pool_size": 67,
+    "pool_size_before": 18,
+    "pool_size": 37,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 70,
-    "pool_retested": 70,
-    "new_candidates_tested": 1430,
-    "pool_added": 2,
-    "pool_evicted": 5,
-    "retained_count": 67,
+    "pool_probe_candidates": 18,
+    "pool_retested": 18,
+    "new_candidates_tested": 1482,
+    "pool_added": 22,
+    "pool_evicted": 3,
+    "retained_count": 37,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 76,
-    "stage2_tested": 76,
-    "stage2_stable": 23,
+    "stage1_passed": 49,
+    "stage2_tested": 49,
+    "stage2_stable": 37,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -401,19 +400,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4859,
+    "candidates": 4838,
     "tested": 1500,
-    "verified": 13,
-    "fast": 11,
-    "stable": 13,
-    "failed": 1487,
-    "not_tested": 3359,
-    "not_tested_budget": 3359,
-    "failed_probe": 1454,
-    "below_quality_threshold": 33,
-    "dropped": 1487,
-    "published": 67,
-    "success_rate": 0.018222222222222223
+    "verified": 36,
+    "fast": 3,
+    "stable": 36,
+    "failed": 1464,
+    "not_tested": 3338,
+    "not_tested_budget": 3338,
+    "failed_probe": 1460,
+    "below_quality_threshold": 4,
+    "dropped": 1464,
+    "published": 37,
+    "success_rate": 0.025111111111111112
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
