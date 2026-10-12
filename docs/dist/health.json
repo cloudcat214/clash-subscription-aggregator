@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T12:30:10Z",
+  "generated_at": "2026-10-12T12:45:10Z",
   "status": "ok",
   "active_probe": true,
   "published": 37,
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1190,
-      "accepted": 1118,
+      "parsed": 1174,
+      "accepted": 1101,
       "drops": {
         "invalid_uuid": 11,
-        "duplicate": 61
+        "duplicate": 62
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "12cca811045bf0bea557d0a2d8a813f6c30ee60161e86c8e2d2e9e282723f604"
+      "sha256": "b3c685d894afeafa2bd43195951323e967935a256b1792616c4c58677d51e7e4"
     },
     {
       "id": "p-configs-vless",
@@ -229,16 +229,16 @@
       "id": "ermaozi-subscribe",
       "kind": "public",
       "status": "ok",
-      "parsed": 600,
-      "accepted": 580,
+      "parsed": 532,
+      "accepted": 517,
       "drops": {
         "private_server": 10,
-        "unsupported proxy type": 10
+        "unsupported proxy type": 5
       },
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
-      "sha256": "134bce4618596f43709b6cbb9f3f1cba330c5cb055ab9b02c3e0c0198d6f2642"
+      "sha256": "b600ec68478277b03d5d625f537587ad5c9298d0cca384ece75e51b3caaf0fd9"
     },
     {
       "id": "vxiaov-free-proxies",
@@ -335,23 +335,23 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1462,
-      "network_error": 2
+      "http_error": 1487,
+      "network_error": 3
     },
-    "pool_size_before": 18,
+    "pool_size_before": 37,
     "pool_size": 37,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 18,
-    "pool_retested": 18,
-    "new_candidates_tested": 1482,
-    "pool_added": 22,
-    "pool_evicted": 3,
+    "pool_probe_candidates": 37,
+    "pool_retested": 37,
+    "new_candidates_tested": 1463,
+    "pool_added": 1,
+    "pool_evicted": 1,
     "retained_count": 37,
     "shrink_guard_ratio": 0.5,
     "stage1_tested": 1500,
-    "stage1_passed": 49,
-    "stage2_tested": 49,
-    "stage2_stable": 37,
+    "stage1_passed": 84,
+    "stage2_tested": 84,
+    "stage2_stable": 28,
     "probe_interface": "WLAN",
     "interface_mode": "top-level",
     "direct_control": {
@@ -361,19 +361,19 @@
     }
   },
   "node_quality": {
-    "candidates": 4838,
+    "candidates": 4781,
     "tested": 1500,
-    "verified": 36,
-    "fast": 3,
-    "stable": 36,
-    "failed": 1464,
-    "not_tested": 3338,
-    "not_tested_budget": 3338,
-    "failed_probe": 1460,
-    "below_quality_threshold": 4,
-    "dropped": 1464,
+    "verified": 10,
+    "fast": 4,
+    "stable": 10,
+    "failed": 1490,
+    "not_tested": 3281,
+    "not_tested_budget": 3281,
+    "failed_probe": 1453,
+    "below_quality_threshold": 37,
+    "dropped": 1490,
     "published": 37,
-    "success_rate": 0.025111111111111112
+    "success_rate": 0.01888888888888889
   },
   "core_validation": {
     "status": "not_tested",

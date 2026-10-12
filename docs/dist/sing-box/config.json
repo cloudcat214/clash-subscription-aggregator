@@ -21,7 +21,6 @@
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7BDDFE",
         "[ermaozi-subscribe] RO_speednode_0124",
         "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE30C6",
-        "[ermaozi-subscribe] 🇬🇧GB_4|2.4MB/s",
         "[zhuhaiuk-free-nodes] DE - zhuhai.uk",
         "[zhuhaiuk-free-nodes] KR - zhuhai.uk",
         "[ermaozi-subscribe] NL_speednode_0004",
@@ -43,7 +42,8 @@
         "[ermaozi-subscribe] 🇫🇷FR_5|2.8MB/s",
         "[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s",
         "[ermaozi-subscribe] 🇫🇷FR_7|3.1MB/s",
-        "[ermaozi-subscribe] 🇬🇧GB_3|3.2MB/s"
+        "[ermaozi-subscribe] 🇬🇧GB_3|3.2MB/s",
+        "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996"
       ]
     },
     {
@@ -191,16 +191,6 @@
           "public_key": "WNm8A3wxBl27RxrGMqfaO_YQ5y9LxbVa2BbzlnDL6DU",
           "short_id": "11403cfd7b24137d"
         }
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[ermaozi-subscribe] 🇬🇧GB_4|2.4MB/s",
-      "server": "212.102.63.61",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "insecure": true
       }
     },
     {
@@ -425,6 +415,27 @@
       "tls": {
         "enabled": true,
         "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996",
+      "server": "177.1.187.251",
+      "server_port": 443,
+      "uuid": "318c935d-c195-41d3-99ad-9bbcfdab3386",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "de2.srv.vbuste.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08",
+          "short_id": "4be4110078ebed4a"
+        }
       }
     }
   ]

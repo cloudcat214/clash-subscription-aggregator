@@ -123,12 +123,6 @@ proxies:
     short-id: 11403cfd7b24137d
   client-fingerprint: chrome
   network: tcp
-- name: '[ermaozi-subscribe] 🇬🇧GB_4|2.4MB/s'
-  port: 443
-  server: 212.102.63.61
-  skip-cert-verify: true
-  tls: true
-  type: http
 - name: '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
   type: http
   server: 193.233.75.115
@@ -277,6 +271,20 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
+  server: 177.1.187.251
+  port: 443
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: de2.srv.vbuste.ru
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  client-fingerprint: randomized
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
@@ -296,7 +304,6 @@ proxy-groups:
   - '[ermaozi-subscribe] RO_speednode_0124'
   - '[ermaozi-subscribe] 🇧🇬BG_3|1.8MB/s'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE30C6'
-  - '[ermaozi-subscribe] 🇬🇧GB_4|2.4MB/s'
   - '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk'
   - '[ermaozi-subscribe] NL_speednode_0004'
@@ -319,6 +326,7 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s'
   - '[ermaozi-subscribe] 🇫🇷FR_7|3.1MB/s'
   - '[ermaozi-subscribe] 🇬🇧GB_3|3.2MB/s'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -336,7 +344,6 @@ proxy-groups:
   - '[ermaozi-subscribe] RO_speednode_0124'
   - '[ermaozi-subscribe] 🇧🇬BG_3|1.8MB/s'
   - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE30C6'
-  - '[ermaozi-subscribe] 🇬🇧GB_4|2.4MB/s'
   - '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] KR - zhuhai.uk'
   - '[ermaozi-subscribe] NL_speednode_0004'
@@ -359,6 +366,7 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s'
   - '[ermaozi-subscribe] 🇫🇷FR_7|3.1MB/s'
   - '[ermaozi-subscribe] 🇬🇧GB_3|3.2MB/s'
+  - '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | BE2996'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100
