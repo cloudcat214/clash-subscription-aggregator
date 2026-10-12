@@ -23,12 +23,9 @@
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 222CB7",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A85D10",
         "[ermaozi-subscribe] NL_speednode_0006",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6FB0CE",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CBEA7F",
-        "[ermaozi-subscribe] RO_speednode_0126",
         "[ermaozi-subscribe] US_speednode_0143",
         "[ermaozi-subscribe] 🇩🇪DE_1|3.5MB/s",
-        "[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s",
         "[zhuhaiuk-free-nodes] DE - zhuhai.uk",
         "[zhuhaiuk-free-nodes] HR - zhuhai.uk",
         "[zhuhaiuk-free-nodes] KR - zhuhai.uk",
@@ -61,7 +58,8 @@
         "[ermaozi-subscribe] 🇫🇷FR_7|3.1MB/s",
         "[ermaozi-subscribe] 🇬🇧GB_1|1.1MB/s",
         "[ermaozi-subscribe] 🇬🇧GB_2|3.5MB/s",
-        "[ermaozi-subscribe] 🇬🇧GB_4|2.4MB/s"
+        "[ermaozi-subscribe] 🇬🇧GB_4|2.4MB/s",
+        "[ermaozi-subscribe] RO_speednode_0110"
       ]
     },
     {
@@ -239,24 +237,6 @@
     },
     {
       "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6FB0CE",
-      "server": "172.67.152.71",
-      "server_port": 8880,
-      "uuid": "d6d0ba7b-fa88-4b2c-9915-530ae4a81035",
-      "tls": {
-        "enabled": true,
-        "server_name": "aged-mud-9b4c.202-2dc.workers.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/pyip=ProxyIP.JP.CMLiussss.net",
-        "headers": {
-          "Host": "aged-mud-9b4c.202-2dc.workers.dev"
-        }
-      }
-    },
-    {
-      "type": "vless",
       "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CBEA7F",
       "server": "172.64.144.224",
       "server_port": 443,
@@ -275,17 +255,6 @@
     },
     {
       "type": "http",
-      "tag": "[ermaozi-subscribe] RO_speednode_0126",
-      "server": "193.176.84.39",
-      "server_port": 9002,
-      "tls": {
-        "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "http",
       "tag": "[ermaozi-subscribe] US_speednode_0143",
       "server": "138.199.35.198",
       "server_port": 9002,
@@ -299,16 +268,6 @@
       "tag": "[ermaozi-subscribe] 🇩🇪DE_1|3.5MB/s",
       "server": "158.173.154.3",
       "server_port": 9002,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s",
-      "server": "82.66.235.221",
-      "server_port": 443,
       "tls": {
         "enabled": true,
         "insecure": true
@@ -674,6 +633,16 @@
       "tag": "[ermaozi-subscribe] 🇬🇧GB_4|2.4MB/s",
       "server": "212.102.63.61",
       "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[ermaozi-subscribe] RO_speednode_0110",
+      "server": "193.176.84.27",
+      "server_port": 9002,
       "tls": {
         "enabled": true,
         "insecure": true

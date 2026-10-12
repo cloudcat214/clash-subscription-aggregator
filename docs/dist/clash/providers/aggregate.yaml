@@ -113,19 +113,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6FB0CE'
-  server: 172.67.152.71
-  port: 8880
-  type: vless
-  uuid: d6d0ba7b-fa88-4b2c-9915-530ae4a81035
-  udp: true
-  tls: false
-  servername: aged-mud-9b4c.202-2dc.workers.dev
-  network: ws
-  ws-opts:
-    path: /pyip=ProxyIP.JP.CMLiussss.net
-    headers:
-      Host: aged-mud-9b4c.202-2dc.workers.dev
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CBEA7F'
   server: 172.64.144.224
   port: 443
@@ -139,14 +126,6 @@ proxies:
     path: /glasspanel/guest000_0_5de14443985f/
     headers:
       Host: 6g4z6.t3bq.cql.hh.hhyf.kdns.fr
-- name: '[ermaozi-subscribe] RO_speednode_0126'
-  port: 9002
-  server: 193.176.84.39
-  skip-cert-verify: true
-  sni: www.bing.com
-  tls: true
-  type: http
-  udp: true
 - name: '[ermaozi-subscribe] US_speednode_0143'
   port: 9002
   server: 138.199.35.198
@@ -157,12 +136,6 @@ proxies:
 - name: '[ermaozi-subscribe] 🇩🇪DE_1|3.5MB/s'
   port: 9002
   server: 158.173.154.3
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[ermaozi-subscribe] 🇫🇷FR_6|3.4MB/s'
-  port: 443
-  server: 82.66.235.221
   skip-cert-verify: true
   tls: true
   type: http
@@ -414,3 +387,35 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[ermaozi-subscribe] RO_speednode_0110'
+  port: 9002
+  server: 193.176.84.27
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- client-fingerprint: firefox
+  encryption: none
+  name: '[ermaozi-subscribe] 🇧🇬BG_3|1.8MB/s'
+  network: xhttp
+  port: 8443
+  server: 78.159.246.179
+  servername: randomquaint.net
+  tls: true
+  type: vless
+  udp: true
+  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+  xhttp-opts:
+    host: randomquaint.net
+    path: /api/v1/upload
+    reuse-settings:
+      c-max-reuse-times: 64-128
+      h-keep-alive-period: 0
+      h-max-request-times: '0'
+      h-max-reusable-secs: '0'
+      max-concurrency: 16-32
+      max-connections: '0'
+    session-length: '0'
+    x-padding-bytes: 100-1000
+    x-padding-obfs-mode: false
+  xudp: true
