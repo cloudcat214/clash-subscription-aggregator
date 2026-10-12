@@ -73,12 +73,6 @@ proxies:
     short-id: 3560f3d77a767c3a
   client-fingerprint: random
   network: tcp
-- name: '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
-  type: http
-  server: 193.233.75.115
-  port: 443
-  tls: true
-  skip-cert-verify: true
 - name: '[ermaozi-subscribe] NL_speednode_0004'
   port: 9002
   server: 84.17.47.125
@@ -86,19 +80,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] NL_speednode_0010'
-  port: 9002
-  server: 84.17.47.149
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] 🇩🇪DE_5|3.2MB/s'
-  port: 9002
-  server: 158.173.154.5
-  skip-cert-verify: true
-  tls: true
-  type: http
 - cipher: aes-256-cfb
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1784945214'
   password: amazonskr05
@@ -113,21 +94,6 @@ proxies:
   sni: f3a61d8406d537345747f99f8a281007-3f754ed5da1bba09.apache-iv.com
   tls: true
   type: http
-- name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
-  type: http
-  server: 193.176.84.19
-  port: 9002
-  tls: true
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: '[ermaozi-subscribe] NL_speednode_0005'
-  password: None
-  port: 9002
-  server: 84.17.47.125
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[ermaozi-subscribe] RO_speednode_0082'
   port: 9002
   server: 193.176.84.24
@@ -164,38 +130,6 @@ proxies:
   server: ruot.ayucloudservices.nl
   type: ss
   udp: true
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | F997DF'
-  server: feow.nomush.ir
-  port: 11497
-  type: vless
-  uuid: 2c5f2d6e-d683-49f7-a12b-a95460b90a92
-  udp: true
-  tls: true
-  servername: dynu.com
-  reality-opts:
-    public-key: J3DhtzId04tRrOF9HmIxpv6QOGY1g6j2wJ_UtVKmimk
-    short-id: b0063cec752e829a
-  client-fingerprint: chrome
-  network: tcp
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 3E35EF'
-  server: feow.nomush.ir
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: K63q-WhHdJoC_AIxT6E4r_IIuGIb6CuV
-  udp: true
-- name: '[alvin-ip1] https://github.com/Alvin9999-newpac/fanqiang'
-  type: hysteria
-  server: 62.210.70.191
-  port: 24667
-  auth-str: dongtaiwang.com
-  sni: bing.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
 - name: '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
   type: hysteria
   server: 5.83.129.153
@@ -208,66 +142,6 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: '[pawdroid-free-servers] 法国+ONLINE+S.A.S.数据中心'
-  type: hysteria2
-  server: 62.210.147.2
-  port: 43115
-  password: github.com/Alvin9999-newpac/fanqiang
-  tls: true
-  sni: www.microsoft.com
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] HK - zhuhai.uk 02'
-  type: http
-  server: fan.240104.xyz
-  port: 443
-  tls: true
-  sni: fan.240104.xyz
-  skip-cert-verify: true
-- name: '[pawdroid-free-servers] 美国+Amazon+EC2服务器'
-  type: hysteria2
-  server: vpn-de-002.fastervpn.world
-  port: 443
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  tls: true
-  sni: 127.0.0.1
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] PL - zhuhai.uk'
-  type: http
-  server: 151.115.54.133
-  port: 443
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
-  type: http
-  server: 193.176.84.38
-  port: 9002
-  username: 'null'
-  password: 'null'
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 03'
-  type: http
-  server: 193.176.84.30
-  port: 9002
-  username: 'null'
-  password: None
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 04'
-  type: http
-  server: 193.176.84.31
-  port: 9002
-  username: 'null'
-  password: None
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] RU - zhuhai.uk'
-  type: http
-  server: chalo-ru.nexorcdn.com
-  port: 36074
-  username: ef37886e2aacd6fa622e3de3810299c2
-  password: 9jkvAVV-9ufV6IGd
-  tls: true
 - name: '[ermaozi-subscribe] NL_speednode_0006'
   port: 9002
   server: 84.17.47.150
@@ -282,14 +156,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] NL_speednode_0008'
-  password: None
-  port: 9002
-  server: 84.17.47.148
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[ermaozi-subscribe] NL_speednode_0009'
   port: 9002
   server: 84.17.47.146
@@ -297,19 +163,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 2CD34B'
-  server: 104.25.77.242
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws?ed#
-    headers:
-      Host: a.cwvps.eu.org
 - name: '[ermaozi-subscribe] RO_speednode_0041'
   port: 9002
   server: 193.176.84.33
@@ -317,23 +170,9 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0042'
-  port: 9002
-  server: 193.176.84.30
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[ermaozi-subscribe] RO_speednode_0044'
   port: 9002
   server: 193.176.84.35
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0045'
-  port: 9002
-  server: 193.176.84.17
   skip-cert-verify: true
   tls: true
   type: http
@@ -353,35 +192,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0097'
-  password: None
-  port: 9002
-  server: 193.176.84.23
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0110'
-  port: 9002
-  server: 193.176.84.27
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0124'
-  port: 9002
-  server: 193.176.84.32
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0126'
-  port: 9002
-  server: 193.176.84.39
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[ermaozi-subscribe] US_speednode_0133'
   port: 443
   server: fan.365747.xyz
@@ -389,19 +199,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] US_speednode_0143'
-  port: 9002
-  server: 138.199.35.198
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] 🇩🇪DE_4|1.1MB/s'
-  port: 9002
-  server: 158.173.154.4
-  skip-cert-verify: true
-  tls: true
-  type: http
 - name: '[free-v2ray-verified-clash] FI 🇫🇮 | @Raydikalx | 84C4C3'
   server: 31.76.102.60
   port: 443
@@ -422,3 +219,33 @@ proxies:
   port: 35014
   cipher: aes-128-gcm
   password: b1a1f89b-63ed-4b5b-81a1-91a7c5b76ca9
+- name: '[ermaozi-subscribe] US_speednode_0131'
+  password: 'null'
+  port: 9002
+  server: 138.199.35.216
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  username: 'null'
+- name: '[ermaozi-subscribe] US_speednode_0141'
+  port: 443
+  server: 38.28.193.188
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] 🇭🇰 香港 | HKG 2'
+  server: relay.xiaomans.com
+  port: 20003
+  type: vless
+  uuid: 52ac38da-c2fa-4f98-bef1-f3adef5d3ae9
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: OgcLHAAzQV0qTuXwHnz0huEueM5f3vRpYZHMH8JsjC4
+    short-id: 09d75ddaf90d0ba5
+  servername: www.cloudflare.com
+  client-fingerprint: safari
+  network: tcp
+  udp: true
