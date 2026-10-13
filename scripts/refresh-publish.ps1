@@ -102,8 +102,7 @@ function Invoke-Git {
 $MaterialArtifactPaths = @(
     "docs/dist/clash/config.yaml",
     "docs/dist/clash/providers/aggregate.yaml",
-    "docs/dist/sing-box/config.json",
-    "state/verified-pool.json"
+    "docs/dist/sing-box/config.json"
 )
 
 function Get-MaterialHash {
@@ -337,7 +336,7 @@ try {
         if (-not (Test-MaterialChange)) {
             Write-Host "no material change; skip commit/push."
         } else {
-            Invoke-Git @("add", "--all", "--", "docs/dist", "state/verified-pool.json")
+            Invoke-Git @("add", "--all", "--", "docs/dist")
             $CommitTime = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
             Invoke-Git @("commit", "-m", "refresh: verified nodes $CommitTime")
             Invoke-Git @("pull", "--rebase")

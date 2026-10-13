@@ -42,7 +42,7 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           EVENT_BEFORE: ${{ github.event.before }}
         run: >-
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then echo "pages_changed=true" >> "$GITHUB_OUTPUT"; elif [ -n "$EVENT_BEFORE" ] && git diff --name-only "$EVENT_BEFORE" "$GITHUB_SHA" | grep -q '^docs/dist/'; then echo "pages_changed=true" >> "$GITHUB_OUTPUT"; else echo "pages_changed=false" >> "$GITHUB_OUTPUT"; fi
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then echo "pages_changed=true" >> "$GITHUB_OUTPUT"; elif [ -n "$EVENT_BEFORE" ] && git diff --name-only "$EVENT_BEFORE" "$GITHUB_SHA" | grep -Eq '^docs/(dist/|history/update-history\.json$)'; then echo "pages_changed=true" >> "$GITHUB_OUTPUT"; else echo "pages_changed=false" >> "$GITHUB_OUTPUT"; fi
 
       - name: Set up Python
         uses: actions/setup-python@v5

@@ -1,0 +1,94 @@
+name: Update history
+
+on:
+  workflow_run:
+    workflows: ["Cloud auto refresh"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-pages-release
+  cancel-in-progress: false
+
+jobs:
+  record:
+    if: >-
+      ${{
+        vars.PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true' &&
+        github.event.repository.fork == false &&
+        github.event.workflow_run.head_repository.full_name == github.repository &&
+        github.event.workflow_run.head_branch == 'main' &&
+        (github.event.workflow_run.event == 'schedule' ||
+         github.event.workflow_run.event == 'workflow_dispatch')
+      }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout trusted main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Read completed run metadata
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          RUN_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+        run: |
+          set -euo pipefail
+          if ! gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/attempts/$RUN_ATTEMPT/jobs" > "$RUNNER_TEMP/history-jobs.json"; then
+            printf '{"jobs": []}\n' > "$RUNNER_TEMP/history-jobs.json"
+          fi
+
+      - name: Record only update history
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            # This is a disposable trusted runner checkout, never the user's PC.
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/update_history.py --workflow-run "$GITHUB_EVENT_PATH" --jobs "$RUNNER_TEMP/history-jobs.json"
+            git add -- docs/history/update-history.json
+            if git diff --cached --quiet; then break; fi
+            test "$(git diff --cached --name-only)" = "docs/history/update-history.json"
+            git commit -m "history: record completed cloud update"
+            if git push origin HEAD:main; then break; fi
+            if [ "$attempt" = 3 ]; then exit 1; fi
+          done
+
+      - name: Sync committed Pages content
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git restore --source=origin/main -- docs
+          python -c "import json; from pathlib import Path; d=json.loads(Path('docs/history/update-history.json').read_text()); assert d['schema_version']==1 and isinstance(d['entries'],list); print('history JSON: passed')"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

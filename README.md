@@ -11,6 +11,8 @@
 
 两条地址都可以直接粘贴到 Clash Verge Rev，指向同一份云端产物。
 
+`state/verified-pool*.json` 仅为运行时临时状态，不公开发布；历史公开版本可能仍保留旧池内容。本说明只停止后续提交，不改写既有 Git 历史。
+
 ## 本地运行
 
 ```powershell

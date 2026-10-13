@@ -100,17 +100,17 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- docs/dist docs/auto state/verified-pool-auto.json
+           git add -- docs/dist docs/auto
           if git diff --cached --quiet; then
             echo "no material change; skip commit/push."
           else
             changed_paths=$(git diff --cached --name-only)
-            if printf '%s\n' "$changed_paths" | grep -Ev '^(docs/(dist|auto)/|state/verified-pool-auto\.json$)' | grep -q .; then
+            if printf '%s\n' "$changed_paths" | grep -Ev '^(docs/(dist|auto)/)' | grep -q .; then
               echo "unexpected staged path" >&2
               printf '%s\n' "$changed_paths" >&2
               exit 1
             fi
-            git commit -m "refresh: cloud verified nodes"
+            git commit -m "refresh: cloud verified nodes (run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT})"
             pushed=false
             for attempt in 1 2 3; do
               if ! git pull --rebase origin main; then
