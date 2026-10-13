@@ -6,19 +6,13 @@ proxies:
   skip-cert-verify: true
   sni: ''
   type: hysteria2
-- name: '[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | A14EFE'
-  server: 84.235.244.108
-  port: 22573
-  type: vless
-  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+- name: '[free-v2ray-verified-clash] AL 🇦🇱 | @Raydikalx | 5D2A6F'
+  server: 130.49.189.158
+  port: 43558
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 52+ggoCvKFVJyT1NDiuWOZw2rHIvAg3tgqgJl8aeCwY=
   udp: true
-  tls: false
-  servername: uae.unixzone.us
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: uae.unixzone.us
 - name: '[alvin-ip1] https://github.com/Alvin9999-newpac/fanqiang'
   type: hysteria
   server: 62.210.70.191
@@ -62,6 +56,19 @@ proxies:
   skip-cert-verify: true
   sni: 140.238.213.114
   type: hysteria2
+- name: '[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 6D786F'
+  server: 46.250.240.80
+  port: 2053
+  type: vless
+  uuid: 948df76f-505d-4608-9c76-a933ee3ccc76
+  udp: true
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: CYFeysLf--_IVhxQOCd3ZxLrAVWFFOkJzvIGHOVXN3E
+    short-id: 4cc9dc65f7770115
+  client-fingerprint: firefox
+  network: tcp
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1058426437'
   password: f87376e17da040ed04c9665ce8972930
   port: 50160
@@ -79,19 +86,19 @@ proxies:
   sni: hy2.aspidnet.xyz
   tls: false
   type: hysteria2
-- name: '[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | E7AB3E'
-  server: 146.70.102.82
-  port: 443
+- name: '[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 918E95'
+  server: 144.172.65.72
+  port: 8443
   type: vless
-  uuid: 31fd2fde-ca69-450e-8c03-eaad819b06b9
+  uuid: 8afeb33c-b686-43e9-a629-0d98f991ec28
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: www.datadoghq.com
+  servername: www.tradingview.com
   reality-opts:
-    public-key: GDer6NQYXdbccrFI0tLn2671PjCvrcSy0R7TKY8vG1k
-    short-id: 002fb4ec7b3088cc
-  client-fingerprint: firefox
+    public-key: f25sygANXTpzdc9YPCwkggwSmm3piA3BluSeHdfG-hg
+    short-id: ''
+  client-fingerprint: random
   network: tcp
 - name: '[pawdroid-free-servers] 美国+CloudFlare节点'
   type: trojan
@@ -129,13 +136,6 @@ proxies:
   sni: hy2-new.aspidnet.xyz
   tls: false
   type: hysteria2
-- name: '[free-v2ray-verified-clash] AL 🇦🇱 | @Raydikalx | 5D2A6F'
-  server: 130.49.189.158
-  port: 43558
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 52+ggoCvKFVJyT1NDiuWOZw2rHIvAg3tgqgJl8aeCwY=
-  udp: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1063751359'
   password: f87376e17da040ed04c9665ce8972930
   port: 50160
@@ -143,19 +143,19 @@ proxies:
   skip-cert-verify: true
   sni: 138.2.73.238
   type: hysteria2
-- name: '[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 6D786F'
-  server: 46.250.240.80
-  port: 2053
+- name: '[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | 020E5C'
+  server: 185.223.252.175
+  port: 443
   type: vless
-  uuid: 948df76f-505d-4608-9c76-a933ee3ccc76
+  uuid: b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
   udp: true
   tls: true
-  servername: www.cloudflare.com
-  reality-opts:
-    public-key: CYFeysLf--_IVhxQOCd3ZxLrAVWFFOkJzvIGHOVXN3E
-    short-id: 4cc9dc65f7770115
-  client-fingerprint: firefox
-  network: tcp
+  servername: rnxq-1lpi3m.linmeisoft.com
+  network: ws
+  ws-opts:
+    path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
+    headers:
+      Host: rnxq-1lpi3m.linmeisoft.com
 - name: '[pawdroid-free-servers] 美国+CloudFlare节点-3'
   type: vless
   server: 104.26.4.2
@@ -176,20 +176,6 @@ proxies:
   skip-cert-verify: true
   sni: 'off'
   type: hysteria2
-- name: '[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 918E95'
-  server: 144.172.65.72
-  port: 8443
-  type: vless
-  uuid: 8afeb33c-b686-43e9-a629-0d98f991ec28
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.tradingview.com
-  reality-opts:
-    public-key: f25sygANXTpzdc9YPCwkggwSmm3piA3BluSeHdfG-hg
-    short-id: ''
-  client-fingerprint: random
-  network: tcp
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1066924734'
   password: bce6c821-200d-421f-bf3d-7159e5246ea0
   port: 33333
@@ -197,6 +183,20 @@ proxies:
   skip-cert-verify: true
   sni: 'off'
   type: hysteria2
+- name: '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
+  type: vmess
+  server: FkvVg1cQRmv9qLCc.v.3dns.vip
+  port: 443
+  uuid: b89b702b-31ef-4f6a-85df-c264795a987b
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: FkvVg1cQRmv9qLCc.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: FkvVg1cQRmv9qLCc.v.3dns.vip
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-106798541'
   password: bce6c821-200d-421f-bf3d-7159e5246ea0
   port: 33333
@@ -247,6 +247,27 @@ proxies:
   skip-cert-verify: false
   sni: hy2.123266.xyz
   type: hysteria2
+- name: '[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | 601424'
+  server: 94.156.250.148
+  port: 7001
+  type: ss
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+  udp: true
+- name: '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
+  type: vmess
+  server: Z2ItHKfX1Hkxe8uS.v.3dns.vip
+  port: 443
+  uuid: b89b702b-31ef-4f6a-85df-c264795a987b
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: Z2ItHKfX1Hkxe8uS.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: Z2ItHKfX1Hkxe8uS.v.3dns.vip
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1093247054'
   password: 184cdec28da5a09450803c8debcd2cc9
   port: 50160
@@ -273,13 +294,6 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | 601424'
-  server: 94.156.250.148
-  port: 7001
-  type: ss
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
   udp: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1101789988'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
@@ -351,13 +365,19 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[zhuhaiuk-free-nodes] RU - zhuhai.uk'
-  type: http
-  server: chalo-ru.nexorcdn.com
-  port: 44008
-  username: ef37886e2aacd6fa622e3de3810299c2
-  password: 9jkvAVV-9ufV6IGd
+- name: '[free-v2ray-verified-clash] BR 🇧🇷 | @Raydikalx | 780626'
+  server: 35.199.90.53
+  port: 443
+  type: vless
+  uuid: 5e517b94-e207-47ee-be3c-3020a57594e8
+  udp: true
   tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: pCImwRkTjx8OIUiu1WFelZQFt1p3Q0lUoPbvjVq8GTs
+    short-id: b62a4da6cd1c4dd6
+  client-fingerprint: chrome
+  network: tcp
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1111846187'
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
   port: 50160
@@ -372,6 +392,20 @@ proxies:
   tls: true
   type: http
   udp: true
+- name: '[free-v2ray-verified-clash] BY 🇧🇾 | @Raydikalx | D56B8B'
+  server: 144.31.131.38
+  port: 443
+  type: vless
+  uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: prod.pl-node-01.security-sbrf.ru
+  reality-opts:
+    public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+    short-id: db04ce8bdb8900f1
+  client-fingerprint: chrome
+  network: tcp
 - name: '[zhuhaiuk-free-nodes] SG - zhuhai.uk'
   type: vless
   server: tongue-expects-begins-old.trycloudflare.com
@@ -402,19 +436,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] BR 🇧🇷 | @Raydikalx | 780626'
-  server: 35.199.90.53
-  port: 443
-  type: vless
-  uuid: 5e517b94-e207-47ee-be3c-3020a57594e8
-  udp: true
-  tls: true
-  servername: www.cloudflare.com
-  reality-opts:
-    public-key: pCImwRkTjx8OIUiu1WFelZQFt1p3Q0lUoPbvjVq8GTs
-    short-id: b62a4da6cd1c4dd6
-  client-fingerprint: chrome
-  network: tcp
 - name: '[zhuhaiuk-free-nodes] SG - zhuhai.uk 02'
   type: vmess
   server: K5DYRTmkNsLnAj8V.v.3dns.vip
@@ -436,20 +457,19 @@ proxies:
   skip-cert-verify: true
   sni: ''
   type: hysteria2
-- name: '[free-v2ray-verified-clash] BY 🇧🇾 | @Raydikalx | D56B8B'
-  server: 144.31.131.38
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 001FED'
+  server: 104.17.50.53
   port: 443
   type: vless
-  uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
   tls: true
-  flow: xtls-rprx-vision
-  servername: prod.pl-node-01.security-sbrf.ru
-  reality-opts:
-    public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
-    short-id: db04ce8bdb8900f1
-  client-fingerprint: chrome
-  network: tcp
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
 - name: '[zhuhaiuk-free-nodes] TH - zhuhai.uk'
   type: vless
   server: funagfrdfs.alixxplay.com
@@ -476,19 +496,31 @@ proxies:
   skip-cert-verify: true
   sni: https%3a%2f%2ft.me%2fwangcai2
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 001FED'
-  server: 104.17.50.53
+- name: '[ermaozi-subscribe] ProxyPool | 🇫🇷 法国 | FRA'
+  server: 162.159.91.211
   port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
+  type: trojan
+  password: humanity
+  sni: www.calmlunch.com
+  skip-cert-verify: true
   network: ws
   ws-opts:
-    path: /tyxyws
+    path: /assignment
     headers:
-      Host: jp3.yohototo.top
+      Host: www.calmlunch.com
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 028A48'
+  server: guanwang.awsno.com
+  port: 443
+  type: vmess
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
   type: vless
   server: funagfrdfs.alixxplay.com
@@ -508,13 +540,30 @@ proxies:
   skip-cert-verify: true
   sni: https://t.me/wangcai2рҹүрҹү
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 004741'
-  server: 51.222.200.165
-  port: 5000
-  type: ss
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
+- name: '[ermaozi-subscribe] ProxyPool | 🇳🇱 荷兰 | NLD'
+  server: hs.riverveil.com
+  port: 27631
+  type: vless
+  uuid: 3084f0d9-cb7e-425d-8d8f-7b5e3b5570c6
+  tls: true
+  reality-opts:
+    public-key: ydFMrFC_HRlVDj7e4jVGx1XZCuogpHZ82K3j-Kns0AE
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+  network: tcp
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
+  server: 104.21.70.228
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
   type: vless
   server: us1-r.link-t7.com
@@ -536,19 +585,13 @@ proxies:
   skip-cert-verify: true
   sni: "https://t.me/wangcai2ð\x9F\x87ð\x9F\x87"
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 01A402'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
+  type: http
+  server: 138.199.35.207
+  port: 9002
   tls: true
-  servername: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /?Telegram---DailyConfigs---DailyConfigs---DailyConfigs
-    headers:
-      Host: lucasjow.us.ci
+  sni: 138.199.35.207
+  skip-cert-verify: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1276641967'
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
   port: 50160
@@ -556,18 +599,26 @@ proxies:
   skip-cert-verify: true
   sni: www.bing.com
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 028A48'
-  server: guanwang.awsno.com
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0740A5'
+  server: 104.18.32.87
   port: 443
-  type: vmess
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
   udp: true
   tls: true
+  servername: a.cwvps.eu.org
   network: ws
   ws-opts:
-    path: /hls/cctv5phd.m3u8
+    path: /ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
+    headers:
+      Host: a.cwvps.eu.org
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 05'
+  type: http
+  server: 138.199.35.220
+  port: 9002
+  tls: true
+  sni: 138.199.35.220
+  skip-cert-verify: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1308897119'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -575,19 +626,19 @@ proxies:
   skip-cert-verify: true
   sni: https%3a%2f%2ft.me%2fwangcai2%f0%9f%87%a8%f0%9f%87%b3
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
-  server: 104.21.70.228
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 074A7C'
+  server: 104.24.2.147
   port: 443
   type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
   udp: true
   tls: true
-  servername: jp3.yohototo.top
+  servername: a.cwvps.eu.org
   network: ws
   ws-opts:
-    path: /tyxyws
+    path: /ws
     headers:
-      Host: jp3.yohototo.top
+      Host: a.cwvps.eu.org
 - name: '[zhuhaiuk-free-nodes] VN - zhuhai.uk'
   type: vless
   server: funagfrdfs.alixxplay.com
@@ -607,26 +658,6 @@ proxies:
   skip-cert-verify: true
   sni: https%3a%2f%2ft.me%2fwangcai2%d1%80%d2%b9%d2%af%d1%91%d1%80%d2%b9%d2%af%d1%96
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0740A5'
-  server: 104.18.32.87
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
-    headers:
-      Host: a.cwvps.eu.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-137781265'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: vpn-tw-002.fastervpn.world
-  type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 082FFA'
   server: s3.bamans.uk
   port: 443
@@ -641,6 +672,27 @@ proxies:
     host: s3.bamans.uk
     mode: stream-up
     x-padding-bytes: 100-1000
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-137781265'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
+  sni: vpn-tw-002.fastervpn.world
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0AF9DA'
+  server: www.speedtest.net
+  port: 2087
+  type: vless
+  uuid: 0075be7a-1f52-407b-81c1-7a0cb109e814
+  udp: true
+  tls: true
+  servername: smart-hetzner-ed5b25.mehmapixeo44.com
+  client-fingerprint: chrome
+  network: xhttp
+  xhttp-opts:
+    path: /Nothing1
+    host: smart-hetzner-ed5b25.mehmapixeo44.com
+    mode: stream-one
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1420323645'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -648,8 +700,8 @@ proxies:
   skip-cert-verify: true
   sni: https%3a%2f%2ft.me%2fwangcai2%d1%80%d2%b9%d2%af%d1%80%d2%b9%d2%af
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 09E0B6'
-  server: 104.16.10.84
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
+  server: 104.16.111.202
   port: 443
   type: vless
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -673,49 +725,8 @@ proxies:
   skip-cert-verify: true
   sni: hy2.561891.xyz
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0AF9DA'
-  server: www.speedtest.net
-  port: 2087
-  type: vless
-  uuid: 0075be7a-1f52-407b-81c1-7a0cb109e814
-  udp: true
-  tls: true
-  servername: smart-hetzner-ed5b25.mehmapixeo44.com
-  client-fingerprint: chrome
-  network: xhttp
-  xhttp-opts:
-    path: /Nothing1
-    host: smart-hetzner-ed5b25.mehmapixeo44.com
-    mode: stream-one
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1451198729'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2рҹүҹү
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
-  server: 104.16.111.202
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1456970890'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https%3a%2f%2ft.me%2fwangcai2%d1%80%d2%b9%d2%af
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 173DC3'
-  server: 104.21.70.21
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1923CC'
+  server: 162.159.228.224
   port: 443
   type: vless
   uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
@@ -727,6 +738,50 @@ proxies:
     path: /ws
     headers:
       Host: a.cwvps.eu.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1451198729'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2рҹүҹү
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 198A9F'
+  server: node8.liudonghoe.com
+  port: 443
+  type: vmess
+  uuid: 47050e4e-965d-41ca-976d-73c1f11e6905
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: node8.liudonghoe.com
+  network: ws
+  ws-opts:
+    path: /hoe8
+    headers:
+      Host: node8.liudonghoe.com
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1456970890'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2fwangcai2%d1%80%d2%b9%d2%af
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1DFB48'
+  server: 104.21.91.53
+  port: 8443
+  type: vmess
+  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: v2ray1.dozapp.xyz
+  network: ws
+  ws-opts:
+    path: /lMnsZUN4/
+    headers:
+      Host: v2ray1.dozapp.xyz
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1456970891'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -734,20 +789,19 @@ proxies:
   skip-cert-verify: true
   sni: https%3a%2f%2ft.me%2fwangcai2%c3%b0%c2%9f%c2%87%c2%a8%c3%b0%c2%9f%c2%87%c2%b3
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 17E5E7'
-  server: 188.114.97.6
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 216749'
+  server: 104.19.33.237
   port: 443
   type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   udp: true
   tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
+  servername: jp3.yohototo.top
   network: ws
   ws-opts:
-    path: /?Telegram---bored_vpn
+    path: /tyxyws
     headers:
-      Host: lucasjow.us.ci
+      Host: jp3.yohototo.top
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1456970892'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -755,8 +809,8 @@ proxies:
   skip-cert-verify: true
   sni: https%3a%2f%2ft.me%2fwangcai2%ef%a3%bf%c3%bc%c3%a1
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 189305'
-  server: 172.67.156.147
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 269005'
+  server: 104.16.10.185
   port: 443
   type: vless
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -776,21 +830,19 @@ proxies:
   skip-cert-verify: false
   sni: 152-69-231-175.liao.kdns.fr
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 198A9F'
-  server: node8.liudonghoe.com
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 26E40D'
+  server: 162.159.192.125
   port: 443
-  type: vmess
-  uuid: 47050e4e-965d-41ca-976d-73c1f11e6905
-  alterId: 0
-  cipher: auto
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
   udp: true
   tls: true
-  servername: node8.liudonghoe.com
+  servername: a.cwvps.eu.org
   network: ws
   ws-opts:
-    path: /hoe8
+    path: /ws
     headers:
-      Host: node8.liudonghoe.com
+      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1466428064'
   password: 1beb216e3f60aea9555dae60d219a5ca
   port: 50160
@@ -798,21 +850,19 @@ proxies:
   skip-cert-verify: true
   sni: 152-69-231-175.liao.kdns.fr
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1DFB48'
-  server: 104.21.91.53
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 2CD34B'
+  server: 104.25.77.242
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
   udp: true
   tls: true
-  servername: v2ray1.dozapp.xyz
+  servername: a.cwvps.eu.org
   network: ws
   ws-opts:
-    path: /lMnsZUN4/
+    path: /ws?ed#
     headers:
-      Host: v2ray1.dozapp.xyz
+      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1471631078'
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
   port: 50160
@@ -820,91 +870,12 @@ proxies:
   skip-cert-verify: true
   sni: 'off'
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1E2CCA'
-  server: yg1.ygkkk.dpdns.org
-  port: 443
-  type: vmess
-  uuid: b2ba4a73-3123-479e-aa96-5973a9ecd0c0
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: jmp1.907737.xyz
-  network: ws
-  ws-opts:
-    path: /b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm
-    headers:
-      Host: jmp1.907737.xyz
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1482139052'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
   server: vpn-tw-002.fastervpn.world
   skip-cert-verify: true
   sni: 'off'
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 212946'
-  server: 104.17.77.77
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1501727512'
-  password: 488b2611852407f03a681927cb91804b
-  port: 8443
-  server: 107.149.159.190
-  skip-cert-verify: true
-  sni: cf.shiranyu.xyz
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 21A212'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: '%25'
-    headers:
-      Host: lucasjow.us.ci
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1507123858'
-  password: pbgLTkd5276SN1sZ
-  port: 8443
-  server: 144.24.46.175
-  skip-cert-verify: true
-  sni: www.bing.com
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 23A580'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM---MARAMBASHI---MARAMBASHI---MARAMBASHI---MARAMBASHI
-    headers:
-      Host: lucasjow.us.ci
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1509475552'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2üáüá
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 31AC44'
   server: 209.200.246.148
@@ -920,12 +891,12 @@ proxies:
     short-id: f98843107912e782
   client-fingerprint: firefox
   network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1527482523'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1501727512'
+  password: 488b2611852407f03a681927cb91804b
+  port: 8443
+  server: 107.149.159.190
   skip-cert-verify: true
-  sni: 'off'
+  sni: cf.shiranyu.xyz
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3353B7'
   server: 172.66.203.67
@@ -942,6 +913,54 @@ proxies:
     path: /ws?ed=2048
     headers:
       Host: vmess.lbw666.dpdns.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1507123858'
+  password: pbgLTkd5276SN1sZ
+  port: 8443
+  server: 144.24.46.175
+  skip-cert-verify: true
+  sni: www.bing.com
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1509475552'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2üáüá
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 34CF95'
+  server: 188.114.97.6
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  udp: true
+  tls: true
+  servername: a.cwvps.eu.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: a.cwvps.eu.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1527482523'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.174
+  skip-cert-verify: true
+  sni: 'off'
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 35A445'
+  server: 104.18.43.174
+  port: 443
+  type: vless
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  udp: true
+  tls: true
+  servername: lucasjow.us.ci
+  client-fingerprint: qq
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: lucasjow.us.ci
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1529392538'
   password: pbgLTkd5276SN1sZ
   port: 8443
@@ -963,15 +982,8 @@ proxies:
   skip-cert-verify: true
   sni: 163.192.14.135
   type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1532454241'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2�
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3FB990'
-  server: 104.16.10.234
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 404682'
+  server: 104.17.169.13
   port: 443
   type: vless
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -983,6 +995,28 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1532454241'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2�
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
+  server: us5-1.998998.best
+  port: 443
+  type: vmess
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: server4.9966338.xyz
+  network: ws
+  ws-opts:
+    path: /androirfdsreoightrjh
+    headers:
+      Host: server4.9966338.xyz
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1532454244'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -990,8 +1024,8 @@ proxies:
   skip-cert-verify: true
   sni: https://t.me/wangcai2��
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 404682'
-  server: 104.17.169.13
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4561A3'
+  server: 104.18.42.98
   port: 443
   type: vless
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -1010,68 +1044,6 @@ proxies:
   skip-cert-verify: false
   sni: hy2.123266.xyz
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 415A85'
-  server: 104.16.10.9
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1537386177'
-  password: pbgLTkd5276SN1sZ
-  port: 8443
-  server: 144.24.46.175
-  skip-cert-verify: true
-  sni: 144.24.46.175
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
-  server: us5-1.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server4.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /androirfdsreoightrjh
-    headers:
-      Host: server4.9966338.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1549697709'
-  password: 96ab5cd282733fd4c312a61f972f330a
-  port: 443
-  server: vp3.yysyy.online
-  skip-cert-verify: false
-  sni: vp3.yysyy.online
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4561A3'
-  server: 104.18.42.98
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1552152557'
-  password: 96ab5cd282733fd4c312a61f972f330a
-  port: 443
-  server: vp3.yysyy.online
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 46B566'
   server: cf.0sm.com
   port: 443
@@ -1087,12 +1059,12 @@ proxies:
     path: /ws?ed=2048
     headers:
       Host: vmess.lbw666.dpdns.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1553149732'
-  password: 96ab5cd282733fd4c312a61f972f330a
-  port: 443
-  server: vp3.yysyy.online
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1537386177'
+  password: pbgLTkd5276SN1sZ
+  port: 8443
+  server: 144.24.46.175
   skip-cert-verify: true
-  sni: vp3.yysyy.online
+  sni: 144.24.46.175
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 46EDC3'
   server: 172.67.118.45
@@ -1107,6 +1079,40 @@ proxies:
     path: /assignment
     headers:
       Host: www.volumeroot.com
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1549697709'
+  password: 96ab5cd282733fd4c312a61f972f330a
+  port: 443
+  server: vp3.yysyy.online
+  skip-cert-verify: false
+  sni: vp3.yysyy.online
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1552152557'
+  password: 96ab5cd282733fd4c312a61f972f330a
+  port: 443
+  server: vp3.yysyy.online
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1553149732'
+  password: 96ab5cd282733fd4c312a61f972f330a
+  port: 443
+  server: vp3.yysyy.online
+  skip-cert-verify: true
+  sni: vp3.yysyy.online
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4FA2E4'
+  server: 104.16.111.102
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1577670529'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -1114,16 +1120,18 @@ proxies:
   skip-cert-verify: true
   sni: httpst.mewangcai2
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4BA3A6'
-  server: 23.162.200.198
-  port: 18000
-  type: vmess
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 52EECF'
+  server: 162.159.228.224
+  port: 443
+  type: trojan
+  password: humanity
   udp: true
-  tls: false
-  network: tcp
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.pleadcourt.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1582652685'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -1138,21 +1146,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4DE529'
-  server: 172.64.80.1
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1582653577'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -1167,19 +1160,18 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4FA2E4'
-  server: 104.16.111.102
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 54EB48'
+  server: uk8.998998.best
   port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  type: trojan
+  password: 5504eaa8-1395-402f-8e0e-75ecd762e627
   udp: true
-  tls: true
-  servername: jp3.yohototo.top
+  sni: server41.9966338.xyz
   network: ws
   ws-opts:
-    path: /tyxyws
+    path: /angles
     headers:
-      Host: jp3.yohototo.top
+      Host: server41.9966338.xyz
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1589277556'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -1201,18 +1193,18 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 54EB48'
-  server: uk8.998998.best
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 56ABBD'
+  server: 104.18.35.86
   port: 443
   type: trojan
-  password: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  password: humanity
   udp: true
-  sni: server41.9966338.xyz
+  sni: www.volumerOot.coM
   network: ws
   ws-opts:
-    path: /angles
+    path: /assignment
     headers:
-      Host: server41.9966338.xyz
+      Host: www.volumerOot.coM
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1589277558'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -1227,6 +1219,19 @@ proxies:
   tls: true
   type: http
   udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 57D11B'
+  server: 104.16.10.234
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  udp: true
+  tls: true
+  servername: a.cwvps.eu.org
+  network: ws
+  ws-opts:
+    path: /ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
+    headers:
+      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1589277560'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -1284,25 +1289,26 @@ proxies:
   type: ss
   cipher: 2022-blake3-aes-128-gcm
   password: NzJlOTQ5NWYtM2ZkYi00Cg==
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5F26A6'
-  server: 104.16.10.135
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1604107043'
   password: 4291c983-c520-46ac-82cc-48f14bef573f
   port: 35013
   server: 129.213.91.185
   skip-cert-verify: true
   sni: www.bing.com
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1649531969'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: https%3a
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1668124763'
+  password: 529f1911-04d5-4427-94b9-c851fd459a27
+  port: 443
+  server: nl-hy-test.tcp-reset-club.net
+  skip-cert-verify: true
+  sni: tcp-reset-club.net
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
   server: www.shopify.com
@@ -1319,39 +1325,60 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: guanwang.awsno.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1649531969'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 103.115.109.49
-  skip-cert-verify: true
-  sni: https%3a
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6AF8DB'
-  server: 104.16.10.72
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1668124763'
-  password: 529f1911-04d5-4427-94b9-c851fd459a27
-  port: 443
-  server: nl-hy-test.tcp-reset-club.net
-  skip-cert-verify: true
-  sni: tcp-reset-club.net
-  type: hysteria2
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1669882345'
   password: 96ab5cd282733fd4c312a61f972f330a
   port: 443
   server: 45.32.10.7
   skip-cert-verify: false
   sni: vp3.yysyy.online
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1671852511'
+  password: dd50a499-7e43-4589-8490-f3b9c2451473
+  port: 443
+  server: nl-hy-test.tcp-reset-club.net
+  skip-cert-verify: true
+  sni: tcp-reset-club.net
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6D4339'
+  server: 188.114.97.6
+  port: 443
+  type: vless
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  udp: true
+  tls: true
+  servername: lucasjow.us.ci
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: '%252'
+    headers:
+      Host: lucasjow.us.ci
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1671853509'
+  password: 96ab5cd282733fd4c312a61f972f330a
+  port: 443
+  server: 45.32.10.7
+  skip-cert-verify: true
+  sni: vp3.yysyy.online
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6EB934'
+  server: 172.67.217.240
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  udp: true
+  tls: true
+  servername: a.cwvps.eu.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: a.cwvps.eu.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1700749602'
+  password: u63SxILNwtrQZ7Y1ZrFaZfsA
+  port: 8443
+  server: 8.211.175.236
+  skip-cert-verify: true
+  sni: bing.com
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 714453'
   server: hk2.998998.best
@@ -1368,12 +1395,12 @@ proxies:
     path: /asivewritten?ed=2560
     headers:
       Host: server15.9966338.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1671852511'
-  password: dd50a499-7e43-4589-8490-f3b9c2451473
-  port: 443
-  server: nl-hy-test.tcp-reset-club.net
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1701029179'
+  password: user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2
+  port: 18642
+  server: s3.huhiuh.space
   skip-cert-verify: true
-  sni: tcp-reset-club.net
+  sni: ''
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 71C98E'
   server: s3.bamans.uk
@@ -1390,19 +1417,33 @@ proxies:
     host: s3.bamans.uk
     mode: stream-up
     x-padding-bytes: 100-1000
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1671853509'
-  password: 96ab5cd282733fd4c312a61f972f330a
-  port: 443
-  server: 45.32.10.7
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1701029218'
+  password: 1671a252e2a97dc2bda4e515475931da
+  port: 50160
+  server: 132.226.226.189
   skip-cert-verify: true
-  sni: vp3.yysyy.online
+  sni: ''
   type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1700749602'
-  password: u63SxILNwtrQZ7Y1ZrFaZfsA
-  port: 8443
-  server: 8.211.175.236
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 72D103'
+  server: 104.21.70.21
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1713695214'
+  password: 1671a252e2a97dc2bda4e515475931da
+  port: 50160
+  server: 132.226.226.189
   skip-cert-verify: true
-  sni: bing.com
+  sni: 132.226.226.189
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 76F5D4'
   server: 104.27.46.35
@@ -1417,17 +1458,17 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1701029179'
-  password: user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2
-  port: 18642
-  server: s3.huhiuh.space
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1735764219'
+  password: 488b2611852407f03a681927cb91804b
+  port: 8443
+  server: 107.149.159.190
   skip-cert-verify: true
   sni: ''
   type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1701029218'
-  password: 1671a252e2a97dc2bda4e515475931da
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1738559724'
+  password: 1beb216e3f60aea9555dae60d219a5ca
   port: 50160
-  server: 132.226.226.189
+  server: 152-69-231-175.liao.kdns.fr
   skip-cert-verify: true
   sni: ''
   type: hysteria2
@@ -1444,13 +1485,26 @@ proxies:
     path: /ws
     headers:
       Host: a.cwvps.eu.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1713695214'
-  password: 1671a252e2a97dc2bda4e515475931da
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1742728346'
+  password: 099830134df5ac3a04a4b21d39b8c395
   port: 50160
-  server: 132.226.226.189
+  server: 163.192.14.135
   skip-cert-verify: true
-  sni: 132.226.226.189
+  sni: vk.com#🍁97@oneclickvpnkeysvless://e13cf851-b4fd-413b-8d49-146e6eb8e5d4@166.88.35.245:80?encryption=none
   type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7B7020'
+  server: 172.64.145.133
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  udp: true
+  tls: true
+  servername: a.cwvps.eu.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: a.cwvps.eu.org
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 80057E'
   server: 104.18.43.174
   port: 443
@@ -1465,90 +1519,6 @@ proxies:
     path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
     headers:
       Host: lucasjow.us.ci
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1720682548'
-  password: user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2
-  port: 18642
-  server: s3.huhiuh.space
-  skip-cert-verify: true
-  sni: s3.huhiuh.space
-  type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1735764219'
-  password: 488b2611852407f03a681927cb91804b
-  port: 8443
-  server: 107.149.159.190
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861C59'
-  server: 104.16.10.56
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1738559724'
-  password: 1beb216e3f60aea9555dae60d219a5ca
-  port: 50160
-  server: 152-69-231-175.liao.kdns.fr
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861FD7'
-  server: jp5.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server11.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /ieusrdgfhteuirgfiuws?ed=2560
-    headers:
-      Host: server11.9966338.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1742728346'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: vk.com#🍁97@oneclickvpnkeysvless://e13cf851-b4fd-413b-8d49-146e6eb8e5d4@166.88.35.245:80?encryption=none
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8AC2AE'
-  server: 104.16.10.197
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: a.cwvps.eu.org
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8B1289'
-  server: 172.64.229.21
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1749857014'
   password: dd50a499-7e43-4589-8490-f3b9c2451473
   port: 443
@@ -1556,21 +1526,6 @@ proxies:
   skip-cert-verify: true
   sni: ''
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8BB1EE'
-  server: us16-4.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server1.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /efrsdioy98wert?ed=2560
-    headers:
-      Host: server1.9966338.xyz
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1753057696'
   password: 529f1911-04d5-4427-94b9-c851fd459a27
   port: 443
@@ -1578,8 +1533,8 @@ proxies:
   skip-cert-verify: true
   sni: nl-hy-test.tcp-reset-club.net
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8C3B14'
-  server: 104.16.10.22
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861C59'
+  server: 104.16.10.56
   port: 443
   type: vless
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -1598,6 +1553,107 @@ proxies:
   skip-cert-verify: true
   sni: ''
   type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861FD7'
+  server: jp5.998998.best
+  port: 443
+  type: vmess
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: server11.9966338.xyz
+  network: ws
+  ws-opts:
+    path: /ieusrdgfhteuirgfiuws?ed=2560
+    headers:
+      Host: server11.9966338.xyz
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1769683861'
+  password: u63SxILNwtrQZ7Y1ZrFaZfsA
+  port: 8443
+  server: 8.211.175.236
+  skip-cert-verify: true
+  sni: 8.211.175.236
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 878FF1'
+  server: 188.114.97.6
+  port: 443
+  type: vless
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  udp: true
+  tls: true
+  servername: lucasjow.us.ci
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
+    headers:
+      Host: lucasjow.us.ci
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1775679046'
+  password: 96ab5cd282733fd4c312a61f972f330a
+  port: 443
+  server: vp3.yysyy.online
+  skip-cert-verify: false
+  sni: ''
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8B1289'
+  server: 172.64.229.21
+  port: 443
+  type: vmess
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: vmess.lbw666.dpdns.org
+  network: ws
+  ws-opts:
+    path: /ws?ed=2048
+    headers:
+      Host: vmess.lbw666.dpdns.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-180178213'
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+  port: 33333
+  server: 155.248.209.237
+  skip-cert-verify: true
+  sni: 155.248.209.237
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1802357682'
+  password: 099830134df5ac3a04a4b21d39b8c395
+  port: 50160
+  server: 163.192.14.135
+  skip-cert-verify: true
+  sni: 'off'
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8BB1EE'
+  server: us16-4.998998.best
+  port: 443
+  type: vmess
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: server1.9966338.xyz
+  network: ws
+  ws-opts:
+    path: /efrsdioy98wert?ed=2560
+    headers:
+      Host: server1.9966338.xyz
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1802358673'
+  password: 1671a252e2a97dc2bda4e515475931da
+  port: 50160
+  server: 132.226.226.189
+  skip-cert-verify: true
+  sni: 'off'
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-200242609'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 929E2C'
   server: 104.16.10.63
   port: 443
@@ -1611,12 +1667,12 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1769683861'
-  password: u63SxILNwtrQZ7Y1ZrFaZfsA
-  port: 8443
-  server: 8.211.175.236
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-207301017'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 160.187.100.109
   skip-cert-verify: true
-  sni: 8.211.175.236
+  sni: vpn-tw-002.fastervpn.world
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 950346'
   server: 104.19.48.107
@@ -1631,13 +1687,40 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1775679046'
-  password: 96ab5cd282733fd4c312a61f972f330a
-  port: 443
-  server: vp3.yysyy.online
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-212133054'
+  password: dongtaiwang.com
+  port: 44356
+  server: 142.249.37.90
   skip-cert-verify: false
-  sni: ''
+  sni: hy2.561891.xyz
   type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 955519'
+  server: 172.67.217.240
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-296929603'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: 202.146.222.29
+  type: hysteria2
+- name: '[clashfree-daily] 未知 SS-76 | free-nodes'
+  server: 57.129.113.16
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: NcAXc0UZI6yQJE1p8QmOv8
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 982975'
   server: 188.114.97.6
   port: 443
@@ -1652,34 +1735,38 @@ proxies:
     path: /b0a100ee-c397-43f2-bdae-2adfb7a0d4e5
     headers:
       Host: rnxq-1lpi3m.linmeisoft.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-180178213'
-  password: bce6c821-200d-421f-bf3d-7159e5246ea0
-  port: 33333
-  server: 155.248.209.237
-  skip-cert-verify: true
-  sni: 155.248.209.237
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9A6C18'
-  server: us5-1.998998.best
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-307174592'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
+  server: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
+  sni: 127.0.0.1
+  type: hysteria2
+- name: '[clashfree-daily] 未知 SS-77 | free-nodes'
+  server: 194.68.44.42
+  port: 64546
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: U83u9OGpvSatIUW7LsWffr
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 994B91'
+  server: 104.18.37.127
+  port: 443
+  type: trojan
+  password: humanity
   udp: true
-  tls: true
-  servername: server4.9966338.xyz
+  sni: wWw.Volumeroot.cOm
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /androirfdsreoightrjh?ed=2560
+    path: /assignment
     headers:
-      Host: server4.9966338.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1802357682'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
+      Host: www.volumerOot.coM
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-328918461'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 160.187.100.109
   skip-cert-verify: true
-  sni: 'off'
+  sni: 127.0.0.1
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9ABF67'
   server: 66.70.179.198
@@ -1694,13 +1781,19 @@ proxies:
     short-id: 83f8317a948bb769
   client-fingerprint: chrome
   network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1802358673'
-  password: 1671a252e2a97dc2bda4e515475931da
-  port: 50160
-  server: 132.226.226.189
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-335125336'
+  password: github.com/Alvin9999-newpac/fanqiang
+  port: 60111
+  server: 62.210.7.139
   skip-cert-verify: true
-  sni: 'off'
+  sni: ''
   type: hysteria2
+- name: '[clashfree-daily] 未知 SS-79 | free-nodes'
+  server: 132.243.175.144
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9C0660'
   server: 104.18.153.10
   port: 443
@@ -1714,41 +1807,143 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-200242609'
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-4524389'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
-  server: vpn-tw-002.fastervpn.world
+  server: 202.146.222.29
   skip-cert-verify: true
-  sni: ''
+  sni: https://t.me/wangcai2🇨🇳
   type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-207301017'
+- name: '[clashfree-daily] 未知 SS-80 | free-nodes'
+  server: 82.38.31.159
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-467420662'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.174
+  skip-cert-verify: true
+  sni: https://t.me/oneclickvpnkeys
+  type: hysteria2
+- name: '[clashfree-daily] 未知 SS-81 | free-nodes'
+  server: 82.38.31.170
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9F7A9A'
+  server: 104.18.43.174
+  port: 443
+  type: vless
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  udp: true
+  tls: true
+  servername: lucasjow.us.ci
+  client-fingerprint: qq
+  network: ws
+  ws-opts:
+    path: /cart/docs/www/proxyip=108.160.132.132
+    headers:
+      Host: lucasjow.us.ci
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468273420'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2
+  type: hysteria2
+- name: '[clashfree-daily] 未知 SS-82 | free-nodes'
+  server: 82.38.31.171
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A00562'
+  server: 104.18.65.57
+  port: 443
+  type: trojan
+  password: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  udp: true
+  sni: nat3.xxai.dpdns.org
+  network: ws
+  ws-opts:
+    path: /anyway
+    headers:
+      Host: nat3.xxai.dpdns.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468892432'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
   server: 160.187.100.109
   skip-cert-verify: true
-  sni: vpn-tw-002.fastervpn.world
+  sni: ''
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
-  server: cf.0sm.com
-  port: 80
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
+- name: '[clashfree-daily] 未知 SS-83 | free-nodes'
+  server: 82.38.31.42
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[ermaozi-subscribe] RO_speednode_0082'
+  port: 9002
+  server: 193.176.84.24
+  skip-cert-verify: true
+  tls: true
+  type: http
   udp: true
-  tls: false
-  servername: vmess.lbw666.dpdns.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468892442'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
+  sni: css.rbxcdn.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 SS-84 | free-nodes'
+  server: 82.38.31.46
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[ermaozi-subscribe] RO_speednode_0083'
+  port: 9002
+  server: 193.176.84.25
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1E89D'
+  server: 104.16.111.193
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  udp: true
+  tls: true
+  servername: a.cwvps.eu.org
   network: ws
   ws-opts:
-    path: /ws?ed=2048
+    path: /ws
     headers:
-      Host: vmess.lbw666.dpdns.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-212133054'
-  password: dongtaiwang.com
-  port: 44356
-  server: 142.249.37.90
-  skip-cert-verify: false
-  sni: hy2.561891.xyz
+      Host: a.cwvps.eu.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468892443'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
+  sni: speedtest.tinkoff.ru
+  type: hysteria2
+- name: '[clashfree-daily] 未知 SS-85 | free-nodes'
+  server: 82.38.31.82
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468892444'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
+  sni: t.me
   type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A4F840'
   server: cf.877771.xyz
@@ -1765,19 +1960,13 @@ proxies:
     path: /ws?ed=2048
     headers:
       Host: vmess.lbw666.dpdns.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-24391'
-  password: dongtaiwang.com
-  port: 22000
-  server: 62.210.124.146
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468898830'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.174
   skip-cert-verify: true
-  sni: www.microsoft.com
+  sni: ''
   type: hysteria2
-- name: '[clashfree-daily] 未知 SS-76 | free-nodes'
-  server: 57.129.113.16
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: NcAXc0UZI6yQJE1p8QmOv8
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A57F2F'
   server: 104.21.34.106
   port: 443
@@ -1791,39 +1980,20 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-296929603'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-474576738'
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+  port: 33333
+  server: 155.248.209.237
   skip-cert-verify: true
-  sni: 202.146.222.29
+  sni: hy2.123266.xyz
   type: hysteria2
-- name: '[clashfree-daily] 未知 SS-77 | free-nodes'
-  server: 194.68.44.42
-  port: 64546
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: U83u9OGpvSatIUW7LsWffr
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A8DB9C'
-  server: 104.16.215.234
-  port: 8080
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+- name: '[ermaozi-subscribe] RO_speednode_0087'
+  port: 9002
+  server: 193.176.84.20
+  skip-cert-verify: true
+  tls: true
+  type: http
   udp: true
-  tls: false
-  servername: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-307174592'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: 127.0.0.1
-  type: hysteria2
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
   server: 188.114.97.6
   port: 443
@@ -1837,19 +2007,13 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-328918461'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 160.187.100.109
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-474576739'
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+  port: 33333
+  server: hy2.123266.xyz
   skip-cert-verify: true
-  sni: 127.0.0.1
+  sni: hy2.123266.xyz
   type: hysteria2
-- name: '[clashfree-daily] 未知 SS-79 | free-nodes'
-  server: 132.243.175.144
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A961D5'
   server: mix2.998998.best
   port: 443
@@ -1865,19 +2029,13 @@ proxies:
     path: /rthiugoyretdsuigg?ed=2560
     headers:
       Host: server10.9966338.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-335125336'
-  password: github.com/Alvin9999-newpac/fanqiang
-  port: 60111
-  server: 62.210.7.139
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-474576783'
+  password: dongtaiwang.com
+  port: 44356
+  server: 142.249.37.90
   skip-cert-verify: true
-  sni: ''
+  sni: hy2.561891.xyz
   type: hysteria2
-- name: '[clashfree-daily] 未知 SS-80 | free-nodes'
-  server: 82.38.31.159
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AB560A'
   server: 188.114.97.6
   port: 443
@@ -1892,253 +2050,6 @@ proxies:
     path: /3a6b3b038ea34622bd1e13ec5798ab03
     host: s3.bamans.uk
     mode: stream-up
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-4524389'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2🇨🇳
-  type: hysteria2
-- name: '[clashfree-daily] 未知 SS-81 | free-nodes'
-  server: 82.38.31.170
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AF61A0'
-  server: 51.79.31.36
-  port: 31146
-  type: vless
-  uuid: f0466557-2fd5-442e-94cb-12c6b764155e
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: play-fe.googleapis.com
-  reality-opts:
-    public-key: QAoJHZT6_DZsBu-jH74uYZUTpGgxmvN2tXpRKj4CygE
-    short-id: cf4e6f8338
-  client-fingerprint: chrome
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-467420662'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
-  skip-cert-verify: true
-  sni: https://t.me/oneclickvpnkeys
-  type: hysteria2
-- name: '[clashfree-daily] 未知 SS-82 | free-nodes'
-  server: 82.38.31.171
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B09191'
-  server: chatgpt.com
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468273420'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2
-  type: hysteria2
-- name: '[clashfree-daily] 未知 SS-83 | free-nodes'
-  server: 82.38.31.42
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[ermaozi-subscribe] RO_speednode_0082'
-  port: 9002
-  server: 193.176.84.24
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B52D10'
-  server: us16-4.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server1.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /efrsdioy98wert
-    headers:
-      Host: server1.9966338.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468892432'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 160.187.100.109
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[clashfree-daily] 未知 SS-84 | free-nodes'
-  server: 82.38.31.46
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[ermaozi-subscribe] RO_speednode_0083'
-  port: 9002
-  server: 193.176.84.25
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B72A46'
-  server: 104.21.37.56
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.volumeroot.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumeroot.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468892442'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: css.rbxcdn.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 SS-85 | free-nodes'
-  server: 82.38.31.82
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B754D5'
-  server: 104.17.77.77
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: none
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B79C81'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: 20ff936a-8eb5-4d27-9cce-93f2016d467b
-  udp: true
-  tls: true
-  servername: free.nadun.store
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: free.nadun.store
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468892444'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: t.me
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C1DD08'
-  server: 104.19.33.25
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468898830'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[ermaozi-subscribe] RO_speednode_0087'
-  port: 9002
-  server: 193.176.84.20
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C63706'
-  server: www.speedtest.net
-  port: 443
-  type: vless
-  uuid: d4733e5a-5850-4523-942e-f28f82ebf4a9
-  udp: true
-  tls: true
-  servername: party-5cn.pages.dev
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: party-5cn.pages.dev
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-474576738'
-  password: bce6c821-200d-421f-bf3d-7159e5246ea0
-  port: 33333
-  server: 155.248.209.237
-  skip-cert-verify: true
-  sni: hy2.123266.xyz
-  type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-474576739'
-  password: bce6c821-200d-421f-bf3d-7159e5246ea0
-  port: 33333
-  server: hy2.123266.xyz
-  skip-cert-verify: true
-  sni: hy2.123266.xyz
-  type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-474576783'
-  password: dongtaiwang.com
-  port: 44356
-  server: 142.249.37.90
-  skip-cert-verify: true
-  sni: hy2.561891.xyz
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C7986A'
-  server: 104.21.57.84
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-483633861'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -2146,8 +2057,8 @@ proxies:
   skip-cert-verify: true
   sni: google.com
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C'
-  server: 104.16.10.48
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AC72F3'
+  server: 104.16.10.104
   port: 443
   type: vless
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -2166,6 +2077,190 @@ proxies:
   skip-cert-verify: true
   sni: speedtest.tinkoff.ru
   type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | ACE740'
+  server: yg1.ygkkk.dpdns.org
+  port: 443
+  type: vmess
+  uuid: b2ba4a73-3123-479e-aa96-5973a9ecd0c0
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: jmp1.907737.xyz
+  network: ws
+  ws-opts:
+    path: /b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm
+    headers:
+      Host: jmp1.907737.xyz
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-483633863'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: vk.com
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AF61A0'
+  server: 51.79.31.36
+  port: 31146
+  type: vless
+  uuid: f0466557-2fd5-442e-94cb-12c6b764155e
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: play-fe.googleapis.com
+  reality-opts:
+    public-key: QAoJHZT6_DZsBu-jH74uYZUTpGgxmvN2tXpRKj4CygE
+    short-id: cf4e6f8338
+  client-fingerprint: chrome
+  network: tcp
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-483633864'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2рҹүёрҹүі
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B4C2B7'
+  server: 104.18.176.145
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  udp: true
+  tls: true
+  servername: a.cwvps.eu.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: a.cwvps.eu.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-483633865'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: "https://t.me/wangcai2ð\x9F\x87¨ð\x9F\x87³"
+  type: hysteria2
+- name: '[ermaozi-subscribe] RO_speednode_0094'
+  password: None
+  port: 9002
+  server: 193.176.84.31
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-500716426'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 160.187.100.109
+  skip-cert-verify: true
+  sni: 160.187.100.109
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B79C81'
+  server: 188.114.97.6
+  port: 443
+  type: vless
+  uuid: 20ff936a-8eb5-4d27-9cce-93f2016d467b
+  udp: true
+  tls: true
+  servername: free.nadun.store
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.nadun.store
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-537797363'
+  password: gf1:gfhysteria2024
+  port: 443
+  server: 66.94.121.46
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C63706'
+  server: www.speedtest.net
+  port: 443
+  type: vless
+  uuid: d4733e5a-5850-4523-942e-f28f82ebf4a9
+  udp: true
+  tls: true
+  servername: party-5cn.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: party-5cn.pages.dev
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-561697888'
+  password: dongtaiwang.com
+  port: 44356
+  server: hy2.561891.xyz
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
+- name: '[ermaozi-subscribe] RO_speednode_0097'
+  password: None
+  port: 9002
+  server: 193.176.84.23
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-620179978'
+  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
+  port: 443
+  server: admin.wwwinternetvideo.click
+  skip-cert-verify: true
+  sni: admin.wwwinternetvideo.click
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-650314288'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: 103.115.109.49
+  type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C7986A'
+  server: 104.21.57.84
+  port: 8443
+  type: vmess
+  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: v2ray1.dozapp.xyz
+  network: ws
+  ws-opts:
+    path: /lMnsZUN4/
+    headers:
+      Host: v2ray1.dozapp.xyz
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-650429104'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-119 | free-nodes'
+  server: 3.34.131.153
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: pretty-rat.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-650659597'
+  password: github.com/Alvin9999-newpac/fanqiang
+  port: 60111
+  server: 62.210.7.139
+  skip-cert-verify: true
+  sni: 62.210.7.139
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-120 | free-nodes'
+  server: adapting-basilisk.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: adapting-basilisk.rooster465.autos
+  skip-cert-verify: false
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9F20E'
   server: guanwang.awsno.com
   port: 443
@@ -2181,192 +2276,12 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: guanwang.awsno.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-483633863'
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-650663575'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
-  server: 202.146.222.29
+  server: 202.146.222.174
   skip-cert-verify: true
-  sni: vk.com
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D1E6D6'
-  server: 188.114.97.5
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-483633864'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2рҹүёрҹүі
-  type: hysteria2
-- name: '[ermaozi-subscribe] RO_speednode_0094'
-  password: None
-  port: 9002
-  server: 193.176.84.31
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-483633865'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: "https://t.me/wangcai2ð\x9F\x87¨ð\x9F\x87³"
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D9E52E'
-  server: 104.18.37.127
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-500716426'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 160.187.100.109
-  skip-cert-verify: true
-  sni: 160.187.100.109
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DEBC1A'
-  server: 149.22.95.183
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-537797363'
-  password: gf1:gfhysteria2024
-  port: 443
-  server: 66.94.121.46
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[ermaozi-subscribe] RO_speednode_0097'
-  password: None
-  port: 9002
-  server: 193.176.84.23
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DEF3AC'
-  server: 104.17.210.74
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-561697888'
-  password: dongtaiwang.com
-  port: 44356
-  server: hy2.561891.xyz
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E08020'
-  server: 104.16.111.195
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-620179978'
-  password: YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  port: 443
-  server: admin.wwwinternetvideo.click
-  skip-cert-verify: true
-  sni: admin.wwwinternetvideo.click
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E157C0'
-  server: 104.19.164.155
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-650314288'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 103.115.109.49
-  skip-cert-verify: true
-  sni: 103.115.109.49
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-119 | free-nodes'
-  server: 3.34.131.153
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: pretty-rat.rooster465.autos
-  skip-cert-verify: false
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-650429104'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 103.115.109.49
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-120 | free-nodes'
-  server: adapting-basilisk.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: adapting-basilisk.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E5ABBA'
-  server: 172.67.161.144
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-650659597'
-  password: github.com/Alvin9999-newpac/fanqiang
-  port: 60111
-  server: 62.210.7.139
-  skip-cert-verify: true
-  sni: 62.210.7.139
+  sni: 202.146.222.174
   type: hysteria2
 - name: '[clashfree-daily] 未知 TROJAN-121 | free-nodes'
   server: alert-titmouse.rooster465.autos
@@ -2375,35 +2290,8 @@ proxies:
   password: UX82473651
   sni: alert-titmouse.rooster465.autos
   skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EE59FC'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws#TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-    headers:
-      Host: a.cwvps.eu.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-650663575'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
-  skip-cert-verify: true
-  sni: 202.146.222.174
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-122 | free-nodes'
-  server: allowed-poodle.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: allowed-poodle.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F1502D'
-  server: 104.16.10.2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CF55CC'
+  server: 104.21.6.186
   port: 443
   type: vless
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -2422,6 +2310,34 @@ proxies:
   skip-cert-verify: true
   sni: 66.94.121.46
   type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-122 | free-nodes'
+  server: allowed-poodle.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: allowed-poodle.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D9E52E'
+  server: 104.18.37.127
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-652726871'
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+  port: 33333
+  server: hy2.123266.xyz
+  skip-cert-verify: false
+  sni: ''
+  type: hysteria2
 - name: '[clashfree-daily] 未知 TROJAN-123 | free-nodes'
   server: amazed-mako.rooster465.autos
   port: 443
@@ -2429,23 +2345,22 @@ proxies:
   password: UX82473651
   sni: amazed-mako.rooster465.autos
   skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F1EC39'
-  server: 104.19.164.155
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DA0B9C'
+  server: 172.64.145.133
   port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  type: trojan
+  password: humanity
   udp: true
-  tls: true
-  servername: a.cwvps.eu.org
+  sni: www.pleadcourt.org
   network: ws
   ws-opts:
-    path: /ws
+    path: /assignment
     headers:
-      Host: a.cwvps.eu.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-652726871'
-  password: bce6c821-200d-421f-bf3d-7159e5246ea0
-  port: 33333
-  server: hy2.123266.xyz
+      Host: www.pleadcourt.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-652726872'
+  password: dongtaiwang.com
+  port: 44356
+  server: hy2.561891.xyz
   skip-cert-verify: false
   sni: ''
   type: hysteria2
@@ -2455,6 +2370,346 @@ proxies:
   type: trojan
   password: UX82473651
   sni: assuring-skink.rooster465.autos
+  skip-cert-verify: false
+- name: '[clashfree-daily] 未知 TROJAN-125 | free-nodes'
+  server: brave-tomcat.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: brave-tomcat.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DEBC1A'
+  server: 149.22.95.183
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-655837404'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2🇨🇳
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-126 | free-nodes'
+  server: brief-glider.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: brief-glider.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DEF3AC'
+  server: 104.17.210.74
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-655838404'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.174
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2🇨🇳
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-127 | free-nodes'
+  server: central-jawfish.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: central-jawfish.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E08020'
+  server: 104.16.111.195
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-656706489'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: https://t.me/oneclickvpnkeys
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-128 | free-nodes'
+  server: comic-poodle.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: comic-poodle.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E157C0'
+  server: 104.19.164.155
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-674602384'
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+  port: 33333
+  server: hy2.123266.xyz
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-129 | free-nodes'
+  server: cunning-grub.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: cunning-grub.rooster465.autos
+  skip-cert-verify: false
+- name: '[ermaozi-subscribe] RO_speednode_0110'
+  port: 9002
+  server: 193.176.84.27
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-689011839'
+  password: github.com/Alvin9999-newpac/fanqiang
+  port: 43115
+  server: 62.210.147.2
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-130 | free-nodes'
+  server: delicate-buck.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: delicate-buck.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-692912199'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: css.rbxcdn.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-131 | free-nodes'
+  server: engaging-toucan.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: engaging-toucan.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E5A8AD'
+  server: us16-4.998998.best
+  port: 443
+  type: vmess
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: server1.9966338.xyz
+  network: ws
+  ws-opts:
+    path: /efrsdioy98wert
+    headers:
+      Host: server1.9966338.xyz
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-705682024'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2рҹү
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-132 | free-nodes'
+  server: evident-ant.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: evident-ant.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E5ABBA'
+  server: 172.67.161.144
+  port: 8443
+  type: vmess
+  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: v2ray1.dozapp.xyz
+  network: ws
+  ws-opts:
+    path: /lMnsZUN4/
+    headers:
+      Host: v2ray1.dozapp.xyz
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-705682202'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: "https://t.me/wangcai2ð\x9F\x87"
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-133 | free-nodes'
+  server: evolving-platypus.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: evolving-platypus.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-705682240'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: www.bing.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-134 | free-nodes'
+  server: fancy-javelin.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: fancy-javelin.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E8E89B'
+  server: 188.114.97.6
+  port: 443
+  type: trojan
+  password: humanity
+  udp: true
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.pleadcourt.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-721489367'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: t.me
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-135 | free-nodes'
+  server: fancy-skink.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: fancy-skink.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
+  server: us5-1.998998.best
+  port: 443
+  type: vmess
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: server4.9966338.xyz
+  network: ws
+  ws-opts:
+    path: /androirfdsreoightrjh?ed=2560
+    headers:
+      Host: server4.9966338.xyz
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-721489368'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.174
+  skip-cert-verify: true
+  sni: t.me
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-136 | free-nodes'
+  server: glorious-lark.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: glorious-lark.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-721489375'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: t.me
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-137 | free-nodes'
+  server: inviting-ferret.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: inviting-ferret.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-722298544'
+  password: github.com/Alvin9999-newpac/fanqiang
+  port: 60111
+  server: 62.210.7.139
+  skip-cert-verify: true
+  sni: google.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-138 | free-nodes'
+  server: inviting-rabbit.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: inviting-rabbit.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EEF52A'
+  server: 104.16.10.84
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  udp: true
+  tls: true
+  servername: a.cwvps.eu.org
+  network: ws
+  ws-opts:
+    path: /ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
+    headers:
+      Host: a.cwvps.eu.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-722298610'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: whatsapp.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-139 | free-nodes'
+  server: kind-stork.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: kind-stork.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-722298630'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
+  sni: whatsapp.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-140 | free-nodes'
+  server: live-stallion.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: live-stallion.rooster465.autos
   skip-cert-verify: false
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F25C32'
   server: 104.17.147.222
@@ -2471,102 +2726,27 @@ proxies:
     path: /ws?ed=2048
     headers:
       Host: vmess.lbw666.dpdns.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-652726872'
-  password: dongtaiwang.com
-  port: 44356
-  server: hy2.561891.xyz
-  skip-cert-verify: false
-  sni: ''
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-125 | free-nodes'
-  server: brave-tomcat.rooster465.autos
+- name: '[clashfree-daily] 未知 TROJAN-141 | free-nodes'
+  server: loved-shark.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
-  sni: brave-tomcat.rooster465.autos
+  sni: loved-shark.rooster465.autos
   skip-cert-verify: false
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-655713431'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: vpn-tw-002.fastervpn.world\u0026insecure=1\u0026allowinsecure=1
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-126 | free-nodes'
-  server: brief-glider.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: brief-glider.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F5FE35'
-  server: 104.21.33.59
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-655837404'
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-737135161'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
   server: 103.115.109.49
   skip-cert-verify: true
-  sni: https://t.me/wangcai2🇨🇳
+  sni: 'https:'
   type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-127 | free-nodes'
-  server: central-jawfish.rooster465.autos
+- name: '[clashfree-daily] 未知 TROJAN-142 | free-nodes'
+  server: main-fawn.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
-  sni: central-jawfish.rooster465.autos
+  sni: main-fawn.rooster465.autos
   skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F804C9'
-  server: 172.67.71.187
-  port: 8080
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  udp: true
-  tls: false
-  servername: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-655838404'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2🇨🇳
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-128 | free-nodes'
-  server: comic-poodle.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: comic-poodle.rooster465.autos
-  skip-cert-verify: false
-- name: '[clashfree-daily] 未知 TROJAN-129 | free-nodes'
-  server: cunning-grub.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: cunning-grub.rooster465.autos
-  skip-cert-verify: false
-- name: '[ermaozi-subscribe] RO_speednode_0110'
-  port: 9002
-  server: 193.176.84.27
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F952DA'
   server: 172.67.195.196
   port: 443
@@ -2582,20 +2762,20 @@ proxies:
     host: s3.bamans.uk
     mode: stream-up
     x-padding-bytes: 100-1000
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-674602384'
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-855509014'
   password: bce6c821-200d-421f-bf3d-7159e5246ea0
   port: 33333
-  server: hy2.123266.xyz
+  server: 155.248.209.237
   skip-cert-verify: true
-  sni: ''
+  sni: 155.248.209.2
   type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-130 | free-nodes'
-  server: delicate-buck.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: delicate-buck.rooster465.autos
-  skip-cert-verify: false
+- name: '[ermaozi-subscribe] RO_speednode_0124'
+  port: 9002
+  server: 193.176.84.32
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | FB6887'
   server: 51.222.136.236
   port: 8882
@@ -2603,46 +2783,19 @@ proxies:
   cipher: aes-256-gcm
   password: kDWvXYZoTBcGkC4
   udp: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-689011839'
-  password: github.com/Alvin9999-newpac/fanqiang
-  port: 43115
-  server: 62.210.147.2
-  skip-cert-verify: true
-  sni: www.microsoft.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-131 | free-nodes'
-  server: engaging-toucan.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: engaging-toucan.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | FE12F8'
-  server: 172.64.150.43
-  port: 2082
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  udp: true
-  tls: false
-  servername: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-692912199'
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-856461941'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
   server: 202.146.222.29
   skip-cert-verify: true
-  sni: css.rbxcdn.com
+  sni: https://t.me/wangcai2üá®üá≥
   type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-132 | free-nodes'
-  server: evident-ant.rooster465.autos
+- name: '[clashfree-daily] 未知 TROJAN-144 | free-nodes'
+  server: moral-basilisk.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
-  sni: evident-ant.rooster465.autos
+  sni: moral-basilisk.rooster465.autos
   skip-cert-verify: false
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | FFAFFF'
   server: 104.24.31.89
@@ -2657,269 +2810,12 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-705682024'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2рҹү
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-133 | free-nodes'
-  server: evolving-platypus.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: evolving-platypus.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | 15C43B'
-  server: 45.90.59.15
-  port: 443
-  type: vless
-  uuid: 3950b45e-740d-4dca-ac95-505ec8534592
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.cloudflare.com
-  reality-opts:
-    public-key: P7S4UPFlQbmiBr4txyy8NZIMTrmO3UdxyH16WBU-YzY
-    short-id: 19253fae84102271
-  client-fingerprint: firefox
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-705682202'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: "https://t.me/wangcai2ð\x9F\x87"
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-134 | free-nodes'
-  server: fancy-javelin.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: fancy-javelin.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | 1ED64E'
-  server: 208.69.78.217
-  port: 2053
-  type: vless
-  uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
-  udp: true
-  tls: true
-  servername: www.apple.com
-  reality-opts:
-    public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
-    short-id: ad86e2d52ff40ebd
-  client-fingerprint: firefox
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-705682240'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: www.bing.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-135 | free-nodes'
-  server: fancy-skink.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: fancy-skink.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | A038DD'
-  server: 132.243.175.144
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
-  udp: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-721489367'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: t.me
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-136 | free-nodes'
-  server: glorious-lark.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: glorious-lark.rooster465.autos
-  skip-cert-verify: false
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-721489368'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
-  skip-cert-verify: true
-  sni: t.me
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-137 | free-nodes'
-  server: inviting-ferret.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: inviting-ferret.rooster465.autos
-  skip-cert-verify: false
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-721489375'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 103.115.109.49
-  skip-cert-verify: true
-  sni: t.me
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-138 | free-nodes'
-  server: inviting-rabbit.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: inviting-rabbit.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CN 🇨🇳 | @Raydikalx | 6E02FF'
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  udp: true
-  tls: false
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-722298544'
-  password: github.com/Alvin9999-newpac/fanqiang
-  port: 60111
-  server: 62.210.7.139
-  skip-cert-verify: true
-  sni: google.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-139 | free-nodes'
-  server: kind-stork.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: kind-stork.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CN 🇨🇳 | @Raydikalx | A1B995'
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-722298610'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: whatsapp.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-140 | free-nodes'
-  server: live-stallion.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: live-stallion.rooster465.autos
-  skip-cert-verify: false
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-722298630'
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-856679747'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
   server: vpn-tw-002.fastervpn.world
   skip-cert-verify: true
-  sni: whatsapp.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-141 | free-nodes'
-  server: loved-shark.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: loved-shark.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CZ 🇨🇿 | @Raydikalx | 6BA4FE'
-  server: 5.39.202.125
-  port: 443
-  type: vless
-  uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: czekkk.loknietotop.digital
-  reality-opts:
-    public-key: WU5baXUzRH9BceiYI8MPBmDMEloTFImx2vvE5uh1yjM
-    short-id: f19e02a2fb573c18
-  client-fingerprint: random
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-722298650'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: vk.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-142 | free-nodes'
-  server: main-fawn.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: main-fawn.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CZ 🇨🇿 | @Raydikalx | A5BB82'
-  server: czekkk.loknietotop.digital
-  port: 443
-  type: vless
-  uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: czekkk.loknietotop.digital
-  reality-opts:
-    public-key: WU5baXUzRH9BceiYI8MPBmDMEloTFImx2vvE5uh1yjM
-    short-id: f19e02a2fb573c18
-  client-fingerprint: firefox
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-737135161'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 103.115.109.49
-  skip-cert-verify: true
-  sni: 'https:'
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-143 | free-nodes'
-  server: meet-goshawk.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: meet-goshawk.rooster465.autos
-  skip-cert-verify: false
-- name: '[ermaozi-subscribe] RO_speednode_0124'
-  port: 9002
-  server: 193.176.84.32
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-855509014'
-  password: bce6c821-200d-421f-bf3d-7159e5246ea0
-  port: 33333
-  server: 155.248.209.237
-  skip-cert-verify: true
-  sni: 155.248.209.2
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-144 | free-nodes'
-  server: moral-basilisk.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: moral-basilisk.rooster465.autos
-  skip-cert-verify: false
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-856461941'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2üá®üá≥
+  sni: vpn-tw-002.fastervpn.world%5cu0026insecure%3d1%5cu0026allowinsecure%3d1
   type: hysteria2
 - name: '[clashfree-daily] 未知 TROJAN-145 | free-nodes'
   server: musical-mouse.rooster465.autos
@@ -2935,21 +2831,12 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 038CA0'
-  server: 3.75.93.113
-  port: 443
-  type: trojan
-  password: UX82473651
-  udp: true
-  sni: meet-goshawk.rooster465.autos
-  client-fingerprint: chrome
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-856679747'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-857369683'
+  password: 099830134df5ac3a04a4b21d39b8c395
+  port: 50160
+  server: 163.192.14.135
   skip-cert-verify: true
-  sni: vpn-tw-002.fastervpn.world%5cu0026insecure%3d1%5cu0026allowinsecure%3d1
+  sni: www.bing.com
   type: hysteria2
 - name: '[clashfree-daily] 未知 TROJAN-146 | free-nodes'
   server: musical-terrier.rooster465.autos
@@ -2957,6 +2844,178 @@ proxies:
   type: trojan
   password: UX82473651
   sni: musical-terrier.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | 1ED64E'
+  server: 208.69.78.217
+  port: 2053
+  type: vless
+  uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
+  udp: true
+  tls: true
+  servername: www.apple.com
+  reality-opts:
+    public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
+    short-id: ad86e2d52ff40ebd
+  client-fingerprint: firefox
+  network: tcp
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566577'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2fwangcai2%f0%9f%87%a8%f0%9f%87%b3
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-147 | free-nodes'
+  server: normal-macaque.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: normal-macaque.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | A038DD'
+  server: 132.243.175.144
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566578'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2fwangcai2
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-148 | free-nodes'
+  server: noted-cougar.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: noted-cougar.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566711'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.174
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2foneclickvpnkeys
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-149 | free-nodes'
+  server: obliging-louse.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: obliging-louse.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566713'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.174
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2fwangcai2%f0%9f%87%a8%f0%9f%87%b3
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-150 | free-nodes'
+  server: optimum-snapper.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: optimum-snapper.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] CR 🇨🇷 | @Raydikalx | 9AD2A3'
+  server: 190.93.245.148
+  port: 443
+  type: trojan
+  password: humanity
+  udp: true
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.pleadcourt.org
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-918220920'
+  password: 099830134df5ac3a04a4b21d39b8c395
+  port: 50160
+  server: 163.192.14.135
+  skip-cert-verify: true
+  sni: t.me
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-151 | free-nodes'
+  server: pleased-albacore.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: pleased-albacore.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-918220947'
+  password: 099830134df5ac3a04a4b21d39b8c395
+  port: 50160
+  server: 163.192.14.135
+  skip-cert-verify: true
+  sni: css.rbxcdn.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-152 | free-nodes'
+  server: promoted-rattler.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: promoted-rattler.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-918221056'
+  password: 099830134df5ac3a04a4b21d39b8c395
+  port: 50160
+  server: 163.192.14.135
+  skip-cert-verify: true
+  sni: whatsapp.com
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-153 | free-nodes'
+  server: pure-kodiak.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: pure-kodiak.rooster465.autos
+  skip-cert-verify: false
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-918221107'
+  password: 099830134df5ac3a04a4b21d39b8c395
+  port: 50160
+  server: 163.192.14.135
+  skip-cert-verify: true
+  sni: speedtest.tinkoff.ru
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-154 | free-nodes'
+  server: simple-molly.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: simple-molly.rooster465.autos
+  skip-cert-verify: false
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 05BB45'
+  server: 94.103.168.48
+  port: 2087
+  type: vless
+  uuid: a5db5ab5-8d28-49c0-ad55-0ad4724e5c0d
+  udp: true
+  tls: true
+  servername: ops4asfseretuiyk.localip.ir
+  client-fingerprint: random
+  network: ws
+  ws-opts:
+    path: /hokm
+    headers:
+      Host: ops4asfseretuiyk.localip.ir
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-920243840'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2üá
+  type: hysteria2
+- name: '[clashfree-daily] 未知 TROJAN-155 | free-nodes'
+  server: stable-python.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: stable-python.rooster465.autos
   skip-cert-verify: false
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 09E65E'
   server: 2.27.35.55
@@ -2972,212 +3031,12 @@ proxies:
     short-id: e696e744
   client-fingerprint: chrome
   network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-857369683'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: www.bing.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-147 | free-nodes'
-  server: normal-macaque.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: normal-macaque.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 0FF40C'
-  server: 5.252.179.15
-  port: 443
-  type: vless
-  uuid: 0ab273e4-cea6-41d0-bbab-41071d2fc455
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.bing.com
-  reality-opts:
-    public-key: XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY
-    short-id: 296f27de82dad7ff
-  client-fingerprint: qq
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566577'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 103.115.109.49
-  skip-cert-verify: true
-  sni: https%3a%2f%2ft.me%2fwangcai2%f0%9f%87%a8%f0%9f%87%b3
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-148 | free-nodes'
-  server: noted-cougar.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: noted-cougar.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 113159'
-  server: pleased-albacore.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  udp: true
-  sni: pleased-albacore.rooster465.autos
-  client-fingerprint: chrome
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566578'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 103.115.109.49
-  skip-cert-verify: true
-  sni: https%3a%2f%2ft.me%2fwangcai2
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-149 | free-nodes'
-  server: obliging-louse.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: obliging-louse.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 11A348'
-  server: 94.103.168.52
-  port: 2087
-  type: vless
-  uuid: a5db5ab5-8d28-49c0-ad55-0ad4724e5c0d
-  udp: true
-  tls: true
-  servername: fert1qswdfegrthy.localip.ir
-  client-fingerprint: random
-  network: ws
-  ws-opts:
-    path: /hokm
-    headers:
-      Host: fert1qswdfegrthy.localip.ir
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566711'
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-920243845'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
   server: 202.146.222.174
   skip-cert-verify: true
-  sni: https%3a%2f%2ft.me%2foneclickvpnkeys
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-150 | free-nodes'
-  server: optimum-snapper.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: optimum-snapper.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 16D914'
-  server: actual-squid.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  udp: true
-  sni: actual-squid.rooster465.autos
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566713'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
-  skip-cert-verify: true
-  sni: https%3a%2f%2ft.me%2fwangcai2%f0%9f%87%a8%f0%9f%87%b3
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-151 | free-nodes'
-  server: pleased-albacore.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: pleased-albacore.rooster465.autos
-  skip-cert-verify: false
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-918220920'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: t.me
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-152 | free-nodes'
-  server: promoted-rattler.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: promoted-rattler.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 18DE7D'
-  server: 43.114.183.117
-  port: 443
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: d4M6fAj9Q07uK4HePntATUAs1KBceMzq8hGPy1AFxFA=
-  udp: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-918220947'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: css.rbxcdn.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-153 | free-nodes'
-  server: pure-kodiak.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: pure-kodiak.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 1A9D46'
-  server: hoert1rert.localip.ir
-  port: 2087
-  type: vless
-  uuid: a5db5ab5-8d28-49c0-ad55-0ad4724e5c0d
-  udp: true
-  tls: true
-  servername: hoert1rert.localip.ir
-  network: ws
-  ws-opts:
-    path: /hokm
-    headers:
-      Host: hoert1rert.localip.ir
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-918221056'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: whatsapp.com
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-154 | free-nodes'
-  server: simple-molly.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: simple-molly.rooster465.autos
-  skip-cert-verify: false
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-918221107'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: speedtest.tinkoff.ru
-  type: hysteria2
-- name: '[clashfree-daily] 未知 TROJAN-155 | free-nodes'
-  server: stable-python.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: stable-python.rooster465.autos
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 1F9387'
-  server: 3.120.109.26
-  port: 443
-  type: trojan
-  password: UX82473651
-  udp: true
-  sni: actual-squid.rooster465.autos
-  client-fingerprint: chrome
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-920243840'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2üá
+  sni: https://t.me/wangcai2
   type: hysteria2
 - name: '[clashfree-daily] 未知 TROJAN-156 | free-nodes'
   server: warm-krill.rooster465.autos
@@ -3186,26 +3045,26 @@ proxies:
   password: UX82473651
   sni: warm-krill.rooster465.autos
   skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 21A2DD'
-  server: 150.241.79.232
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 0BE726'
+  server: 31.76.35.27
   port: 443
   type: vless
-  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+  uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
   udp: true
   tls: true
   flow: xtls-rprx-vision
-  servername: de2.srv.vbuste.ru
+  servername: addons.mozilla.org
   reality-opts:
-    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-    short-id: 4be4110078ebed4a
+    public-key: P-r-oVr8MTTCILgRxk8YuB9OKVojYw3MkH_ERUXzX3s
+    short-id: b76a6309
   client-fingerprint: chrome
   network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-920243845'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-932065352'
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+  port: 50160
+  server: 152.67.200.82
   skip-cert-verify: true
-  sni: https://t.me/wangcai2
+  sni: 152.67.200.82
   type: hysteria2
 - name: '[clashfree-daily] 未知 TROJAN-157 | free-nodes'
   server: winning-marten.rooster465.autos
@@ -3223,26 +3082,19 @@ proxies:
   type: http
   udp: true
   username: 'null'
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 22AD44'
-  server: 150.241.79.56
-  port: 443
-  type: vless
-  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 0E543D'
+  server: 57.129.113.16
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: NcAXc0UZI6yQJE1p8QmOv8
   udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: de2.srv.vbuste.ru
-  reality-opts:
-    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
-    short-id: 4be4110078ebed4a
-  client-fingerprint: random
-  network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-932065352'
-  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-956723733'
+  password: 1671a252e2a97dc2bda4e515475931da
   port: 50160
-  server: 152.67.200.82
+  server: 132.226.226.189
   skip-cert-verify: true
-  sni: 152.67.200.82
+  sni: www.bing.com
   type: hysteria2
 - name: '[clashfree-daily] 未知 TROJAN-158 | free-nodes'
   server: working-tomcat.rooster465.autos
@@ -3258,6 +3110,173 @@ proxies:
   tls: true
   type: http
   udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 0FF333'
+  server: 31.76.11.83
+  port: 22266
+  type: vmess
+  uuid: 2d8f57bd-12b5-41ad-a806-6501753c264c
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  network: tcp
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-11020'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.183
+  type: ss
+  udp: true
+- name: '[ermaozi-subscribe] US_speednode_0134'
+  port: 443
+  server: voteshirleysew.club
+  tls: true
+  type: http
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 113159'
+  server: pleased-albacore.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  udp: true
+  sni: pleased-albacore.rooster465.autos
+  client-fingerprint: chrome
+  network: tcp
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-11042'
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.11
+  type: ss
+  udp: true
+- name: '[ermaozi-subscribe] US_speednode_0140'
+  password: None
+  port: 443
+  server: purposebydesig.club
+  tls: true
+  type: http
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 11A348'
+  server: 94.103.168.52
+  port: 2087
+  type: vless
+  uuid: a5db5ab5-8d28-49c0-ad55-0ad4724e5c0d
+  udp: true
+  tls: true
+  servername: fert1qswdfegrthy.localip.ir
+  client-fingerprint: random
+  network: ws
+  ws-opts:
+    path: /hokm
+    headers:
+      Host: fert1qswdfegrthy.localip.ir
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-125384'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 128.199.172.224
+  type: ss
+  udp: true
+- name: '[ermaozi-subscribe] US_speednode_0141'
+  port: 443
+  server: 38.28.193.188
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 16D914'
+  server: actual-squid.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  udp: true
+  sni: actual-squid.rooster465.autos
+  network: tcp
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-127255'
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 193.29.139.188
+  type: ss
+  udp: true
+- name: '[ermaozi-subscribe] US_speednode_0143'
+  port: 9002
+  server: 138.199.35.198
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 1A9D46'
+  server: hoert1rert.localip.ir
+  port: 2087
+  type: vless
+  uuid: a5db5ab5-8d28-49c0-ad55-0ad4724e5c0d
+  udp: true
+  tls: true
+  servername: hoert1rert.localip.ir
+  network: ws
+  ws-opts:
+    path: /hokm
+    headers:
+      Host: hoert1rert.localip.ir
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1792117694'
+  password: amazonskr05
+  port: 443
+  server: 3.96.202.28
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 1F9387'
+  server: 3.120.109.26
+  port: 443
+  type: trojan
+  password: UX82473651
+  udp: true
+  sni: actual-squid.rooster465.autos
+  client-fingerprint: chrome
+  network: tcp
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1799547667'
+  password: amazonskr05
+  port: 443
+  server: 16.52.153.34
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 21A2DD'
+  server: 150.241.79.232
+  port: 443
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: de2.srv.vbuste.ru
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  client-fingerprint: chrome
+  network: tcp
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 22AD44'
+  server: 150.241.79.56
+  port: 443
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: de2.srv.vbuste.ru
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  client-fingerprint: random
+  network: tcp
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1799547671'
+  password: amazonskr05
+  port: 443
+  server: 3.96.192.203
+  type: ss
+  udp: true
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 27E22C'
   server: 212.100.171.154
   port: 443
@@ -3272,33 +3291,18 @@ proxies:
     short-id: aa6582cf25e243ce
   client-fingerprint: chrome
   network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-956723733'
-  password: 1671a252e2a97dc2bda4e515475931da
-  port: 50160
-  server: 132.226.226.189
-  skip-cert-verify: true
-  sni: www.bing.com
-  type: hysteria2
-- name: '[ermaozi-subscribe] US_speednode_0134'
+- name: '[clashfree-daily] 未知 VLESS-169 | free-nodes'
+  server: 77.110.105.122
   port: 443
-  server: voteshirleysew.club
+  type: vless
+  uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
   tls: true
-  type: http
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-11019'
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.180
-  type: ss
-  udp: true
-- name: '[ermaozi-subscribe] US_speednode_0140'
-  password: None
-  port: 443
-  server: purposebydesig.club
-  tls: true
-  type: http
-  udp: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  servername: co-pl.speedtec.ru
+  client-fingerprint: random
+  network: tcp
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 2C5E20'
   server: 144.31.62.195
   port: 443
@@ -3313,19 +3317,12 @@ proxies:
     short-id: 4be4110078ebed4a
   client-fingerprint: chrome
   network: tcp
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-11020'
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.183
-  type: ss
-  udp: true
-- name: '[ermaozi-subscribe] US_speednode_0141'
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1801374572'
+  password: amazonskr05
   port: 443
-  server: 38.28.193.188
-  skip-cert-verify: true
-  tls: true
-  type: http
+  server: 99.79.45.227
+  type: ss
   udp: true
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 30FBE1'
   server: 2.27.69.128
@@ -3341,13 +3338,21 @@ proxies:
     short-id: e696e744
   client-fingerprint: chrome
   network: tcp
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-11029'
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.211
-  type: ss
-  udp: true
+- name: '[clashfree-daily] 未知 VLESS-171 | free-nodes'
+  server: 93.89.220.37
+  port: 443
+  type: vless
+  uuid: 185e2bb3-2934-48d0-bbd5-dd20d16e83ee
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: lwKaUQ81wJUJRsqAPsfTPj5V_f9N50UYEwzRI_nuq2g
+    short-id: e88cb983f3c97528
+  servername: ibm.com
+  client-fingerprint: chrome
+  network: tcp
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 32AE1C'
   server: 213.202.208.199
   port: 5000
@@ -3355,11 +3360,11 @@ proxies:
   cipher: aes-256-gcm
   password: Y6R9pAtvxxzmGC
   udp: true
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-11030'
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.212
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1803547439'
+  password: amazonskr05
+  port: 443
+  server: 15.223.201.180
   type: ss
   udp: true
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 37F014'
@@ -3377,12 +3382,21 @@ proxies:
     headers:
       Host: sino.bestsellers1.site
 - cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-11042'
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.11
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1804404048'
+  password: e5c65ph
+  port: 443
+  server: 54.36.174.134
   type: ss
   udp: true
+- name: '[clashfree-daily] 未知 VLESS-173 | free-nodes'
+  server: 104.243.33.154
+  port: 45299
+  type: vless
+  uuid: 261f011c-e97a-4d72-b596-e6329b50b47b
+  tls: false
+  tfo: false
+  skip-cert-verify: false
+  network: tcp
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 38E0CF'
   server: de15.h1cloud.net
   port: 25411
@@ -3396,13 +3410,6 @@ proxies:
     short-id: 1d35e2801ba51023
   client-fingerprint: firefox
   network: tcp
-- cipher: rc4-md5
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-125384'
-  password: 14fFPrbezE3HDZzsMOr6
-  port: 8080
-  server: 128.199.172.224
-  type: ss
-  udp: true
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 39F2A7'
   server: 149.102.132.184
   port: 443
@@ -3411,118 +3418,11 @@ proxies:
   password: g5h5jleTRSyO3Rk4
   udp: true
 - cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-127255'
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 193.29.139.188
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-16136'
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-189'
   password: k1dBOmOB4oqi7Ump37a1bQ
   port: 8080
-  server: 82.38.31.181
+  server: 82.38.31.184
   type: ss
-  udp: true
-- cipher: aes-256-cfb
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1792117694'
-  password: amazonskr05
-  port: 443
-  server: 3.96.202.28
-  type: ss
-  udp: true
-- name: '[clashfree-daily] 未知 VLESS-169 | free-nodes'
-  server: 77.110.105.122
-  port: 443
-  type: vless
-  uuid: 019fbe0f-2d9f-4b89-9f81-e1e36129892a
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  servername: co-pl.speedtec.ru
-  client-fingerprint: random
-  network: tcp
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 544CEA'
-  server: 91.107.247.173
-  port: 2083
-  type: vless
-  uuid: 7858128a-6b5e-4f86-9bff-52c1f1e6439d
-  udp: true
-  tls: true
-  servername: sino.bestsellers1.site
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: sino.bestsellers1.site
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 5649F1'
-  server: 149.102.132.184
-  port: 80
-  type: ss
-  cipher: aes-256-gcm
-  password: g5h5jleTRSyO3Rk4
-  udp: true
-- cipher: aes-256-cfb
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1799547670'
-  password: amazonskr05
-  port: 443
-  server: 3.149.243.142
-  type: ss
-  udp: true
-- name: '[clashfree-daily] 未知 VLESS-171 | free-nodes'
-  server: 93.89.220.37
-  port: 443
-  type: vless
-  uuid: 185e2bb3-2934-48d0-bbd5-dd20d16e83ee
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: lwKaUQ81wJUJRsqAPsfTPj5V_f9N50UYEwzRI_nuq2g
-    short-id: e88cb983f3c97528
-  servername: ibm.com
-  client-fingerprint: chrome
-  network: tcp
-- cipher: aes-256-cfb
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1799547671'
-  password: amazonskr05
-  port: 443
-  server: 3.96.192.203
-  type: ss
-  udp: true
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 665D57'
-  server: meet-goshawk.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  udp: true
-  sni: meet-goshawk.rooster465.autos
-  network: tcp
-- cipher: aes-256-cfb
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1800983088'
-  password: amazonskr05
-  port: 443
-  server: 3.129.42.122
-  type: ss
-  udp: true
-- name: '[clashfree-daily] 未知 VLESS-173 | free-nodes'
-  server: 104.243.33.154
-  port: 45299
-  type: vless
-  uuid: 261f011c-e97a-4d72-b596-e6329b50b47b
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: tcp
-- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 71F64B'
-  server: 2.58.81.221
-  port: 80
-  type: ss
-  cipher: aes-256-gcm
-  password: kKEd0rBrd56Furjz
   udp: true
 - encryption: none
   name: '[ermaozi-subscribe] 🇦🇪[www.v2nodes.com] vless-AE-1... #1'
@@ -3536,24 +3436,24 @@ proxies:
     headers:
       Host: uae.unixzone.us
     path: /
-- cipher: aes-256-cfb
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1803546446'
-  password: amazonskr05
-  port: 443
-  server: 16.60.8.87
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-27269'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 138.199.42.68
   type: ss
   udp: true
-- cipher: aes-256-cfb
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1803547439'
-  password: amazonskr05
-  port: 443
-  server: 15.223.201.180
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-27271'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 107.155.57.51
   type: ss
   udp: true
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1804404048'
-  password: e5c65ph
-  port: 443
-  server: 54.36.174.134
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-27275'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 107.155.57.11
   type: ss
   udp: true
