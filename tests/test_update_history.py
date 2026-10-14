@@ -26,7 +26,11 @@ ENTRY_KEYS = {
     "parsed",
     "accepted",
     "tested",
+    "pool_size_before",
+    "pool_size",
     "pool_retested",
+    "pool_added",
+    "pool_evicted",
     "failure_stage",
     "failure_reason",
 }
@@ -81,7 +85,13 @@ def test_success_run_appends_redacted_manifest_summary(tmp_path: Path) -> None:
             "status": "success",
             "counts": {"published": 500, "parsed": 5890, "accepted": 4950},
             "node_quality": {"tested": 1000},
-            "verification": {"pool_retested": 747},
+            "verification": {
+                "pool_size_before": 900,
+                "pool_size": 850,
+                "pool_retested": 900,
+                "pool_added": 42,
+                "pool_evicted": 92,
+            },
         },
     )
     history = tmp_path / "docs" / "history" / "update-history.json"
@@ -125,7 +135,11 @@ def test_success_run_appends_redacted_manifest_summary(tmp_path: Path) -> None:
     assert entry["parsed"] == 5890
     assert entry["accepted"] == 4950
     assert entry["tested"] == 1000
-    assert entry["pool_retested"] == 747
+    assert entry["pool_size_before"] == 900
+    assert entry["pool_size"] == 850
+    assert entry["pool_retested"] == 900
+    assert entry["pool_added"] == 42
+    assert entry["pool_evicted"] == 92
     assert entry["failure_stage"] is None
     assert entry["failure_reason"] is None
     assert datetime.fromisoformat(entry["recorded_at"]).tzinfo is not None
@@ -157,7 +171,11 @@ def test_failed_run_without_manifest_still_appends(tmp_path: Path) -> None:
     assert entry["parsed"] is None
     assert entry["accepted"] is None
     assert entry["tested"] is None
+    assert entry["pool_size_before"] is None
+    assert entry["pool_size"] is None
     assert entry["pool_retested"] is None
+    assert entry["pool_added"] is None
+    assert entry["pool_evicted"] is None
     assert entry["failure_stage"] is None
     assert entry["failure_reason"] is None
 
@@ -176,7 +194,13 @@ def test_failure_reason_and_counts_fall_back_to_health(tmp_path: Path) -> None:
                     {"parsed": 4, "accepted": 3},
                 ],
                 "node_quality": {"tested": 9},
-                "verification": {"pool_retested": 4},
+                "verification": {
+                    "pool_size_before": 10,
+                    "pool_size": 8,
+                    "pool_retested": 10,
+                    "pool_added": 1,
+                    "pool_evicted": 3,
+                },
             }
         ),
         encoding="utf-8",
@@ -202,7 +226,11 @@ def test_failure_reason_and_counts_fall_back_to_health(tmp_path: Path) -> None:
     assert entry["parsed"] == 7
     assert entry["accepted"] == 5
     assert entry["tested"] == 9
-    assert entry["pool_retested"] == 4
+    assert entry["pool_size_before"] == 10
+    assert entry["pool_size"] == 8
+    assert entry["pool_retested"] == 10
+    assert entry["pool_added"] == 1
+    assert entry["pool_evicted"] == 3
 
 
 def test_history_keeps_only_latest_500_entries(tmp_path: Path) -> None:
@@ -408,11 +436,26 @@ def _completed_run(conclusion="success"):
 
 def test_completed_success_uses_run_bound_manifest_and_final_result():
     module = _module()
-    manifest = {"counts": {"published": 7}, "status": "success"}
+    manifest = {
+        "counts": {"published": 7},
+        "status": "success",
+        "verification": {
+            "pool_size_before": 20,
+            "pool_size": 22,
+            "pool_retested": 20,
+            "pool_added": 5,
+            "pool_evicted": 3,
+        },
+    }
     jobs = {"jobs": [{"steps": [{"name": "Deploy Pages", "conclusion": "success"}]}]}
     entry = module.completed_entry(_completed_run(), jobs, manifest, manifest, "b" * 40)
     assert entry["status"] == "success"
     assert entry["published"] == 7
+    assert entry["pool_size_before"] == 20
+    assert entry["pool_size"] == 22
+    assert entry["pool_retested"] == 20
+    assert entry["pool_added"] == 5
+    assert entry["pool_evicted"] == 3
     assert entry["publish_commit"] == "b" * 40
     assert entry["subscription_updated"] is True
     assert entry["duration_seconds"] == 300

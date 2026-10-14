@@ -184,9 +184,23 @@ def summarize_inputs(manifest: dict, health: dict) -> dict[str, object]:
         "parsed": _first_int(counts.get("parsed"), health_parsed),
         "accepted": _first_int(counts.get("accepted"), health_accepted),
         "tested": _first_int(quality.get("tested"), health_quality.get("tested")),
+        "pool_size_before": _first_int(
+            verification.get("pool_size_before"),
+            health_verification.get("pool_size_before"),
+        ),
+        "pool_size": _first_int(
+            verification.get("pool_size"), health_verification.get("pool_size")
+        ),
         "pool_retested": _first_int(
             verification.get("pool_retested"),
             health_verification.get("pool_retested"),
+        ),
+        "pool_added": _first_int(
+            verification.get("pool_added"), health_verification.get("pool_added")
+        ),
+        "pool_evicted": _first_int(
+            verification.get("pool_evicted"),
+            health_verification.get("pool_evicted"),
         ),
         "failure_reason": _enum_or_none(health.get("failure_reason"), FAILURE_REASONS),
     }
@@ -219,7 +233,11 @@ def build_entry(
         "parsed": summary["parsed"],
         "accepted": summary["accepted"],
         "tested": summary["tested"],
+        "pool_size_before": summary["pool_size_before"],
+        "pool_size": summary["pool_size"],
         "pool_retested": summary["pool_retested"],
+        "pool_added": summary["pool_added"],
+        "pool_evicted": summary["pool_evicted"],
         "failure_stage": failure_stage,
         "failure_reason": summary["failure_reason"],
     }
