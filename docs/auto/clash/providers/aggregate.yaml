@@ -111,19 +111,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 52+ggoCvKFVJyT1NDiuWOZw2rHIvAg3tgqgJl8aeCwY=
   udp: true
-- name: '[pawdroid-free-servers] 德国+V2CROSS.COM'
-  type: trojan
-  server: 193.23.202.65
-  port: 443
-  password: humanity
-  tls: true
-  sni: www.volumeroot.com
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: unsafe
-  ws-opts:
-    path: /assignment
 - name: '[zhuhaiuk-free-nodes] BR - zhuhai.uk'
   type: http
   server: 134.65.17.77
@@ -230,22 +217,6 @@ proxies:
   skip-cert-verify: true
   sni: ''
   type: hysteria2
-- name: '[pawdroid-free-servers] 美国+V2CROSS.COM'
-  type: vless
-  server: e8439083-5b1f-4a9a-8003-9c143de96941.fly.dev
-  port: 443
-  uuid: b8e59255-d392-c427-535d-bc1f8f444c4e
-  tls: true
-  sni: e8439083-5b1f-4a9a-8003-9c143de96941.fly.dev
-  network: ws
-  alpn:
-  - h3
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws/b8e59255-d392-c427-535d-bc1f8f444c4e
-    headers:
-      Host: e8439083-5b1f-4a9a-8003-9c143de96941.fly.dev
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-107825281'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -539,12 +510,6 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk'
-  type: http
-  server: 38.28.193.188
-  port: 443
-  tls: true
-  skip-cert-verify: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1276640913'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -656,12 +621,6 @@ proxies:
   skip-cert-verify: true
   sni: vpn-tw-002.fastervpn.world
   type: hysteria2
-- name: '[clashfree-daily] 未知 SS-116 | free-nodes'
-  server: pphfree2.mvpnpvpn.de5.net
-  port: 52351
-  type: ss
-  cipher: aes-256-gcm
-  password: sxajCTwrlK0zl+zmHpX0p0jXIfatnzlLzWlSQ950L1c=
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 06ADD7'
   server: 188.114.97.6
   port: 443
@@ -782,19 +741,6 @@ proxies:
   skip-cert-verify: true
   sni: https%3a%2f%2ft.me%2fwangcai2%c3%b0%c2%9f%c2%87%c2%a8%c3%b0%c2%9f%c2%87%c2%b3
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0F1E03'
-  server: 188.114.96.3
-  port: 443
-  type: trojan
-  password: Telegram_healer_config
-  udp: true
-  sni: cdtfrgmtcsbaarmz-9owpz7g4.f9w96pzky6un-covzx6b-hzlm80woj2.workers.dev
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /tr/3F3fUAGJks9doKvjt8AREH4QR?ed=2560
-    headers:
-      Host: cdtfrgmtcsbaarmz-9owpz7g4.f9w96pzky6un-covzx6b-hzlm80woj2.workers.dev
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1456970892'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -1471,18 +1417,6 @@ proxies:
   skip-cert-verify: true
   sni: tcp-reset-club.net
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4A5227'
-  server: 104.16.6.70
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1668866009'
   password: 4291c983-c520-46ac-82cc-48f14bef573f
   port: 35013
@@ -1582,18 +1516,6 @@ proxies:
   skip-cert-verify: false
   sni: ''
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 52EECF'
-  server: 162.159.228.224
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1701029218'
   password: 1671a252e2a97dc2bda4e515475931da
   port: 50160
@@ -1601,20 +1523,6 @@ proxies:
   skip-cert-verify: true
   sni: ''
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 531518'
-  server: 104.21.70.22
-  port: 443
-  type: vless
-  uuid: efe19c5a-0ea1-4666-8a4c-4a33f4670775
-  udp: true
-  tls: true
-  servername: luminouspetal.cyou
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /raccoonwsvless
-    headers:
-      Host: luminouspetal.cyou
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1701029330'
   password: dd50a499-7e43-4589-8490-f3b9c2451473
   port: 443
@@ -1803,18 +1711,6 @@ proxies:
   skip-cert-verify: true
   sni: ''
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 607B09'
-  server: 188.114.97.4
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1769683861'
   password: u63SxILNwtrQZ7Y1ZrFaZfsA
   port: 8443
@@ -1920,20 +1816,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6C7513'
-  server: 172.67.79.160
-  port: 2087
-  type: vless
-  uuid: a4a951b9-901d-4db8-8a7d-6df82c4b5c23
-  udp: true
-  tls: true
-  servername: cvhpyn.pages.dev
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: cvhpyn.pages.dev
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1802357682'
   password: 099830134df5ac3a04a4b21d39b8c395
   port: 50160
@@ -1968,19 +1850,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: y7KeRTzmH0vXT2kp
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6EB934'
-  server: 172.67.217.240
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1802358676'
   password: 7ab3c77e-8fcc-4848-918f-cae3d4eac794
   port: 2053
@@ -2596,19 +2465,6 @@ proxies:
   password: UX82473651
   sni: allowed-poodle.rooster465.autos
   skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 994B91'
-  server: 104.18.37.127
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: wWw.Volumeroot.cOm
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumerOot.coM
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-483633864'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -3246,13 +3102,6 @@ proxies:
   skip-cert-verify: false
   sni: ''
   type: hysteria2
-- name: '[ermaozi-subscribe] US_speednode_0141'
-  port: 443
-  server: 38.28.193.188
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B52D10'
   server: us16-4.998998.best
   port: 443
@@ -3275,21 +3124,6 @@ proxies:
   skip-cert-verify: true
   sni: 155.248.209.2
   type: hysteria2
-- name: '[clashfree-daily] 未知 VLESS-158 | free-nodes'
-  server: app-mi-27.spbstudentlife.com
-  port: 443
-  type: vless
-  uuid: 0cf8e402-e801-4aeb-9b7a-00a933f9f1c1
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: kInywP138eVlHbS7wodX2Q_R1OC0JdViypEeguSvpQ0
-    short-id: 33e6fe7545082926
-  servername: assets-mi-27.spbstudentlife.com
-  client-fingerprint: chrome
-  network: tcp
 - name: '[ermaozi-subscribe] US_speednode_0143'
   port: 9002
   server: 138.199.35.198
@@ -3304,21 +3138,6 @@ proxies:
   skip-cert-verify: true
   sni: https://t.me/wangcai2üá®üá≥
   type: hysteria2
-- name: '[clashfree-daily] 未知 VLESS-159 | free-nodes'
-  server: app-mi-27.spbstudentlife.com
-  port: 443
-  type: vless
-  uuid: 0cf8e402-e801-4aeb-9b7a-00a933f9f1c1
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: kInywP138eVlHbS7wodX2Q_R1OC0JdViypEeguSvpQ0
-    short-id: 33e6fe7545082926
-  servername: assets-mi-27.spbstudentlife.com
-  client-fingerprint: random
-  network: tcp
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-856679747'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -3429,19 +3248,6 @@ proxies:
   skip-cert-verify: true
   sni: https%3a%2f%2ft.me%2foneclickvpnkeys
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C0CC63'
-  server: 172.67.74.90
-  port: 443
-  type: vless
-  uuid: a4a951b9-901d-4db8-8a7d-6df82c4b5c23
-  udp: true
-  tls: true
-  servername: cvhpyn.pages.dev
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: cvhpyn.pages.dev
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-892566713'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -3577,18 +3383,6 @@ proxies:
   skip-cert-verify: true
   sni: https://t.me/wangcai2üá
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D1E6D6'
-  server: 188.114.97.5
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-932065352'
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
   port: 50160
@@ -3695,13 +3489,6 @@ proxies:
   port: 40002
   cipher: aes-128-gcm
   password: 3238e070-60e4-437b-be4e-22826d7cd871
-- name: '[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | 601424'
-  server: 94.156.250.148
-  port: 7001
-  type: ss
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-  udp: true
 - cipher: chacha20-ietf-poly1305
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-158885953'
   password: k1dBOmOB4oqi7Ump37a1bQ
@@ -4060,19 +3847,6 @@ proxies:
   server: 194.38.11.86
   type: ss
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AF86F8'
-  server: 188.114.97.6
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.volumeroot.com
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumeroot.com
 - cipher: aes-256-cfb
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-717968959'
   password: b8KkNDjEd5QqFyRm
@@ -4109,18 +3883,6 @@ proxies:
   server: 195.238.126.20
   type: ss
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C67F35'
-  server: 104.21.33.59
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
 - cipher: aes-256-cfb
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-812343760'
   password: xaupMUvhptwxdDUg
@@ -4240,18 +4002,6 @@ proxies:
   sni: assuring-skink.rooster465.autos
   type: trojan
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DA0B9C'
-  server: 172.64.145.133
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1643520542'
   password: UX82473651
   port: 443
@@ -4390,18 +4140,6 @@ proxies:
   sni: comic-poodle.rooster465.autos
   type: trojan
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E8E89B'
-  server: 188.114.97.6
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1645312297'
   password: UX82473651
   port: 443
@@ -4410,19 +4148,6 @@ proxies:
   sni: ''
   type: trojan
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | E9BC49'
-  server: 104.16.85.85
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.volumeroot.com
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumeroot.com
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1645360474'
   password: UX82473651
   port: 443
@@ -4506,19 +4231,6 @@ proxies:
   sni: ''
   type: trojan
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F51A5D'
-  server: 104.17.50.227
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1647915017'
   password: UX82473651
   port: 443
@@ -4548,19 +4260,6 @@ proxies:
   sni: main-fawn.rooster465.autos
   type: trojan
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | FB00FC'
-  server: 104.21.37.56
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.volumeroot.com
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumeroot.com
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1648313005'
   password: UX82473651
   port: 443
@@ -4691,5 +4390,227 @@ proxies:
   server: 43.207.198.39
   skip-cert-verify: false
   sni: fancy-javelin.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | A038DD'
+  server: 132.243.175.144
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1653307132'
+  password: UX82473651
+  port: 443
+  server: inviting-ferret.rooster465.autos
+  skip-cert-verify: true
+  sni: inviting-ferret.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1656582123'
+  password: UX82473651
+  port: 443
+  server: 3.34.131.153
+  skip-cert-verify: true
+  sni: pretty-rat.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] CR 🇨🇷 | @Raydikalx | 9AD2A3'
+  server: 190.93.245.148
+  port: 443
+  type: trojan
+  password: humanity
+  udp: true
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.pleadcourt.org
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1658293083'
+  password: UX82473651
+  port: 443
+  server: 3.253.106.233
+  skip-cert-verify: true
+  sni: loved-shark.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1658293094'
+  password: UX82473651
+  port: 443
+  server: 43.207.198.39
+  skip-cert-verify: true
+  sni: fancy-javelin.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1660423642'
+  password: UX82473651
+  port: 443
+  server: 13.125.69.162
+  skip-cert-verify: true
+  sni: engaging-toucan.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1660423686'
+  password: UX82473651
+  port: 443
+  server: 176.34.5.100
+  skip-cert-verify: true
+  sni: assuring-skink.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1660423687'
+  password: UX82473651
+  port: 443
+  server: 13.230.139.12
+  skip-cert-verify: true
+  sni: brief-glider.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1660423729'
+  password: UX82473651
+  port: 443
+  server: 54.65.177.190
+  skip-cert-verify: true
+  sni: winning-marten.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1663139042'
+  password: UX82473651
+  port: 443
+  server: 3.35.168.225
+  skip-cert-verify: true
+  sni: noted-cougar.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1663627155'
+  password: UX82473651
+  port: 443
+  server: obliging-louse.rooster465.autos
+  skip-cert-verify: false
+  sni: obliging-louse.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 058C8E'
+  server: defrnode.xyy123.bid
+  port: 443
+  type: vless
+  uuid: 3d7b3136-de73-4547-b29b-e439f2fc91c0
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: mp3recs.amazon.com
+  reality-opts:
+    public-key: XTarABsaaFbjYNk6lRKnUzGavHzeqMIP7B8dZGNCvkE
+    short-id: 132fa975c199b269
+  client-fingerprint: chrome
+  network: tcp
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1665763439'
+  password: UX82473651
+  port: 443
+  server: 54.238.153.132
+  skip-cert-verify: true
+  sni: obliging-louse.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1666070095'
+  password: UX82473651
+  port: 443
+  server: 43.201.100.203
+  skip-cert-verify: true
+  sni: optimum-snapper.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1666094664'
+  password: UX82473651
+  port: 443
+  server: 54.249.36.167
+  skip-cert-verify: true
+  sni: comic-poodle.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 09E65E'
+  server: 2.27.35.55
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: addons.mozilla.org
+  reality-opts:
+    public-key: RTG-xTU5UuKTRrkk8_COe04GiUWrqrSdt9mqSak_XEc
+    short-id: e696e744
+  client-fingerprint: chrome
+  network: tcp
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1666094668'
+  password: UX82473651
+  port: 443
+  server: winning-marten.rooster465.autos
+  skip-cert-verify: false
+  sni: winning-marten.rooster465.autos
+  type: trojan
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1669884361'
+  password: UX82473651
+  port: 443
+  server: obliging-louse.rooster465.autos
+  skip-cert-verify: false
+  sni: ''
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 0E1464'
+  server: ov-germany1.09vpn.com
+  port: 80
+  type: vless
+  uuid: 7d74eae4-8a06-4306-a923-ad686f30bf26
+  udp: true
+  tls: false
+  network: ws
+  ws-opts:
+    path: /vless/
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1670007019'
+  password: UX82473651
+  port: 443
+  server: pretty-rat.rooster465.autos
+  skip-cert-verify: false
+  sni: ''
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 0E543D'
+  server: 57.129.113.16
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: NcAXc0UZI6yQJE1p8QmOv8
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1670007021'
+  password: UX82473651
+  port: 443
+  server: noted-cougar.rooster465.autos
+  skip-cert-verify: false
+  sni: ''
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 0FF40C'
+  server: 5.252.179.15
+  port: 443
+  type: vless
+  uuid: 0ab273e4-cea6-41d0-bbab-41071d2fc455
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: www.bing.com
+  reality-opts:
+    public-key: XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY
+    short-id: 296f27de82dad7ff
+  client-fingerprint: qq
+  network: tcp
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1670007024'
+  password: UX82473651
+  port: 443
+  server: optimum-snapper.rooster465.autos
+  skip-cert-verify: false
+  sni: ''
   type: trojan
   udp: true
