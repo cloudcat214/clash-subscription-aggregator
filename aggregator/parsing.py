@@ -5,6 +5,7 @@ import binascii
 import copy
 import ipaddress
 import json
+import re
 from collections.abc import Iterable, Mapping
 from urllib.parse import parse_qs, unquote, urlsplit
 from uuid import UUID
@@ -863,13 +864,24 @@ def _document_proxies(
     return None, {}
 
 
+_YAML_UNACCEPTABLE = re.compile(
+    "[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\x80-\x84\x86-\x9f\ufffe\uffff]"
+)
+
+
+def _sanitize_structured_payload(payload: str) -> str:
+    """Drop characters PyYAML/JSON reject, keeping printable and node text intact."""
+    return _YAML_UNACCEPTABLE.sub("", payload)
+
+
 def _parse_structured(
     payload: str, format_hint: str
 ) -> tuple[list[dict[str, object]] | None, dict[str, int]]:
     stripped = payload.lstrip()
+    sanitized = _sanitize_structured_payload(payload)
     if format_hint == "json" or (format_hint == "auto" and stripped[:1] in {"{", "["}):
         try:
-            document = json.loads(payload)
+            document = json.loads(sanitized)
         except json.JSONDecodeError:
             if format_hint == "json":
                 raise ParseError("invalid JSON source")
@@ -884,7 +896,7 @@ def _parse_structured(
                 raise ParseError("JSON source has no proxies list")
     if format_hint in {"yaml", "auto"}:
         try:
-            document = yaml.safe_load(payload)
+            document = yaml.safe_load(sanitized)
         except yaml.YAMLError:
             if format_hint == "yaml":
                 raise ParseError("invalid YAML source")

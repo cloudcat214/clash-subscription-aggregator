@@ -308,3 +308,17 @@ def test_uri_line_with_invalid_port_is_dropped_per_line() -> None:
 
     assert [proxy["server"] for proxy in proxies] == ["node.example.invalid"]
     assert drops.get("invalid_port") == 1
+
+
+def test_control_characters_in_yaml_are_sanitized_not_fatal() -> None:
+    payload = (
+        "proxies:\n"
+        '  - {"name":"ok-one","type":"vmess","server":"10.0.0.1","port":100,"cipher":"auto"}\n'
+        '  - {"name":"bad-\x9fchar","type":"vmess","server":"10.0.0.2","port":101,"cipher":"auto"}\n'
+    )
+
+    proxies, drops = parse_source_payload_with_drops(payload, "clash-yaml")
+
+    types = sorted(proxy["server"] for proxy in proxies)
+    assert types == ["10.0.0.1", "10.0.0.2"]
+    assert drops == {}
