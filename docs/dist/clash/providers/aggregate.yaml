@@ -652,20 +652,6 @@ proxies:
   skip-cert-verify: true
   sni: 'off'
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 189305'
-  server: 172.67.156.147
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1501727512'
   password: 488b2611852407f03a681927cb91804b
   port: 8443
@@ -693,21 +679,6 @@ proxies:
   skip-cert-verify: false
   sni: cf.shiranyu.xyz
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 198A9F'
-  server: node8.liudonghoe.com
-  port: 443
-  type: vmess
-  uuid: 47050e4e-965d-41ca-976d-73c1f11e6905
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: node8.liudonghoe.com
-  network: ws
-  ws-opts:
-    path: /hoe8
-    headers:
-      Host: node8.liudonghoe.com
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1507123858'
   password: pbgLTkd5276SN1sZ
   port: 8443
@@ -4152,13 +4123,6 @@ proxies:
   reality-opts:
     public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
     short-id: 1c3e8241a8743df9
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-175'
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.208
-  type: ss
-  udp: true
 - cipher: aes-256-gcm
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-687923666'
   password: FoOiGlkAA9yPEGP
@@ -4197,19 +4161,6 @@ proxies:
   tls: true
   sni: a2f392f3.acsnet.co
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 074A7C'
-  server: 104.24.2.147
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1783530187'
   password: UX82473651
   port: 443
@@ -4450,4 +4401,30 @@ proxies:
   server: nl-hy-test.tcp-reset-club.net
   skip-cert-verify: true
   sni: tcp-reset-club.net
+  type: hysteria2
+- name: '[zhuhaiuk-free-nodes] IL - zhuhai.uk'
+  type: http
+  server: 62.90.77.30
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] IT - zhuhai.uk'
+  type: http
+  server: 94.177.163.156
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1700945302'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 13.36.234.11
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1713695214'
+  password: 1671a252e2a97dc2bda4e515475931da
+  port: 50160
+  server: 132.226.226.189
+  skip-cert-verify: true
+  sni: 132.226.226.189
   type: hysteria2

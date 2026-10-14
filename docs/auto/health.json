@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-14T18:44:27Z",
+  "generated_at": "2026-10-14T19:32:24Z",
   "status": "ok",
   "active_probe": true,
   "published": 500,
@@ -153,18 +153,18 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 851,
+      "parsed": 854,
       "accepted": 802,
       "drops": {
-        "invalid_uuid": 3,
-        "duplicate": 46
+        "invalid_uuid": 5,
+        "duplicate": 47
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "b301ccb05c88826d82b1640affdeeed35c98ada70052fe4b026f163d34f3766c"
+      "sha256": "1596c6423674bda8987369dbee8b8293a0d5dcc6a16ffef98c3d8960d5cf7704"
     },
     {
       "id": "p-configs-vless",
@@ -202,13 +202,13 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 8,
-      "accepted": 8,
+      "parsed": 9,
+      "accepted": 9,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "76700a47433566c9202a35b2dfde22c79f4abe7f10d0b3ea68fa6dc93e6a04ed"
+      "sha256": "bbc77a75e36931bc17b865076543491d4e8885ec6f94d7139f6f38dd16cd70b3"
     },
     {
       "id": "anaer-sub",
@@ -303,17 +303,17 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1786,
-      "accepted": 1073,
+      "parsed": 1780,
+      "accepted": 1068,
       "drops": {
-        "invalid_uuid": 6,
-        "duplicate": 707
+        "invalid_uuid": 7,
+        "duplicate": 705
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "4ac966fa084d206f60678850e2eec4e78dfdc6c46e55b053c634aa1a5387f43c"
+      "sha256": "9fad89b8673cce0ed66a29c0b1e4fd27c6afa5b23ca2a96f50949023b1b63c9b"
     },
     {
       "id": "chengaopan-merged",
@@ -412,17 +412,17 @@
       "id": "igareck-vless",
       "kind": "public",
       "status": "ok",
-      "parsed": 44,
-      "accepted": 42,
+      "parsed": 40,
+      "accepted": 28,
       "drops": {
-        "invalid_uuid": 20,
-        "duplicate": 2
+        "invalid_uuid": 23,
+        "duplicate": 12
       },
       "source_repo": "https://github.com/igareck/vpn-configs-for-russia",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "e62537e869e4a56b5f7321bc371fc840d05af0fab88e7267478c2ec53907e224"
+      "sha256": "4ec24d589b31ced76121542fccab7a108bb553824bd44ca0639a3505ccf88c85"
     },
     {
       "id": "iboxz-collector",
@@ -604,22 +604,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 692
+      "http_error": 648
     },
-    "pool_size_before": 784,
-    "pool_size": 859,
+    "pool_size_before": 859,
+    "pool_size": 905,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 784,
-    "pool_retested": 784,
-    "new_candidates_tested": 716,
-    "pool_added": 88,
-    "pool_evicted": 13,
-    "retained_count": 859,
+    "pool_probe_candidates": 859,
+    "pool_retested": 859,
+    "new_candidates_tested": 641,
+    "pool_added": 67,
+    "pool_evicted": 21,
+    "retained_count": 905,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1500,
-    "stage1_passed": 897,
-    "stage2_tested": 897,
-    "stage2_stable": 846,
+    "stage1_passed": 946,
+    "stage2_tested": 946,
+    "stage2_stable": 895,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -628,19 +628,19 @@
     }
   },
   "node_quality": {
-    "candidates": 9011,
+    "candidates": 9014,
     "tested": 1500,
-    "verified": 808,
-    "fast": 447,
-    "stable": 808,
-    "failed": 692,
-    "not_tested": 7511,
-    "not_tested_budget": 7511,
-    "failed_probe": 630,
-    "below_quality_threshold": 62,
-    "dropped": 692,
+    "verified": 852,
+    "fast": 455,
+    "stable": 852,
+    "failed": 648,
+    "not_tested": 7514,
+    "not_tested_budget": 7514,
+    "failed_probe": 578,
+    "below_quality_threshold": 70,
+    "dropped": 648,
     "published": 500,
-    "success_rate": 0.5608888888888889
+    "success_rate": 0.5931111111111111
   },
   "core_validation": {
     "status": "not_tested",
