@@ -90,6 +90,14 @@ sources:
 - 来源抓取只允许使用者配置的 HTTPS host。受控 fake-IP 例外仅允许 `trust_hosts` 中的主机落入 `198.18.0.0/15`；当前信任主机为 `raw.githubusercontent.com`、`www.gitlabip.xyz`、`gitlab.com`。`settings.controlled_proxy_addresses` 保留为兼容配置但不再逐个限制轮换地址；非信任主机仍拒绝该网段。该项是针对本机 fake-IP DNS 的受控收窄放宽：通过 `curl --resolve` 固定已校验地址，但不能借此放行其他主机。IPv4-mapped IPv6（`::ffff:a.b.c.d`）先解包为 IPv4 再走同一拒绝逻辑；常见 NAT64 `64:ff9b::/96` 与 `64:ff9b:1::/48` 显式拒绝。`100.64.0.0/10`、文档/基准测试地址、私网、回环、metadata 和链路本地地址拒绝。每一跳 redirect 都重新校验。
 - 当前实现接受“解析校验后用 `curl --resolve` 固定地址”的跨平台折中：它避免再次按 hostname 解析，但不宣称消除操作系统解析到连接之间的全部 TOCTOU 窗口。该项保留为低风险残余，不以文档或测试伪装成已解决。
 
+## 接入新的授权订阅源
+
+本聚合器只接受拥有或明确授权、允许自动抓取的公开订阅源。以下链接一律不接受：来源不明、需要登录、付费、受限，以及需要绕过访问控制才能获取的链接。
+
+接入方式是在 `config/sources.yaml` 的 `sources.public` 增加条目，至少填写 `id`、`name`、`url`、`format`、`enabled`、`publish`、`requires_review`、`authorized`，并建议同时填写 `license`、`license_evidence` 与备注 `note`；如果来源 host 不在 `settings.allowed_source_hosts` 中，需要一并加入。`authorized: true` 需人工复核后填写，未显式填写时按 `enabled && publish && !requires_review` 保守推导；该字段仅作登记与审计展示（会出现在 manifest 的 `sources[]`），不改变采集与发布开关的实际行为。条目提交到 `main` 后，云端工作流会在下一轮自动采集。
+
+当前支持的输入格式：Clash/Mihomo YAML、Base64、JSON、一 URI 一行、sing-box outbounds；URI scheme 支持 `vmess`、`vless`、`trojan`、`ss`、`ssr`、`hysteria`、`hysteria2`、`tuic`，以及标准 `http`/`https`/`socks5`/`socks5h`。
+
 ## 输出目录
 
 直接运行 `aggregator run` 时，下面的 `dist/` 是默认输出目录；`refresh-publish.ps1` 使用被忽略的 `dist-local/`；公开 Pages 上的 `docs/dist/` 与 `docs/auto/` 由云端工作流发布（`docs/auto/` 为 `docs/dist/` 的同源镜像）。

@@ -43,9 +43,11 @@ _URI_SCHEMES = {
     "socks5",
     "socks5h",
     "ss",
+    "ssr",
     "vmess",
     "vless",
     "trojan",
+    "hysteria",
     "hysteria2",
     "tuic",
 }
@@ -558,6 +560,86 @@ def _parse_tuic_uri(uri: str) -> dict[str, object]:
     return proxy
 
 
+def _parse_hysteria_uri(uri: str) -> dict[str, object]:
+    parts = urlsplit(uri)
+    if not parts.hostname or parts.port is None:
+        raise ParseError("hysteria URI must include host and port")
+    query = parse_qs(parts.query, keep_blank_values=True)
+    port = _parse_port(parts.port)
+    proxy: dict[str, object] = {
+        "name": _proxy_name("hysteria", parts.hostname, port, unquote(parts.fragment)),
+        "type": "hysteria",
+        "server": parts.hostname,
+        "port": port,
+    }
+    auth = _query_first(query, "auth", "auth-str", "auth_str")
+    if auth:
+        proxy["auth-str"] = auth
+    peer = _query_first(query, "peer", "sni")
+    if peer:
+        proxy["sni"] = peer
+    protocol = _query_first(query, "protocol")
+    if protocol:
+        proxy["protocol"] = protocol
+    for query_key, proxy_key in (("upmbps", "up"), ("downmbps", "down")):
+        value = _query_first(query, query_key)
+        if value:
+            proxy[proxy_key] = f"{value} Mbps"
+    alpn = _query_list(query, "alpn")
+    if alpn:
+        proxy["alpn"] = alpn
+    if _query_bool(query, "insecure") or _query_bool(query, "allowInsecure"):
+        proxy["skip-cert-verify"] = True
+    return proxy
+
+
+def _ssr_query_value(query: str, key: str) -> str:
+    for pair in query.split("&"):
+        name, _, value = pair.partition("=")
+        if name == key and value:
+            try:
+                return decode_base64_payload(value)
+            except ParseError:
+                return unquote(value)
+    return ""
+
+
+def _parse_ssr_uri(uri: str) -> dict[str, object]:
+    payload = uri[len("ssr://") :]
+    if not payload:
+        raise ParseError("ssr URI is empty")
+    decoded = decode_base64_payload(payload)
+    main, _, query = decoded.partition("/?")
+    parts = main.split(":")
+    if len(parts) != 6:
+        raise ParseError("ssr URI has an invalid field count")
+    server, port_text, protocol, cipher, obfs, password_text = parts
+    if not server:
+        raise ParseError("ssr URI has no server")
+    if not password_text:
+        raise ParseError("missing_password")
+    port = _parse_port(port_text)
+    password = decode_base64_payload(password_text)
+    name = _ssr_query_value(query, "remarks")
+    proxy: dict[str, object] = {
+        "name": name or _proxy_name("ssr", server, port),
+        "type": "ssr",
+        "server": server,
+        "port": port,
+        "protocol": protocol,
+        "cipher": cipher,
+        "password": password,
+        "obfs": obfs,
+    }
+    obfs_param = _ssr_query_value(query, "obfsparam")
+    if obfs_param:
+        proxy["obfs-param"] = obfs_param
+    protocol_param = _ssr_query_value(query, "protoparam")
+    if protocol_param:
+        proxy["protocol-param"] = protocol_param
+    return proxy
+
+
 def parse_uri(uri: str) -> dict[str, object]:
     """Parse one supported subscription URI into a Clash-like proxy mapping."""
     if not isinstance(uri, str) or "://" not in uri:
@@ -575,9 +657,195 @@ def parse_uri(uri: str) -> dict[str, object]:
         return _parse_ss_uri(uri)
     if scheme == "hysteria2":
         return _parse_hysteria2_uri(uri)
+    if scheme == "hysteria":
+        return _parse_hysteria_uri(uri)
+    if scheme == "ssr":
+        return _parse_ssr_uri(uri)
     if scheme == "tuic":
         return _parse_tuic_uri(uri)
     return _parse_standard_uri(uri, scheme)
+
+
+_SINGBOX_OUTBOUND_TYPES = {
+    "http": "http",
+    "socks": "socks5",
+    "shadowsocks": "ss",
+    "vmess": "vmess",
+    "vless": "vless",
+    "trojan": "trojan",
+    "hysteria2": "hysteria2",
+}
+
+
+def _apply_singbox_tls(
+    proxy: dict[str, object], outbound: Mapping[str, object]
+) -> None:
+    tls = outbound.get("tls")
+    if not isinstance(tls, Mapping):
+        return
+    reality = tls.get("reality")
+    if (
+        _bool_value(tls.get("enabled"))
+        or tls.get("server_name")
+        or isinstance(reality, Mapping)
+    ):
+        proxy["tls"] = True
+    server_name = tls.get("server_name")
+    if server_name:
+        proxy["sni"] = str(server_name)
+    alpn = tls.get("alpn")
+    if alpn:
+        proxy["alpn"] = (
+            [str(item) for item in alpn] if isinstance(alpn, list) else [str(alpn)]
+        )
+    if _bool_value(tls.get("insecure")):
+        proxy["skip-cert-verify"] = True
+    if _bool_value(tls.get("disable_sni")):
+        proxy["disable-sni"] = True
+    utls = tls.get("utls")
+    if isinstance(utls, Mapping) and utls.get("fingerprint"):
+        proxy["client-fingerprint"] = str(utls["fingerprint"])
+    if isinstance(reality, Mapping) and _bool_value(reality.get("enabled", True)):
+        public_key = str(reality.get("public_key") or "")
+        if not public_key:
+            raise ParseError("missing_reality_public_key")
+        proxy["reality-opts"] = {
+            "public-key": public_key,
+            "short-id": str(reality.get("short_id") or ""),
+        }
+
+
+def _apply_singbox_transport(
+    proxy: dict[str, object], outbound: Mapping[str, object]
+) -> None:
+    transport = outbound.get("transport")
+    if not isinstance(transport, Mapping):
+        return
+    transport_type = str(transport.get("type") or "").lower()
+    if transport_type in {"", "tcp"}:
+        return
+    if transport_type == "ws":
+        proxy["network"] = "ws"
+        ws_opts: dict[str, object] = {}
+        if transport.get("path"):
+            ws_opts["path"] = str(transport["path"])
+        headers = transport.get("headers")
+        if isinstance(headers, Mapping) and headers:
+            ws_opts["headers"] = {
+                str(key): str(value) for key, value in headers.items()
+            }
+        if ws_opts:
+            proxy["ws-opts"] = ws_opts
+        return
+    if transport_type == "grpc":
+        proxy["network"] = "grpc"
+        service_name = transport.get("service_name") or transport.get("service-name")
+        if service_name:
+            proxy["grpc-opts"] = {"grpc-service-name": str(service_name)}
+        return
+    raise ParseError("unsupported_transport")
+
+
+def _parse_singbox_outbound(
+    outbound: Mapping[str, object],
+) -> dict[str, object] | None:
+    proxy_type = _SINGBOX_OUTBOUND_TYPES.get(str(outbound.get("type") or "").lower())
+    if proxy_type is None:
+        return None
+    server = str(outbound.get("server") or "").strip()
+    if not server:
+        raise ParseError("missing_server")
+    port = _parse_port(outbound.get("server_port"))
+    tag = str(outbound.get("tag") or "").strip()
+    proxy: dict[str, object] = {
+        "name": tag or _proxy_name(proxy_type, server, port),
+        "type": proxy_type,
+        "server": server,
+        "port": port,
+    }
+    if proxy_type in {"http", "socks5"}:
+        for key in ("username", "password"):
+            if outbound.get(key) is not None:
+                proxy[key] = outbound[key]
+    elif proxy_type == "ss":
+        if outbound.get("plugin"):
+            raise ParseError("unsupported_shadowsocks_plugin")
+        method = str(outbound.get("method") or "")
+        password = str(outbound.get("password") or "")
+        if not method or not password:
+            raise ParseError("missing_shadowsocks_credentials")
+        proxy["cipher"] = method
+        proxy["password"] = password
+    elif proxy_type in {"vmess", "vless"}:
+        proxy["uuid"] = _validate_uuid(outbound.get("uuid"))
+        if outbound.get("flow"):
+            proxy["flow"] = str(outbound["flow"])
+        if proxy_type == "vmess":
+            proxy["cipher"] = str(outbound.get("security") or "auto")
+            try:
+                proxy["alterId"] = int(str(outbound.get("alter_id", 0) or 0))
+            except ValueError:
+                raise ParseError("invalid_alter_id") from None
+    elif proxy_type == "trojan":
+        password = str(outbound.get("password") or "")
+        if not password:
+            raise ParseError("missing_password")
+        proxy["password"] = password
+    elif proxy_type == "hysteria2":
+        password = str(outbound.get("password") or "")
+        if not password:
+            raise ParseError("missing_password")
+        proxy["password"] = password
+        obfs = outbound.get("obfs")
+        if isinstance(obfs, Mapping) and obfs:
+            if str(obfs.get("type", "")).lower() != "salamander":
+                raise ParseError("unsupported_hysteria2_obfs")
+            proxy["obfs"] = "salamander"
+            if obfs.get("password"):
+                proxy["obfs-password"] = str(obfs["password"])
+        for source_key, target_key in (("up_mbps", "up"), ("down_mbps", "down")):
+            if outbound.get(source_key) is not None:
+                proxy[target_key] = f"{outbound[source_key]} Mbps"
+        ports = outbound.get("server_ports")
+        if ports:
+            proxy["ports"] = (
+                ",".join(str(item) for item in ports)
+                if isinstance(ports, list)
+                else str(ports)
+            )
+        if outbound.get("hop_interval") is not None:
+            proxy["hop-interval"] = str(outbound["hop_interval"])
+    if proxy_type in {"trojan", "hysteria2"}:
+        proxy["tls"] = True
+    _apply_singbox_tls(proxy, outbound)
+    _apply_singbox_transport(proxy, outbound)
+    return proxy
+
+
+def _document_singbox_outbounds(
+    document: object,
+) -> tuple[list[dict[str, object]] | None, dict[str, int]]:
+    if not isinstance(document, Mapping) or not isinstance(
+        document.get("outbounds"), list
+    ):
+        return None, {}
+    proxies: list[dict[str, object]] = []
+    drops: dict[str, int] = {}
+    for outbound in document["outbounds"]:
+        if not isinstance(outbound, Mapping):
+            drops["unsupported_outbound"] = drops.get("unsupported_outbound", 0) + 1
+            continue
+        try:
+            proxy = _parse_singbox_outbound(outbound)
+        except (ParseError, TypeError, ValueError) as exc:
+            reason = str(exc).split(":", 1)[0] or "invalid_outbound"
+            drops[reason] = drops.get(reason, 0) + 1
+            continue
+        if proxy is None:
+            drops["unsupported_outbound"] = drops.get("unsupported_outbound", 0) + 1
+            continue
+        proxies.append(proxy)
+    return proxies, drops
 
 
 def _document_proxies(
@@ -609,6 +877,9 @@ def _parse_structured(
             proxies, drops = _document_proxies(document)
             if proxies is not None:
                 return proxies, drops
+            singbox_proxies, singbox_drops = _document_singbox_outbounds(document)
+            if singbox_proxies is not None:
+                return singbox_proxies, singbox_drops
             if format_hint == "json":
                 raise ParseError("JSON source has no proxies list")
     if format_hint in {"yaml", "auto"}:

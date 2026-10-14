@@ -59,14 +59,18 @@ class SourceResult:
     license: str | None = None
     evidence: str | None = None
     publicly_offered: bool | None = None
+    authorized: bool = False
     sha256: str | None = None
 
     def to_dict(self) -> dict[str, object]:
-        return {
+        document = {
             key: value
             for key, value in asdict(self).items()
             if value is not None and value != {} and value is not False
         }
+        # authorized is an audit flag: surface it even when false.
+        document["authorized"] = self.authorized
+        return document
 
 
 @dataclass
@@ -124,6 +128,24 @@ def _source_entries(config: dict[str, Any]) -> list[dict[str, Any]]:
             entry["kind"] = kind
             entries.append(entry)
     return entries
+
+
+def _source_authorized(source: dict[str, Any]) -> bool:
+    """Resolve the source authorization flag for registration and audit.
+
+    An explicit ``authorized`` value wins; when it is absent the flag is
+    derived conservatively from enabled && publish && !requires_review.
+    """
+    explicit = source.get("authorized")
+    if isinstance(explicit, bool):
+        return explicit
+    if explicit is not None:
+        return str(explicit).strip().lower() in {"1", "true", "yes", "on"}
+    return (
+        bool(source.get("enabled", False))
+        and bool(source.get("publish", False))
+        and not bool(source.get("requires_review", False))
+    )
 
 
 def _read_file(path: Path, max_bytes: int) -> str:
@@ -999,6 +1021,7 @@ def run_pipeline(
             publicly_offered=bool(source["publicly_offered"])
             if "publicly_offered" in source
             else None,
+            authorized=_source_authorized(source),
         )
         if not bool(source.get("enabled", False)):
             result.status = "disabled"

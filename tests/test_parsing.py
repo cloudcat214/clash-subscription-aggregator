@@ -1,6 +1,9 @@
 import base64
+import json
+from pathlib import Path
 
 import pytest
+import yaml
 
 from aggregator.outputs import render_clash_provider
 from aggregator.parsing import (
@@ -9,8 +12,10 @@ from aggregator.parsing import (
     filter_proxies,
     normalize_proxies,
     parse_source_payload,
+    parse_source_payload_with_drops,
     parse_uri,
 )
+from aggregator.pipeline import SourceResult, _source_authorized, build_manifest
 
 
 def test_base64_subscription_is_decoded_and_parsed() -> None:
@@ -136,3 +141,158 @@ def test_filters_remove_denied_protocols_and_low_scores() -> None:
 def test_unsupported_uri_is_rejected() -> None:
     with pytest.raises(ParseError):
         parse_uri("ftp://node.example.invalid:21")
+
+
+def test_singbox_outbounds_are_parsed_and_unsupported_skipped() -> None:
+    payload = json.dumps(
+        {
+            "outbounds": [
+                {
+                    "type": "vless",
+                    "tag": "node-vless",
+                    "server": "node.example.invalid",
+                    "server_port": 443,
+                    "uuid": "11111111-2222-3333-4444-555555555555",
+                    "tls": {
+                        "enabled": True,
+                        "server_name": "example.invalid",
+                        "insecure": True,
+                    },
+                    "transport": {
+                        "type": "ws",
+                        "path": "/ws",
+                        "headers": {"Host": "example.invalid"},
+                    },
+                },
+                {
+                    "type": "trojan",
+                    "tag": "node-trojan",
+                    "server": "trojan.example.invalid",
+                    "server_port": 8443,
+                    "password": "secret",
+                    "tls": {"enabled": True},
+                },
+                {"type": "direct", "tag": "direct"},
+            ]
+        }
+    )
+
+    proxies, drops = parse_source_payload_with_drops(payload, "json")
+
+    assert [proxy["type"] for proxy in proxies] == ["vless", "trojan"]
+    vless, trojan = proxies
+    assert vless["name"] == "node-vless"
+    assert vless["server"] == "node.example.invalid"
+    assert vless["port"] == 443
+    assert vless["uuid"] == "11111111-2222-3333-4444-555555555555"
+    assert vless["tls"] is True
+    assert vless["sni"] == "example.invalid"
+    assert vless["skip-cert-verify"] is True
+    assert vless["network"] == "ws"
+    assert vless["ws-opts"] == {"path": "/ws", "headers": {"Host": "example.invalid"}}
+    assert trojan["name"] == "node-trojan"
+    assert trojan["password"] == "secret"
+    assert trojan["tls"] is True
+    assert drops == {"unsupported_outbound": 1}
+
+
+def test_hysteria_v1_uri_is_parsed() -> None:
+    proxy = parse_uri(
+        "hysteria://node.example.invalid:36712"
+        "?auth=tok123&peer=bing.com&insecure=1&upmbps=11&downmbps=55"
+        "&protocol=udp&alpn=h3#hy-sample"
+    )
+
+    assert proxy == {
+        "name": "hy-sample",
+        "type": "hysteria",
+        "server": "node.example.invalid",
+        "port": 36712,
+        "auth-str": "tok123",
+        "sni": "bing.com",
+        "protocol": "udp",
+        "up": "11 Mbps",
+        "down": "55 Mbps",
+        "alpn": ["h3"],
+        "skip-cert-verify": True,
+    }
+
+
+def test_ssr_uri_is_parsed() -> None:
+    def encode(value: str) -> str:
+        return base64.urlsafe_b64encode(value.encode()).decode().rstrip("=")
+
+    inner = (
+        "node.example.invalid:8388:auth_aes128_md5:aes-256-cfb:plain:"
+        f"{encode('secret')}/?obfsparam={encode('abc')}"
+        f"&protoparam={encode('def')}&remarks={encode('ssr-sample')}"
+    )
+    payload = base64.urlsafe_b64encode(inner.encode()).decode().rstrip("=")
+
+    proxy = parse_uri(f"ssr://{payload}")
+
+    assert proxy == {
+        "name": "ssr-sample",
+        "type": "ssr",
+        "server": "node.example.invalid",
+        "port": 8388,
+        "protocol": "auth_aes128_md5",
+        "cipher": "aes-256-cfb",
+        "password": "secret",
+        "obfs": "plain",
+        "obfs-param": "abc",
+        "protocol-param": "def",
+    }
+
+
+def test_sources_yaml_declares_boolean_authorized_flag() -> None:
+    config_path = Path(__file__).resolve().parents[1] / "config" / "sources.yaml"
+    document = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+
+    entries = document["sources"]["public"]
+    assert entries
+    for source in entries:
+        assert isinstance(source.get("authorized"), bool), source["id"]
+        if source.get("kind") == "file":
+            assert source["authorized"] is True, source["id"]
+        else:
+            expected = (
+                bool(source.get("enabled"))
+                and bool(source.get("publish"))
+                and not bool(source.get("requires_review"))
+            )
+            assert source["authorized"] is expected, source["id"]
+
+
+def test_authorized_flag_derivation_and_manifest_serialization() -> None:
+    assert (
+        _source_authorized({"enabled": True, "publish": True, "requires_review": False})
+        is True
+    )
+    assert (
+        _source_authorized(
+            {
+                "authorized": False,
+                "enabled": True,
+                "publish": True,
+                "requires_review": False,
+            }
+        )
+        is False
+    )
+
+    results = [
+        SourceResult(id="approved", kind="public", status="ok", authorized=True),
+        SourceResult(id="blocked", kind="public", status="disabled", authorized=False),
+    ]
+    manifest = build_manifest(
+        status="success",
+        generated_at="2026-01-01T00:00:00Z",
+        proxies=[],
+        source_results=results,
+        artifacts={},
+    )
+
+    sources = {entry["id"]: entry for entry in manifest["sources"]}
+    assert sources["approved"]["authorized"] is True
+    assert sources["blocked"]["authorized"] is False
