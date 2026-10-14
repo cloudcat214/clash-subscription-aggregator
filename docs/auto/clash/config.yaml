@@ -1550,12 +1550,6 @@ proxies:
   skip-cert-verify: true
   sni: https://t.me/wangcai2√∞¬ü¬á√∞¬ü¬á
   type: hysteria2
-- name: '[clashfree-daily] 未知 SS-79 | free-nodes'
-  server: 194.68.44.42
-  port: 64546
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: U83u9OGpvSatIUW7LsWffr
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 73342A'
   server: 188.114.97.6
   port: 443
@@ -1589,19 +1583,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7B7020'
-  server: 172.64.145.133
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-200242609'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -2119,19 +2100,6 @@ proxies:
   skip-cert-verify: true
   sni: 202.146.222.29
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1E89D'
-  server: 104.16.111.193
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-657099768'
   password: github.com/Alvin9999-newpac/fanqiang
   port: 60111
@@ -2988,19 +2956,6 @@ proxies:
   sni: noted-cougar.rooster465.autos
   type: trojan
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F1EC39'
-  server: 104.19.164.155
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1646372250'
   password: UX82473651
   port: 443
@@ -3672,21 +3627,6 @@ proxies:
   sni: moral-basilisk.rooster465.autos
   type: trojan
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | BF5E50'
-  server: 104.17.77.77
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1742696000'
   password: UX82473651
   port: 443
@@ -3995,19 +3935,6 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: guanwang.awsno.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D474D2'
-  server: 104.16.10.22
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
-    headers:
-      Host: a.cwvps.eu.org
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1749759426'
   password: UX82473651
   port: 443
@@ -4482,6 +4409,52 @@ proxies:
   skip-cert-verify: true
   sni: 163.192.14.135
   type: hysteria2
+- name: '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
+  type: http
+  server: 194.67.110.12
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1541456343'
+  password: e9dc02d400b67c727aca1620
+  port: 8446
+  server: 185.174.137.172
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
+- name: '[pawdroid-free-servers] 美国+Amazon+EC2服务器'
+  type: hysteria2
+  server: vpn-de-002.fastervpn.world
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  tls: true
+  sni: vpn-de-002.fastervpn.world
+  skip-cert-verify: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1546237825'
+  password: 96ab5cd282733fd4c312a61f972f330a
+  port: 443
+  server: vp3.yysyy.online
+  skip-cert-verify: false
+  sni: ''
+  type: hysteria2
+- name: '[pawdroid-free-servers] 美国+CloudFlare节点'
+  type: vless
+  server: ccc.010304.xyz
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  sni: ccc.010304.xyz
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1671852511'
+  password: dd50a499-7e43-4589-8490-f3b9c2451473
+  port: 443
+  server: nl-hy-test.tcp-reset-club.net
+  skip-cert-verify: true
+  sni: tcp-reset-club.net
+  type: hysteria2
 proxy-groups:
 - name: PROXY
   type: select
@@ -4662,11 +4635,9 @@ proxy-groups:
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 714453'
   - '[clashfree-daily] 未知 SS-78 | free-nodes'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1806654246'
-  - '[clashfree-daily] 未知 SS-79 | free-nodes'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 73342A'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 76F5D4'
   - '[clashfree-daily] 未知 SS-81 | free-nodes'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7B7020'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-200242609'
   - '[clashfree-daily] 未知 SS-82 | free-nodes'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F5870'
@@ -4731,7 +4702,6 @@ proxy-groups:
   - '[clashfree-daily] 未知 TROJAN-141 | free-nodes'
   - '[ermaozi-subscribe] RO_speednode_0126'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-656706481'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1E89D'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-657099768'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-667703181'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A4F840'
@@ -4829,7 +4799,6 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] trojan-1645312297'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
   - '[au1rxx-free-vpn-subscriptions] trojan-1645398608'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F1EC39'
   - '[au1rxx-free-vpn-subscriptions] trojan-1646372250'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F25C32'
   - '[au1rxx-free-vpn-subscriptions] trojan-1647915017'
@@ -4902,7 +4871,6 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] trojan-1740746251'
   - '[au1rxx-free-vpn-subscriptions] trojan-1742281114'
   - '[au1rxx-free-vpn-subscriptions] trojan-1742695998'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | BF5E50'
   - '[au1rxx-free-vpn-subscriptions] trojan-1742696000'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CEAF8A'
   - '[au1rxx-free-vpn-subscriptions] trojan-1744360310'
@@ -4934,7 +4902,6 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] trojan-1747827234'
   - '[au1rxx-free-vpn-subscriptions] trojan-1749759418'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9F20E'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D474D2'
   - '[au1rxx-free-vpn-subscriptions] trojan-1749759426'
   - '[au1rxx-free-vpn-subscriptions] trojan-1750193174'
   - '[au1rxx-free-vpn-subscriptions] trojan-1752686966'
@@ -4987,6 +4954,12 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1093247054'
   - '[zhuhaiuk-free-nodes] CA - zhuhai.uk'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1532335411'
+  - '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
+  - '[au1rxx-free-vpn-subscriptions] hysteria2-1541456343'
+  - '[pawdroid-free-servers] 美国+Amazon+EC2服务器'
+  - '[au1rxx-free-vpn-subscriptions] hysteria2-1546237825'
+  - '[pawdroid-free-servers] 美国+CloudFlare节点'
+  - '[au1rxx-free-vpn-subscriptions] hysteria2-1671852511'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -5165,11 +5138,9 @@ proxy-groups:
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 714453'
   - '[clashfree-daily] 未知 SS-78 | free-nodes'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1806654246'
-  - '[clashfree-daily] 未知 SS-79 | free-nodes'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 73342A'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 76F5D4'
   - '[clashfree-daily] 未知 SS-81 | free-nodes'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7B7020'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-200242609'
   - '[clashfree-daily] 未知 SS-82 | free-nodes'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F5870'
@@ -5234,7 +5205,6 @@ proxy-groups:
   - '[clashfree-daily] 未知 TROJAN-141 | free-nodes'
   - '[ermaozi-subscribe] RO_speednode_0126'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-656706481'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1E89D'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-657099768'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-667703181'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A4F840'
@@ -5332,7 +5302,6 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] trojan-1645312297'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
   - '[au1rxx-free-vpn-subscriptions] trojan-1645398608'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F1EC39'
   - '[au1rxx-free-vpn-subscriptions] trojan-1646372250'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | F25C32'
   - '[au1rxx-free-vpn-subscriptions] trojan-1647915017'
@@ -5405,7 +5374,6 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] trojan-1740746251'
   - '[au1rxx-free-vpn-subscriptions] trojan-1742281114'
   - '[au1rxx-free-vpn-subscriptions] trojan-1742695998'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | BF5E50'
   - '[au1rxx-free-vpn-subscriptions] trojan-1742696000'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CEAF8A'
   - '[au1rxx-free-vpn-subscriptions] trojan-1744360310'
@@ -5437,7 +5405,6 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] trojan-1747827234'
   - '[au1rxx-free-vpn-subscriptions] trojan-1749759418'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9F20E'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D474D2'
   - '[au1rxx-free-vpn-subscriptions] trojan-1749759426'
   - '[au1rxx-free-vpn-subscriptions] trojan-1750193174'
   - '[au1rxx-free-vpn-subscriptions] trojan-1752686966'
@@ -5490,6 +5457,12 @@ proxy-groups:
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1093247054'
   - '[zhuhaiuk-free-nodes] CA - zhuhai.uk'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1532335411'
+  - '[zhuhaiuk-free-nodes] DE - zhuhai.uk'
+  - '[au1rxx-free-vpn-subscriptions] hysteria2-1541456343'
+  - '[pawdroid-free-servers] 美国+Amazon+EC2服务器'
+  - '[au1rxx-free-vpn-subscriptions] hysteria2-1546237825'
+  - '[pawdroid-free-servers] 美国+CloudFlare节点'
+  - '[au1rxx-free-vpn-subscriptions] hysteria2-1671852511'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 100
