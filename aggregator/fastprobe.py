@@ -31,7 +31,7 @@ MAX_FASTPROBE_NODES = 2000
 MAX_FASTPROBE_CONCURRENCY = 16
 STAGE1_TIMEOUT_MS = 6000
 STAGE2_TIMEOUT_MS = 8000
-TARGET_URL = "http://www.gstatic.com/generate_204"
+TARGET_URL = "https://www.gstatic.com/generate_204"
 
 _CORE_ERROR_CATEGORIES = {
     "probe_process_start_failed": "process_start_error",
