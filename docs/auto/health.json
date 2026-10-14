@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-13T21:50:06Z",
+  "generated_at": "2026-10-14T00:44:48Z",
   "status": "ok",
   "active_probe": true,
-  "published": 410,
+  "published": 423,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1183,
-      "accepted": 1118,
+      "parsed": 1546,
+      "accepted": 1462,
       "drops": {
         "invalid_uuid": 9,
-        "duplicate": 56
+        "duplicate": 75
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "67270d2a375a05f018669efd4a5c5354aa4d0fcea8cb179688a75eaa06f86ff7"
+      "sha256": "b8c2fd0f3b862c5d34cb32889b95f5c5f53440cd39f8f3ff60f27cd99462eed9"
     },
     {
       "id": "p-configs-vless",
@@ -187,12 +187,12 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 5,
-      "accepted": 5,
+      "parsed": 8,
+      "accepted": 8,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "a9516a665deb7ee999083da41df649bac7110d4c285979cff1e0a0d1c9963742"
+      "sha256": "a997206ac5438a0ee12f17115d007ad4ed4e7005d78388f864be9c0bb4a460aa"
     },
     {
       "id": "anaer-sub",
@@ -213,32 +213,33 @@
       "id": "clashfree-daily",
       "kind": "public",
       "status": "ok",
-      "parsed": 614,
-      "accepted": 452,
+      "parsed": 617,
+      "accepted": 451,
       "drops": {
         "invalid_uuid": 2,
         "private_server": 2,
-        "duplicate": 158
+        "duplicate": 162
       },
       "source_repo": "https://github.com/free-nodes/clashfree",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "2ad2ed2f4d326b62fd3647f0e593e7c6128213a1be50e760f823304c96372741"
+      "sha256": "f1ec7ea5f83df1bd32d21e4eb2b2c49b8a24ae551b0a0c835bc9d66ed811b80c"
     },
     {
       "id": "ermaozi-subscribe",
       "kind": "public",
       "status": "ok",
-      "parsed": 534,
-      "accepted": 519,
+      "parsed": 598,
+      "accepted": 582,
       "drops": {
         "private_server": 10,
-        "unsupported proxy type": 5
+        "unsupported proxy type": 4,
+        "invalid_uuid": 2
       },
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
-      "sha256": "08bfdb5dbfe1db07bb749c4a08d755d76d6cddec10870ae7bc083a59e5250ca5"
+      "sha256": "5532a051dc53256a8322c02ac96cf815393202545b75373d1cf7f8a71b121b6c"
     },
     {
       "id": "vxiaov-free-proxies",
@@ -255,12 +256,15 @@
       "id": "zhuhaiuk-free-nodes",
       "kind": "public",
       "status": "ok",
-      "parsed": 32,
-      "accepted": 32,
+      "parsed": 35,
+      "accepted": 34,
+      "drops": {
+        "unsupported proxy type": 1
+      },
       "source_repo": "https://github.com/zhuhaiuk/free-nodes",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "621e72a5b143c93e238bedd9b04fe8651e09e3282db88984cf05613480686785"
+      "sha256": "58f060bceed055b19eedabb9aec4474f15ff14d6aab0838ba9ffd400338dceda"
     },
     {
       "id": "freefq-free",
@@ -280,16 +284,16 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1816,
-      "accepted": 1099,
+      "parsed": 1788,
+      "accepted": 1114,
       "drops": {
-        "invalid_uuid": 9,
-        "duplicate": 708
+        "invalid_uuid": 7,
+        "duplicate": 667
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
-      "sha256": "661b02bcffa8dcff505c35f0b830f2d41c4387387de5af7106563875a3c1cf64"
+      "sha256": "437d3cbdea56eb8f548a6ceffb7e40e55c6727028692644bc901ccc94a60b9dc"
     },
     {
       "id": "mfuu-freeproxies",
@@ -332,22 +336,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 590
+      "http_error": 577
     },
     "pool_size_before": 0,
-    "pool_size": 410,
+    "pool_size": 423,
     "probe_queue": "verified_pool_first",
     "pool_probe_candidates": 0,
     "pool_retested": 0,
     "new_candidates_tested": 1000,
-    "pool_added": 410,
+    "pool_added": 423,
     "pool_evicted": 0,
-    "retained_count": 410,
+    "retained_count": 423,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1000,
-    "stage1_passed": 418,
-    "stage2_tested": 418,
-    "stage2_stable": 415,
+    "stage1_passed": 430,
+    "stage2_tested": 430,
+    "stage2_stable": 424,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -356,19 +360,19 @@
     }
   },
   "node_quality": {
-    "candidates": 3663,
+    "candidates": 4069,
     "tested": 1000,
-    "verified": 410,
-    "fast": 361,
-    "stable": 410,
-    "failed": 590,
-    "not_tested": 2663,
-    "not_tested_budget": 2663,
-    "failed_probe": 584,
-    "below_quality_threshold": 6,
-    "dropped": 590,
-    "published": 410,
-    "success_rate": 0.4136666666666667
+    "verified": 423,
+    "fast": 374,
+    "stable": 423,
+    "failed": 577,
+    "not_tested": 3069,
+    "not_tested_budget": 3069,
+    "failed_probe": 575,
+    "below_quality_threshold": 2,
+    "dropped": 577,
+    "published": 423,
+    "success_rate": 0.424
   },
   "core_validation": {
     "status": "not_tested",
