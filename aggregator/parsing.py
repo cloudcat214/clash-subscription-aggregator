@@ -932,6 +932,13 @@ def parse_source_payload_with_drops(
             except ParseError as exc:
                 reason = str(exc).split(":", 1)[0]
                 drops[reason] = drops.get(reason, 0) + 1
+            except ValueError as exc:
+                reason = (
+                    "invalid_port"
+                    if "Port could not be cast" in str(exc)
+                    else "invalid_uri"
+                )
+                drops[reason] = drops.get(reason, 0) + 1
         if proxies or drops:
             return proxies, drops
     if format_hint in {"auto", "base64"} and not _decoded:

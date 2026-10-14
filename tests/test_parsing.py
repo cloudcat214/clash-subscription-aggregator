@@ -296,3 +296,15 @@ def test_authorized_flag_derivation_and_manifest_serialization() -> None:
     sources = {entry["id"]: entry for entry in manifest["sources"]}
     assert sources["approved"]["authorized"] is True
     assert sources["blocked"]["authorized"] is False
+
+
+def test_uri_line_with_invalid_port_is_dropped_per_line() -> None:
+    payload = (
+        "ss://YWVzLTI1Ni1nY206cGFzc3dvcmQ=@1.2.3.4:notaport\n"
+        "http://node.example.invalid:8080#sample"
+    )
+
+    proxies, drops = parse_source_payload_with_drops(payload, "uri")
+
+    assert [proxy["server"] for proxy in proxies] == ["node.example.invalid"]
+    assert drops.get("invalid_port") == 1
