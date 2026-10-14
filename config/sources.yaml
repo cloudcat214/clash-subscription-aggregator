@@ -507,6 +507,43 @@ sources:
       source_repo: https://github.com/ovmvo/FreeSub
       license: unknown
 
+    # 2026-10-14 扩源第二波：sing-box 格式与分片补录。
+    - id: nirevil-singbox
+      name: NiREvil vless sing-box 订阅
+      url: https://raw.githubusercontent.com/NiREvil/vless/main/sub/singbox.json
+      format: json
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/NiREvil/vless
+      license: unknown
+
+    - id: surfboardv2ray-eternity
+      name: v2ray-worker-sub Eternity（Clash）
+      url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/main/Eternity.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/Surfboardv2ray/v2ray-worker-sub
+      license: unknown
+
+    - id: share-daily-node
+      name: share-daily/node（Clash）
+      url: https://raw.githubusercontent.com/share-daily/node/main/clash.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/share-daily/node
+      license: unknown
+
     - id: mfuu-freeproxies
       name: mfuu/FreeProxies Clash 订阅
       url: https://raw.githubusercontent.com/mfuu/FreeProxies/master/sub.yaml
