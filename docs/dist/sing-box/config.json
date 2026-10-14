@@ -42,7 +42,6 @@
         "[zhuhaiuk-free-nodes] NL - zhuhai.uk 02",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1111846187",
         "[ermaozi-subscribe] NL_speednode_0008",
-        "[zhuhaiuk-free-nodes] Public Welfare - zhuhai.uk",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1111846211",
         "[clashfree-daily] 未知 SS-106 | free-nodes",
         "[ermaozi-subscribe] NL_speednode_0009",
@@ -328,7 +327,6 @@
         "[au1rxx-free-vpn-subscriptions] shadowsocks-717968959",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-768399438",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-812343760",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-819466188",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CF55CC",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D06334",
@@ -503,7 +501,9 @@
         "[zhuhaiuk-free-nodes] IL - zhuhai.uk",
         "[zhuhaiuk-free-nodes] IT - zhuhai.uk",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1700945302",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-1713695214"
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1713695214",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1742802008",
+        "[zhuhaiuk-free-nodes] LK - zhuhai.uk"
       ]
     },
     {
@@ -914,24 +914,6 @@
       "tls": {
         "enabled": true,
         "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[zhuhaiuk-free-nodes] Public Welfare - zhuhai.uk",
-      "server": "v.toe.dpdns.org",
-      "server_port": 443,
-      "uuid": "1a3f27c2-62d8-46b6-bbdc-4909c5051475",
-      "tls": {
-        "enabled": true,
-        "server_name": "pw.gams.dpdns.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vplaetshs",
-        "headers": {
-          "Host": "pw.gams.dpdns.org"
-        }
       }
     },
     {
@@ -4502,24 +4484,6 @@
       "password": "xaupMUvhptwxdDUg"
     },
     {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C",
-      "server": "104.16.10.48",
-      "server_port": 443,
-      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp3.yohototo.top"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/tyxyws",
-        "headers": {
-          "Host": "jp3.yohototo.top"
-        }
-      }
-    },
-    {
       "type": "shadowsocks",
       "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-819466188",
       "server": "195.238.126.20",
@@ -6740,6 +6704,41 @@
         "enabled": true,
         "server_name": "132.226.226.189",
         "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1742802008",
+      "server": "13.36.234.11",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "13.36.234.11",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[zhuhaiuk-free-nodes] LK - zhuhai.uk",
+      "server": "free.sahanwickramasinghe.me",
+      "server_port": 8443,
+      "uuid": "c136a12c-4260-48a7-a1e6-fbda83a11045",
+      "tls": {
+        "enabled": true,
+        "server_name": "zoom.us",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "free.sahanwickramasinghe.me"
+        }
       }
     }
   ]

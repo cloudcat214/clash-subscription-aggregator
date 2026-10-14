@@ -308,18 +308,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[zhuhaiuk-free-nodes] Public Welfare - zhuhai.uk'
-  type: vless
-  server: v.toe.dpdns.org
-  port: 443
-  uuid: 1a3f27c2-62d8-46b6-bbdc-4909c5051475
-  tls: true
-  servername: pw.gams.dpdns.org
-  network: ws
-  ws-opts:
-    path: /vplaetshs
-    headers:
-      Host: pw.gams.dpdns.org
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1111846211'
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
   port: 50160
@@ -2769,19 +2757,6 @@ proxies:
   server: 195.238.126.20
   type: ss
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C'
-  server: 104.16.10.48
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - cipher: aes-256-cfb
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-819466188'
   password: mwgRg9hRq3b4Qnwb
@@ -4428,3 +4403,24 @@ proxies:
   skip-cert-verify: true
   sni: 132.226.226.189
   type: hysteria2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1742802008'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 13.36.234.11
+  skip-cert-verify: true
+  sni: 13.36.234.11
+  type: hysteria2
+- name: '[zhuhaiuk-free-nodes] LK - zhuhai.uk'
+  type: vless
+  server: free.sahanwickramasinghe.me
+  port: 8443
+  uuid: c136a12c-4260-48a7-a1e6-fbda83a11045
+  tls: true
+  servername: zoom.us
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.me
