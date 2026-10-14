@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-14T08:04:48Z",
+  "generated_at": "2026-10-14T08:13:12Z",
   "status": "ok",
   "active_probe": true,
-  "published": 402,
+  "published": 500,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -141,17 +141,17 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1054,
-      "accepted": 990,
+      "parsed": 1025,
+      "accepted": 963,
       "drops": {
         "invalid_uuid": 4,
-        "duplicate": 60
+        "duplicate": 58
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
-      "sha256": "fc141e2e1da34ccc11801627d522b7507207f15bb57f1c1bf906932306a6e864"
+      "sha256": "cfdb8f00866cb49c7ec44d6c0a8f6c9090799177c5f6f5dda5b9759917e08f57"
     },
     {
       "id": "p-configs-vless",
@@ -333,22 +333,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 598
+      "http_error": 476
     },
-    "pool_size_before": 0,
-    "pool_size": 402,
+    "pool_size_before": 402,
+    "pool_size": 546,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 0,
-    "pool_retested": 0,
-    "new_candidates_tested": 1000,
-    "pool_added": 402,
+    "pool_probe_candidates": 402,
+    "pool_retested": 402,
+    "new_candidates_tested": 598,
+    "pool_added": 144,
     "pool_evicted": 0,
-    "retained_count": 402,
+    "retained_count": 546,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1000,
-    "stage1_passed": 416,
-    "stage2_tested": 416,
-    "stage2_stable": 415,
+    "stage1_passed": 544,
+    "stage2_tested": 544,
+    "stage2_stable": 540,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -357,19 +357,19 @@
     }
   },
   "node_quality": {
-    "candidates": 3625,
+    "candidates": 3635,
     "tested": 1000,
-    "verified": 402,
-    "fast": 303,
-    "stable": 402,
-    "failed": 598,
-    "not_tested": 2625,
-    "not_tested_budget": 2625,
-    "failed_probe": 585,
-    "below_quality_threshold": 13,
-    "dropped": 598,
-    "published": 402,
-    "success_rate": 0.4106666666666667
+    "verified": 524,
+    "fast": 393,
+    "stable": 524,
+    "failed": 476,
+    "not_tested": 2635,
+    "not_tested_budget": 2635,
+    "failed_probe": 459,
+    "below_quality_threshold": 17,
+    "dropped": 476,
+    "published": 500,
+    "success_rate": 0.535
   },
   "core_validation": {
     "status": "not_tested",
