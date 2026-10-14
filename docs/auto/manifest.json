@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-14T15:54:22Z",
-  "status": "degraded",
+  "generated_at": "2026-10-14T16:24:35Z",
+  "status": "success",
   "active_probe": true,
   "counts": {
     "published": 500,
     "sources": 41,
-    "parsed": 11582,
-    "accepted": 9358
+    "parsed": 11903,
+    "accepted": 9618
   },
   "protocols": {
     "http": 30,
     "hysteria": 3,
-    "hysteria2": 177,
-    "ss": 53,
+    "hysteria2": 176,
+    "ss": 51,
     "ssr": 1,
-    "trojan": 106,
-    "vless": 97,
-    "vmess": 33
+    "trojan": 110,
+    "vless": 94,
+    "vmess": 35
   },
   "sources": [
     {
@@ -168,18 +168,18 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 878,
-      "accepted": 818,
+      "parsed": 843,
+      "accepted": 795,
       "drops": {
         "invalid_uuid": 3,
-        "duplicate": 57
+        "duplicate": 45
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "9eabc9fdce7da95931a96f03db809f222921d502b3c87390bed9d724ddf01ffd"
+      "sha256": "4ad8d5c0d3974d3f685e54765d440d46f1980bae767a39d49841487d2d1bfaad"
     },
     {
       "id": "p-configs-vless",
@@ -223,7 +223,7 @@
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "20464ebbb154039e01e0cb19a70cf16254d4204f7a151935ff3fa84313ba108b"
+      "sha256": "5592edb1fa62672aff202b006657f1a36febeb772687ed48301abc3bc719ee07"
     },
     {
       "id": "anaer-sub",
@@ -321,17 +321,17 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1782,
-      "accepted": 1090,
+      "parsed": 1780,
+      "accepted": 1070,
       "drops": {
-        "invalid_uuid": 9,
-        "duplicate": 683
+        "invalid_uuid": 6,
+        "duplicate": 704
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "4f620ff3d7180f35b7502c8f4690d1ba7385090b55452eea4526c4e19a910f87"
+      "sha256": "4b8f5ee47caa36821a8621f83cc869f792763112e2b7cf11c0e4e46c31042716"
     },
     {
       "id": "chengaopan-merged",
@@ -443,10 +443,15 @@
     {
       "id": "iboxz-collector",
       "kind": "public",
-      "status": "error",
-      "parsed": 0,
-      "accepted": 0,
-      "error": "ValueError",
+      "status": "ok",
+      "parsed": 358,
+      "accepted": 303,
+      "drops": {
+        "invalid_port": 1,
+        "vless URI must include UUID, host and port": 2,
+        "invalid_uuid": 16,
+        "duplicate": 55
+      },
       "source_repo": "https://github.com/iboxz/free-v2ray-collector",
       "license": "unknown",
       "publicly_offered": true,
@@ -604,29 +609,31 @@
     },
     {
       "path": "clash/config.yaml",
-      "sha256": "69e0fae77f8d0e54709fe53780058b327ab21ef7ff9c7705aee154c28e1e372b",
-      "bytes": 177512
+      "sha256": "eac2e28614d4362489fc111e7f86b19a4349820de178995b342b66a8d1dc5a99",
+      "bytes": 177447
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "b7368fe91364acf0d923950e47aab2d11a12d998e467c6708f0503a2b2098ba2",
-      "bytes": 117904
+      "sha256": "bf983096b32c84f39ae3020a7930120f4d65eccde9b2541d62a2b9b4009e6541",
+      "bytes": 117879
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "09e42477e18e6322163ff80d6fe9e621e793b830e03d2e49a7b5240a47546265",
-      "bytes": 204839
+      "sha256": "084cda79f5d2017ab09d77cca8c022a5cb951ca818949942484ecd09f3c10a89",
+      "bytes": 204485
     }
   ],
   "drops": {
-    "invalid_uuid": 132,
-    "duplicate": 2787,
+    "invalid_uuid": 145,
+    "duplicate": 2888,
     "missing_password": 2,
     "private_server": 32,
     "unsupported proxy type": 12,
     "proxy port is outside 1..65535": 1,
     "vmess URI payload is not valid JSON": 59,
     "unsupported_scheme": 3,
+    "invalid_port": 1,
+    "vless URI must include UUID, host and port": 2,
     "ss URI has no method/password pair": 45,
     "missing_reality_public_key": 29,
     "unsupported_outbound": 1
@@ -654,23 +661,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 254,
-      "network_error": 1
+      "http_error": 272
     },
-    "pool_size_before": 759,
-    "pool_size": 791,
+    "pool_size_before": 791,
+    "pool_size": 800,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 759,
-    "pool_retested": 759,
-    "new_candidates_tested": 241,
-    "pool_added": 44,
-    "pool_evicted": 12,
-    "retained_count": 791,
+    "pool_probe_candidates": 791,
+    "pool_retested": 791,
+    "new_candidates_tested": 209,
+    "pool_added": 24,
+    "pool_evicted": 15,
+    "retained_count": 800,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1000,
-    "stage1_passed": 805,
-    "stage2_tested": 805,
-    "stage2_stable": 787,
+    "stage1_passed": 783,
+    "stage2_tested": 783,
+    "stage2_stable": 760,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -679,19 +685,19 @@
     }
   },
   "node_quality": {
-    "candidates": 8953,
+    "candidates": 9189,
     "tested": 1000,
-    "verified": 745,
-    "fast": 552,
-    "stable": 745,
-    "failed": 255,
-    "not_tested": 7953,
-    "not_tested_budget": 7953,
-    "failed_probe": 198,
-    "below_quality_threshold": 57,
-    "dropped": 255,
+    "verified": 728,
+    "fast": 534,
+    "stable": 728,
+    "failed": 272,
+    "not_tested": 8189,
+    "not_tested_budget": 8189,
+    "failed_probe": 224,
+    "below_quality_threshold": 48,
+    "dropped": 272,
     "published": 500,
-    "success_rate": 0.778
+    "success_rate": 0.7546666666666667
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
