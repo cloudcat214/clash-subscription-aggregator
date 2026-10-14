@@ -20,6 +20,20 @@ def test_cloud_workflow_keeps_runtime_pool_but_does_not_stage_it() -> None:
     assert "verified-pool-auto\\.json" not in workflow
 
 
+def test_cloud_workflow_persists_pool_via_encrypted_cache() -> None:
+    workflow = (ROOT / ".github/workflows/auto-refresh.yml").read_text(encoding="utf-8")
+    assert "actions/cache/restore@v4" in workflow
+    assert "actions/cache/save@v4" in workflow
+    assert workflow.count("state/verified-pool-auto.json.enc") >= 2
+    assert "secrets.POOL_ENCRYPTION_PASSPHRASE" in workflow
+    assert "-pass env:POOL_PASS" in workflow
+    assert "openssl enc -d -aes-256-cbc -pbkdf2" in workflow
+    assert "openssl enc -aes-256-cbc -pbkdf2" in workflow
+    for line in workflow.splitlines():
+        if line.strip().startswith("git add"):
+            assert "state/" not in line
+
+
 def test_local_publish_keeps_runtime_pool_but_does_not_commit_it() -> None:
     script = (ROOT / "scripts/refresh-publish.ps1").read_text(encoding="utf-8-sig")
     assert (

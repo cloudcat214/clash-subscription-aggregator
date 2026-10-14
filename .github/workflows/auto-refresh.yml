@@ -59,6 +59,39 @@ jobs:
           chmod +x mihomo
           ./mihomo -v
 
+      - name: Restore verified pool cache
+        id: pool-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: state/verified-pool-auto.json.enc
+          key: verified-pool-${{ github.run_id }}
+          restore-keys: |
+            verified-pool-
+
+      - name: Decrypt verified pool
+        shell: bash
+        env:
+          POOL_PASS: ${{ secrets.POOL_ENCRYPTION_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          mkdir -p state
+          if [ ! -f state/verified-pool-auto.json.enc ]; then
+            echo "no pool cache; cold start"
+            exit 0
+          fi
+          if [ -z "${POOL_PASS:-}" ]; then
+            echo "passphrase not configured; cold start"
+            exit 0
+          fi
+          if openssl enc -d -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
+               -in state/verified-pool-auto.json.enc \
+               -out state/verified-pool-auto.json 2>/dev/null; then
+            echo "pool restored from cache"
+          else
+            echo "pool cache decrypt failed; cold start"
+            rm -f state/verified-pool-auto.json state/verified-pool-auto.json.enc
+          fi
+
       - name: Run cloud aggregation and probe
         shell: bash
         run: |
@@ -84,6 +117,37 @@ jobs:
           echo "cloud refresh duration_seconds=$((finished_at - started_at)) probe_max_nodes=$AUTO_PROBE_MAX_NODES"
           test -s dist-auto/clash/config.yaml
           python -c "import json; from pathlib import Path; m=json.loads(Path('dist-auto/manifest.json').read_text(encoding='utf-8')); q=m.get('node_quality', {}); print('cloud publish counts: published=%s tested=%s pool_retested=%s' % (m.get('counts', {}).get('published', 0), q.get('tested', 0), m.get('verification', {}).get('pool_retested', 0)))"
+
+      - name: Encrypt verified pool
+        id: pool-encrypt
+        if: always()
+        shell: bash
+        env:
+          POOL_PASS: ${{ secrets.POOL_ENCRYPTION_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          if [ -z "${POOL_PASS:-}" ]; then
+            echo "passphrase not configured; skip pool cache save"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -f state/verified-pool-auto.json ] && \
+             python -c "import json; json.load(open('state/verified-pool-auto.json', encoding='utf-8'))"; then
+            openssl enc -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
+              -in state/verified-pool-auto.json \
+              -out state/verified-pool-auto.json.enc
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "no valid pool file; skip pool cache save"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save verified pool cache
+        if: always() && steps.pool-encrypt.outputs.ready == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: state/verified-pool-auto.json.enc
+          key: verified-pool-${{ github.run_id }}
 
       - name: Stage dist and auto Pages channels
         shell: bash
