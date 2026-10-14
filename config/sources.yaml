@@ -349,6 +349,164 @@ sources:
       source_repo: https://github.com/Au1rxx/free-vpn-subscriptions
       license: unknown
 
+    # 2026-10-14 扩源批次（多引擎+GitHub 搜索）：仅 raw.githubusercontent.com；
+    # 全部做过可达性与格式抽查；格式取值 auto/base64/json/yaml/uri（clash-yaml 别名映射 yaml）。
+    - id: chengaopan-merged
+      name: AutoMergePublicNodes 合并 Clash 列表
+      url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/chengaopan/AutoMergePublicNodes
+      license: unknown
+
+    - id: chengaopan-base64
+      name: AutoMergePublicNodes base64 订阅
+      url: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/chengaopan/AutoMergePublicNodes
+      license: unknown
+
+    - id: free18-clash
+      name: free18/v2ray Clash Meta 订阅
+      url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/free18/v2ray
+      license: unknown
+
+    - id: cbusifabcap-clashmeta
+      name: daily_free_vpn ClashMeta 订阅
+      url: https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/ClashMeta.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/cbusifabcap/daily_free_vpn
+      license: unknown
+
+    - id: cbusifabcap-uri
+      name: daily_free_vpn URI 列表
+      url: https://raw.githubusercontent.com/cbusifabcap/daily_free_vpn/main/sub/URI.yml
+      format: uri
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/cbusifabcap/daily_free_vpn
+      license: unknown
+
+    - id: huibq-trojanlinks
+      name: TrojanLinks 聚合（base64）
+      url: https://raw.githubusercontent.com/Huibq/TrojanLinks/master/links/temporary
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/Huibq/TrojanLinks
+      license: unknown
+
+    - id: igareck-vless
+      name: vpn-configs-for-russia VLESS 列表
+      url: https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS.txt
+      format: uri
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/igareck/vpn-configs-for-russia
+      license: unknown
+
+    - id: iboxz-collector
+      name: free-v2ray-collector mix 列表
+      url: https://raw.githubusercontent.com/iboxz/free-v2ray-collector/main/main/mix.txt
+      format: uri
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/iboxz/free-v2ray-collector
+      license: unknown
+
+    - id: snapdragon-systemproxy
+      name: SystemProxy 生成配置（Clash）
+      url: https://raw.githubusercontent.com/SnapdragonLee/SystemProxy/master/dist/clash_config_extra.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/SnapdragonLee/SystemProxy
+      license: unknown
+
+    - id: nexus-nodes-all
+      name: Nexus-nodes 聚合（base64）
+      url: https://raw.githubusercontent.com/ninjastrikers/nexus-nodes/main/configs/all.txt
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/ninjastrikers/nexus-nodes
+      license: unknown
+
+    - id: nodeshare-2026
+      name: nodeshare 2026 v2ray（base64）
+      url: https://raw.githubusercontent.com/tglaoshiji/nodeshare/main/2026/v2ray.txt
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/tglaoshiji/nodeshare
+      license: unknown
+
+    - id: nirevil-clashmeta
+      name: NiREvil vless clash-meta 订阅
+      url: https://raw.githubusercontent.com/NiREvil/vless/main/sub/clash-meta.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/NiREvil/vless
+      license: unknown
+
+    - id: ovmvo-permanent
+      name: FreeSub 永久订阅（mihomo）
+      url: https://raw.githubusercontent.com/ovmvo/FreeSub/main/sub/permanent/mihomo.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/ovmvo/FreeSub
+      license: unknown
+
     - id: mfuu-freeproxies
       name: mfuu/FreeProxies Clash 订阅
       url: https://raw.githubusercontent.com/mfuu/FreeProxies/master/sub.yaml
