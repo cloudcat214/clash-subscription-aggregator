@@ -294,7 +294,6 @@
         "[au1rxx-free-vpn-subscriptions] shadowsocks-158885953",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-165",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-166",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0611F1",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1804404048",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-205",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3FB990",
@@ -324,8 +323,6 @@
         "[au1rxx-free-vpn-subscriptions] shadowsocks-768399438",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-812343760",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-819466188",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CF55CC",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D06334",
         "[au1rxx-free-vpn-subscriptions] trojan-1643520516",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D91EF8",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DEBC1A",
@@ -503,7 +500,10 @@
         "[au1rxx-free-vpn-subscriptions] hysteria2-1820518760",
         "[ermaozi-subscribe] ProxyPool | 🇺🇸 美国 | USA 9",
         "[au1rxx-free-vpn-subscriptions] hysteria2-468273420",
-        "[zhuhaiuk-free-nodes] US - zhuhai.uk 02"
+        "[zhuhaiuk-free-nodes] US - zhuhai.uk 02",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-650659597",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-650663575",
+        "[clashfree-daily] 未知 SS-108 | free-nodes"
       ]
     },
     {
@@ -4134,24 +4134,6 @@
       "password": "14fFPrbezE3HDZzsMOr6"
     },
     {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0611F1",
-      "server": "104.17.169.13",
-      "server_port": 443,
-      "uuid": "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46",
-      "tls": {
-        "enabled": true,
-        "server_name": "a.cwvps.eu.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "a.cwvps.eu.org"
-        }
-      }
-    },
-    {
       "type": "shadowsocks",
       "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1804404048",
       "server": "54.36.174.134",
@@ -4434,42 +4416,6 @@
       "server_port": 9068,
       "method": "aes-256-cfb",
       "password": "mwgRg9hRq3b4Qnwb"
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CF55CC",
-      "server": "104.21.6.186",
-      "server_port": 443,
-      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp3.yohototo.top"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/tyxyws",
-        "headers": {
-          "Host": "jp3.yohototo.top"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D06334",
-      "server": "104.16.10.185",
-      "server_port": 443,
-      "uuid": "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46",
-      "tls": {
-        "enabled": true,
-        "server_name": "a.cwvps.eu.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "a.cwvps.eu.org"
-        }
-      }
     },
     {
       "type": "trojan",
@@ -6716,6 +6662,38 @@
       "tls": {
         "enabled": true
       }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-650659597",
+      "server": "62.210.7.139",
+      "server_port": 60111,
+      "password": "github.com/Alvin9999-newpac/fanqiang",
+      "tls": {
+        "enabled": true,
+        "server_name": "62.210.7.139",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-650663575",
+      "server": "202.146.222.174",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "202.146.222.174",
+        "insecure": true
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[clashfree-daily] 未知 SS-108 | free-nodes",
+      "server": "82.110.60.9",
+      "server_port": 19999,
+      "method": "aes-256-gcm",
+      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
     }
   ]
 }
