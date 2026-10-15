@@ -26,7 +26,7 @@
 - 公开仓库包含代码、文档、合成测试数据和 `config/sources.yaml` 中的公开来源清单；不包含真实节点内容、订阅令牌、节点凭据或私有来源正文。
 - GitHub Actions 在 Pull Request 上只运行离线测试、编译和 workflow 结构检查；`main` 上 `docs/**` 的 push 或手动 `workflow_dispatch` 才进入 Pages 部署。
 - 部署 job 只在 `main`、非 fork、`PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true'` 且事件允许时运行；它不抓取来源、不下载核心、不运行 probe，部署前先把工作区 `docs` 同步到最新 `main`（sync-before-deploy），再检查 `docs/dist/clash/config.yaml` 是否存在且 YAML 可解析。
-- Pages 权限为 `contents: read`、`pages: write`、`id-token: write`；artifact 路径为 `docs`，因此公开固定 URL 保持 `dist/clash/config.yaml` 路径。`/dist` 与 `/auto` 的持续更新由云端 `auto-refresh.yml` 负责；本机刷新脚本保留为可逆回退。
+- Pages 权限为 `contents: read`、`pages: write`、`id-token: write`；artifact 路径为 `docs`，因此公开固定 URL 保持 `dist/clash/config.yaml` 路径。`/dist` 与 `/auto` 的持续更新由云端 `auto-refresh.yml` 负责；本机刷新脚本保留为可逆回退。可选的 `/cn` 通道由 `cn-feedback/latest.json`（本机一次性实测，仅存名字哈希与计数）与当轮发布集取交集生成，无反馈数据时跳过重建。
 - 代码许可证不授予订阅节点数据的使用或再分发权；未来公开数据需要独立授权及条款核对。
 
 ## 失败处理

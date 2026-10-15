@@ -8,8 +8,9 @@
 
 - **主订阅（云端自动）**：`https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`。由 GitHub Actions 云端采集、主动测评并发布，电脑关机不影响。GitHub schedule 只代表触发请求，实际触发时间受 GitHub 调度影响，不是准点 15 分钟 SLA。
 - **同源兼容镜像**：`https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config.yaml`。与主订阅是同一份云端产物（同源镜像），保留供已有 /auto 使用者继续使用。
+- **大陆实测过滤（/cn，可选）**：`https://cloudcat214.github.io/clash-subscription-aggregator/cn/clash/config.yaml`。只包含「最近一次大陆实测通过」∩「云端本轮复测有效」的节点；由 `cn-feedback/latest.json` 驱动，没有实测数据时不重建。刷新方法见下文「大陆实测过滤通道（/cn）」。
 
-两条地址都可以直接粘贴到 Clash Verge Rev，指向同一份云端产物。
+前两条地址指向同一份云端产物；`/cn` 是按本机实测过滤后的子集，适合大陆网络使用。
 
 ### 导入成功不等于节点可用
 
@@ -24,6 +25,16 @@
 云端维护两个运行时池：`active-pool` 只收录通过当前 HTTPS + Mihomo 多轮测评的节点，只有它会进入公开 `/dist`；`failed-pool` 保存本轮失败或连续失败淘汰的节点，不发布、不进入公开 Git。
 
 失败池按 1 小时、6 小时、24 小时、72 小时退避复测，复测达到发布门槛后晋升回 active。这样失败节点不会反复占用新候选预算，也不会持续出现在订阅里显示红色 `Error`。两个池都通过 GitHub Actions Secret 加密缓存，缓存丢失时冷启动重建。
+
+### 大陆实测过滤通道（/cn）
+
+GitHub Runner 的出口不等于本机网络（见上文）。为了让订阅尽量只包含「从大陆网络真能连上」的节点，仓库提供一条可选的实测过滤通道：
+
+1. 本机双击 `refresh-cn.cmd`（或运行 `powershell -ExecutionPolicy Bypass -File scripts/refresh-cn-feedback.ps1`）：脚本会实测当前 `/dist` 的全部节点，把通过的结果写入 `cn-feedback/latest.json` 并推送到仓库，然后触发云端重建；
+2. 云端本轮用它做交集：`/cn` = 最新云端发布集 ∩ 实测通过节点，自动剔除已失效节点；没有实测数据的轮次不重建，`/cn` 保持上一份结果；
+3. 电脑不常开：`/cn` 会随云端复测自动收缩；想恢复更大的可用集时，再双击一次刷新脚本即可。
+
+说明：`cn-feedback/latest.json` 只保存节点名字哈希（16 位十六进制）与统计计数，不含节点凭据；该脚本是一次性输入，不是云端运行依赖，也不改变 `/dist` 主订阅。
 
 ## 本地运行
 
@@ -124,6 +135,8 @@ sources:
 | `dist/health.json` | 直接运行聚合器时的本轮状态、失败原因和 LKG 回退状态 |
 | `docs/dist/clash/config.yaml` | 云端发布的公开订阅主文件（固定订阅地址指向此处） |
 | `docs/auto/clash/config.yaml` | 与 `docs/dist/` 同源的兼容镜像 |
+| `docs/cn/clash/config.yaml` | 大陆实测过滤通道（/cn 订阅；由 `cn-feedback/latest.json` 驱动） |
+| `docs/cn/manifest.json` | /cn 通道的筛选计数与反馈时间戳（脱敏） |
 
 本地文件导入时选择 `dist-local/clash/config.yaml`（或直接运行聚合器产生的 `dist/clash/config.yaml`），不需要另行下载 provider 文件。公开发布成功后的固定导入地址见“订阅地址”一节；`dist/`、`state/`、`dist-local/`、`state-local/`、缓存和报告仍按各自用途处理，`docs/dist/` 与 `docs/auto/` 进入公开 Pages。
 

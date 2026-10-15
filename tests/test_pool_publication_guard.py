@@ -57,3 +57,12 @@ def test_local_publish_keeps_runtime_pool_but_does_not_commit_it() -> None:
 def test_history_workflow_remains_present() -> None:
     assert (ROOT / ".github/workflows/update-history.yml").is_file()
     assert (ROOT / "scripts/update_history.py").is_file()
+
+
+def test_cloud_workflow_builds_cn_channel_from_feedback() -> None:
+    workflow = (ROOT / ".github/workflows/auto-refresh.yml").read_text(
+        encoding="utf-8"
+    )
+    assert "scripts/build_cn_channel.py" in workflow
+    assert "cn-feedback/latest.json" in workflow
+    assert "--output docs/cn" in workflow
