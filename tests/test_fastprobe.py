@@ -97,6 +97,8 @@ def test_delay_backend_maps_delay_api_and_records_each_round(
     assert result["stage1_passed"] == 1
     assert result["stage2_tested"] == 1
     assert result["stage2_stable"] == 1
+    assert result["stage1_timeout_ms"] == 5000
+    assert result["stage2_timeout_ms"] == 5000
     assert result["stable"] == 1
     assert len(paths) == 5
     assert all("timeout=5000" in path for path in paths)
@@ -183,6 +185,8 @@ def test_delay_backend_batches_stage1_and_stage2(
     assert result["stage1_passed"] == 401
     assert result["stage2_tested"] == 401
     assert result["stage2_stable"] == 401
+    assert result["stage1_timeout_ms"] == 5000
+    assert result["stage2_timeout_ms"] == 5000
     assert result["tested"] == 401
     assert result["stable"] == 401
 

@@ -315,6 +315,8 @@ def probe_nodes(
             "concurrency": bounded_concurrency,
             "max_nodes": max(1, min(max_nodes, MAX_FASTPROBE_NODES)),
             "timeout_seconds": bounded_timeout,
+            "stage1_timeout_ms": STAGE1_TIMEOUT_MS,
+            "stage2_timeout_ms": STAGE2_TIMEOUT_MS,
             "execution_mode": "serial",
             "target": TARGET_URL,
             "probe_interface": interface,
@@ -398,6 +400,8 @@ def probe_nodes(
         "concurrency": bounded_concurrency,
         "max_nodes": max(1, min(max_nodes, MAX_FASTPROBE_NODES)),
         "timeout_seconds": bounded_timeout,
+        "stage1_timeout_ms": STAGE1_TIMEOUT_MS,
+        "stage2_timeout_ms": STAGE2_TIMEOUT_MS,
         "execution_mode": (
             "parallel" if bounded_concurrency > 1 and len(results) > 1 else "serial"
         ),
