@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 import math
@@ -18,6 +19,12 @@ from urllib.parse import urlsplit
 
 import yaml
 
+from .failed_pool import (
+    due_failed_pool_nodes,
+    failed_pool_document,
+    load_failed_pool,
+    merge_failed_pool,
+)
 from .fastprobe import TARGET_URL as FASTPROBE_TARGET_URL
 from .fetch import FetchError, fetch_http_source_with_meta
 from .outputs import render_artifacts
@@ -982,6 +989,7 @@ def run_pipeline(
     validator: ArtifactValidator | None = None,
     probe_runner: ProbeRunner | None = None,
     verified_pool_path: Path | None = None,
+    failed_pool_path: Path | None = None,
 ) -> PipelineResult:
     """Run the safe publish pipeline and preserve the previous good output on failure."""
     generated_at = utc_now()
@@ -1121,6 +1129,12 @@ def run_pipeline(
         if configured_pool_path
         else state_dir / "verified-pool.json"
     )
+    configured_failed_pool_path = settings.get("failed_pool_path")
+    failed_path = failed_pool_path or (
+        Path(str(configured_failed_pool_path))
+        if configured_failed_pool_path
+        else state_dir / "failed-pool.json"
+    )
     if not active_probe and not proxies:
         failure = _write_failure(
             output_dir, state_dir, public_results, "empty_result", generated_at
@@ -1211,11 +1225,12 @@ def run_pipeline(
         candidate_pool = proxies
         try:
             pool_entries = load_verified_pool(pool_path)
+            failed_entries = load_failed_pool(failed_path)
         except (TypeError, ValueError) as exc:
             verification = {
                 "status": "failed",
-                "reason": "verified_pool_invalid",
-                "error_category": "verified_pool_invalid",
+                "reason": "pool_invalid",
+                "error_category": "pool_invalid",
                 "backend": policy["backend"],
             }
             return _write_failure(
@@ -1235,21 +1250,49 @@ def run_pipeline(
             if isinstance(entry.get("node"), dict)
         ]
         pool_keys = {node_key(node) for node in pool_nodes}
+        failed_keys = {
+            node_key(cast(dict[str, object], entry["node"]))
+            for entry in failed_entries
+            if isinstance(entry.get("node"), dict)
+        }
         new_candidates = [
-            node for node in candidate_pool if node_key(node) not in pool_keys
+            node
+            for node in candidate_pool
+            if node_key(node) not in pool_keys and node_key(node) not in failed_keys
         ]
-        pool_probe_nodes = pool_nodes[:probe_budget]
+        failed_retry_budget = max(1, probe_budget // 5)
+        failed_probe_nodes = due_failed_pool_nodes(
+            failed_entries, generated_at, failed_retry_budget
+        )
+        new_reserve = (
+            max(1, probe_budget // 5) if len(pool_nodes) >= probe_budget else 0
+        )
+        active_budget = max(0, probe_budget - len(failed_probe_nodes) - new_reserve)
+        pool_probe_nodes = pool_nodes[:active_budget]
         new_probe_nodes = round_robin_by_source(
             new_candidates,
             candidate_source_by_key,
-            max(0, probe_budget - len(pool_probe_nodes)),
+            max(0, probe_budget - len(pool_probe_nodes) - len(failed_probe_nodes)),
         )
-        candidates_before_probe = [*pool_probe_nodes, *new_probe_nodes]
+        candidates_before_probe = [
+            *pool_probe_nodes,
+            *failed_probe_nodes,
+            *new_probe_nodes,
+        ]
+        probe_source_by_key = dict(candidate_source_by_key)
+        for entry in [*pool_entries, *failed_entries]:
+            node = entry.get("node")
+            if isinstance(node, dict):
+                probe_source_by_key.setdefault(
+                    node_key(node), str(entry.get("source_id", "unknown"))
+                )
         candidate_keys = {node_key(item) for item in candidate_pool}
         pool_only_count = sum(
             1 for node in pool_nodes if node_key(node) not in candidate_keys
         )
-        total_probe_candidates = len(candidate_pool) + pool_only_count
+        total_probe_candidates = (
+            len(candidate_pool) + pool_only_count + len(failed_probe_nodes)
+        )
         if not candidates_before_probe:
             return _write_failure(
                 output_dir,
@@ -1402,11 +1445,13 @@ def run_pipeline(
             if len(probe_rows) > max_nodes:
                 raise ValueError("probe_results_over_budget")
             results_by_key = {str(row["node_key"]): row for row in probe_rows}
+            active_before = {str(entry["key"]): entry for entry in pool_entries}
+            failed_size_before = len(failed_entries)
             pool_entries, pool_stats = merge_verified_pool(
                 pool_entries,
-                candidates_before_probe,
+                [*pool_probe_nodes, *new_probe_nodes],
                 results_by_key,
-                candidate_source_by_key,
+                probe_source_by_key,
                 now=generated_at,
                 min_verdict=cast(str, policy["min_verdict"]),
                 verified_min_rounds=cast(int, policy["verified_min_rounds"]),
@@ -1414,10 +1459,48 @@ def run_pipeline(
                 stable_success_rate=cast(float, policy["stable_success_rate"]),
                 fast_latency_ms=cast(float, policy["fast_latency_ms"]),
             )
+            active_after = {str(entry["key"]): entry for entry in pool_entries}
+            evicted_active_entries = [
+                entry for key, entry in active_before.items() if key not in active_after
+            ]
+            failed_entries, failed_stats, recovered_failed_nodes = merge_failed_pool(
+                failed_entries,
+                [*failed_probe_nodes, *new_probe_nodes],
+                results_by_key,
+                probe_source_by_key,
+                evicted_active_entries,
+                now=generated_at,
+                min_verdict=cast(str, policy["min_verdict"]),
+                verified_min_rounds=cast(int, policy["verified_min_rounds"]),
+                stable_min_rounds=cast(int, policy["stable_min_rounds"]),
+                stable_success_rate=cast(float, policy["stable_success_rate"]),
+                fast_latency_ms=cast(float, policy["fast_latency_ms"]),
+            )
+            recovered_entries: list[dict[str, object]] = []
+            for recovered in recovered_failed_nodes:
+                recovered_entries.append(
+                    {
+                        "key": str(recovered["key"]),
+                        "node": copy.deepcopy(
+                            cast(dict[str, object], recovered["node"])
+                        ),
+                        "source_id": str(recovered.get("source_id", "unknown")),
+                        "first_seen_at": generated_at,
+                        "last_rechecked_at": generated_at,
+                        "last_conclusion": str(recovered.get("verdict", "stable")),
+                        "consecutive_failures": 0,
+                        "total_passes": 1,
+                    }
+                )
+            if recovered_entries:
+                pool_entries = recovered_entries + pool_entries
             try:
                 _write_json(pool_path, pool_document(pool_entries, generated_at))
+                _write_json(
+                    failed_path, failed_pool_document(failed_entries, generated_at)
+                )
             except OSError:
-                raise ValueError("verified_pool_write_failed")
+                raise ValueError("pool_write_failed")
             proxies = active_pool_nodes(
                 pool_entries, cast(int, policy["publish_max_nodes"])
             )
@@ -1454,13 +1537,20 @@ def run_pipeline(
                 "probe_queue": "verified_pool_first",
                 "pool_probe_candidates": len(pool_probe_nodes),
                 "pool_retested": pool_stats["retested"],
-                "new_candidates_tested": sum(
-                    1 for key in results_by_key if key not in pool_keys
-                ),
+                "new_candidates_tested": len(new_probe_nodes),
                 "pool_added": pool_stats["added"],
                 "pool_evicted": pool_stats["evicted"],
+                "pool_recovered": len(recovered_entries),
                 "retained_count": pool_stats["retained"],
                 "shrink_guard_ratio": pool_shrink_ratio,
+                "failed_pool_size_before": failed_size_before,
+                "failed_pool_due": len(failed_probe_nodes),
+                "failed_pool_retested": failed_stats["retested"],
+                "failed_pool_promoted": failed_stats["promoted"],
+                "failed_pool_added": failed_stats["added"],
+                "failed_pool_evicted_active": failed_stats["evicted_active"],
+                "failed_pool_pruned": failed_stats["pruned"],
+                "failed_pool_size": failed_stats["size"],
             }
             verification.update(stage_stats)
             if raw_probe_interface or raw_interface_mode:
@@ -1475,8 +1565,7 @@ def run_pipeline(
         except (TypeError, ValueError, OverflowError) as exc:
             failure_reason = (
                 str(exc)
-                if str(exc)
-                in {"probe_parameters_over_budget", "verified_pool_write_failed"}
+                if str(exc) in {"probe_parameters_over_budget", "pool_write_failed"}
                 else "probe_results_invalid"
             )
             verification = {

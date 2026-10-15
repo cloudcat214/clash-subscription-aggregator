@@ -251,7 +251,7 @@ def test_pipeline_probes_pool_before_new_candidates(tmp_path: Path) -> None:
     assert manifest["verification"]["new_candidates_tested"] == 1
 
 
-def test_pool_shrink_guard_uses_fifty_percent_for_previous_pool_of_ten(
+def test_pool_shrink_guard_uses_fifty_percent_for_previous_pool_above_active_pool(
     tmp_path: Path,
 ) -> None:
     source_path = tmp_path / "source.yaml"
@@ -265,7 +265,7 @@ def test_pool_shrink_guard_uses_fifty_percent_for_previous_pool_of_ten(
                         "server": f"node-{index}.example.invalid",
                         "port": 8080,
                     }
-                    for index in range(10)
+                    for index in range(12)
                 ]
             },
             sort_keys=False,
@@ -579,8 +579,6 @@ def test_pipeline_publishes_protected_user_node_during_transient_failures(
     assert "protected-user-node" in clash
     pool = json.loads(pool_path.read_text(encoding="utf-8"))
     kept = [
-        item
-        for item in pool["nodes"]
-        if item["node"]["name"] == "protected-user-node"
+        item for item in pool["nodes"] if item["node"]["name"] == "protected-user-node"
     ]
     assert kept and kept[0]["consecutive_failures"] == 3

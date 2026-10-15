@@ -31,6 +31,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="持久已验证节点池 JSON 路径（默认跟随 --state/verified-pool.json）",
     )
     run.add_argument(
+        "--failed-pool",
+        type=Path,
+        default=None,
+        help="失败节点退避池 JSON 路径（默认跟随 --state/failed-pool.json）",
+    )
+    run.add_argument(
         "--offline", action="store_true", help="拒绝 HTTP(S) 来源，仅允许本地文件来源"
     )
     run.add_argument(
@@ -177,6 +183,7 @@ def main(argv: list[str] | None = None) -> int:
             validator=validator,
             probe_runner=probe_runner,
             verified_pool_path=args.verified_pool,
+            failed_pool_path=args.failed_pool,
         )
     finally:
         if temporary_config:

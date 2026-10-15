@@ -63,7 +63,9 @@ jobs:
         id: pool-cache
         uses: actions/cache/restore@v4
         with:
-          path: state/verified-pool-auto.json.enc
+          path: |
+            state/verified-pool-auto.json.enc
+            state/failed-pool-auto.json.enc
           key: verified-pool-${{ github.run_id }}
           restore-keys: |
             verified-pool-
@@ -75,21 +77,29 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p state
-          if [ ! -f state/verified-pool-auto.json.enc ]; then
-            echo "no pool cache; cold start"
-            exit 0
-          fi
           if [ -z "${POOL_PASS:-}" ]; then
             echo "passphrase not configured; cold start"
             exit 0
           fi
-          if openssl enc -d -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
-               -in state/verified-pool-auto.json.enc \
-               -out state/verified-pool-auto.json 2>/dev/null; then
-            echo "pool restored from cache"
+          restored=false
+          for pool_name in verified-pool-auto failed-pool-auto; do
+            encrypted="state/${pool_name}.json.enc"
+            plain="state/${pool_name}.json"
+            if [ ! -f "$encrypted" ]; then
+              continue
+            fi
+            if openssl enc -d -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
+                 -in "$encrypted" -out "$plain" 2>/dev/null; then
+              restored=true
+            else
+              echo "${pool_name} cache decrypt failed; cold start for this pool"
+              rm -f "$plain" "$encrypted"
+            fi
+          done
+          if [ "$restored" != true ]; then
+            echo "no pool cache restored; cold start"
           else
-            echo "pool cache decrypt failed; cold start"
-            rm -f state/verified-pool-auto.json state/verified-pool-auto.json.enc
+            echo "pool caches restored"
           fi
 
       - name: Run cloud aggregation and probe
@@ -102,6 +112,7 @@ jobs:
             --output dist-auto \
             --state state-auto \
             --verified-pool state/verified-pool-auto.json \
+            --failed-pool state/failed-pool-auto.json \
             --no-private \
             --mihomo "$GITHUB_WORKSPACE/mihomo" \
             --require-core \
@@ -131,22 +142,28 @@ jobs:
             echo "ready=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          if [ -f state/verified-pool-auto.json ] && \
-             python -c "import json; json.load(open('state/verified-pool-auto.json', encoding='utf-8'))"; then
-            openssl enc -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
-              -in state/verified-pool-auto.json \
-              -out state/verified-pool-auto.json.enc
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "no valid pool file; skip pool cache save"
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-          fi
+          ready=false
+          for pool_name in verified-pool-auto failed-pool-auto; do
+            plain="state/${pool_name}.json"
+            encrypted="state/${pool_name}.json.enc"
+            if [ -f "$plain" ] && \
+               python -c "import json; json.load(open('$plain', encoding='utf-8'))"; then
+              openssl enc -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
+                -in "$plain" -out "$encrypted"
+              ready=true
+            else
+              echo "no valid $pool_name file; skip its cache save"
+            fi
+          done
+          echo "ready=$ready" >> "$GITHUB_OUTPUT"
 
       - name: Save verified pool cache
         if: always() && steps.pool-encrypt.outputs.ready == 'true'
         uses: actions/cache/save@v4
         with:
-          path: state/verified-pool-auto.json.enc
+          path: |
+            state/verified-pool-auto.json.enc
+            state/failed-pool-auto.json.enc
           key: verified-pool-${{ github.run_id }}
 
       - name: Stage dist and auto Pages channels

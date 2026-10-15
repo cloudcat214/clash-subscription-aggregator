@@ -53,6 +53,15 @@ HISTORY_ENTRY_KEYS = {
     "pool_retested",
     "pool_added",
     "pool_evicted",
+    "pool_recovered",
+    "failed_pool_size_before",
+    "failed_pool_due",
+    "failed_pool_retested",
+    "failed_pool_promoted",
+    "failed_pool_added",
+    "failed_pool_evicted_active",
+    "failed_pool_pruned",
+    "failed_pool_size",
     "failure_stage",
     "failure_reason",
     "started_at",
@@ -236,6 +245,42 @@ def summarize_inputs(manifest: dict, health: dict) -> dict[str, object]:
             verification.get("pool_evicted"),
             health_verification.get("pool_evicted"),
         ),
+        "pool_recovered": _first_int(
+            verification.get("pool_recovered"),
+            health_verification.get("pool_recovered"),
+        ),
+        "failed_pool_size_before": _first_int(
+            verification.get("failed_pool_size_before"),
+            health_verification.get("failed_pool_size_before"),
+        ),
+        "failed_pool_due": _first_int(
+            verification.get("failed_pool_due"),
+            health_verification.get("failed_pool_due"),
+        ),
+        "failed_pool_retested": _first_int(
+            verification.get("failed_pool_retested"),
+            health_verification.get("failed_pool_retested"),
+        ),
+        "failed_pool_promoted": _first_int(
+            verification.get("failed_pool_promoted"),
+            health_verification.get("failed_pool_promoted"),
+        ),
+        "failed_pool_added": _first_int(
+            verification.get("failed_pool_added"),
+            health_verification.get("failed_pool_added"),
+        ),
+        "failed_pool_evicted_active": _first_int(
+            verification.get("failed_pool_evicted_active"),
+            health_verification.get("failed_pool_evicted_active"),
+        ),
+        "failed_pool_pruned": _first_int(
+            verification.get("failed_pool_pruned"),
+            health_verification.get("failed_pool_pruned"),
+        ),
+        "failed_pool_size": _first_int(
+            verification.get("failed_pool_size"),
+            health_verification.get("failed_pool_size"),
+        ),
         "failure_reason": _enum_or_none(health.get("failure_reason"), FAILURE_REASONS),
     }
 
@@ -272,6 +317,15 @@ def build_entry(
         "pool_retested": summary["pool_retested"],
         "pool_added": summary["pool_added"],
         "pool_evicted": summary["pool_evicted"],
+        "pool_recovered": summary["pool_recovered"],
+        "failed_pool_size_before": summary["failed_pool_size_before"],
+        "failed_pool_due": summary["failed_pool_due"],
+        "failed_pool_retested": summary["failed_pool_retested"],
+        "failed_pool_promoted": summary["failed_pool_promoted"],
+        "failed_pool_added": summary["failed_pool_added"],
+        "failed_pool_evicted_active": summary["failed_pool_evicted_active"],
+        "failed_pool_pruned": summary["failed_pool_pruned"],
+        "failed_pool_size": summary["failed_pool_size"],
         "failure_stage": failure_stage,
         "failure_reason": summary["failure_reason"],
     }
