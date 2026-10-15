@@ -65,7 +65,9 @@ jobs:
         with:
           path: |
             state/verified-pool-auto.json.enc
+            state/verified-pool-auto.json.enc.mac
             state/failed-pool-auto.json.enc
+            state/failed-pool-auto.json.enc.mac
           key: verified-pool-${{ github.run_id }}
           restore-keys: |
             verified-pool-
@@ -76,6 +78,7 @@ jobs:
           POOL_PASS: ${{ secrets.POOL_ENCRYPTION_PASSPHRASE }}
         run: |
           set -euo pipefail
+          umask 077
           mkdir -p state
           if [ -z "${POOL_PASS:-}" ]; then
             echo "passphrase not configured; cold start"
@@ -84,18 +87,32 @@ jobs:
           restored=false
           for pool_name in verified-pool-auto failed-pool-auto; do
             encrypted="state/${pool_name}.json.enc"
+            mac="${encrypted}.mac"
             plain="state/${pool_name}.json"
-            if [ ! -f "$encrypted" ]; then
+            if [ ! -f "$encrypted" ] || [ ! -f "$mac" ]; then
+              rm -f "$encrypted" "$mac" "$plain"
               continue
             fi
-            if openssl enc -d -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
+            if python -c "import hashlib,hmac,os,sys; from pathlib import Path; data=Path(sys.argv[1]).read_bytes(); actual=Path(sys.argv[2]).read_text(encoding='ascii').strip(); expected=hmac.new(os.environ['POOL_PASS'].encode(),data,hashlib.sha256).hexdigest(); raise SystemExit(0 if hmac.compare_digest(actual,expected) else 1)" "$encrypted" "$mac" && \
+               openssl enc -d -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
                  -in "$encrypted" -out "$plain" 2>/dev/null; then
-              restored=true
+              chmod 600 "$plain"
             else
-              echo "${pool_name} cache decrypt failed; cold start for this pool"
-              rm -f "$plain" "$encrypted"
+              echo "${pool_name} cache authentication/decrypt failed; cold start for this pool"
+              rm -f "$plain" "$encrypted" "$mac"
             fi
           done
+          if [ -f state/verified-pool-auto.json ] || [ -f state/failed-pool-auto.json ]; then
+            if python -c "import sys; from pathlib import Path; from aggregator.failed_pool import load_runtime_pools; load_runtime_pools(Path(sys.argv[1]),Path(sys.argv[2]))" state/verified-pool-auto.json state/failed-pool-auto.json; then
+              restored=true
+            else
+              echo "pool cache semantic validation failed; cold start"
+              rm -f state/verified-pool-auto.json state/failed-pool-auto.json \
+                state/verified-pool-auto.json.enc state/verified-pool-auto.json.enc.mac \
+                state/failed-pool-auto.json.enc state/failed-pool-auto.json.enc.mac
+              restored=false
+            fi
+          fi
           if [ "$restored" != true ]; then
             echo "no pool cache restored; cold start"
           else
@@ -137,8 +154,14 @@ jobs:
           POOL_PASS: ${{ secrets.POOL_ENCRYPTION_PASSPHRASE }}
         run: |
           set -euo pipefail
+          umask 077
           if [ -z "${POOL_PASS:-}" ]; then
             echo "passphrase not configured; skip pool cache save"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if ! python -c "import sys; from pathlib import Path; from aggregator.failed_pool import load_runtime_pools; load_runtime_pools(Path(sys.argv[1]),Path(sys.argv[2]))" state/verified-pool-auto.json state/failed-pool-auto.json; then
+            echo "pool semantic validation failed; skip pool cache save"
             echo "ready=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -150,6 +173,8 @@ jobs:
                python -c "import json; json.load(open('$plain', encoding='utf-8'))"; then
               openssl enc -aes-256-cbc -pbkdf2 -salt -pass env:POOL_PASS \
                 -in "$plain" -out "$encrypted"
+              python -c "import hashlib,hmac,os,sys; from pathlib import Path; data=Path(sys.argv[1]).read_bytes(); Path(sys.argv[2]).write_text(hmac.new(os.environ['POOL_PASS'].encode(),data,hashlib.sha256).hexdigest(),encoding='ascii')" "$encrypted" "${encrypted}.mac"
+              chmod 600 "$plain" "$encrypted" "${encrypted}.mac"
               ready=true
             else
               echo "no valid $pool_name file; skip its cache save"
@@ -163,7 +188,9 @@ jobs:
         with:
           path: |
             state/verified-pool-auto.json.enc
+            state/verified-pool-auto.json.enc.mac
             state/failed-pool-auto.json.enc
+            state/failed-pool-auto.json.enc.mac
           key: verified-pool-${{ github.run_id }}
 
       - name: Stage dist and auto Pages channels

@@ -85,6 +85,20 @@ def load_failed_pool(path: Path) -> list[dict[str, object]]:
     return entries
 
 
+def load_runtime_pools(
+    verified_path: Path, failed_path: Path
+) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
+    from .verified_pool import load_verified_pool
+
+    verified_entries = load_verified_pool(verified_path)
+    failed_entries = load_failed_pool(failed_path)
+    verified_keys = {str(entry["key"]) for entry in verified_entries}
+    failed_keys = {str(entry["key"]) for entry in failed_entries}
+    if verified_keys & failed_keys:
+        raise ValueError("pool_overlap")
+    return verified_entries, failed_entries
+
+
 def failed_pool_document(
     entries: list[dict[str, object]], updated_at: str
 ) -> dict[str, object]:

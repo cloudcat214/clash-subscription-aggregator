@@ -182,6 +182,8 @@ def test_pipeline_moves_evicted_active_node_to_failed_pool(tmp_path: Path) -> No
         "[fixture] candidate"
     ]
     assert [entry["node"]["name"] for entry in failed_doc["nodes"]] == ["old"]
+    assert failed_doc["nodes"][0]["consecutive_failures"] == 2
+    assert failed_doc["nodes"][0]["total_failures"] == 2
     manifest = json.loads(
         (tmp_path / "dist" / "manifest.json").read_text(encoding="utf-8")
     )
@@ -283,3 +285,114 @@ def test_pipeline_promotes_due_failed_node_back_to_active_pool(tmp_path: Path) -
     )
     assert manifest["verification"]["failed_pool_promoted"] == 1
     assert manifest["verification"]["pool_recovered"] == 1
+
+
+def test_probe_budget_keeps_new_candidates_when_pools_nearly_fill_budget(
+    tmp_path: Path,
+) -> None:
+    source = tmp_path / "source.yaml"
+    source.write_text(
+        yaml.safe_dump(
+            {"proxies": [node(f"candidate-{index}") for index in range(4)]},
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    config = tmp_path / "sources.yaml"
+    config.write_text(
+        yaml.safe_dump(
+            {
+                "settings": {
+                    "active_probe": True,
+                    "probe_max_nodes": 4,
+                    "filters": {"min_quality_score": 0},
+                },
+                "sources": {
+                    "public": [
+                        {
+                            "id": "fixture",
+                            "path": str(source),
+                            "enabled": True,
+                            "publish": True,
+                            "requires_review": False,
+                        }
+                    ],
+                    "private": [],
+                },
+            },
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    state = tmp_path / "state"
+    state.mkdir()
+    active_nodes = [node(f"old-{index}") for index in range(3)]
+    active_path = state / "verified-pool.json"
+    active_path.write_text(
+        json.dumps(
+            pool_document(
+                [
+                    {
+                        "key": node_key(active_node),
+                        "node": active_node,
+                        "source_id": "old-source",
+                        "first_seen_at": "2026-10-14T00:00:00Z",
+                        "last_rechecked_at": "2026-10-14T00:10:00Z",
+                        "last_conclusion": "stable",
+                        "consecutive_failures": 0,
+                        "total_passes": 1,
+                    }
+                    for active_node in active_nodes
+                ],
+                "2026-10-14T00:10:00Z",
+            )
+        ),
+        encoding="utf-8",
+    )
+    retry = node("[fixture] retry")
+    failed_entry = merge_failed_pool(
+        [],
+        [retry],
+        {node_key(retry): failed(retry)},
+        {node_key(retry): "fixture"},
+        [],
+        now="2026-10-14T00:00:00Z",
+        min_verdict="stable",
+        verified_min_rounds=3,
+        stable_min_rounds=3,
+        stable_success_rate=2 / 3,
+        fast_latency_ms=800,
+    )[0][0]
+    failed_entry["next_retry_at"] = "2026-10-13T23:00:00Z"
+    failed_path = state / "failed-pool.json"
+    failed_path.write_text(
+        json.dumps(failed_pool_document([failed_entry], "2026-10-14T00:00:00Z")),
+        encoding="utf-8",
+    )
+    seen: list[list[str]] = []
+
+    def probe(nodes: list[dict[str, object]]) -> dict[str, object]:
+        seen.append([str(item["name"]) for item in nodes])
+        return {
+            "status": "performed",
+            "tested": len(nodes),
+            "results": [passed(item) for item in nodes],
+        }
+
+    result = run_pipeline(
+        config,
+        tmp_path / "dist",
+        state,
+        probe_runner=probe,
+        verified_pool_path=active_path,
+        failed_pool_path=failed_path,
+    )
+
+    assert result.success is True
+    assert len(seen[0]) == 4
+    manifest = json.loads(
+        (tmp_path / "dist" / "manifest.json").read_text(encoding="utf-8")
+    )
+    assert manifest["verification"]["pool_probe_candidates"] == 2
+    assert manifest["verification"]["failed_pool_due"] == 1
+    assert manifest["verification"]["new_candidates_tested"] == 1

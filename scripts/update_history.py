@@ -117,6 +117,9 @@ FAILURE_REASONS = {
     "min_publish_nodes",
     "shrink_guard",
     "core_validation_failed",
+    "pool_invalid",
+    "pool_overlap",
+    "pool_write_failed",
     "unclassified_failure",
 }
 STEP_STAGES = {

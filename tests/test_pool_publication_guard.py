@@ -26,11 +26,15 @@ def test_cloud_workflow_persists_pool_via_encrypted_cache() -> None:
     assert "actions/cache/restore@v4" in workflow
     assert "actions/cache/save@v4" in workflow
     assert workflow.count("state/verified-pool-auto.json.enc") >= 2
+    assert workflow.count("state/verified-pool-auto.json.enc.mac") >= 2
     assert workflow.count("state/failed-pool-auto.json.enc") >= 2
+    assert workflow.count("state/failed-pool-auto.json.enc.mac") >= 2
     assert "secrets.POOL_ENCRYPTION_PASSPHRASE" in workflow
     assert "-pass env:POOL_PASS" in workflow
     assert "openssl enc -d -aes-256-cbc -pbkdf2" in workflow
     assert "openssl enc -aes-256-cbc -pbkdf2" in workflow
+    assert "load_runtime_pools" in workflow
+    assert "hmac.new" in workflow
     for line in workflow.splitlines():
         if line.strip().startswith("git add"):
             assert "state/" not in line

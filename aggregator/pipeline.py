@@ -22,7 +22,7 @@ import yaml
 from .failed_pool import (
     due_failed_pool_nodes,
     failed_pool_document,
-    load_failed_pool,
+    load_runtime_pools,
     merge_failed_pool,
 )
 from .fastprobe import TARGET_URL as FASTPROBE_TARGET_URL
@@ -41,7 +41,6 @@ from .quality import classify_node, node_key, probe_verdict
 from .validators import CoreValidationError
 from .verified_pool import (
     active_pool_nodes,
-    load_verified_pool,
     merge_verified_pool,
     pool_document,
     round_robin_by_source,
@@ -1224,8 +1223,7 @@ def run_pipeline(
             )
         candidate_pool = proxies
         try:
-            pool_entries = load_verified_pool(pool_path)
-            failed_entries = load_failed_pool(failed_path)
+            pool_entries, failed_entries = load_runtime_pools(pool_path, failed_path)
         except (TypeError, ValueError) as exc:
             verification = {
                 "status": "failed",
@@ -1260,12 +1258,12 @@ def run_pipeline(
             for node in candidate_pool
             if node_key(node) not in pool_keys and node_key(node) not in failed_keys
         ]
-        failed_retry_budget = max(1, probe_budget // 5)
+        new_reserve = min(max(1, probe_budget // 5), probe_budget)
+        failed_retry_budget = min(
+            max(1, probe_budget // 5), max(0, probe_budget - new_reserve)
+        )
         failed_probe_nodes = due_failed_pool_nodes(
             failed_entries, generated_at, failed_retry_budget
-        )
-        new_reserve = (
-            max(1, probe_budget // 5) if len(pool_nodes) >= probe_budget else 0
         )
         active_budget = max(0, probe_budget - len(failed_probe_nodes) - new_reserve)
         pool_probe_nodes = pool_nodes[:active_budget]
@@ -1460,9 +1458,27 @@ def run_pipeline(
                 fast_latency_ms=cast(float, policy["fast_latency_ms"]),
             )
             active_after = {str(entry["key"]): entry for entry in pool_entries}
-            evicted_active_entries = [
-                entry for key, entry in active_before.items() if key not in active_after
-            ]
+            evicted_active_entries: list[dict[str, object]] = []
+            for key, entry in active_before.items():
+                if key in active_after:
+                    continue
+                evicted = copy.deepcopy(entry)
+                row = results_by_key.get(key)
+                if row is not None:
+                    node = cast(dict[str, object], evicted["node"])
+                    evicted["last_rechecked_at"] = generated_at
+                    evicted["last_conclusion"] = classify_node(
+                        node,
+                        row,
+                        verified_min_rounds=cast(int, policy["verified_min_rounds"]),
+                        stable_min_rounds=cast(int, policy["stable_min_rounds"]),
+                        stable_success_rate=cast(float, policy["stable_success_rate"]),
+                        fast_latency_ms=cast(float, policy["fast_latency_ms"]),
+                    )
+                    evicted["consecutive_failures"] = (
+                        int(entry.get("consecutive_failures", 0)) + 1
+                    )
+                evicted_active_entries.append(evicted)
             failed_entries, failed_stats, recovered_failed_nodes = merge_failed_pool(
                 failed_entries,
                 [*failed_probe_nodes, *new_probe_nodes],
@@ -1493,7 +1509,12 @@ def run_pipeline(
                     }
                 )
             if recovered_entries:
-                pool_entries = recovered_entries + pool_entries
+                recovered_keys = {str(entry["key"]) for entry in recovered_entries}
+                pool_entries = recovered_entries + [
+                    entry
+                    for entry in pool_entries
+                    if str(entry["key"]) not in recovered_keys
+                ]
             try:
                 _write_json(pool_path, pool_document(pool_entries, generated_at))
                 _write_json(
