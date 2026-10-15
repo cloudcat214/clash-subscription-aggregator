@@ -3,16 +3,6 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
-- name: '[nexus-nodes-all] >>@oneclickvpnkeys::NL'
-  type: vless
-  server: sc-thenetherlands1.09vpn.com
-  port: 80
-  uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: SC-TheNetherlands1.09vpn.com
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145002'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -56,20 +46,6 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: '[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | E7AB3E'
-  server: 146.70.102.82
-  port: 443
-  type: vless
-  uuid: 31fd2fde-ca69-450e-8c03-eaad819b06b9
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.datadoghq.com
-  reality-opts:
-    public-key: GDer6NQYXdbccrFI0tLn2671PjCvrcSy0R7TKY8vG1k
-    short-id: 002fb4ec7b3088cc
-  client-fingerprint: firefox
-  network: tcp
 - name: '[free18-clash] 日期：10-15'
   type: vless
   server: 157.228.128.59
@@ -228,19 +204,6 @@ proxies:
   tls: true
   sni: f3a61d8406d537345747f99f8a281007-3f754ed5da1bba09.apache-iv.com
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
-  server: 104.21.70.228
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[share-daily-node] FR-HTTP-03'
   type: http
   server: 141.94.16.4
@@ -1606,12 +1569,10 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
-  - '[nexus-nodes-all] >>@oneclickvpnkeys::NL'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1827145002'
   - '[alvin-ip1] https://github.com/Alvin9999-newpac/fanqiang'
   - '[alvin-ip2] github.com/Alvin9999-newpac/fanqiang'
   - '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
-  - '[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | E7AB3E'
   - '[free18-clash] 日期：10-15'
   - '[free18-clash] 每天更新，请加电报群防止失联'
   - '[cbusifabcap-uri] ❓Other_21|170KB/s|B007-260618'
@@ -1628,7 +1589,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_28|83KB/s|A004-260618'
   - '[snapdragon-systemproxy] 🇬🇧GB_14_0@13'
   - '[share-daily-node] FR-HTTP-01'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
   - '[share-daily-node] FR-HTTP-03'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 06ADD7'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
@@ -1745,12 +1705,10 @@ proxy-groups:
 - name: AUTO
   type: url-test
   proxies: &id001
-  - '[nexus-nodes-all] >>@oneclickvpnkeys::NL'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1827145002'
   - '[alvin-ip1] https://github.com/Alvin9999-newpac/fanqiang'
   - '[alvin-ip2] github.com/Alvin9999-newpac/fanqiang'
   - '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
-  - '[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | E7AB3E'
   - '[free18-clash] 日期：10-15'
   - '[free18-clash] 每天更新，请加电报群防止失联'
   - '[cbusifabcap-uri] ❓Other_21|170KB/s|B007-260618'
@@ -1767,7 +1725,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_28|83KB/s|A004-260618'
   - '[snapdragon-systemproxy] 🇬🇧GB_14_0@13'
   - '[share-daily-node] FR-HTTP-01'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
   - '[share-daily-node] FR-HTTP-03'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 06ADD7'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
