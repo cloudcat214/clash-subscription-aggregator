@@ -1,21 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T00:14:49Z",
+  "generated_at": "2026-10-15T00:51:32Z",
   "status": "success",
   "active_probe": true,
   "counts": {
     "published": 500,
     "sources": 41,
-    "parsed": 12846,
-    "accepted": 10377
+    "parsed": 12440,
+    "accepted": 10431
   },
   "protocols": {
-    "http": 40,
+    "http": 41,
     "hysteria": 3,
-    "hysteria2": 193,
-    "ss": 50,
-    "trojan": 88,
-    "vless": 95,
+    "hysteria2": 194,
+    "ss": 49,
+    "trojan": 89,
+    "vless": 93,
     "vmess": 31
   },
   "sources": [
@@ -167,18 +167,18 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1254,
-      "accepted": 1164,
+      "parsed": 1251,
+      "accepted": 1156,
       "drops": {
         "invalid_uuid": 9,
-        "duplicate": 81
+        "duplicate": 86
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "25e77944d8fb505cd02580e0d23d713c4f9db4c946076253b5ad7e604863c80f"
+      "sha256": "2106e9cbd2ff9645333b38e41b2809a574d86c8ffb7e0e5cc02a93671e3cb5f8"
     },
     {
       "id": "p-configs-vless",
@@ -261,18 +261,18 @@
       "id": "ermaozi-subscribe",
       "kind": "public",
       "status": "ok",
-      "parsed": 515,
-      "accepted": 499,
+      "parsed": 595,
+      "accepted": 573,
       "drops": {
         "private_server": 10,
-        "unsupported proxy type": 4,
-        "invalid_uuid": 2
+        "unsupported proxy type": 11,
+        "invalid_uuid": 1
       },
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "4d2b27b3c46a32a2d96f0c53ead2611e1cb5f3eb3615a86ee63ad25f46c766e6"
+      "sha256": "8335a4ca3a15498c6ae31e6c772bf638827c2d578d8a5a7febf9986ca510eb05"
     },
     {
       "id": "vxiaov-free-proxies",
@@ -320,17 +320,17 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1765,
-      "accepted": 1063,
+      "parsed": 1270,
+      "accepted": 1038,
       "drops": {
         "invalid_uuid": 9,
-        "duplicate": 693
+        "duplicate": 223
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "72435fe563a914f445cd2bdf3a9b5188c4dd37ec6abaed8324b488eb5002500f"
+      "sha256": "e0b3f3c6a3ef2ea5461b3677ed12cffd3ef01f7e188648b68ef5b33bca08aa1c"
     },
     {
       "id": "chengaopan-merged",
@@ -521,16 +521,16 @@
       "id": "ovmvo-permanent",
       "kind": "public",
       "status": "ok",
-      "parsed": 39,
-      "accepted": 37,
+      "parsed": 51,
+      "accepted": 50,
       "drops": {
-        "unsupported proxy type": 2
+        "unsupported proxy type": 1
       },
       "source_repo": "https://github.com/ovmvo/FreeSub",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "d85b80ef50140e4869e8657f694e07b94bf817ff7389cb36f2e4fe053e90cf6b"
+      "sha256": "06b6e62e1049ce643d40a6feb3ff0750857b803117015ff1154e3e6f77dd70c5"
     },
     {
       "id": "nirevil-singbox",
@@ -611,26 +611,26 @@
     },
     {
       "path": "clash/config.yaml",
-      "sha256": "9475fbd21c8fec01cc5c2bfb54b4d183bbd83400e687ea8517c153c6c09b4422",
-      "bytes": 175967
+      "sha256": "8e552257c5a164befcc0afb08741b30caf3f2844946c99f1d575c10e43430736",
+      "bytes": 175593
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "c3af9e987607613563f00fc7906a63524a1889380b4c2274a32391f2661ea0cd",
-      "bytes": 117035
+      "sha256": "e79d6a6a7362b3ec58b2e66ee6a8c31a76daaa11e2214cade7e095f5472141e7",
+      "bytes": 116719
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "7347cc3e98bbf253b7cdcd98f1d165df5d1151775416fab236ef129f9c176c06",
-      "bytes": 203189
+      "sha256": "cf1f9ed8addd77e064eb3edf96c6a399071fd6d907d6bda825123963ae6f0207",
+      "bytes": 202698
     }
   ],
   "drops": {
-    "invalid_uuid": 128,
-    "duplicate": 3087,
+    "invalid_uuid": 127,
+    "duplicate": 2790,
     "missing_password": 2,
     "private_server": 32,
-    "unsupported proxy type": 13,
+    "unsupported proxy type": 19,
     "proxy port is outside 1..65535": 1,
     "vmess URI payload is not valid JSON": 61,
     "unsupported_scheme": 1,
@@ -662,22 +662,22 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 505
+      "http_error": 454
     },
-    "pool_size_before": 991,
-    "pool_size": 1050,
+    "pool_size_before": 1050,
+    "pool_size": 1079,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 991,
-    "pool_retested": 991,
-    "new_candidates_tested": 509,
-    "pool_added": 73,
-    "pool_evicted": 14,
-    "retained_count": 1050,
+    "pool_probe_candidates": 1050,
+    "pool_retested": 1050,
+    "new_candidates_tested": 450,
+    "pool_added": 48,
+    "pool_evicted": 19,
+    "retained_count": 1079,
     "shrink_guard_ratio": 0.2,
     "stage1_tested": 1500,
-    "stage1_passed": 1069,
-    "stage2_tested": 1069,
-    "stage2_stable": 1027,
+    "stage1_passed": 1114,
+    "stage2_tested": 1114,
+    "stage2_stable": 1072,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -686,19 +686,19 @@
     }
   },
   "node_quality": {
-    "candidates": 9934,
+    "candidates": 10135,
     "tested": 1500,
-    "verified": 995,
-    "fast": 647,
-    "stable": 995,
-    "failed": 505,
-    "not_tested": 8434,
-    "not_tested_budget": 8434,
-    "failed_probe": 436,
-    "below_quality_threshold": 69,
-    "dropped": 505,
+    "verified": 1046,
+    "fast": 720,
+    "stable": 1046,
+    "failed": 454,
+    "not_tested": 8635,
+    "not_tested_budget": 8635,
+    "failed_probe": 393,
+    "below_quality_threshold": 61,
+    "dropped": 454,
     "published": 500,
-    "success_rate": 0.6857777777777778
+    "success_rate": 0.7166666666666667
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",

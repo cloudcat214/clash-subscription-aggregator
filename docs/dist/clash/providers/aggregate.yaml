@@ -585,19 +585,6 @@ proxies:
   skip-cert-verify: true
   sni: 152-69-231-175.liao.kdns.fr
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
-  server: 104.16.111.202
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1471631078'
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
   port: 50160
@@ -1512,19 +1499,6 @@ proxies:
     path: '3'
     headers:
       Host: lucasjow.us.ci
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 76F5D4'
-  server: 104.27.46.35
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[clashfree-daily] 未知 SS-81 | free-nodes'
   server: 132.243.175.144
   port: 8388
@@ -1998,13 +1972,6 @@ proxies:
   server: hy2.561891.xyz
   skip-cert-verify: false
   sni: ''
-  type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-655713431'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: vpn-tw-002.fastervpn.world\u0026insecure=1\u0026allowinsecure=1
   type: hysteria2
 - name: '[ermaozi-subscribe] RO_speednode_0124'
   port: 9002
@@ -4082,13 +4049,6 @@ proxies:
   tls: true
   sni: www.bing.com
   skip-cert-verify: true
-- cipher: aes-256-gcm
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-696780669'
-  password: 3eOFeNssde7PYYMv
-  port: 80
-  server: 84.247.155.196
-  type: ss
-  udp: true
 - name: '[au1rxx-free-vpn-subscriptions] trojan-1779299072'
   password: nwilryafgkyvuxauc8pz
   port: 50875
@@ -4414,3 +4374,29 @@ proxies:
   port: 443
   tls: true
   skip-cert-verify: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1820518760'
+  password: 8b64b840-a48d-4ac0-b10f-8f7d7081a0f1
+  port: 18333
+  server: es2.xiaoliyu.cyou
+  skip-cert-verify: true
+  sni: es2.xiaoliyu.cyou
+  type: hysteria2
+- name: '[ermaozi-subscribe] ProxyPool | 🇺🇸 美国 | USA 9'
+  server: 66.23.203.21
+  port: 59689
+  type: trojan
+  password: ae7eb4dwyaz25pxwgq59
+  skip-cert-verify: true
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-468273420'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2
+  type: hysteria2
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
+  type: http
+  server: jewelscollecti.icu
+  port: 443
+  tls: true
