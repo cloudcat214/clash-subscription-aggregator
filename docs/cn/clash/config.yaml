@@ -142,18 +142,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] Public Welfare - zhuhai.uk'
-  type: vless
-  server: v.toe.dpdns.org
-  port: 443
-  uuid: 1c11b130-085c-407a-9c54-c537eabf2681
-  tls: true
-  servername: pw.toc.dpdns.org
-  network: ws
-  ws-opts:
-    path: /vplaetshs
-    headers:
-      Host: pw.toc.dpdns.org
 - name: '[free-v2ray-verified-clash] BR 🇧🇷 | @Raydikalx | 780626'
   server: 35.199.90.53
   port: 443
@@ -1381,20 +1369,6 @@ proxies:
   sni: moltbot.doctoroyy.net
   skip-cert-verify: true
   udp: true
-- name: '[free18-clash] 🇳🇱_荷兰_86'
-  type: vless
-  server: nl1.aiage.work
-  port: 443
-  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
-  servername: nl1.aiage.work
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: firefox
-  reality-opts:
-    public-key: vSa3rWZfq5OftXO2RSgggbTOxbHlWGTLpP8bNDki3wk
-    short-id: adcbde41b1cf27ba
-  skip-cert-verify: true
-  udp: true
 - name: '[snapdragon-systemproxy] 🇳🇱NL_09 ⇽中转_1@8'
   server: 82.38.31.174
   type: ss
@@ -1583,7 +1557,6 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
   - '[share-daily-node] CA-HTTP-05'
-  - '[zhuhaiuk-free-nodes] Public Welfare - zhuhai.uk'
   - '[free-v2ray-verified-clash] BR 🇧🇷 | @Raydikalx | 780626'
   - '[free-v2ray-verified-clash] BY 🇧🇾 | @Raydikalx | D56B8B'
   - '[cbusifabcap-clashmeta] ❓Other_28|83KB/s|A004-260618'
@@ -1685,7 +1658,6 @@ proxy-groups:
   - '[clashfree-daily] 未知 TROJAN-133 | free-nodes'
   - '[nexus-nodes-all] @v2raybaaz-3'
   - '[snapdragon-systemproxy] 🇲🇾MY_120_1@119'
-  - '[free18-clash] 🇳🇱_荷兰_86'
   - '[snapdragon-systemproxy] 🇳🇱NL_09 ⇽中转_1@8'
   - '[cbusifabcap-clashmeta] 🇫🇷FR_17|483KB/s|B007-260618'
   - '[free18-clash] 🇳🇱_荷兰_88'
@@ -1719,7 +1691,6 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
   - '[share-daily-node] CA-HTTP-05'
-  - '[zhuhaiuk-free-nodes] Public Welfare - zhuhai.uk'
   - '[free-v2ray-verified-clash] BR 🇧🇷 | @Raydikalx | 780626'
   - '[free-v2ray-verified-clash] BY 🇧🇾 | @Raydikalx | D56B8B'
   - '[cbusifabcap-clashmeta] ❓Other_28|83KB/s|A004-260618'
@@ -1821,7 +1792,6 @@ proxy-groups:
   - '[clashfree-daily] 未知 TROJAN-133 | free-nodes'
   - '[nexus-nodes-all] @v2raybaaz-3'
   - '[snapdragon-systemproxy] 🇲🇾MY_120_1@119'
-  - '[free18-clash] 🇳🇱_荷兰_86'
   - '[snapdragon-systemproxy] 🇳🇱NL_09 ⇽中转_1@8'
   - '[cbusifabcap-clashmeta] 🇫🇷FR_17|483KB/s|B007-260618'
   - '[free18-clash] 🇳🇱_荷兰_88'
