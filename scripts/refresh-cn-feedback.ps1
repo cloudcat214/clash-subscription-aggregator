@@ -2,7 +2,7 @@
 #   本机实测线上订阅 -> 写入 cn-feedback/latest.json -> 推送仓库 -> 触发云端重建 /cn
 # 用途与边界：一次性输入，不是云端运行依赖；电脑关机不影响云端自动更新。
 $ErrorActionPreference = 'Stop'
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch { }
 $repo = Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $repo
 $env:PYTHONIOENCODING = 'utf-8'
@@ -29,10 +29,12 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Host '[3/4] 提交并推送结果...'
 git add -- cn-feedback/latest.json
-if (git diff --cached --quiet) {
+git diff --cached --quiet
+if ($LASTEXITCODE -eq 0) {
     Write-Host '  （结果与上次一致，无需提交）'
 } else {
     git commit -m ("cn-feedback: refresh from local probe " + (Get-Date -Format 'yyyy-MM-dd HH:mm')) | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw '提交失败：请把本窗口截图发给 AI 管家。' }
     $pushed = $false
     foreach ($attempt in 1..3) {
         git pull --rebase origin main | Out-Null
