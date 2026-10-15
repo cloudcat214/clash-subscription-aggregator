@@ -59,6 +59,11 @@ def test_remote_clash_config_is_self_contained_and_has_required_groups() -> None
         "url-test",
         "fallback",
     }
+    assert all(
+        group.get("timeout") == 5000
+        for group in config["proxy-groups"]
+        if group["type"] in {"url-test", "fallback"}
+    )
 
 
 def test_dedup_keeps_connectivity_fields() -> None:

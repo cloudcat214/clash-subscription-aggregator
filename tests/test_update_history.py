@@ -261,6 +261,72 @@ def test_history_keeps_only_latest_500_entries(tmp_path: Path) -> None:
     assert document["entries"][-1]["run_id"] == "777"
 
 
+def test_duplicate_after_history_exceeds_500_is_checked_after_truncation(
+    tmp_path: Path,
+) -> None:
+    history = tmp_path / "docs" / "history" / "update-history.json"
+    history.parent.mkdir(parents=True)
+    seeded = {
+        "schema_version": 1,
+        "entries": [{"run_id": str(index), "run_attempt": 1} for index in range(501)],
+    }
+    history.write_text(json.dumps(seeded), encoding="utf-8")
+
+    result = _run(
+        [
+            "--history-path",
+            str(history),
+            "--status",
+            "success",
+            "--run-id",
+            "500",
+            "--run-attempt",
+            "1",
+        ],
+        cwd=tmp_path,
+    )
+
+    assert result.returncode == 0, result.stderr
+    entries = _read_history(history)["entries"]
+    assert len(entries) == 500
+    assert entries[0]["run_id"] == "1"
+    assert entries[-1]["run_id"] == "500"
+
+
+def test_existing_entries_are_normalized_to_the_v1_whitelist(tmp_path: Path) -> None:
+    history = tmp_path / "docs" / "history" / "update-history.json"
+    history.parent.mkdir(parents=True)
+    history.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "entries": [
+                    {
+                        "run_id": "old",
+                        "status": "success",
+                        "unknown_field": "must be removed",
+                        "password": "secret-password",
+                        "raw_manifest_body": "sensitive payload",
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = _run(
+        ["--history-path", str(history), "--status", "success", "--run-id", "new"],
+        cwd=tmp_path,
+    )
+
+    assert result.returncode == 0, result.stderr
+    entries = _read_history(history)["entries"]
+    assert entries[0] == {"run_id": "old", "status": "success"}
+    assert "unknown_field" not in history.read_text(encoding="utf-8")
+    assert "password" not in history.read_text(encoding="utf-8")
+    assert "sensitive payload" not in history.read_text(encoding="utf-8")
+
+
 def test_sensitive_fields_and_values_never_enter_history(tmp_path: Path) -> None:
     manifest = tmp_path / "dist-auto" / "manifest.json"
     _write_manifest(
@@ -403,6 +469,10 @@ def test_completed_run_workflow_records_and_directly_deploys_history() -> None:
     assert "git add -- docs/dist" not in text
     assert text.index("Record only update history") < text.index("Deploy Pages")
     assert "git restore --source=origin/main -- docs" in text
+    assert "for attempt in 1 2 3; do" in text
+    assert "failed to read completed run jobs metadata after 3 attempts" in text
+    assert "exit 1" in text
+    assert 'printf \'{"jobs": []}' not in text
 
     pages_workflow = (ROOT / ".github" / "workflows" / "update.yml").read_text(
         encoding="utf-8"
@@ -499,6 +569,38 @@ def test_repeated_attempt_is_idempotent_but_rerun_is_distinct(tmp_path):
     assert history.read_bytes() == before
     assert _run(args[:-1] + ["2"], tmp_path).returncode == 0
     assert len(_read_history(history)["entries"]) == 2
+
+
+def test_events_are_kept_in_processing_order_when_finished_at_is_out_of_order(
+    tmp_path,
+):
+    history = tmp_path / "docs/history/update-history.json"
+    first = [
+        "--history-path",
+        str(history),
+        "--status",
+        "success",
+        "--run-id",
+        "2",
+        "--run-attempt",
+        "1",
+    ]
+    second = [
+        "--history-path",
+        str(history),
+        "--status",
+        "success",
+        "--run-id",
+        "1",
+        "--run-attempt",
+        "1",
+    ]
+    assert _run(first, tmp_path).returncode == 0
+    assert _run(second, tmp_path).returncode == 0
+    assert [entry["run_id"] for entry in _read_history(history)["entries"]] == [
+        "2",
+        "1",
+    ]
 
 
 def test_explicit_missing_manifest_does_not_fall_back_to_old_dist(tmp_path):

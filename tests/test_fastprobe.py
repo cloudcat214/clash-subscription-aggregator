@@ -99,8 +99,7 @@ def test_delay_backend_maps_delay_api_and_records_each_round(
     assert result["stage2_stable"] == 1
     assert result["stable"] == 1
     assert len(paths) == 5
-    assert all("timeout=6000" in path for path in paths[:2])
-    assert all("timeout=8000" in path for path in paths[2:])
+    assert all("timeout=5000" in path for path in paths)
 
     rows = cast(list[dict[str, object]], result["results"])
     good = next(row for row in rows if row["node_key"] == node_key(_node("good node")))
@@ -178,16 +177,7 @@ def test_delay_backend_batches_stage1_and_stage2(
     )
 
     assert [item[0] for item in calls] == [400, 1, 400, 1, 400, 1, 400, 1]
-    assert [item[1] for item in calls] == [
-        6000,
-        6000,
-        8000,
-        8000,
-        8000,
-        8000,
-        8000,
-        8000,
-    ]
+    assert [item[1] for item in calls] == [5000] * 8
     assert all(item[2] == 16 for item in calls)
     assert result["stage1_tested"] == 401
     assert result["stage1_passed"] == 401

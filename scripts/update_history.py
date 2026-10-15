@@ -3,7 +3,9 @@
 
 Only whitelisted status fields and aggregate counts are copied out of
 manifest/health documents. Node endpoints, credentials, raw manifest bodies
-and proxy names never reach the history file.
+and proxy names never reach the history file. Entries are appended in
+workflow processing order; the history writer does not sort events by their
+completion timestamps.
 """
 
 from __future__ import annotations
@@ -17,6 +19,7 @@ import sys
 import tempfile
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import cast
 
 DEFAULT_HISTORY_PATH = Path("docs/history/update-history.json")
 DEFAULT_MANIFEST_CANDIDATES = (
@@ -30,6 +33,37 @@ DEFAULT_HEALTH_CANDIDATES = (
 MAX_ENTRIES = 500
 SCHEMA_VERSION = 1
 MAX_TOKEN_LENGTH = 120
+
+HISTORY_ENTRY_KEYS = {
+    "recorded_at",
+    "run_id",
+    "run_attempt",
+    "event",
+    "source_commit",
+    "run_url",
+    "status",
+    "manifest_generated_at",
+    "manifest_status",
+    "published",
+    "parsed",
+    "accepted",
+    "tested",
+    "pool_size_before",
+    "pool_size",
+    "pool_retested",
+    "pool_added",
+    "pool_evicted",
+    "failure_stage",
+    "failure_reason",
+    "started_at",
+    "finished_at",
+    "duration_seconds",
+    "publish_commit",
+    "pages_deployed",
+    "subscription_updated",
+    "current_published",
+    "subscription_generated_at",
+}
 
 STATUS_ALIASES = {
     "success": "success",
@@ -388,6 +422,10 @@ def load_history(path: Path) -> dict[str, object]:
         not isinstance(item, dict) for item in entries
     ):
         raise UpdateHistoryError("entries must be a list of objects")
+    document["entries"] = [
+        {key: value for key, value in item.items() if key in HISTORY_ENTRY_KEYS}
+        for item in entries
+    ]
     return document
 
 
@@ -573,11 +611,21 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 3
 
-    entries = document["entries"]
+    entries = cast(list[dict[str, object]], document["entries"])
+    if len(entries) > MAX_ENTRIES:
+        del entries[:-MAX_ENTRIES]
     identity = entry["run_id"], entry["run_attempt"]
     if all(identity) and any(
         (item.get("run_id"), item.get("run_attempt")) == identity for item in entries
     ):
+        try:
+            save_history(history_path, document)
+        except OSError as exc:
+            print(
+                f"update-history: failed to write {history_path}: {exc}",
+                file=sys.stderr,
+            )
+            return 4
         print("update-history: run attempt already recorded; no change")
         return 0
     entries.append(entry)

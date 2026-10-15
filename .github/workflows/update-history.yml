@@ -52,9 +52,16 @@ jobs:
           RUN_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
         run: |
           set -euo pipefail
-          if ! gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/attempts/$RUN_ATTEMPT/jobs" > "$RUNNER_TEMP/history-jobs.json"; then
-            printf '{"jobs": []}\n' > "$RUNNER_TEMP/history-jobs.json"
-          fi
+          for attempt in 1 2 3; do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/attempts/$RUN_ATTEMPT/jobs" > "$RUNNER_TEMP/history-jobs.json"; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then
+              echo "failed to read completed run jobs metadata after 3 attempts" >&2
+              exit 1
+            fi
+            sleep "$attempt"
+          done
 
       - name: Record only update history
         run: |
