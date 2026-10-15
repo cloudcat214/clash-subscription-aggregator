@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T11:29:41Z",
+  "generated_at": "2026-10-15T11:40:18Z",
   "status": "ok",
   "active_probe": true,
-  "published": 348,
+  "published": 500,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -153,18 +153,18 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 928,
-      "accepted": 879,
+      "parsed": 977,
+      "accepted": 923,
       "drops": {
-        "invalid_uuid": 3,
-        "duplicate": 46
+        "invalid_uuid": 1,
+        "duplicate": 53
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "8ad88182227c73dd46b6cef4368ea9018a42921ebb89b5a81627f2eb849e13bc"
+      "sha256": "b086871b78dfc75956d614630411fe77c5ded1d72b1ad524c1e9df403bb65a17"
     },
     {
       "id": "p-configs-vless",
@@ -415,17 +415,16 @@
       "id": "igareck-vless",
       "kind": "public",
       "status": "ok",
-      "parsed": 91,
-      "accepted": 80,
+      "parsed": 90,
+      "accepted": 82,
       "drops": {
-        "invalid_uuid": 26,
-        "duplicate": 11
+        "duplicate": 8
       },
       "source_repo": "https://github.com/igareck/vpn-configs-for-russia",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "eeab5cc3ae77b6abe3074ef60c17368451e10d175a2265ab2f072dbc10eb8f0b"
+      "sha256": "15b373110ac8fa5ad230df03dc291f3542fbba310d5b20ee825b4fd69ba8d3b7"
     },
     {
       "id": "iboxz-collector",
@@ -552,16 +551,16 @@
       "id": "share-daily-node",
       "kind": "public",
       "status": "ok",
-      "parsed": 168,
-      "accepted": 103,
+      "parsed": 181,
+      "accepted": 104,
       "drops": {
-        "duplicate": 65
+        "duplicate": 77
       },
       "source_repo": "https://github.com/share-daily/node",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "4363d1f37853b67b1eca18115f8edabbde674006f3794fbd0761c570f954bc01"
+      "sha256": "52ef2a7064d13c500081a9431f8a1ef4cb99fc2ceacb6e2311584b3835e264c9"
     },
     {
       "id": "mfuu-freeproxies",
@@ -606,31 +605,32 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1152
+      "http_error": 626,
+      "process_exit": 400
     },
-    "pool_size_before": 0,
-    "pool_size": 348,
+    "pool_size_before": 348,
+    "pool_size": 518,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 0,
-    "pool_retested": 0,
-    "new_candidates_tested": 1500,
-    "pool_added": 348,
+    "pool_probe_candidates": 348,
+    "pool_retested": 348,
+    "new_candidates_tested": 1152,
+    "pool_added": 170,
     "pool_evicted": 0,
     "pool_recovered": 0,
-    "retained_count": 348,
+    "retained_count": 518,
     "shrink_guard_ratio": 0.2,
-    "failed_pool_size_before": 0,
+    "failed_pool_size_before": 1152,
     "failed_pool_due": 0,
     "failed_pool_retested": 0,
     "failed_pool_promoted": 0,
-    "failed_pool_added": 1152,
+    "failed_pool_added": 982,
     "failed_pool_evicted_active": 0,
     "failed_pool_pruned": 0,
-    "failed_pool_size": 1152,
+    "failed_pool_size": 2134,
     "stage1_tested": 1500,
-    "stage1_passed": 477,
-    "stage2_tested": 477,
-    "stage2_stable": 401,
+    "stage1_passed": 546,
+    "stage2_tested": 546,
+    "stage2_stable": 521,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -639,19 +639,19 @@
     }
   },
   "node_quality": {
-    "candidates": 9223,
+    "candidates": 9294,
     "tested": 1500,
-    "verified": 348,
-    "fast": 225,
-    "stable": 348,
-    "failed": 1152,
-    "not_tested": 7723,
-    "not_tested_budget": 7723,
-    "failed_probe": 1072,
-    "below_quality_threshold": 80,
-    "dropped": 1152,
-    "published": 348,
-    "success_rate": 0.26155555555555554
+    "verified": 474,
+    "fast": 332,
+    "stable": 474,
+    "failed": 1026,
+    "not_tested": 7794,
+    "not_tested_budget": 7794,
+    "failed_probe": 963,
+    "below_quality_threshold": 63,
+    "dropped": 1026,
+    "published": 500,
+    "success_rate": 0.34044444444444444
   },
   "core_validation": {
     "status": "not_tested",
