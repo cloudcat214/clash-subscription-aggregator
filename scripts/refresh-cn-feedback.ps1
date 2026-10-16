@@ -37,7 +37,7 @@ if ($LASTEXITCODE -eq 0) {
     if ($LASTEXITCODE -ne 0) { throw '提交失败：请把本窗口截图发给 AI 管家。' }
     $pushed = $false
     foreach ($attempt in 1..3) {
-        git pull --rebase origin main | Out-Null
+        git pull --rebase origin main 2>&1 | Out-Null
         if ($LASTEXITCODE -ne 0) { continue }
         git push origin HEAD:main
         if ($LASTEXITCODE -eq 0) { $pushed = $true; break }
@@ -51,8 +51,14 @@ if ($LASTEXITCODE -eq 0) {
 Write-Host '[4/4] 触发云端重建（/cn 订阅）...'
 $gh = Get-Command gh -ErrorAction SilentlyContinue
 if ($gh) {
-    gh workflow run auto-refresh.yml --ref main 2>$null
-    if ($LASTEXITCODE -eq 0) {
+    $triggered = $false
+    try {
+        gh workflow run auto-refresh.yml --ref main 2>&1 | Out-Null
+        $triggered = ($LASTEXITCODE -eq 0)
+    } catch {
+        $triggered = $false
+    }
+    if ($triggered) {
         Write-Host '  已触发云端更新。'
     } else {
         Write-Host '  触发失败（不影响结果）：云端会在下一轮自动更新。'
