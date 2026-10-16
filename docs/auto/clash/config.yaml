@@ -692,31 +692,6 @@ proxies:
   skip-cert-verify: true
   sni: vpn-de-002.fastervpn.world
   type: hysteria2
-- name: '[cbusifabcap-uri] 🇩🇪DE_9|315KB/s|A004-260618'
-  type: vless
-  server: ov-germany1.09vpn.com
-  port: 80
-  uuid: 7d90f043-ed7f-40c9-ac2f-352987904958
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: ov-germany1.09vpn.com
-- name: '[ovmvo-permanent] 🇳🇱 036  | ⬇️ 4KB/s'
-  type: socks5
-  server: 185.145.99.41
-  port: 1080
-  username: test123
-  password: test123
-- name: '[anaer-sub] 中国 037'
-  type: vmess
-  network: http
-  server: 43.108.103.167
-  port: 123
-  uuid: 35aa0fda-175a-4aec-c468-0231dee1a121
-  skip-cert-verify: true
-  alterId: 0
-  cipher: auto
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145643'
   password: user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2
   port: 18642
@@ -4176,13 +4151,6 @@ proxies:
     short-id: adcbde41b1cf27ba
   skip-cert-verify: true
   udp: true
-- cipher: aes-256-gcm
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147591'
-  password: pKEW8JPByTVTLtM
-  port: 4444
-  server: 15.204.247.206
-  type: ss
-  udp: true
 - client-fingerprint: chrome
   encryption: none
   flow: xtls-rprx-vision
@@ -5155,6 +5123,41 @@ proxies:
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: '[ermaozi-subscribe] US_speednode_0140'
+  password: None
+  port: 443
+  server: purposebydesig.club
+  tls: true
+  type: http
+  udp: true
+- name: '[snapdragon-systemproxy] 🇺🇦UA_63_0@62'
+  server: 37.19.198.244
+  type: ss
+  country: 🇺🇦UA
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+- name: '[ermaozi-subscribe] US_speednode_0141'
+  port: 443
+  server: 38.28.193.188
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- down: ''
+  fingerprint: ''
+  name: '[cbusifabcap-clashmeta] 🇭🇰HK_1|212KB/s|C002-260622'
+  obfs: ''
+  obfs-password: ''
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/WangCai2🇨🇳
+  sub_tag: C002-260622
+  type: hysteria2
+  up: ''
+  udp: true
 proxy-groups:
 - name: PROXY
   type: select
@@ -5222,9 +5225,6 @@ proxy-groups:
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4C12C6'
   - '[cbusifabcap-uri] 🇨🇭CH_4|249KB/s|B007-260618'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1827145795'
-  - '[cbusifabcap-uri] 🇩🇪DE_9|315KB/s|A004-260618'
-  - '[ovmvo-permanent] 🇳🇱 036  | ⬇️ 4KB/s'
-  - '[anaer-sub] 中国 037'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1827145643'
   - '[snapdragon-systemproxy] 🇬🇧GB_39_0@38'
   - '[nirevil-clashmeta] 🇨🇾Wind11-Nicosia-Cyprus'
@@ -5565,7 +5565,6 @@ proxy-groups:
   - '[free18-clash] 🇳🇱_荷兰_103'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_6|134KB/s|M002-260618'
   - '[free18-clash] 🇳🇱_荷兰_104'
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147591'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_7|209KB/s|M002-260618'
   - '[free18-clash] 🇳🇱_荷兰_109'
   - '[nexus-nodes-all] @v2ray_phoenix'
@@ -5660,6 +5659,10 @@ proxy-groups:
   - '[ermaozi-subscribe] US_speednode_0134'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
   - '[cbusifabcap-uri] 🇳🇱NL_10|434KB/s|A004-260618'
+  - '[ermaozi-subscribe] US_speednode_0140'
+  - '[snapdragon-systemproxy] 🇺🇦UA_63_0@62'
+  - '[ermaozi-subscribe] US_speednode_0141'
+  - '[cbusifabcap-clashmeta] 🇭🇰HK_1|212KB/s|C002-260622'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -5725,9 +5728,6 @@ proxy-groups:
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4C12C6'
   - '[cbusifabcap-uri] 🇨🇭CH_4|249KB/s|B007-260618'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1827145795'
-  - '[cbusifabcap-uri] 🇩🇪DE_9|315KB/s|A004-260618'
-  - '[ovmvo-permanent] 🇳🇱 036  | ⬇️ 4KB/s'
-  - '[anaer-sub] 中国 037'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1827145643'
   - '[snapdragon-systemproxy] 🇬🇧GB_39_0@38'
   - '[nirevil-clashmeta] 🇨🇾Wind11-Nicosia-Cyprus'
@@ -6068,7 +6068,6 @@ proxy-groups:
   - '[free18-clash] 🇳🇱_荷兰_103'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_6|134KB/s|M002-260618'
   - '[free18-clash] 🇳🇱_荷兰_104'
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147591'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_7|209KB/s|M002-260618'
   - '[free18-clash] 🇳🇱_荷兰_109'
   - '[nexus-nodes-all] @v2ray_phoenix'
@@ -6163,6 +6162,10 @@ proxy-groups:
   - '[ermaozi-subscribe] US_speednode_0134'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
   - '[cbusifabcap-uri] 🇳🇱NL_10|434KB/s|A004-260618'
+  - '[ermaozi-subscribe] US_speednode_0140'
+  - '[snapdragon-systemproxy] 🇺🇦UA_63_0@62'
+  - '[ermaozi-subscribe] US_speednode_0141'
+  - '[cbusifabcap-clashmeta] 🇭🇰HK_1|212KB/s|C002-260622'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
