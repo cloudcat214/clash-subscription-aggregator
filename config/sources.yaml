@@ -23,7 +23,7 @@ settings:
   probe_concurrency: 1
   probe_interface: ""
   probe_min_verdict: stable
-  probe_publish_max_nodes: 500
+  probe_publish_max_nodes: 800
   probe_verified_min_rounds: 3
   probe_stable_min_rounds: 3
   probe_min_success_rate: 0.6666666667
@@ -568,6 +568,200 @@ sources:
       publicly_offered: true
       authorized: true
       license: unknown
+
+    # 2026-10-16 扩源第三波：16 个 GitHub 公开订阅来源（raw.githubusercontent.com）
+    - id: nomorewalls-list
+      name: NoMoreWalls 聚合（Clash）
+      url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/peasoft/NoMoreWalls
+      license: unknown
+
+    - id: ripaojiedian-freenode
+      name: ripaojiedian/freenode（Clash）
+      url: https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/ripaojiedian/freenode
+      license: unknown
+
+    - id: ts-sf-fly
+      name: ts-sf/fly（Clash）
+      url: https://raw.githubusercontent.com/ts-sf/fly/main/clash
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/ts-sf/fly
+      license: unknown
+
+    - id: aiboboxx-v2rayfree
+      name: aiboboxx/v2rayfree base64 订阅
+      url: https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/sub
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/aiboboxx/v2rayfree
+      license: unknown
+
+    - id: auto-proxy-longterm
+      name: Auto_proxy 长期订阅（base64）
+      url: https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription_num
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/w1770946466/Auto_proxy
+      license: unknown
+
+    - id: epodonios-v2ray
+      name: Epodonios v2ray-configs（URI 列表）
+      url: https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_Sub.txt
+      format: uri
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/Epodonios/v2ray-configs
+      license: unknown
+
+    - id: leon406-share-v2
+      name: SubCrawler 分享池 v2（base64）
+      url: https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/v2
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/Leon406/SubCrawler
+      license: unknown
+
+    - id: leon406-share-vless
+      name: SubCrawler 分享池 vless（base64）
+      url: https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/vless
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/Leon406/SubCrawler
+      license: unknown
+
+    - id: mahdibland-eternity
+      name: ShadowsocksAggregator Eternity（Clash）
+      url: https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/mahdibland/ShadowsocksAggregator
+      license: unknown
+
+    - id: mahdibland-ssagg-merge
+      name: SSAggregator 合并（Clash）
+      url: https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/mahdibland/SSAggregator
+      license: unknown
+
+    - id: zyzmzyz-free-nodes
+      name: zyzmzyz/free-nodes（Clash）
+      url: https://raw.githubusercontent.com/zyzmzyz/free-nodes/master/Clash.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/zyzmzyz/free-nodes
+      license: unknown
+
+    - id: nodespider-mattkay
+      name: NodeSpider mattkaydiary（Clash）
+      url: https://raw.githubusercontent.com/huaxinCLUB/NodeSpider/master/newYaml/mattkaydiary.yaml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/huaxinCLUB/NodeSpider
+      license: unknown
+
+    - id: xiyaowong-freefq
+      name: xiyaowong/freeFQ（base64）
+      url: https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/xiyaowong/freeFQ
+      license: unknown
+
+    - id: wrfree-free
+      name: wrfree/free（base64）
+      url: https://raw.githubusercontent.com/wrfree/free/main/v2
+      format: base64
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/wrfree/free
+      license: unknown
+
+    - id: adiwzx-adispeed
+      name: adiwzx/freenode adispeed（Clash）
+      url: https://raw.githubusercontent.com/adiwzx/freenode/main/adispeed.yml
+      format: clash-yaml
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/adiwzx/freenode
+      license: unknown
+
+    - id: barabama-merged
+      name: Barabama/FreeNodes merged（URI 列表）
+      url: https://raw.githubusercontent.com/Barabama/FreeNodes/master/nodes/merged.txt
+      format: uri
+      enabled: true
+      publish: true
+      requires_review: false
+      publicly_offered: true
+      authorized: true
+      source_repo: https://github.com/Barabama/FreeNodes
+      license: unknown
+
 
   private:
     - id: private-sample
