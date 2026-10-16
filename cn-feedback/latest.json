@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T05:50:17Z",
+  "generated_at": "2026-10-16T07:30:01Z",
   "vantage": "cn-one-shot",
-  "method": "direct-bind+unified-delay; two-pass",
+  "method": "direct-bind+unified-delay; two-pass-verified-3of3",
   "source_url": "https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml",
   "probe_interface": "WLAN",
   "tested": 500,
-  "stable": 11,
+  "stable": 8,
   "verified": 8,
   "stable_keys": [
     "039214ba73ab3661",
@@ -14,25 +14,22 @@
     "245698dd792d228e",
     "3a9d0142804132fb",
     "543cc2fb24c3a239",
-    "5b7bde6d32e27f46",
     "74be66237b4eeb52",
-    "8f6fb8159d16514f",
-    "99cc00fd05b591b7",
     "afa0f659bd152c40",
     "c20f14d27b7e3337"
   ],
   "pass_a": {
     "label": "A",
-    "elapsed_seconds": 188.2,
+    "elapsed_seconds": 199.5,
     "tested": 500,
-    "stage1_passed": 41,
+    "stage1_passed": 66,
     "interface_mode": "top-level"
   },
   "pass_b": {
     "label": "B",
-    "elapsed_seconds": 25.2,
-    "tested": 19,
-    "stage1_passed": 13,
+    "elapsed_seconds": 16.1,
+    "tested": 8,
+    "stage1_passed": 8,
     "interface_mode": "top-level"
   }
 }
