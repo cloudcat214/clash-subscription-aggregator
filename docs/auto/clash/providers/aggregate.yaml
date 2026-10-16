@@ -1,4 +1,271 @@
 proxies:
+- cipher: chacha20-ietf-poly1305
+  name: '[chengaopan-merged] 🇺🇸 美国 | USA #15'
+  password: '123456'
+  port: 46009
+  server: 95.169.3.45
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5F18C1'
+  server: 104.25.88.220
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  udp: true
+  tls: true
+  servername: a.cwvps.eu.org
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: a.cwvps.eu.org
+- name: '[cbusifabcap-clashmeta] ❓Other_21|372KB/s|P002-260618'
+  network: ws
+  port: 14430
+  server: 45.144.234.157
+  sub_tag: P002-260618
+  tls: false
+  type: vless
+  udp: true
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  ws-opts:
+    headers:
+      Host: 45.144.234.157
+    path: /vless
+  servername: 45.144.234.157
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146568'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.207
+  type: ss
+  udp: true
+- down: ''
+  fingerprint: ''
+  name: '[cbusifabcap-clashmeta] ❓Other_23|361KB/s|K001-260618'
+  obfs: salamander
+  obfs-password: a34f3990b69f44bfa0d32385
+  password: a34f3990b69f44bfa0d32385
+  port: 20000
+  ports: 20000,20000-30000
+  server: 192.9.175.191
+  skip-cert-verify: true
+  sni: rmgyvpn.rest
+  sub_tag: K001-260618
+  type: hysteria2
+  up: ''
+  udp: true
+- name: '[cbusifabcap-uri] ❓Other_24|88KB/s|A004-260618'
+  type: vless
+  server: 45.144.234.157
+  port: 14430
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 45.144.234.157
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146569'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.200
+  type: ss
+  udp: true
+- name: '[cbusifabcap-clashmeta] ❓Other_24|88KB/s|A004-260618'
+  network: ws
+  port: 14430
+  server: 45.144.234.157
+  sub_tag: A004-260618
+  type: vless
+  udp: true
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  ws-opts:
+    headers:
+      Host: 45.144.234.157
+      User-Agent: Mozilla/5.0 (Linux; Android 7.0; SM-G610M Build/NRD90M) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
+    path: /vless
+  xudp: true
+  packet-encoding: xudp
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146590'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.189
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AE6904'
+  server: 104.18.8.83
+  port: 443
+  type: trojan
+  password: humanity
+  udp: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+- name: '[nexus-nodes-all] @vmesskhodam-2'
+  type: trojan
+  server: 188.114.98.0
+  port: 443
+  password: humanity
+  tls: true
+  sni: www.volumeroot.com
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- client-fingerprint: ios
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] ❓Other_4|936KB/s|A004-260618'
+  network: raw
+  port: 443
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  server: 169.40.42.168
+  sub_tag: A004-260618
+  tls: true
+  type: vless
+  udp: true
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  xudp: true
+  packet-encoding: xudp
+  servername: yahoo.com
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C67F35'
+  server: 104.21.33.59
+  port: 443
+  type: trojan
+  password: humanity
+  udp: true
+  sni: www.pleadcourt.org
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.pleadcourt.org
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146782'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.208
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇦🇪AE_3|572KB/s|C002-260622'
+  type: vless
+  server: 84.235.244.108
+  port: 22573
+  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: uae.unixzone.us
+- name: '[igareck-vless] 🇭🇺 Hungary, Budapest | [BL]'
+  type: vless
+  server: hu1.aiage.work
+  port: 443
+  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
+  tls: true
+  sni: hu1.aiage.work
+  network: tcp
+  client-fingerprint: edge
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: mPzNFHO4pZMzFviRkIhRd7xDUz4dMHyI-flZLOrgDVg
+    short-id: f8379ce795f2e5ed
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146892'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.206
+  type: ss
+  udp: true
+- name: '[igareck-vless] 🇭🇺 Hungary, Budapest | [BL]-2'
+  type: vless
+  server: hu1.aiage.work
+  port: 443
+  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
+  tls: true
+  sni: hu1.aiage.work
+  network: tcp
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: mPzNFHO4pZMzFviRkIhRd7xDUz4dMHyI-flZLOrgDVg
+    short-id: f8379ce795f2e5ed
+- encryption: none
+  name: '[cbusifabcap-clashmeta] 🇦🇪AE_2|599KB/s|A003-260618'
+  network: ws
+  port: 22573
+  server: uae.unixzone.us
+  sub_tag: A003-260618
+  type: vless
+  udp: true
+  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+  ws-opts:
+    headers:
+      Host: uae.unixzone.us
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/41.0.2272.118 Safari/537.36
+    path: /
+  xudp: true
+  packet-encoding: xudp
+- name: '[chengaopan-base64] 🇦🇪[www.v2nodes.com] vless-AE-1... #2'
+  type: vless
+  server: uae.unixzone.us
+  port: 22573
+  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: uae.unixzone.us
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827968179'
+  password: JCJpbRbQZNw9XFZG
+  port: 9078
+  server: 195.238.126.20
+  type: ss
+  udp: true
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827968381'
+  password: UkXRsXvR6buDMG2Y
+  port: 9001
+  server: 195.238.126.20
+  type: ss
+  udp: true
+- client-fingerprint: chrome
+  encryption: none
+  name: '[cbusifabcap-clashmeta] ❓Other_10|606KB/s|A003-260618'
+  network: tcp
+  port: 55983
+  reality-opts:
+    public-key: nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg
+    short-id: 0e
+  server: 77.91.68.70
+  sub_tag: A003-260618
+  tls: true
+  type: vless
+  udp: true
+  uuid: f667a096-5231-4cfb-8759-92bb32473139
+  xudp: true
+  packet-encoding: xudp
+  servername: yahoo.com
+- name: '[cbusifabcap-uri] ❓Other_11|233KB/s|A004-260618'
+  type: vless
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  sni: /?v2raynplus
+  network: tcp
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 950346'
   server: 104.19.48.107
   port: 443
@@ -290,18 +557,6 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[cbusifabcap-uri] ❓Other_11|277KB/s|S004-260618'
-  type: vmess
-  server: 168.138.43.75
-  port: 80
-  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
-  alterId: 0
-  cipher: auto
-  network: ws
-  ws-opts:
-    path: /cctv13.m3u8
-    headers:
-      Host: none
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145895'
   password: 43212c32-01f2-4356-b216-67dc1c178262
   port: 5443
@@ -419,13 +674,6 @@ proxies:
     path: /assignment
     headers:
       Host: www.volumeroot.com
-- name: '[snapdragon-systemproxy] 🇺🇸US_136_1@135'
-  server: 15.204.247.206
-  type: ss
-  country: 🇺🇸US
-  port: 4444
-  password: pKEW8JPByTVTLtM
-  cipher: aes-256-gcm
 - name: '[igareck-vless] 🇧🇾 Belarus, Bol’shoye Stiklevo | [BL]-8'
   type: vless
   server: 178.172.227.124
@@ -438,13 +686,6 @@ proxies:
     path: /vless
     headers:
       Host: 178.172.227.124
-- name: '[snapdragon-systemproxy] 🇺🇸US_138_1@137'
-  server: 198.98.53.130
-  type: ss
-  country: 🇺🇸US
-  port: 443
-  password: eDfN7SODQceIOmIAbtJJtK
-  cipher: chacha20-ietf-poly1305
 - name: '[cbusifabcap-uri] ❓Other_20|2.7MB/s|B007-260618'
   type: vless
   server: 163.172.213.174
@@ -479,19 +720,6 @@ proxies:
     path: /vless
     headers:
       Host: 178.172.227.124
-- name: '[free18-clash] 🇸🇬_新加坡_100'
-  type: vless
-  server: 545.150333.xyz
-  port: 21001
-  uuid: b17f6233-6726-41ff-9f62-fde7ccdbd282
-  servername: www.cloudflare.com
-  tls: true
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: 7RyQhh-unO6BjkHRVycWKlFyQgJ3vi5_bAI3Mc8CGCA
-    short-id: c6887d3b76ef73c9
-  skip-cert-verify: true
-  udp: true
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6EB934'
   server: 172.67.217.240
   port: 443
@@ -609,19 +837,6 @@ proxies:
     short-id: 70ab6d813e
   skip-cert-verify: true
   udp: true
-- name: '[iboxz-collector] 🇳🇱 NL | 188.42.145.180'
-  type: trojan
-  server: 188.42.145.180
-  port: 443
-  password: humanity
-  tls: true
-  sni: www.volumeroot.com
-  network: ws
-  client-fingerprint: edge
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumeroot.com
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 81B423'
   server: 172.64.152.23
   port: 443
@@ -648,45 +863,12 @@ proxies:
   password: UX82473651
   sni: noted-cougar.rooster465.autos
   skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 94C84D'
-  server: 188.114.97.7
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.volumeroot.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumeroot.com
 - cipher: aes-256-gcm
   name: '[cbusifabcap-clashmeta] 🇬🇧GB_2|151KB/s|A004-260618'
   password: g5h5jleTRSyO3Rk4
   port: 80
   server: 149.102.132.184
   sub_tag: A004-260618
-  type: ss
-  udp: true
-- name: '[clashfree-daily] 未知 VLESS-153 | free-nodes'
-  server: pl4.h1cloud.net
-  port: 25080
-  type: vless
-  uuid: 0c3ad9d5-cffd-4748-b8df-ab145288144b
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: CMAkhR1kevtK85rK9B5nmQtFZATsLOIq6nuG83BA8lI
-    short-id: 103d1dc5ed8eaf4c
-  servername: www.ceneo.pl
-  client-fingerprint: chrome
-  network: tcp
-- cipher: aes-256-cfb
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827967866'
-  password: b8KkNDjEd5QqFyRm
-  port: 9002
-  server: 195.238.126.20
   type: ss
   udp: true
 - name: '[share-daily-node] US-HTTP-17'
@@ -1057,19 +1239,6 @@ proxies:
   obfs: salamander
   obfs-password: ChY5QQQT3ZtUdNT8
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 47ADEA'
-  server: 104.18.42.98
-  port: 443
-  type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
-  udp: true
-  tls: true
-  servername: a.cwvps.eu.org
-  network: ws
-  ws-opts:
-    path: /ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
-    headers:
-      Host: a.cwvps.eu.org
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4BE185'
   server: www.calmlunch.com
   port: 443
@@ -1096,21 +1265,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4DE529'
-  server: 172.64.80.1
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
 - cipher: aes-256-cfb
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827145973'
   password: qwerREWQ@@
@@ -1189,13 +1343,6 @@ proxies:
     path: /ws#/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512
     headers:
       Host: a.cwvps.eu.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145698'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-de-002.fastervpn.world
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
 - name: '[cbusifabcap-clashmeta] ❓Other_67|2.2MB/s|F003-260618'
   network: ws
   port: 80
@@ -1593,12 +1740,6 @@ proxies:
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[zhuhaiuk-free-nodes] FR - zhuhai.uk'
-  type: http
-  server: 80.124.109.22
-  port: 8090
-  tls: true
-  skip-cert-verify: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145061'
   password: gf1:gfhysteria2024
   port: 443
@@ -3241,19 +3382,6 @@ proxies:
   xudp: true
   packet-encoding: xudp
   servername: fuck.rkn
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 415A85'
-  server: 104.16.10.9
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - client-fingerprint: chrome
   name: '[cbusifabcap-clashmeta] ❓Other_61|110KB/s|P002-260618'
   network: ws
@@ -5051,109 +5179,3 @@ proxies:
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- cipher: rc4-md5
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827963904'
-  password: 14fFPrbezE3HDZzsMOr6
-  port: 8080
-  server: 138.199.43.159
-  type: ss
-  udp: true
-- name: '[cbusifabcap-clashmeta] 🇫🇷FR_6|223KB/s|R002-260618'
-  port: 8090
-  server: 217.181.201.254
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[cbusifabcap-uri] 🇰🇷KR_2|324KB/s|A004-260618'
-  type: hysteria2
-  server: 152.67.200.82
-  port: 50160
-  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
-  tls: true
-  sni: 152.67.200.82
-  skip-cert-verify: true
-- name: '[snapdragon-systemproxy] 🇳🇱NL_36 ⇽中转_1@35'
-  server: 82.38.31.192
-  type: ss
-  country: 🇬🇧GB
-  port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-- name: '[surfboardv2ray-eternity] 🇺🇸US-156.146.38.168-4139 | 80.186MB'
-  server: 156.146.38.168
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- cipher: rc4-md5
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827963919'
-  password: 14fFPrbezE3HDZzsMOr6
-  port: 8080
-  server: 146.70.61.18
-  type: ss
-  udp: true
-- name: '[cbusifabcap-clashmeta] 🇫🇷FR_7|306KB/s|M002-260618'
-  network: ws
-  port: 8080
-  server: 172.67.71.187
-  sub_tag: M002-260618
-  type: vless
-  udp: true
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  ws-opts:
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/60.0.3112.90 Safari/537.36
-    path: /sg-melbi
-  xudp: true
-  packet-encoding: xudp
-  servername: hhlfy.twiladaphne.ndjp.net
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9A6C18'
-  server: us5-1.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server4.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /androirfdsreoightrjh?ed=2560
-    headers:
-      Host: server4.9966338.xyz
-- name: '[surfboardv2ray-eternity] 🇺🇸US-156.146.38.169-4169 | 79.552MB'
-  server: 156.146.38.169
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- cipher: rc4-md5
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827964140'
-  password: 14fFPrbezE3HDZzsMOr6
-  port: 8080
-  server: 138.197.141.58
-  type: ss
-  udp: true
-- client-fingerprint: chrome
-  encryption: none
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] 🇫🇷FR_8|73KB/s|S004-260618'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: 5BDht3tAZdKEKpJymGlRK9JugOnieA-kMSWz_0FoE0I
-    short-id: 6f76ad09
-  server: 157.228.155.238
-  sub_tag: S004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
-  xudp: true
-  packet-encoding: xudp
-  servername: addons.mozilla.org
