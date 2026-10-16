@@ -37,10 +37,26 @@ if ($LASTEXITCODE -eq 0) {
     if ($LASTEXITCODE -ne 0) { throw '提交失败：请把本窗口截图发给 AI 管家。' }
     $pushed = $false
     foreach ($attempt in 1..3) {
-        git pull --rebase origin main 2>&1 | Out-Null
-        if ($LASTEXITCODE -ne 0) { continue }
-        git push origin HEAD:main
-        if ($LASTEXITCODE -eq 0) { $pushed = $true; break }
+        $pullOk = $false
+        try {
+            git pull --rebase origin main 2>&1 | Out-Null
+            $pullOk = ($LASTEXITCODE -eq 0)
+        } catch {
+            $pullOk = $false
+        }
+        if (-not $pullOk) {
+            git rebase --abort 2>&1 | Out-Null
+            Start-Sleep -Seconds 5
+            continue
+        }
+        $pushOk = $false
+        try {
+            git push origin HEAD:main 2>&1 | Out-Null
+            $pushOk = ($LASTEXITCODE -eq 0)
+        } catch {
+            $pushOk = $false
+        }
+        if ($pushOk) { $pushed = $true; break }
         Start-Sleep -Seconds 5
     }
     if (-not $pushed) {
