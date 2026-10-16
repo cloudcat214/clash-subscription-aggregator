@@ -30,11 +30,11 @@
 
 GitHub Runner 的出口不等于本机网络（见上文）。为了让订阅尽量只包含「从大陆网络真能连上」的节点，仓库提供一条可选的实测过滤通道：
 
-1. 本机双击 `refresh-cn.cmd`（或运行 `powershell -ExecutionPolicy Bypass -File scripts/refresh-cn-feedback.ps1`，约 8-10 分钟）：脚本会自动绑定物理网卡做直连实测（不受系统代理/TUN 影响，延迟口径与客户端一致），两轮独立复核且每轮 3/3 全通过后，把结果写入 `cn-feedback/latest.json` 并推送到仓库，然后触发云端重建；
+1. 本机双击 `refresh-cn.cmd`（或运行 `powershell -ExecutionPolicy Bypass -File scripts/refresh-cn-feedback.ps1`，约 3-8 分钟）：脚本读取当前 Clash Verge 的 AUTO 组，用正在运行的客户端内核和同版本 shadow 内核逐个双向测速；只有两边都连续 3/3 通过的节点才写入 `cn-feedback/latest.json` 并推送到仓库，然后触发云端重建。运行前请保持 Clash Verge 正在运行并加载要审计的配置；
 2. 云端本轮用它做交集：`/cn` = 最新云端发布集 ∩ 实测通过节点，自动剔除已失效节点；没有实测数据的轮次不重建，`/cn` 保持上一份结果；
 3. 电脑不常开：`/cn` 会随云端复测自动收缩；想恢复更大的可用集时，再双击一次刷新脚本即可。
 
-说明：`cn-feedback/latest.json` 只保存节点名字哈希（16 位十六进制）与统计计数，不含节点凭据；该脚本是一次性输入，不是云端运行依赖，也不改变 `/dist` 主订阅。
+说明：`cn-feedback/latest.json` 只保存节点名字哈希（16 位十六进制）与统计计数，不含节点凭据；双向审计出现差异时该节点不会进入反馈名单；该脚本是一次性输入，不是云端运行依赖，也不改变 `/dist` 主订阅。
 
 ## 本地运行
 

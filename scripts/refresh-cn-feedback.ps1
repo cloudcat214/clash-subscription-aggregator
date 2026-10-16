@@ -21,8 +21,8 @@ if ($LASTEXITCODE -ne 0) {
     throw '同步代码失败：请检查网络；若重试仍失败，请把本窗口截图发给 AI 管家。'
 }
 
-Write-Host '[2/4] 开始实测（请勿关闭窗口）...'
-python 'scripts\cn_feedback_probe.py'
+Write-Host '[2/4] 使用当前客户端 + shadow 双核审计（请勿关闭窗口）...'
+python 'scripts\client_shadow_audit.py'
 if ($LASTEXITCODE -ne 0) {
     throw '实测失败：请把本窗口截图发给 AI 管家。'
 }
