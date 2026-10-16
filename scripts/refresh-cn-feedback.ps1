@@ -8,7 +8,7 @@ Set-Location -LiteralPath $repo
 $env:PYTHONIOENCODING = 'utf-8'
 
 Write-Host '============================================='
-Write-Host ' 大陆可用清单刷新（本机直连实测，约 8-10 分钟）'
+Write-Host ' 大陆可用清单刷新（全量扫描 + 客户端复核，约 10-15 分钟）'
 Write-Host '============================================='
 
 if (-not (Get-Command python -ErrorAction SilentlyContinue)) {
@@ -21,13 +21,18 @@ if ($LASTEXITCODE -ne 0) {
     throw '同步代码失败：请检查网络；若重试仍失败，请把本窗口截图发给 AI 管家。'
 }
 
-Write-Host '[2/4] 使用当前客户端 + shadow 双核审计（请勿关闭窗口）...'
+Write-Host '[2/5] 全量扫描 /dist（shadow 直连 + 两轮 3/3，约 3-8 分钟，请勿关闭窗口）...'
+python 'scripts\cn_feedback_probe.py'
+if ($LASTEXITCODE -ne 0) {
+    throw '全量扫描失败：请把本窗口截图发给 AI 管家。'
+}
+Write-Host '[3/5] 客户端内核逐节点复核（需 Clash Verge 正在运行）...'
 python 'scripts\client_shadow_audit.py'
 if ($LASTEXITCODE -ne 0) {
-    throw '实测失败：请把本窗口截图发给 AI 管家。'
+    throw '客户端复核失败：请保持 Clash Verge 运行并重试。'
 }
 
-Write-Host '[3/4] 提交并推送结果...'
+Write-Host '[4/5] 提交并推送结果...'
 git add -- cn-feedback/latest.json
 git diff --cached --quiet
 if ($LASTEXITCODE -eq 0) {
@@ -64,7 +69,7 @@ if ($LASTEXITCODE -eq 0) {
     }
 }
 
-Write-Host '[4/4] 触发云端重建（/cn 订阅）...'
+Write-Host '[5/5] 触发云端重建（/cn 订阅）...'
 $gh = Get-Command gh -ErrorAction SilentlyContinue
 if ($gh) {
     $triggered = $false
