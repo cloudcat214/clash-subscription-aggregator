@@ -16,13 +16,6 @@ proxies:
   reality-opts:
     public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
     short-id: 1c3e8241a8743df9
-- name: '[ermaozi-subscribe] NL_speednode_0004'
-  port: 9002
-  server: 84.17.47.125
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[share-daily-node] HK-VLESS-01'
   type: vless
   server: 526.150333.xyz
@@ -101,15 +94,6 @@ proxies:
   xudp: true
   packet-encoding: xudp
   servername: snip.edgeoneai.cc.cd
-- name: '[cbusifabcap-clashmeta] ❓Other_63|211KB/s|R002-260618'
-  port: 443
-  server: 185.246.153.42
-  skip-cert-verify: true
-  sni: 482c8436a1f7c908b48a1757abb5dd79-3791fb4df2db250b.apache-iv.com
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[free18-clash] 🇫🇮_芬兰_69'
   type: vless
   server: 152.233.71.81
@@ -138,43 +122,30 @@ proxies:
     short-id: 1c3e8241a8743df9
   skip-cert-verify: true
   udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0124'
-  port: 9002
-  server: 193.176.84.32
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - DIRECT
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
-  - '[ermaozi-subscribe] NL_speednode_0004'
   - '[share-daily-node] HK-VLESS-01'
   - '[share-daily-node] HK-VLESS-02'
   - '[share-daily-node] HK-VLESS-04'
   - '[share-daily-node] HK-VLESS-05'
   - '[cbusifabcap-clashmeta] ❓Other_46|214KB/s|S004-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_63|211KB/s|R002-260618'
   - '[free18-clash] 🇫🇮_芬兰_69'
   - '[free18-clash] 🇫🇮_芬兰_70'
-  - '[ermaozi-subscribe] RO_speednode_0124'
 - name: AUTO
   type: url-test
   proxies: &id001
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
-  - '[ermaozi-subscribe] NL_speednode_0004'
   - '[share-daily-node] HK-VLESS-01'
   - '[share-daily-node] HK-VLESS-02'
   - '[share-daily-node] HK-VLESS-04'
   - '[share-daily-node] HK-VLESS-05'
   - '[cbusifabcap-clashmeta] ❓Other_46|214KB/s|S004-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_63|211KB/s|R002-260618'
   - '[free18-clash] 🇫🇮_芬兰_69'
   - '[free18-clash] 🇫🇮_芬兰_70'
-  - '[ermaozi-subscribe] RO_speednode_0124'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
