@@ -472,7 +472,7 @@ def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
     for name, default, maximum in (
         ("probe_max_nodes", 30, int(caps["max_nodes"])),
         ("probe_concurrency", 1, int(caps["concurrency"])),
-        ("probe_publish_max_nodes", 30, 500),
+        ("probe_publish_max_nodes", 30, 1000),
     ):
         value = settings.get(name, default)
         if isinstance(value, bool) or not isinstance(value, int):
@@ -521,7 +521,7 @@ def _probe_policy(settings: dict[str, Any]) -> dict[str, object]:
         "stable_success_rate": stable_rate,
         "fast_latency_ms": fast_latency,
         "latency_cap_ms": latency_cap,
-        "publish_max_nodes": bounded_int("probe_publish_max_nodes", 30, 500),
+        "publish_max_nodes": bounded_int("probe_publish_max_nodes", 30, 1000),
     }
 
 

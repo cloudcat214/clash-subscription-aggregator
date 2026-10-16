@@ -860,7 +860,7 @@ def test_probe_budget_is_clamped_to_hard_limits(monkeypatch) -> None:
     [
         ("probe_max_nodes", 501),
         ("probe_concurrency", 9),
-        ("probe_publish_max_nodes", 501),
+        ("probe_publish_max_nodes", 1001),
     ],
 )
 def test_pipeline_rejects_probe_settings_over_budget(
