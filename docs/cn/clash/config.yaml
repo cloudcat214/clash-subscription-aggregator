@@ -70,6 +70,32 @@ proxies:
     short-id: 1c3e8241a8743df9
   skip-cert-verify: true
   udp: true
+- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  type: http
+  server: 185.93.106.214
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
+  type: http
+  server: 77.221.136.60
+  port: 8443
+  tls: true
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
+  server: 152.233.71.81
+  port: 443
+  type: vless
+  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
+    short-id: 1c3e8241a8743df9
+  servername: brointelengence.com
+  client-fingerprint: random
+  network: tcp
+  udp: true
 proxy-groups:
 - name: PROXY
   type: select
@@ -79,6 +105,9 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_46|214KB/s|S004-260618'
   - '[free18-clash] 🇫🇮_芬兰_69'
   - '[free18-clash] 🇫🇮_芬兰_70'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
+  - '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -86,6 +115,9 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_46|214KB/s|S004-260618'
   - '[free18-clash] 🇫🇮_芬兰_69'
   - '[free18-clash] 🇫🇮_芬兰_70'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
+  - '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
