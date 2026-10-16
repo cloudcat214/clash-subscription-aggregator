@@ -5,6 +5,13 @@ with the local Clash Verge Mihomo core, and writes ``cn-feedback/latest.json``
 containing the stable node keys. The cloud workflow intersects those keys with
 the fresh cloud-verified set to build the /cn subscription. This is a one-shot
 input, not a cloud runtime dependency; it only writes local/repo files.
+
+Measurement rules (aligned with the Clash Verge client):
+- the probe core is bound to the physical NIC (``interface-name``), so tests are
+  direct and cannot loop through a running TUN/proxy;
+- ``unified-delay`` is enabled, matching the client's delay semantics;
+- every node must pass two independent passes (with a pause between them),
+  otherwise it is considered flaky and not written to the feedback.
 """
 
 from __future__ import annotations
@@ -12,7 +19,9 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import subprocess
 import sys
+import time
 import urllib.request
 from datetime import UTC, datetime
 from pathlib import Path
@@ -24,6 +33,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from aggregator.fastprobe import probe_nodes
+from aggregator.quality import node_key
 
 DEFAULT_DIST_URL = (
     "https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml"
@@ -31,9 +41,36 @@ DEFAULT_DIST_URL = (
 DEFAULT_MIHOMO = r"D:\Program Files\Clash Verge\verge-mihomo.exe"
 TARGET_URL = "https://www.gstatic.com/generate_204"
 
+_NIC_PS = (
+    "$excluded='Meta|Tunnel|Wintun|TAP|VPN';"
+    "$adapters=@(Get-NetAdapter -IncludeHidden | Where-Object {"
+    "$_.Status -eq 'Up' -and $_.Name -notmatch $excluded -and "
+    "$_.InterfaceDescription -notmatch $excluded -and $_.Virtual -ne $true});"
+    "$byIdx=@{}; foreach($a in $adapters){ $byIdx[[int]$a.ifIndex]=$a };"
+    "$routes=@(Get-NetRoute -DestinationPrefix '0.0.0.0/0' -AddressFamily IPv4 | "
+    "Sort-Object RouteMetric, ifIndex);"
+    "foreach($r in $routes){ if($byIdx.ContainsKey([int]$r.ifIndex)){"
+    "$byIdx[[int]$r.ifIndex].Name; break } }"
+)
+
 
 def _utc_now() -> str:
     return datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def detect_physical_interface() -> str | None:
+    try:
+        result = subprocess.run(
+            ["powershell", "-NoProfile", "-Command", _NIC_PS],
+            capture_output=True,
+            text=True,
+            timeout=30,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    lines = (result.stdout or "").strip().splitlines()
+    return lines[0].strip() if lines and lines[0].strip() else None
 
 
 def fetch_proxies(url: str) -> list[dict[str, object]]:
@@ -53,6 +90,53 @@ def fetch_proxies(url: str) -> list[dict[str, object]]:
     ]
 
 
+def run_pass(
+    nodes: list[dict[str, object]],
+    *,
+    mihomo: str,
+    interface: str,
+    label: str,
+) -> tuple[set[str], set[str], dict[str, object]]:
+    started = time.time()
+    result = probe_nodes(
+        nodes,
+        mihomo_path=mihomo,
+        max_nodes=500,
+        rounds=3,
+        timeout=12.0,
+        concurrency=16,
+        target_url=TARGET_URL,
+        probe_interface=interface,
+    )
+    elapsed = round(time.time() - started, 1)
+    items = result.get("results") or []
+    stable: set[str] = set()
+    verified: set[str] = set()
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        key = item.get("node_key")
+        if not isinstance(key, str) or not key:
+            continue
+        if item.get("stable"):
+            stable.add(key)
+        if item.get("verified"):
+            verified.add(key)
+    summary = {
+        "label": label,
+        "elapsed_seconds": elapsed,
+        "tested": result.get("tested"),
+        "stage1_passed": result.get("stage1_passed"),
+        "interface_mode": result.get("interface_mode"),
+    }
+    print(
+        f"      轮次 {label}：实测 {summary['tested']}，稳定 {len(stable)}，"
+        f"全过 {len(verified)}，用时 {elapsed}s",
+        flush=True,
+    )
+    return stable, verified, summary
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dist-url", default=DEFAULT_DIST_URL)
@@ -62,12 +146,21 @@ def main() -> int:
     parser.add_argument(
         "--output", type=Path, default=ROOT / "cn-feedback" / "latest.json"
     )
-    parser.add_argument("--max-nodes", type=int, default=500)
-    parser.add_argument("--concurrency", type=int, default=16)
-    parser.add_argument("--timeout", type=float, default=12.0)
+    parser.add_argument("--probe-interface", default=None)
+    parser.add_argument("--confirm-wait", type=int, default=60)
     args = parser.parse_args()
 
-    print(f"[1/3] 拉取线上订阅并解析（{args.dist_url}）...")
+    interface = args.probe_interface or detect_physical_interface()
+    if not interface:
+        print(
+            "未检测到可用的物理网卡（Up 状态且非 TUN/虚拟网卡）。"
+            "为避免测出被代理绕路的结果已中止；"
+            "请检查网络适配器，或用 --probe-interface 手动指定网卡名重试。"
+        )
+        return 2
+    print(f"物理网卡：{interface}（探测流量直连，不经过系统代理/TUN）", flush=True)
+
+    print(f"[1/4] 拉取线上订阅并解析（{args.dist_url}）...")
     try:
         proxies = fetch_proxies(args.dist_url)
     except Exception as exc:  # noqa: BLE001
@@ -78,42 +171,34 @@ def main() -> int:
         return 2
     print(f"      节点数={len(proxies)}")
 
-    print(f"[2/3] 本机实测中（最多 {args.max_nodes} 个，3 轮，约 3-5 分钟，请耐心等待）...")
+    print("[2/4] 第一轮实测（约 3-5 分钟，请耐心等待）...")
     try:
-        result = probe_nodes(
-            proxies,
-            mihomo_path=args.mihomo,
-            max_nodes=args.max_nodes,
-            rounds=3,
-            timeout=args.timeout,
-            concurrency=args.concurrency,
-            target_url=TARGET_URL,
+        stable_a, verified_a, summary_a = run_pass(
+            proxies, mihomo=args.mihomo, interface=interface, label="A"
         )
     except Exception as exc:  # noqa: BLE001
         print(f"实测失败：{type(exc).__name__}: {str(exc)[:300]}")
         return 2
 
-    items = result.get("results") or []
-    stable_keys: list[str] = []
-    verified = 0
-    for item in items:
-        if not isinstance(item, dict):
-            continue
-        key = item.get("node_key")
-        if not isinstance(key, str) or not key:
-            continue
-        if item.get("stable"):
-            stable_keys.append(key)
-        if item.get("verified"):
-            verified += 1
-    stable_keys = sorted(set(stable_keys))
-
-    tested = result.get("tested")
-    tested = (
-        tested
-        if isinstance(tested, int) and not isinstance(tested, bool)
-        else len(items)
+    survivors = [proxy for proxy in proxies if node_key(proxy) in stable_a]
+    print(
+        f"[3/4] 等待 {args.confirm_wait}s 后进行第二轮复核（剔除时好时坏的抖动节点）..."
     )
+    time.sleep(max(0, args.confirm_wait))
+
+    stable_b: set[str] = set()
+    verified_b: set[str] = set()
+    summary_b: dict[str, object] = {}
+    if survivors:
+        try:
+            stable_b, verified_b, summary_b = run_pass(
+                survivors, mihomo=args.mihomo, interface=interface, label="B"
+            )
+        except Exception as exc:  # noqa: BLE001
+            print(f"复核失败：{type(exc).__name__}: {str(exc)[:300]}")
+            return 2
+    final_keys = sorted(stable_a & stable_b)
+    final_verified = len(set(final_keys) & verified_a & verified_b)
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -121,19 +206,23 @@ def main() -> int:
         "schema_version": 1,
         "generated_at": _utc_now(),
         "vantage": "cn-one-shot",
+        "method": "direct-bind+unified-delay; two-pass",
         "source_url": args.dist_url,
-        "tested": tested,
-        "stable": len(stable_keys),
-        "verified": verified,
-        "stable_keys": stable_keys,
+        "probe_interface": interface,
+        "tested": summary_a.get("tested"),
+        "stable": len(final_keys),
+        "verified": final_verified,
+        "stable_keys": final_keys,
+        "pass_a": summary_a,
+        "pass_b": summary_b,
     }
     output_path.write_text(
         json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    print(f"[3/3] 已写入 {output_path}")
-    print(f"      实测 {tested} 个，可用 {len(stable_keys)} 个（3/3 全通过 {verified} 个）。")
-    if not stable_keys:
-        print("警告：本轮没有实测到可用节点，反馈文件为空的可用列表。")
+    print(f"[4/4] 已写入 {output_path}")
+    print(f"      两轮均通过（进入订阅过滤名单的节点）：{len(final_keys)} 个")
+    if not final_keys:
+        print("警告：没有任何节点两轮都通过，过滤名单为空。")
     return 0
 
 

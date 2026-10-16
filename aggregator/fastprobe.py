@@ -121,6 +121,9 @@ def _batch_config(
         "allow-lan": False,
         "mode": "rule",
         "log-level": "silent",
+        # Match the Clash Verge client's delay semantics (RTT-style) so
+        # local measurements reflect what users see in their client.
+        "unified-delay": True,
         "external-controller": f"127.0.0.1:{controller_port}",
         "secret": controller_secret,
         "proxies": nodes,

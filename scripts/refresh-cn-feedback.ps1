@@ -8,7 +8,7 @@ Set-Location -LiteralPath $repo
 $env:PYTHONIOENCODING = 'utf-8'
 
 Write-Host '============================================='
-Write-Host ' 大陆可用清单刷新（本机实测，约 3-5 分钟）'
+Write-Host ' 大陆可用清单刷新（本机直连实测，约 8-10 分钟）'
 Write-Host '============================================='
 
 if (-not (Get-Command python -ErrorAction SilentlyContinue)) {

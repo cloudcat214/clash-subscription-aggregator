@@ -133,6 +133,7 @@ def test_delay_backend_maps_delay_api_and_records_each_round(
     assert config["allow-lan"] is False
     assert config["log-level"] == "silent"
     assert config["rules"] == ["MATCH,PROBE"]
+    assert config["unified-delay"] is True
 
 
 def test_delay_backend_batches_stage1_and_stage2(
