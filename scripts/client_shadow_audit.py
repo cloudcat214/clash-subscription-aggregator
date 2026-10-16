@@ -239,21 +239,75 @@ summary = {
 if rows and ((rows[0]["client_passes"] == 3) != (rows[0]["shadow_passes"] == 3)):
     raise RuntimeError("client_shadow_calibration_mismatch")
 
-stable_keys = sorted(
+def merge_into_state(output_path, tested_keys, verified_keys, *, failure_weight):
+    checked = {}
+    if output_path.is_file():
+        try:
+            previous = json.loads(output_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError, TypeError, ValueError):
+            previous = {}
+        if isinstance(previous, dict):
+            prior = previous.get("checked")
+            if isinstance(prior, dict):
+                checked = {
+                    str(key): dict(value)
+                    for key, value in prior.items()
+                    if isinstance(value, dict)
+                }
+            prior_keys = previous.get("stable_keys")
+            prior_time = previous.get("generated_at")
+            if isinstance(prior_keys, list) and isinstance(prior_time, str):
+                for key in prior_keys:
+                    entry = checked.setdefault(str(key), {"p": None, "f": 0})
+                    if not entry.get("p"):
+                        entry["p"] = prior_time
+
+    now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    for key in sorted(tested_keys):
+        entry = checked.get(key)
+        if not isinstance(entry, dict):
+            entry = {"p": None, "f": 0}
+        if key in verified_keys:
+            entry["p"] = now
+            entry["f"] = 0
+        else:
+            try:
+                entry["f"] = int(entry.get("f") or 0) + failure_weight
+            except (TypeError, ValueError):
+                entry["f"] = failure_weight
+        checked[key] = entry
+
+    keep = sorted(
+        key
+        for key, entry in checked.items()
+        if isinstance(entry, dict)
+        and entry.get("p")
+        and int(entry.get("f") or 0) <= 1
+    )
+    return keep, checked
+
+
+tested_keys = {
+    hashlib.sha256(row["name"].encode("utf-8")).hexdigest()[:16] for row in rows
+}
+verified_now = {
     hashlib.sha256(row["name"].encode("utf-8")).hexdigest()[:16]
     for row in rows
     if row["both_3of3"]
-)
+}
+keep, checked = merge_into_state(OUTPUT, tested_keys, verified_now, failure_weight=2)
+stable_keys = keep
 feedback = {
     "schema_version": 1,
     "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     "vantage": "actual-client-pipe+shadow-mihomo",
-    "method": "client-pipe+shadow; calibration+three-round-both-3of3",
+    "method": "client-pipe+shadow; calibration+three-round-both-3of3; client-fail-drop",
     "tested": len(candidates),
-    "stable": len(stable_keys),
-    "verified": len(stable_keys),
-    "stable_keys": stable_keys,
+    "stable": len(keep),
+    "verified": len(verified_now),
+    "stable_keys": keep,
     "audit": summary,
+    "checked": checked,
 }
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 OUTPUT.write_text(json.dumps(feedback, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

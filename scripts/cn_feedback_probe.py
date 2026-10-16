@@ -1,17 +1,19 @@
-"""One-shot mainland probe for the /cn channel (run by scripts/refresh-cn-feedback.ps1).
+"""Mainland scan over the live /dist list, expanding the /cn channel.
 
 Fetches the current live /dist subscription, tests every node from this machine
-with the local Clash Verge Mihomo core, and writes ``cn-feedback/latest.json``
-containing the stable node keys. The cloud workflow intersects those keys with
-the fresh cloud-verified set to build the /cn subscription. This is a one-shot
-input, not a cloud runtime dependency; it only writes local/repo files.
+with the local Clash Verge Mihomo core, and merges results into
+``cn-feedback/latest.json``. The cloud workflow intersects the recorded keys
+with the fresh cloud-verified set to build the /cn subscription. This is a
+one-shot input, not a cloud runtime dependency; it only writes local/repo files.
 
 Measurement rules (aligned with the Clash Verge client):
 - the probe core is bound to the physical NIC (``interface-name``), so tests are
   direct and cannot loop through a running TUN/proxy;
 - ``unified-delay`` is enabled, matching the client's delay semantics;
-- every node must pass two independent passes (with a pause between them),
-  otherwise it is considered flaky and not written to the feedback.
+- every node must pass two independent passes at 3/3 each to be recorded as
+  verified this round;
+- accumulation: a node keeps its recorded place until it fails two consecutive
+  full scans, so repeated refreshes grow the list instead of resetting it.
 """
 
 from __future__ import annotations
@@ -90,6 +92,58 @@ def fetch_proxies(url: str) -> list[dict[str, object]]:
     ]
 
 
+def merge_into_state(
+    output_path: Path,
+    tested_keys: set[str],
+    verified_keys: set[str],
+    *,
+    failure_weight: int,
+) -> tuple[list[str], dict[str, dict[str, object]]]:
+    checked: dict[str, dict[str, object]] = {}
+    if output_path.is_file():
+        try:
+            previous = json.loads(output_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError, TypeError, ValueError):
+            previous = {}
+        if isinstance(previous, dict):
+            prior = previous.get("checked")
+            if isinstance(prior, dict):
+                checked = {
+                    str(key): dict(value)
+                    for key, value in prior.items()
+                    if isinstance(value, dict)
+                }
+            prior_keys = previous.get("stable_keys")
+            prior_time = previous.get("generated_at")
+            if isinstance(prior_keys, list) and isinstance(prior_time, str):
+                for key in prior_keys:
+                    entry = checked.setdefault(str(key), {"p": None, "f": 0})
+                    if not entry.get("p"):
+                        entry["p"] = prior_time
+
+    now = _utc_now()
+    for key in sorted(tested_keys):
+        entry = checked.get(key)
+        if not isinstance(entry, dict):
+            entry = {"p": None, "f": 0}
+        if key in verified_keys:
+            entry["p"] = now
+            entry["f"] = 0
+        else:
+            try:
+                entry["f"] = int(entry.get("f") or 0) + failure_weight
+            except (TypeError, ValueError):
+                entry["f"] = failure_weight
+        checked[key] = entry
+
+    keep = sorted(
+        key
+        for key, entry in checked.items()
+        if isinstance(entry, dict) and entry.get("p") and int(entry.get("f") or 0) <= 1
+    )
+    return keep, checked
+
+
 def run_pass(
     nodes: list[dict[str, object]],
     *,
@@ -101,7 +155,7 @@ def run_pass(
     result = probe_nodes(
         nodes,
         mihomo_path=mihomo,
-        max_nodes=500,
+        max_nodes=1000,
         rounds=3,
         timeout=12.0,
         concurrency=16,
@@ -171,7 +225,7 @@ def main() -> int:
         return 2
     print(f"      节点数={len(proxies)}")
 
-    print("[2/4] 第一轮实测（约 3-5 分钟，请耐心等待）...")
+    print("[2/4] 第一轮实测（请耐心等待）...")
     try:
         _stable_a, verified_a, summary_a = run_pass(
             proxies, mihomo=args.mihomo, interface=interface, label="A"
@@ -197,32 +251,40 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001
             print(f"复核失败：{type(exc).__name__}: {str(exc)[:300]}")
             return 2
-    final_keys = sorted(verified_a & verified_b)
-    final_verified = len(final_keys)
+    verified_now = set(verified_a & verified_b)
+    tested_keys = {node_key(proxy) for proxy in proxies}
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    keep, checked = merge_into_state(
+        output_path, tested_keys, verified_now, failure_weight=1
+    )
+
     document = {
         "schema_version": 1,
         "generated_at": _utc_now(),
         "vantage": "cn-one-shot",
-        "method": "direct-bind+unified-delay; two-pass-verified-3of3",
+        "method": "direct-bind+unified-delay; two-pass-verified-3of3; accumulate-fail<=1",
         "source_url": args.dist_url,
         "probe_interface": interface,
         "tested": summary_a.get("tested"),
-        "stable": len(final_keys),
-        "verified": final_verified,
-        "stable_keys": final_keys,
+        "stable": len(keep),
+        "verified": len(verified_now),
+        "stable_keys": keep,
         "pass_a": summary_a,
         "pass_b": summary_b,
+        "checked": checked,
     }
     output_path.write_text(
         json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print(f"[4/4] 已写入 {output_path}")
-    print(f"      两轮均 3/3 全通过（进入订阅过滤名单的节点）：{len(final_keys)} 个")
-    if not final_keys:
-        print("警告：没有任何节点两轮都通过，过滤名单为空。")
+    print(
+        f"      本轮两轮 3/3 全通过：{len(verified_now)} 个；"
+        f"累积保留（历史通过且未连续失效）：{len(keep)} 个"
+    )
+    if not keep:
+        print("警告：过滤名单为空。")
     return 0
 
 
