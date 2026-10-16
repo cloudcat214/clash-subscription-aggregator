@@ -173,32 +173,32 @@ def main() -> int:
 
     print("[2/4] 第一轮实测（约 3-5 分钟，请耐心等待）...")
     try:
-        stable_a, verified_a, summary_a = run_pass(
+        _stable_a, verified_a, summary_a = run_pass(
             proxies, mihomo=args.mihomo, interface=interface, label="A"
         )
     except Exception as exc:  # noqa: BLE001
         print(f"实测失败：{type(exc).__name__}: {str(exc)[:300]}")
         return 2
 
-    survivors = [proxy for proxy in proxies if node_key(proxy) in stable_a]
+    survivors = [proxy for proxy in proxies if node_key(proxy) in verified_a]
     print(
         f"[3/4] 等待 {args.confirm_wait}s 后进行第二轮复核（剔除时好时坏的抖动节点）..."
     )
     time.sleep(max(0, args.confirm_wait))
 
-    stable_b: set[str] = set()
+    _stable_b: set[str] = set()
     verified_b: set[str] = set()
     summary_b: dict[str, object] = {}
     if survivors:
         try:
-            stable_b, verified_b, summary_b = run_pass(
+            _stable_b, verified_b, summary_b = run_pass(
                 survivors, mihomo=args.mihomo, interface=interface, label="B"
             )
         except Exception as exc:  # noqa: BLE001
             print(f"复核失败：{type(exc).__name__}: {str(exc)[:300]}")
             return 2
-    final_keys = sorted(stable_a & stable_b)
-    final_verified = len(set(final_keys) & verified_a & verified_b)
+    final_keys = sorted(verified_a & verified_b)
+    final_verified = len(final_keys)
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -206,7 +206,7 @@ def main() -> int:
         "schema_version": 1,
         "generated_at": _utc_now(),
         "vantage": "cn-one-shot",
-        "method": "direct-bind+unified-delay; two-pass",
+        "method": "direct-bind+unified-delay; two-pass-verified-3of3",
         "source_url": args.dist_url,
         "probe_interface": interface,
         "tested": summary_a.get("tested"),
@@ -220,7 +220,7 @@ def main() -> int:
         json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print(f"[4/4] 已写入 {output_path}")
-    print(f"      两轮均通过（进入订阅过滤名单的节点）：{len(final_keys)} 个")
+    print(f"      两轮均 3/3 全通过（进入订阅过滤名单的节点）：{len(final_keys)} 个")
     if not final_keys:
         print("警告：没有任何节点两轮都通过，过滤名单为空。")
     return 0
