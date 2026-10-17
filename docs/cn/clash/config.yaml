@@ -3,6 +3,14 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
+- name: '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
+  port: 8090
+  server: 50.184.176.222
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
 - alterId: 0
   cipher: auto
   name: '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
@@ -21,19 +29,6 @@ proxies:
     path: /London31
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
   server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C'
-  server: 104.16.10.48
   port: 443
   type: vless
   uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
@@ -234,18 +229,6 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4BE185'
-  server: www.calmlunch.com
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.calmlunch.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
 - name: '[ermaozi-subscribe] RO_speednode_0087'
   port: 9002
   server: 193.176.84.20
@@ -971,19 +954,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3FB990'
-  server: 104.16.10.234
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[iboxz-collector] 🇨🇦 CA | 188.114.97.6-8'
   type: vless
   server: 188.114.97.6
@@ -2828,9 +2798,9 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
+  - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   - '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663B4'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B72A46'
@@ -2848,7 +2818,6 @@ proxy-groups:
   - '[cbusifabcap-uri] 🇫🇷FR_13|937KB/s|A004-260618'
   - '[ermaozi-subscribe] RO_speednode_0083'
   - '[cbusifabcap-uri] 🇫🇷FR_14|96KB/s|T001-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4BE185'
   - '[ermaozi-subscribe] RO_speednode_0087'
   - '[cbusifabcap-uri] 🇫🇷FR_19|986KB/s|B007-260618'
   - '[cbusifabcap-clashmeta] ❓Other_10|212KB/s|K001-260618'
@@ -2922,7 +2891,6 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-28'
   - '[share-daily-node] RO-HTTP-29'
   - '[ermaozi-subscribe] RO_speednode_0044'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3FB990'
   - '[iboxz-collector] 🇨🇦 CA | 188.114.97.6-8'
   - '[share-daily-node] RO-HTTP-41'
   - '[ermaozi-subscribe] RO_speednode_0045'
@@ -3098,9 +3066,9 @@ proxy-groups:
 - name: AUTO
   type: url-test
   proxies: &id001
+  - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   - '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663B4'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B72A46'
@@ -3118,7 +3086,6 @@ proxy-groups:
   - '[cbusifabcap-uri] 🇫🇷FR_13|937KB/s|A004-260618'
   - '[ermaozi-subscribe] RO_speednode_0083'
   - '[cbusifabcap-uri] 🇫🇷FR_14|96KB/s|T001-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4BE185'
   - '[ermaozi-subscribe] RO_speednode_0087'
   - '[cbusifabcap-uri] 🇫🇷FR_19|986KB/s|B007-260618'
   - '[cbusifabcap-clashmeta] ❓Other_10|212KB/s|K001-260618'
@@ -3192,7 +3159,6 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-28'
   - '[share-daily-node] RO-HTTP-29'
   - '[ermaozi-subscribe] RO_speednode_0044'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3FB990'
   - '[iboxz-collector] 🇨🇦 CA | 188.114.97.6-8'
   - '[share-daily-node] RO-HTTP-41'
   - '[ermaozi-subscribe] RO_speednode_0045'
