@@ -6,7 +6,7 @@
 
 ## 订阅地址
 
-- **主订阅（云端自动）**：`https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`。由 GitHub Actions 云端采集、主动测评并发布，电脑关机不影响。GitHub schedule 只代表触发请求，实际触发时间受 GitHub 调度影响，不是准点 15 分钟 SLA。
+- **主订阅（云端自动）**：`https://cloudcat214.github.io/clash-subscription-aggregator/dist/clash/config.yaml`。由 GitHub Actions 云端采集、主动测评并发布，电脑关机不影响。计划触发为每小时一次（`0 * * * *`）；GitHub schedule 只代表触发请求，实际触发时间受 GitHub 调度影响，不保证准点。
 - **同源兼容镜像**：`https://cloudcat214.github.io/clash-subscription-aggregator/auto/clash/config.yaml`。与主订阅是同一份云端产物（同源镜像），保留供已有 /auto 使用者继续使用。
 - **大陆实测过滤（/cn，可选）**：`https://cloudcat214.github.io/clash-subscription-aggregator/cn/clash/config.yaml`。只包含「最近一次大陆实测通过」∩「云端本轮复测有效」的节点；由 `cn-feedback/latest.json` 驱动，没有实测数据时不重建。刷新方法见下文「大陆实测过滤通道（/cn）」。
 
@@ -147,7 +147,7 @@ sources:
 - Pull Request 只运行 pytest、compileall 和 workflow 结构检查，不抓取来源、不生成发布产物、不部署 Pages；
 - `main` 上 `docs/**` 的 push 或手动 `workflow_dispatch` 才进入部署 job；部署前只检查已提交的 `docs/dist/clash/config.yaml` 存在且 YAML 顶层结构可解析；
 - `vars.PUBLIC_NODE_REDISTRIBUTION_APPROVED == 'true'` 仍是本机公开发布的总闸；`auto-refresh.yml` 使用 `--no-private`，只处理配置中的公开来源；
-- `auto-refresh.yml` 每 15 分钟计划触发一次（实际触发时间受 GitHub 调度影响），也支持手动触发；它在 Ubuntu Runner 下载固定且校验过的 Mihomo、运行公开来源聚合与 delay 探测，把成功结果写入 `docs/dist/`（并镜像到 `docs/auto/`），并在同一工作流中部署 Pages。失败或结果不足时不覆盖旧产物；
+- `auto-refresh.yml` 每小时计划触发一次（实际触发时间受 GitHub 调度影响），也支持手动触发；它在 Ubuntu Runner 下载固定且校验过的 Mihomo、运行公开来源聚合与 delay 探测，把成功结果写入 `docs/dist/`（并镜像到 `docs/auto/`），并在同一工作流中部署 Pages。失败或结果不足时不覆盖旧产物；
 - Pages artifact 路径是 `docs`，因此固定 URL 下的 `dist/clash/config.yaml` 与 `auto/clash/config.yaml` 以及各自的 manifest、health 保持同一目录结构。`/dist` 与 `/auto` 由云端同源产物维护；本机刷新通道只作为可逆回退保留，不是正常依赖。
 
 公开节点数据仍需由接入者核对各来源节点数据的使用与再分发条款；代码仓库公开不等于节点数据公开授权，工作流闸门也不替代这项责任。
