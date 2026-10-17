@@ -19,14 +19,6 @@ proxies:
     headers:
       Host: ukl.lovehk.xyz
     path: /London31
-- name: '[snapdragon-systemproxy] 🇺🇸US_83_0@82'
-  server: in.tronsg.com
-  type: trojan
-  country: 🇺🇸US
-  port: 443
-  password: Trojan@82164024
-  skip-cert-verify: true
-  udp: true
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
   server: 188.114.97.6
   port: 443
@@ -40,22 +32,6 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- client-fingerprint: unsafe
-  name: '[cbusifabcap-clashmeta] ❓Other_16|230KB/s|S004-260618'
-  network: ws
-  password: humanity
-  port: 443
-  server: 188.114.97.8
-  skip-cert-verify: false
-  sni: www.pleadcourt.org
-  sub_tag: S004-260618
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/70.0.3538.102 Safari/537.36
-    path: /assignment
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C'
   server: 104.16.10.48
   port: 443
@@ -83,19 +59,6 @@ proxies:
     path: /ws
     headers:
       Host: v2ray.simspeedup.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 216749'
-  server: 104.19.33.237
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
   server: 104.21.70.228
   port: 443
@@ -1814,21 +1777,6 @@ proxies:
     path: /androirfdsreoightrjh?ed=2560
     headers:
       Host: server4.9966338.xyz
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9E1AF7'
-  server: eu3.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server40.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /aiaiai
-    headers:
-      Host: server40.9966338.xyz
 - name: '[ermaozi-subscribe] US_speednode_0131'
   password: 'null'
   port: 9002
@@ -2236,20 +2184,6 @@ proxies:
   tls: true
   sni: www.bing.com
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B79C81'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: 20ff936a-8eb5-4d27-9cce-93f2016d467b
-  udp: true
-  tls: true
-  servername: free.nadun.store
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: free.nadun.store
 - name: '[share-daily-node] RO-HTTP-88'
   type: http
   server: 193.176.84.37
@@ -2764,18 +2698,6 @@ proxies:
     path: /fp
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
-- name: '[ermaozi-subscribe] 🇫🇷[www.v2nodes.com] trojan-FR-... #9'
-  network: ws
-  password: humanity
-  port: 443
-  server: 165.215.250.14
-  skip-cert-verify: true
-  sni: www.calmlunch.com
-  type: trojan
-  ws-opts:
-    headers:
-      Host: www.calmlunch.com
-    path: '%2Fassignment'
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 36C924'
   server: 104.17.162.11
   port: 2082
@@ -2907,12 +2829,9 @@ proxy-groups:
   proxies:
   - DIRECT
   - '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
-  - '[snapdragon-systemproxy] 🇺🇸US_83_0@82'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
-  - '[cbusifabcap-clashmeta] ❓Other_16|230KB/s|S004-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663B4'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 216749'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B72A46'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
@@ -3070,7 +2989,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇫🇷FR_4|69KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇫🇷FR_6|223KB/s|R002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9A6C18'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9E1AF7'
   - '[ermaozi-subscribe] US_speednode_0131'
   - '[ermaozi-subscribe] US_speednode_0133'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
@@ -3112,7 +3030,6 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-47'
   - '[share-daily-node] RO-HTTP-71'
   - '[share-daily-node] RO-HTTP-84'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B79C81'
   - '[share-daily-node] RO-HTTP-88'
   - '[share-daily-node] RO-HTTP-90'
   - '[share-daily-node] RO-HTTP-91'
@@ -3168,7 +3085,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
   - '[share-daily-node] RO-HTTP-48'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 2E1AB6'
-  - '[ermaozi-subscribe] 🇫🇷[www.v2nodes.com] trojan-FR-... #9'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 36C924'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A8DB9C'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_2|409KB/s|R002-260618'
@@ -3183,12 +3099,9 @@ proxy-groups:
   type: url-test
   proxies: &id001
   - '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
-  - '[snapdragon-systemproxy] 🇺🇸US_83_0@82'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
-  - '[cbusifabcap-clashmeta] ❓Other_16|230KB/s|S004-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9C17C'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663B4'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 216749'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B72A46'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
@@ -3346,7 +3259,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇫🇷FR_4|69KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇫🇷FR_6|223KB/s|R002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9A6C18'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9E1AF7'
   - '[ermaozi-subscribe] US_speednode_0131'
   - '[ermaozi-subscribe] US_speednode_0133'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
@@ -3388,7 +3300,6 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-47'
   - '[share-daily-node] RO-HTTP-71'
   - '[share-daily-node] RO-HTTP-84'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B79C81'
   - '[share-daily-node] RO-HTTP-88'
   - '[share-daily-node] RO-HTTP-90'
   - '[share-daily-node] RO-HTTP-91'
@@ -3444,7 +3355,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
   - '[share-daily-node] RO-HTTP-48'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 2E1AB6'
-  - '[ermaozi-subscribe] 🇫🇷[www.v2nodes.com] trojan-FR-... #9'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 36C924'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A8DB9C'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_2|409KB/s|R002-260618'
