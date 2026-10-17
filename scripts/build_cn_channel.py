@@ -68,11 +68,33 @@ def _feedback_keys(document: dict[str, object]) -> set[str]:
     return {str(item) for item in keys}
 
 
+def _feedback_meta(document: dict[str, object]) -> dict[str, object]:
+    meta: dict[str, object] = {"keys": len(_feedback_keys(document))}
+    feedback_time = _parse_time(document.get("generated_at"))
+    if feedback_time is not None:
+        meta["generated_at"] = (
+            feedback_time.astimezone(UTC).isoformat().replace("+00:00", "Z")
+        )
+        age_hours = (datetime.now(UTC) - feedback_time).total_seconds() / 3600
+        meta["age_hours"] = round(max(0.0, age_hours), 1)
+    for field in ("tested", "stable", "verified"):
+        value = document.get(field)
+        if isinstance(value, int) and not isinstance(value, bool):
+            meta[field] = value
+    return meta
+
+
 def build_cn_channel(
-    dist_dir: Path, feedback_path: Path, output_dir: Path
+    dist_dir: Path,
+    feedback_path: Path,
+    output_dir: Path,
+    extra_feedback_path: Path | None = None,
 ) -> dict[str, object]:
     feedback = load_feedback(feedback_path)
-    if feedback is None:
+    extra_feedback = (
+        load_feedback(extra_feedback_path) if extra_feedback_path is not None else None
+    )
+    if feedback is None and extra_feedback is None:
         return {"status": "skipped", "reason": "feedback_missing_or_invalid"}
 
     config_path = dist_dir / "clash" / "config.yaml"
@@ -89,7 +111,11 @@ def build_cn_channel(
         proxy for proxy in proxies if isinstance(proxy, dict) and proxy.get("name")
     ]
 
-    keys = _feedback_keys(feedback)
+    keys: set[str] = set()
+    if feedback is not None:
+        keys |= _feedback_keys(feedback)
+    if extra_feedback is not None:
+        keys |= _feedback_keys(extra_feedback)
     selected = [proxy for proxy in valid_proxies if node_key(proxy) in keys]
     if len(selected) < MIN_SELECTED:
         return {
@@ -107,20 +133,10 @@ def build_cn_channel(
             "selected": len(selected),
         },
     }
-    feedback_meta: dict[str, object] = {}
-    feedback_time = _parse_time(feedback.get("generated_at"))
-    if feedback_time is not None:
-        feedback_meta["generated_at"] = (
-            feedback_time.astimezone(UTC).isoformat().replace("+00:00", "Z")
-        )
-        age_hours = (datetime.now(UTC) - feedback_time).total_seconds() / 3600
-        feedback_meta["age_hours"] = round(max(0.0, age_hours), 1)
-    for field in ("tested", "stable", "verified"):
-        value = feedback.get(field)
-        if isinstance(value, int) and not isinstance(value, bool):
-            feedback_meta[field] = value
-    if feedback_meta:
-        manifest["feedback"] = feedback_meta
+    if feedback is not None:
+        manifest["feedback"] = _feedback_meta(feedback)
+    if extra_feedback is not None:
+        manifest["feedback_extra"] = _feedback_meta(extra_feedback)
 
     artifacts = render_artifacts(selected)
     if output_dir.exists():
@@ -141,17 +157,27 @@ def main() -> int:
     parser.add_argument(
         "--feedback", type=Path, default=ROOT / "cn-feedback" / "latest.json"
     )
+    parser.add_argument(
+        "--feedback-extra",
+        type=Path,
+        default=None,
+        help="可选的第二份反馈（如云端大陆 TCP 预筛结果），与 --feedback 取并集",
+    )
     parser.add_argument("--output", type=Path, default=ROOT / "docs" / "cn")
     args = parser.parse_args()
 
-    result = build_cn_channel(args.dist_dir, args.feedback, args.output)
+    result = build_cn_channel(
+        args.dist_dir, args.feedback, args.output, args.feedback_extra
+    )
     if result.get("status") == "built":
         counts = result["manifest"]["counts"]  # type: ignore[index]
         manifest = result["manifest"]  # type: ignore[assignment]
         feedback_meta = manifest.get("feedback", {})  # type: ignore[union-attr]
+        extra_meta = manifest.get("feedback_extra", {})  # type: ignore[union-attr]
         print(
             f"cn channel built: selected={counts['selected']} of "
             f"{counts['source_published']} feedback_stable={feedback_meta.get('stable')} "
+            f"extra_stable={extra_meta.get('stable')} "
             f"age_hours={feedback_meta.get('age_hours')}"
         )
         return 0

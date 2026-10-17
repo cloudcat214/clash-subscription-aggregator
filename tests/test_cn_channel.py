@@ -111,3 +111,45 @@ def test_skips_on_invalid_feedback(tmp_path: Path) -> None:
 
     assert result["status"] == "skipped"
     assert result["reason"] == "feedback_missing_or_invalid"
+
+
+def test_builds_with_extra_feedback_union(tmp_path: Path) -> None:
+    module = _load_module()
+    proxies = [_node("a"), _node("b"), _node("c")]
+    dist_dir = _write_dist(tmp_path, proxies)
+    feedback = tmp_path / "cn-feedback" / "latest.json"
+    _write_feedback(feedback, [node_key(proxies[0])])
+    extra = tmp_path / "cn-feedback" / "cloud.json"
+    _write_feedback(extra, [node_key(proxies[1])])
+    output_dir = tmp_path / "docs" / "cn"
+
+    result = module.build_cn_channel(dist_dir, feedback, output_dir, extra)
+
+    assert result["status"] == "built"
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert {proxy["name"] for proxy in config["proxies"]} == {"a", "b"}
+    manifest = json.loads(
+        (output_dir / "manifest.json").read_text(encoding="utf-8")
+    )
+    assert manifest["feedback_extra"]["stable"] == 1
+
+
+def test_builds_with_only_extra_feedback(tmp_path: Path) -> None:
+    module = _load_module()
+    proxies = [_node("a")]
+    dist_dir = _write_dist(tmp_path, proxies)
+    extra = tmp_path / "cn-feedback" / "cloud.json"
+    _write_feedback(extra, [node_key(proxies[0])])
+    output_dir = tmp_path / "docs" / "cn"
+
+    result = module.build_cn_channel(
+        dist_dir, tmp_path / "missing.json", output_dir, extra
+    )
+
+    assert result["status"] == "built"
+    manifest = json.loads(
+        (output_dir / "manifest.json").read_text(encoding="utf-8")
+    )
+    assert manifest["counts"]["selected"] == 1

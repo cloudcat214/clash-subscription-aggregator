@@ -472,7 +472,7 @@ def test_cloud_workflow_runs_probe_commits_only_auto_artifacts_and_deploys_pages
     )
     workflow = yaml.safe_load(workflow_path.read_text(encoding="utf-8"))
     triggers = workflow.get("on", workflow.get(True))
-    assert triggers["schedule"] == [{"cron": "*/15 * * * *"}]
+    assert triggers["schedule"] == [{"cron": "0 * * * *"}]
     assert "workflow_dispatch" in triggers
     assert workflow["permissions"] == {
         "contents": "write",
