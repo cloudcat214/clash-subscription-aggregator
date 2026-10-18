@@ -68,7 +68,11 @@ def test_builds_filtered_channel(tmp_path: Path) -> None:
     assert [proxy["name"] for proxy in config["proxies"]] == ["a", "c"]
     manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["filter"] == "cn-feedback"
-    assert manifest["counts"] == {"source_published": 3, "selected": 2}
+    assert manifest["counts"] == {
+        "source_published": 3,
+        "selected": 2,
+        "blocked_keys": 0,
+    }
     assert manifest["feedback"]["stable"] == 2
     assert manifest["feedback"]["age_hours"] >= 0
 
@@ -153,3 +157,29 @@ def test_builds_with_only_extra_feedback(tmp_path: Path) -> None:
         (output_dir / "manifest.json").read_text(encoding="utf-8")
     )
     assert manifest["counts"]["selected"] == 1
+
+
+def test_blocked_keys_are_subtracted(tmp_path: Path) -> None:
+    module = _load_module()
+    proxies = [_node("a"), _node("b"), _node("c")]
+    dist_dir = _write_dist(tmp_path, proxies)
+    feedback = tmp_path / "cn-feedback" / "latest.json"
+    _write_feedback(feedback, [node_key(proxies[0]), node_key(proxies[1])])
+    blocked = tmp_path / "cn-feedback" / "blocked.json"
+    blocked.write_text(
+        json.dumps({"schema_version": 1, "keys": [node_key(proxies[1])]}),
+        encoding="utf-8",
+    )
+    output_dir = tmp_path / "docs" / "cn"
+
+    result = module.build_cn_channel(dist_dir, feedback, output_dir, None, blocked)
+
+    assert result["status"] == "built"
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert [proxy["name"] for proxy in config["proxies"]] == ["a"]
+    manifest = json.loads(
+        (output_dir / "manifest.json").read_text(encoding="utf-8")
+    )
+    assert manifest["counts"]["blocked_keys"] == 1

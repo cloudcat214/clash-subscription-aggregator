@@ -77,3 +77,10 @@ def test_merge_on_state_on_resets_off_strike() -> None:
     )
     assert on == ["a"]
     assert off == {}
+
+
+def test_tcp_nodes_type_whitelist() -> None:
+    module = _load()
+    proxies = [_node("a", "http"), _node("b", "vless"), _node("c", "vmess")]
+    names = [node["name"] for node in module.tcp_nodes(proxies, {"http"})]
+    assert names == ["a"]

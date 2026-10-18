@@ -84,11 +84,25 @@ def _feedback_meta(document: dict[str, object]) -> dict[str, object]:
     return meta
 
 
+def load_blocked(path: Path | None) -> set[str]:
+    if path is None or not path.is_file():
+        return set()
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
+        return set()
+    keys = document.get("keys") if isinstance(document, dict) else None
+    if not isinstance(keys, list):
+        return set()
+    return {str(item) for item in keys if isinstance(item, str) and item}
+
+
 def build_cn_channel(
     dist_dir: Path,
     feedback_path: Path,
     output_dir: Path,
     extra_feedback_path: Path | None = None,
+    blocked_path: Path | None = None,
 ) -> dict[str, object]:
     feedback = load_feedback(feedback_path)
     extra_feedback = (
@@ -116,7 +130,12 @@ def build_cn_channel(
         keys |= _feedback_keys(feedback)
     if extra_feedback is not None:
         keys |= _feedback_keys(extra_feedback)
-    selected = [proxy for proxy in valid_proxies if node_key(proxy) in keys]
+    blocked = load_blocked(blocked_path)
+    selected = [
+        proxy
+        for proxy in valid_proxies
+        if node_key(proxy) in keys and node_key(proxy) not in blocked
+    ]
     if len(selected) < MIN_SELECTED:
         return {
             "status": "skipped",
@@ -131,6 +150,7 @@ def build_cn_channel(
         "counts": {
             "source_published": len(valid_proxies),
             "selected": len(selected),
+            "blocked_keys": len(blocked),
         },
     }
     if feedback is not None:
@@ -163,11 +183,17 @@ def main() -> int:
         default=None,
         help="可选的第二份反馈（如云端大陆 TCP 预筛结果），与 --feedback 取并集",
     )
+    parser.add_argument(
+        "--blocked",
+        type=Path,
+        default=None,
+        help="可选黑名单（客户端审计两次均失败的节点 key），从发布集合中剔除",
+    )
     parser.add_argument("--output", type=Path, default=ROOT / "docs" / "cn")
     args = parser.parse_args()
 
     result = build_cn_channel(
-        args.dist_dir, args.feedback, args.output, args.feedback_extra
+        args.dist_dir, args.feedback, args.output, args.feedback_extra, args.blocked
     )
     if result.get("status") == "built":
         counts = result["manifest"]["counts"]  # type: ignore[index]

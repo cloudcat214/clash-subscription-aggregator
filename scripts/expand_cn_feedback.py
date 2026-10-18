@@ -72,12 +72,20 @@ def load_published(dist_dir: Path) -> list[dict[str, object]]:
     ]
 
 
-def tcp_nodes(proxies: list[dict[str, object]]) -> list[dict[str, object]]:
+def tcp_nodes(
+    proxies: list[dict[str, object]], allowed_types: set[str] | None = None
+) -> list[dict[str, object]]:
     nodes = [
         proxy
         for proxy in proxies
         if str(proxy.get("type", "")).lower() not in UDP_TYPES
     ]
+    if allowed_types:
+        nodes = [
+            proxy
+            for proxy in nodes
+            if str(proxy.get("type", "")).lower() in allowed_types
+        ]
     nodes.sort(key=lambda proxy: str(proxy.get("name")))
     return nodes
 
@@ -153,6 +161,11 @@ def main() -> int:
     parser.add_argument("--api-base", default=DEFAULT_API)
     parser.add_argument("--id", default=os.environ.get("APIHZ_ID", "88888888"))
     parser.add_argument("--key", default=os.environ.get("APIHZ_KEY", "88888888"))
+    parser.add_argument(
+        "--types",
+        default="http",
+        help="逗号分隔的类型白名单（默认 http）；空串表示不按类型过滤",
+    )
     parser.add_argument("--limit", type=int, default=60)
     parser.add_argument("--delay", type=float, default=1.0)
     parser.add_argument(
@@ -164,7 +177,10 @@ def main() -> int:
     args = parser.parse_args()
 
     proxies = load_published(args.dist_dir)
-    nodes = tcp_nodes(proxies)
+    allowed_types = {
+        item.strip().lower() for item in str(args.types).split(",") if item.strip()
+    }
+    nodes = tcp_nodes(proxies, allowed_types)
     window = select_window(nodes, args.limit, args.offset)
     print(
         f"[cn-expand] published={len(proxies)} tcp_nodes={len(nodes)} "

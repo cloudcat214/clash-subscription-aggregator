@@ -224,6 +224,7 @@ jobs:
             --dist-dir dist-auto \
             --feedback cn-feedback/latest.json \
             --feedback-extra cn-feedback/cloud.json \
+            --blocked cn-feedback/blocked.json \
             --output docs/cn
 
       - name: Commit changed auto artifacts
@@ -232,7 +233,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- docs/dist docs/auto docs/cn cn-feedback/cloud.json
+          git add -- docs/dist docs/auto docs/cn cn-feedback/cloud.json cn-feedback/blocked.json
           if git diff --cached --quiet; then
             echo "no material change; skip commit/push."
           else
