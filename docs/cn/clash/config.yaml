@@ -778,6 +778,71 @@ proxies:
   tls: true
   type: http
   udp: true
+- name: '[share-daily-node] RO-HTTP-06'
+  type: http
+  server: 193.176.84.39
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] RO-HTTP-66'
+  type: http
+  server: 193.176.84.35
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  username: 'null'
+  password: 'null'
+- name: '[share-daily-node] SG-HTTP-19'
+  type: http
+  server: 154.26.138.253
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] SG-HTTP-20'
+  type: http
+  server: 154.26.138.229
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] SG-HTTP-23'
+  type: http
+  server: 154.26.139.7
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] SG-HTTP-24'
+  type: http
+  server: 154.26.139.24
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] SG-HTTP-26'
+  type: http
+  server: 154.26.138.248
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] SG-HTTP-28'
+  type: http
+  server: 154.26.139.27
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-04'
+  type: http
+  server: voteshirleysew.club
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: false
 proxy-groups:
 - name: PROXY
   type: select
@@ -880,6 +945,15 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
   - '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
   - '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
+  - '[share-daily-node] RO-HTTP-06'
+  - '[share-daily-node] RO-HTTP-66'
+  - '[share-daily-node] SG-HTTP-19'
+  - '[share-daily-node] SG-HTTP-20'
+  - '[share-daily-node] SG-HTTP-23'
+  - '[share-daily-node] SG-HTTP-24'
+  - '[share-daily-node] SG-HTTP-26'
+  - '[share-daily-node] SG-HTTP-28'
+  - '[share-daily-node] US-HTTP-04'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -980,6 +1054,15 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
   - '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
   - '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
+  - '[share-daily-node] RO-HTTP-06'
+  - '[share-daily-node] RO-HTTP-66'
+  - '[share-daily-node] SG-HTTP-19'
+  - '[share-daily-node] SG-HTTP-20'
+  - '[share-daily-node] SG-HTTP-23'
+  - '[share-daily-node] SG-HTTP-24'
+  - '[share-daily-node] SG-HTTP-26'
+  - '[share-daily-node] SG-HTTP-28'
+  - '[share-daily-node] US-HTTP-04'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
