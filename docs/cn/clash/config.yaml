@@ -3,6 +3,14 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
+- name: '[share-daily-node] RO-HTTP-40'
+  type: http
+  server: 193.176.84.32
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  password: None
 - name: '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   port: 8090
   server: 50.184.176.222
@@ -80,19 +88,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
-  type: vless
-  server: 152.233.71.81
-  port: 443
-  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
-  flow: xtls-rprx-vision
-  tls: true
-  servername: brointelengence.com
-  skip-cert-verify: true
-  client-fingerprint: random
-  reality-opts:
-    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
-    short-id: 1c3e8241a8743df9
 - name: '[cbusifabcap-clashmeta] ❓Other_19|212KB/s|R002-260618'
   port: 9002
   server: 138.199.35.211
@@ -370,20 +365,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[free18-clash] 🇫🇮_芬兰_69'
-  type: vless
-  server: 152.233.71.81
-  port: 443
-  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
-  servername: brointelengence.com
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
-    short-id: 1c3e8241a8743df9
-  skip-cert-verify: true
-  udp: true
 - name: '[share-daily-node] US-HTTP-05'
   type: http
   server: 138.199.35.199
@@ -391,20 +372,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[free18-clash] 🇫🇮_芬兰_70'
-  type: vless
-  server: 152.233.71.81
-  port: 443
-  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
-  servername: brointelengence.com
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: random
-  reality-opts:
-    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
-    short-id: 1c3e8241a8743df9
-  skip-cert-verify: true
-  udp: true
 - name: '[share-daily-node] US-HTTP-11'
   type: http
   server: 138.199.35.195
@@ -756,20 +723,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
-  server: 152.233.71.81
-  port: 443
-  type: vless
-  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
-  tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
-    short-id: 1c3e8241a8743df9
-  servername: brointelengence.com
-  client-fingerprint: random
-  network: tcp
-  udp: true
 - name: '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
   port: 443
   server: 134.65.17.77
@@ -891,6 +844,7 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
+  - '[share-daily-node] RO-HTTP-40'
   - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'
   - '[share-daily-node] US-HTTP-17'
@@ -901,7 +855,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_10|212KB/s|K001-260618'
   - '[cbusifabcap-clashmeta] ❓Other_11|138KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_18|228KB/s|R002-260618'
-  - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[cbusifabcap-clashmeta] ❓Other_19|212KB/s|R002-260618'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[ermaozi-subscribe] NL_speednode_0005'
@@ -937,9 +890,7 @@ proxy-groups:
   - '[share-daily-node] SG-HTTP-07'
   - '[share-daily-node] SG-HTTP-08'
   - '[share-daily-node] SG-HTTP-10'
-  - '[free18-clash] 🇫🇮_芬兰_69'
   - '[share-daily-node] US-HTTP-05'
-  - '[free18-clash] 🇫🇮_芬兰_70'
   - '[share-daily-node] US-HTTP-11'
   - '[share-daily-node] US-HTTP-15'
   - '[ermaozi-subscribe] RO_speednode_0097'
@@ -986,7 +937,6 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇩🇪DE_3|1.4MB/s'
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
-  - '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
   - '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
   - '[share-daily-node] RO-HTTP-06'
   - '[share-daily-node] RO-HTTP-66'
@@ -1006,6 +956,7 @@ proxy-groups:
 - name: AUTO
   type: url-test
   proxies: &id001
+  - '[share-daily-node] RO-HTTP-40'
   - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'
   - '[share-daily-node] US-HTTP-17'
@@ -1016,7 +967,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_10|212KB/s|K001-260618'
   - '[cbusifabcap-clashmeta] ❓Other_11|138KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_18|228KB/s|R002-260618'
-  - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[cbusifabcap-clashmeta] ❓Other_19|212KB/s|R002-260618'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[ermaozi-subscribe] NL_speednode_0005'
@@ -1052,9 +1002,7 @@ proxy-groups:
   - '[share-daily-node] SG-HTTP-07'
   - '[share-daily-node] SG-HTTP-08'
   - '[share-daily-node] SG-HTTP-10'
-  - '[free18-clash] 🇫🇮_芬兰_69'
   - '[share-daily-node] US-HTTP-05'
-  - '[free18-clash] 🇫🇮_芬兰_70'
   - '[share-daily-node] US-HTTP-11'
   - '[share-daily-node] US-HTTP-15'
   - '[ermaozi-subscribe] RO_speednode_0097'
@@ -1101,7 +1049,6 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇩🇪DE_3|1.4MB/s'
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
-  - '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
   - '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
   - '[share-daily-node] RO-HTTP-06'
   - '[share-daily-node] RO-HTTP-66'
