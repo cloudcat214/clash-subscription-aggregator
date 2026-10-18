@@ -3,6 +3,99 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
+- down: ''
+  fingerprint: ''
+  name: '[cbusifabcap-clashmeta] ❓Other_13|77KB/s|B007-260618'
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  port: 33152
+  server: 208.69.78.217
+  skip-cert-verify: true
+  sni: vpn.local
+  sub_tag: B007-260618
+  type: hysteria2
+  up: ''
+  udp: true
+- name: '[cbusifabcap-uri] ❓Other_13|77KB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33152
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[nexus-nodes-all] 16'
+  type: trojan
+  server: 188.42.145.180
+  port: 443
+  password: humanity
+  tls: true
+  sni: wWw.Volumeroot.cOm.
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumerOot.coM.
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 09E0B6'
+  server: 104.16.10.84
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  udp: true
+  tls: true
+  servername: jp3.yohototo.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]-4'
+  type: vless
+  server: platform115.golnamakcert.top
+  port: 80
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  network: ws
+  ws-opts:
+    path: /platform115
+    headers:
+      Host: '[''platform115.halalkhor.info'']'
+- alterId: 0
+  cipher: auto
+  name: '[chengaopan-merged] 🇭🇰 香港 | HKG #8'
+  network: ws
+  port: 443
+  server: 8.217.254.88
+  servername: 2b9hwy8ocx7q74nm.v.3dns.vip
+  skip-cert-verify: true
+  tls: true
+  type: vmess
+  udp: true
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  ws-opts:
+    headers:
+      Host: 2b9hwy8ocx7q74nm.v.3dns.vip
+    path: /ws-vmess
+- name: '[snapdragon-systemproxy] 🇳🇱NL_16 ⇽中转_0@15'
+  server: 82.38.31.193
+  type: ss
+  country: 🇬🇧GB
+  port: 8080
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  cipher: chacha20-ietf-poly1305
+- name: '[share-daily-node] FR-HTTP-02'
+  type: http
+  server: 141.94.16.4
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[cbusifabcap-clashmeta] ❓Other_7|1.7MB/s|R002-260618'
   port: 1446
   server: 46.29.166.134
@@ -32,31 +125,6 @@ proxies:
   skip-cert-verify: true
   sni: https://t.me/wangcai2üá®üá≥
   type: hysteria2
-- name: '[cbusifabcap-uri] ❓Other_3|2.1MB/s|M002-260618'
-  type: vless
-  server: ov-germany1.09vpn.com
-  port: 80
-  uuid: 18535741-e8b3-4b43-9348-785b55936751
-  sni: ov-germany1.09vpn.com
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: ov-germany1.09vpn.com
-- name: '[nirevil-clashmeta] 🇦🇺Wind24-Sydney-Australia'
-  type: wireguard
-  server: 103.1.213.212
-  port: 80
-  ip: 100.80.234.177
-  private-key: cIq+3tcHVT7gRMl4kIv0WE68ERiTmDtA7rhyHhLJ/mg=
-  public-key: jCi1I5HBTtwCblBbMzOFmOOFNG1GilYOZgst0kyq9gY=
-  udp: true
-  pre-shared-key: N/gfMZSjvP8mbXfVP2hnD5CX8BkGvOyheJ67mCpD+QQ=
-  mtu: 1280
-  amnezia-wg-option:
-    jc: 3
-    jmin: 10
-    jmax: 50
 - name: '[free-v2ray-verified-clash] AM 🇦🇲 | @Raydikalx | 911010'
   server: 77.91.68.70
   port: 55983
@@ -88,17 +156,6 @@ proxies:
   port: 2053
   uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
   network: raw
-- name: '[cbusifabcap-uri] ❓Other_21|72KB/s|B007-260618'
-  type: trojan
-  server: 144.31.195.61
-  port: 443
-  password: humanity
-  tls: true
-  sni: wWw.Volumeroot.cOm.
-  network: ws
-  client-fingerprint: unsafe
-  ws-opts:
-    path: /assignment
 - name: '[cbusifabcap-uri] 🇨🇦CA_40|1.4MB/s|M002-260618'
   type: vless
   server: milo.rubinaz.xyz
@@ -140,21 +197,6 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 25E0AC'
-  server: uk3-2.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server22.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /serhrdftshg
-    headers:
-      Host: server22.9966338.xyz
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 269005'
   server: 104.16.10.185
   port: 443
@@ -169,12 +211,6 @@ proxies:
     path: /tyxyws
     headers:
       Host: jp3.yohototo.top
-- name: '[cbusifabcap-uri] 🇱🇹LT_3|273KB/s|A004-260618'
-  type: ss
-  server: 195.238.126.20
-  port: 9011
-  cipher: aes-256-cfb
-  password: M3t2ZEQcMGRWBjRa
 - name: '[cbusifabcap-uri] 🇧🇷BR_6|434KB/s|P002-260618'
   type: hysteria2
   server: 137.131.171.249
@@ -276,28 +312,6 @@ proxies:
     path: /assignment?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
     headers:
       Host: www.calmlunch.com
-- name: '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]'
-  type: vless
-  server: platform103.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  client-fingerprint: android
-  ws-opts:
-    path: /platform103
-    headers:
-      Host: platform103.halalkhor.info
-- name: '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]-2'
-  type: vless
-  server: platform103.golnamakcert.top
-  port: 80
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /platform103
-    headers:
-      Host: platform103.halalkhor.info
 - name: '[ermaozi-subscribe] 🇮🇳 印度 | IND'
   server: 5.253.29.254
   port: 10443
@@ -364,20 +378,6 @@ proxies:
   servername: yahoo.com
   client-fingerprint: ios
   network: tcp
-- name: '[chengaopan-base64] 🇫🇷[www.v2nodes.com] trojan-FR-... #2'
-  type: trojan
-  server: 212.227.144.37
-  port: 8443
-  password: humanity
-  tls: true
-  sni: www.calmlunch.com
-  network: ws
-  alpn:
-  - v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
 - name: '[cbusifabcap-uri] 🇨🇦CA_39|1.5MB/s|M002-260618'
   type: vless
   server: milo.rubinaz.xyz
@@ -385,32 +385,6 @@ proxies:
   uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
   sni: milo.rubinaz.xyz
   network: tcp
-- name: '[chengaopan-base64] 🇫🇷[www.v2nodes.com] trojan-FR-... #3'
-  type: trojan
-  server: 45.87.41.18
-  port: 443
-  password: humanity
-  tls: true
-  sni: www.calmlunch.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 72D103'
-  server: 104.21.70.21
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[cbusifabcap-clashmeta] 🇫🇮FI_14|191KB/s|P002-260618'
   network: ws
   port: 14430
@@ -432,21 +406,6 @@ proxies:
   skip-cert-verify: true
   sni: 160.187.100.109
   type: hysteria2
-- name: '[clashfree-daily] 未知 VLESS-209 | free-nodes'
-  server: freede.aiage.work
-  port: 443
-  type: vless
-  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: A_bQLZE6D32TJUdAf9doQTPaTUXyJjPXLSklplG4V1g
-    short-id: 57e7977c9011061c
-  servername: freede.aiage.work
-  client-fingerprint: chrome
-  network: tcp
 - name: '[clashfree-daily] 未知 VLESS-210 | free-nodes'
   server: 13.140.56.100
   port: 14430
@@ -721,20 +680,6 @@ proxies:
       Host: free.sahanwickramasinghe.me
   skip-cert-verify: true
   udp: true
-- name: '[share-daily-node] UN-VLESS-01'
-  type: vless
-  server: hinet1.2yly.com
-  port: 24215
-  udp: true
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  network: tcp
-  tls: true
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  host: addons.mozilla.org
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-    short-id: ''
 - name: '[free18-clash] 🇫🇷_法国_226'
   type: vless
   server: 138.124.70.41
@@ -864,37 +809,6 @@ proxies:
   skip-cert-verify: true
   sni: match-stream.lovkisport.blog
   type: hysteria2
-- alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: firefox
-  encryption: none
-  name: '[cbusifabcap-clashmeta] ❓Other_26|96KB/s|M003-260806'
-  network: xhttp
-  port: 2053
-  server: 78.159.246.85
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
-  xhttp-opts:
-    host: fitindoor.net
-    mode: auto
-    path: /api/v1/upload
-    reuse-settings:
-      c-max-reuse-times: 64-128
-      h-keep-alive-period: 0
-      h-max-request-times: '0'
-      h-max-reusable-secs: '0'
-      max-concurrency: 16-32
-      max-connections: '0'
-    session-length: '0'
-    x-padding-bytes: 100-1000
-    x-padding-obfs-mode: false
-  xudp: true
-  packet-encoding: xudp
-  servername: fitindoor.net
 - name: '[snapdragon-systemproxy] 🇺🇸US_81_0@80'
   server: 67.220.85.46
   type: vmess
@@ -1411,13 +1325,6 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- cipher: chacha20-ietf-poly1305
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827145928'
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.199
-  type: ss
-  udp: true
 - name: '[cbusifabcap-uri] 🇫🇷FR_15|992KB/s|B007-260618'
   type: hysteria2
   server: 51.77.217.70
@@ -1594,20 +1501,6 @@ proxies:
   port: 20001
   cipher: chacha20-ietf-poly1305
   password: PWpjPo3tqhPN4yRZ
-- name: '[free18-clash] 日期：10-15'
-  type: vless
-  server: 157.228.128.59
-  port: 443
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  servername: addons.mozilla.org
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: randomized
-  reality-opts:
-    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
-    short-id: 06e00e7c
-  skip-cert-verify: true
-  udp: true
 - name: '[cbusifabcap-clashmeta] ❓Other_12|303KB/s|A004-260618'
   network: ws
   port: 8080
@@ -1657,20 +1550,6 @@ proxies:
     short-id: 4cc9dc65f7770115
   client-fingerprint: firefox
   network: tcp
-- name: '[free18-clash] 每天更新，请加电报群防止失联'
-  type: vless
-  server: 157.228.128.59
-  port: 443
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  servername: addons.mozilla.org
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
-    short-id: 06e00e7c
-  skip-cert-verify: true
-  udp: true
 - client-fingerprint: chrome
   encryption: none
   flow: xtls-rprx-vision
@@ -2269,13 +2148,6 @@ proxies:
   reality-opts:
     public-key: EXU8eOS1kf_ROqC68NO-zbzRFGx7U5zE6WvjxRzYeTo
     short-id: eb9539689690d35c
-- name: '[snapdragon-systemproxy] 🇬🇧GB_19_0@18'
-  server: 82.38.31.210
-  type: ss
-  country: 🇬🇧GB
-  port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
   type: http
   server: 98.101.229.212
@@ -2331,14 +2203,6 @@ proxies:
   password: 'null'
   tls: true
   skip-cert-verify: true
-- cipher: chacha20-ietf-poly1305
-  name: '[cbusifabcap-clashmeta] ❓Other_36|151KB/s|A004-260618'
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.198
-  sub_tag: A004-260618
-  type: ss
-  udp: true
 - name: '[share-daily-node] HK-VLESS-04'
   type: vless
   server: 526.150333.xyz
@@ -3227,24 +3091,6 @@ proxies:
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-- client-fingerprint: chrome
-  encryption: none
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] ❓Other_64|130KB/s|S004-260618'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
-    short-id: 06e00e7c
-  server: 157.228.128.59
-  sub_tag: S004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  xudp: true
-  packet-encoding: xudp
-  servername: addons.mozilla.org
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 46B566'
   server: cf.0sm.com
   port: 443
@@ -4694,12 +4540,6 @@ proxies:
     path: /ws?ed=2048
     headers:
       Host: vmess.lbw666.dpdns.org
-- name: '[cbusifabcap-uri] 🇳🇱NL_10|434KB/s|A004-260618'
-  type: ss
-  server: 193.29.139.151
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: '[ermaozi-subscribe] US_speednode_0140'
   password: None
   port: 443
@@ -4790,14 +4630,6 @@ proxies:
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-- name: '[cbusifabcap-clashmeta] ❓Other_10|210KB/s|R002-260618'
-  port: 443
-  server: 137.175.77.35
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[snapdragon-systemproxy] 🇺🇦UA_66_0@65'
   server: 37.19.198.236
   type: ss
@@ -8013,29 +7845,174 @@ proxies:
     path: /
     headers:
       Host: lucasjow.us.ci
+- name: '[free18-clash] 🇫🇮_芬兰_92'
+  type: vless
+  server: 152.233.71.81
+  port: 443
+  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
+  servername: brointelengence.com
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
+    short-id: 1c3e8241a8743df9
+  skip-cert-verify: true
+  udp: true
+- name: '[cbusifabcap-uri] ❓Other_29|518KB/s|A004-260618'
+  type: trojan
+  server: 108.61.186.37
+  port: 443
+  password: Trojan@82164024
+  tls: true
+  sni: jp.tronsg.com
+  network: tcp
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- name: '[free18-clash] 🇫🇮_芬兰_93'
+  type: vless
+  server: 152.233.71.81
+  port: 443
+  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
+  servername: brointelengence.com
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: random
+  reality-opts:
+    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
+    short-id: 1c3e8241a8743df9
+  skip-cert-verify: true
+  udp: true
+- client-fingerprint: chrome
+  name: '[cbusifabcap-clashmeta] ❓Other_24|573KB/s|A001-260618'
+  password: Trojan@82164024
+  port: 443
+  server: jp.tronsg.com
+  skip-cert-verify: true
+  sni: jp.tronsg.com
+  sub_tag: A001-260618
+  type: trojan
+  udp: true
+  network: tcp
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 431589'
+  server: 188.114.98.0
+  port: 443
+  type: vless
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  udp: true
+  tls: true
+  servername: lucasjow.us.ci
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /?Telegram---DailyConfigs---DailyConfigs---DailyConfigs
+    headers:
+      Host: lucasjow.us.ci
+- name: '[ermaozi-subscribe] 🇩🇪DE_1|1.3MB/s'
+  port: 9002
+  server: 158.173.154.2
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[ermaozi-subscribe] 🇩🇪DE_3|3.5MB/s'
+  port: 443
+  server: 193.233.75.115
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4767B8'
+  server: 188.114.97.6
+  port: 443
+  type: vless
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  udp: true
+  tls: true
+  servername: lucasjow.us.ci
+  network: ws
+  ws-opts:
+    path: /?Telegram---bored_vpn
+    headers:
+      Host: lucasjow.us.ci
+- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-14'
+  type: vless
+  server: 188.164.248.216
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  sni: ccc.010304.xyz
+  network: ws
+  client-fingerprint: qq
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
+- name: '[cbusifabcap-uri] ❓Other_4|442KB/s|A004-260618'
+  type: hysteria2
+  server: vpn-tw-002.fastervpn.world
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  tls: true
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-15'
+  type: vless
+  server: 188.164.248.216
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  sni: ccc.010304.xyz
+  network: ws
+  client-fingerprint: safari
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
+- down: ''
+  fingerprint: ''
+  name: '[cbusifabcap-clashmeta] ❓Other_28|1.7MB/s|C002-260622'
+  obfs: ''
+  obfs-password: ''
+  password: 7ab3c77e-8fcc-4848-918f-cae3d4eac794
+  port: 2053
+  server: 194.87.118.184
+  skip-cert-verify: true
+  sni: 194.87.118.184
+  sub_tag: C002-260622
+  type: hysteria2
+  up: ''
+  udp: true
+- name: '[ermaozi-subscribe] 🇩🇪DE_6|3.4MB/s'
+  port: 443
+  server: 172.64.68.89
+  skip-cert-verify: true
+  tls: true
+  type: http
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - DIRECT
+  - '[cbusifabcap-clashmeta] ❓Other_13|77KB/s|B007-260618'
+  - '[cbusifabcap-uri] ❓Other_13|77KB/s|B007-260618'
+  - '[nexus-nodes-all] 16'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 09E0B6'
+  - '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]-4'
+  - '[chengaopan-merged] 🇭🇰 香港 | HKG #8'
+  - '[snapdragon-systemproxy] 🇳🇱NL_16 ⇽中转_0@15'
+  - '[share-daily-node] FR-HTTP-02'
   - '[cbusifabcap-clashmeta] ❓Other_7|1.7MB/s|R002-260618'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146459'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146567'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1832880229'
-  - '[cbusifabcap-uri] ❓Other_3|2.1MB/s|M002-260618'
-  - '[nirevil-clashmeta] 🇦🇺Wind24-Sydney-Australia'
   - '[free-v2ray-verified-clash] AM 🇦🇲 | @Raydikalx | 911010'
   - '[cbusifabcap-uri] 🇧🇬BG_2|2.3MB/s|A004-260618'
   - '[cbusifabcap-uri] 🇧🇬BG_4|1.8MB/s|A004-260618'
   - '[cbusifabcap-uri] 🇧🇷BR_2|256KB/s|A004-260618'
-  - '[cbusifabcap-uri] ❓Other_21|72KB/s|B007-260618'
   - '[cbusifabcap-uri] 🇨🇦CA_40|1.4MB/s|M002-260618'
   - '[cbusifabcap-uri] 🇨🇦CA_41|917KB/s|R002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861C59'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9C0660'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 25E0AC'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 269005'
-  - '[cbusifabcap-uri] 🇱🇹LT_3|273KB/s|A004-260618'
   - '[cbusifabcap-uri] 🇧🇷BR_6|434KB/s|P002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CEAF8A'
   - '[cbusifabcap-uri] 🇨🇦CA_38|236KB/s|G001-260618'
@@ -8045,20 +8022,14 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇫🇮[www.v2nodes.com] vless-FI-1... #3'
   - '[clashfree-daily] 未知 VLESS-226 | free-nodes'
   - '[nexus-nodes-all] CA 🇨🇦 | @Raydikalx | 120428'
-  - '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]'
-  - '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]-2'
   - '[ermaozi-subscribe] 🇮🇳 印度 | IND'
   - '[clashfree-daily] 未知 VLESS-241 | free-nodes'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4FBEA3'
   - '[clashfree-daily] 未知 VLESS-246 | free-nodes'
   - '[clashfree-daily] 未知 VLESS-247 | free-nodes'
-  - '[chengaopan-base64] 🇫🇷[www.v2nodes.com] trojan-FR-... #2'
   - '[cbusifabcap-uri] 🇨🇦CA_39|1.5MB/s|M002-260618'
-  - '[chengaopan-base64] 🇫🇷[www.v2nodes.com] trojan-FR-... #3'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 72D103'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_14|191KB/s|P002-260618'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1828371613'
-  - '[clashfree-daily] 未知 VLESS-209 | free-nodes'
   - '[clashfree-daily] 未知 VLESS-210 | free-nodes'
   - '[chengaopan-merged] 🇺🇸 美国 | USA #5'
   - '[snapdragon-systemproxy] 🇬🇧GB_08_0@7'
@@ -8083,7 +8054,6 @@ proxy-groups:
   - '[free18-clash] 🇨🇾_塞浦路斯_85'
   - '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
   - '[free18-clash] 🇩🇪_德国_127'
-  - '[share-daily-node] UN-VLESS-01'
   - '[free18-clash] 🇫🇷_法国_226'
   - '[free18-clash] 🇬🇧_英国_21'
   - '[cbusifabcap-uri] 🇨🇦CA_3|610KB/s|M002-260618'
@@ -8097,7 +8067,6 @@ proxy-groups:
   - '[cbusifabcap-uri] 🇨🇦CA_4|68KB/s|P002-260618'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1828371109'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1828371117'
-  - '[cbusifabcap-clashmeta] ❓Other_26|96KB/s|M003-260806'
   - '[snapdragon-systemproxy] 🇺🇸US_81_0@80'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
   - '[cbusifabcap-uri] 🇨🇦CA_1|169KB/s|C002-260622'
@@ -8149,7 +8118,6 @@ proxy-groups:
   - '[cbusifabcap-uri] 🇫🇷FR_13|937KB/s|A004-260618'
   - '[ermaozi-subscribe] RO_speednode_0083'
   - '[cbusifabcap-uri] 🇫🇷FR_14|96KB/s|T001-260618'
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827145928'
   - '[cbusifabcap-uri] 🇫🇷FR_15|992KB/s|B007-260618'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827145971'
   - '[ermaozi-subscribe] RO_speednode_0087'
@@ -8167,12 +8135,10 @@ proxy-groups:
   - '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
   - '[cbusifabcap-clashmeta] ❓Other_11|138KB/s|R002-260618'
   - '[cbusifabcap-uri] ❓Other_13|623KB/s'
-  - '[free18-clash] 日期：10-15'
   - '[cbusifabcap-clashmeta] ❓Other_12|303KB/s|A004-260618'
   - '[chengaopan-base64] @confiig_hub #1'
   - '[ermaozi-subscribe] @confiig_hub #1'
   - '[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 6D786F'
-  - '[free18-clash] 每天更新，请加电报群防止失联'
   - '[cbusifabcap-clashmeta] ❓Other_14|333KB/s|B007-260618'
   - '[chengaopan-base64] @FarazV2ray'
   - '[ermaozi-subscribe] @FarazV2ray'
@@ -8243,14 +8209,12 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_33|341KB/s|R002-260618'
   - '[iboxz-collector] 🇨🇦 CA | 104.21.91.244'
   - '[share-daily-node] HK-VLESS-01'
-  - '[snapdragon-systemproxy] 🇬🇧GB_19_0@18'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
   - '[cbusifabcap-clashmeta] ❓Other_34|218KB/s|R002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0CF2D2'
   - '[share-daily-node] HK-VLESS-02'
   - '[snapdragon-systemproxy] 🇬🇧GB_20_0@19'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
-  - '[cbusifabcap-clashmeta] ❓Other_36|151KB/s|A004-260618'
   - '[share-daily-node] HK-VLESS-04'
   - '[snapdragon-systemproxy] 🇬🇧GB_22_0@21'
   - '[cbusifabcap-uri] ❓Other_4|239KB/s|B007-260618'
@@ -8338,7 +8302,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_63|211KB/s|R002-260618'
   - '[free18-clash] 🇩🇪_德国_287'
   - '[surfboardv2ray-eternity] 🇨🇦CA-149.22.95.183-4005 | 42.282MB'
-  - '[cbusifabcap-clashmeta] ❓Other_64|130KB/s|S004-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 46B566'
   - '[share-daily-node] SG-HTTP-03'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 47648B'
@@ -8485,7 +8448,6 @@ proxy-groups:
   - '[ermaozi-subscribe] US_speednode_0133'
   - '[ermaozi-subscribe] US_speednode_0134'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
-  - '[cbusifabcap-uri] 🇳🇱NL_10|434KB/s|A004-260618'
   - '[ermaozi-subscribe] US_speednode_0140'
   - '[snapdragon-systemproxy] 🇺🇦UA_63_0@62'
   - '[ermaozi-subscribe] US_speednode_0141'
@@ -8496,7 +8458,6 @@ proxy-groups:
   - '[snapdragon-systemproxy] 🇺🇦UA_65_0@64'
   - '[cbusifabcap-clashmeta] 🇭🇰HK_2|160KB/s|A004-260618'
   - '[cbusifabcap-uri] 🇳🇱NL_14|343KB/s'
-  - '[cbusifabcap-clashmeta] ❓Other_10|210KB/s|R002-260618'
   - '[snapdragon-systemproxy] 🇺🇦UA_66_0@65'
   - '[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | 134D04'
   - '[nexus-nodes-all] 10336@proxy_online_net'
@@ -8818,27 +8779,43 @@ proxy-groups:
   - '[cbusifabcap-uri] ❓Other_24|573KB/s|A001-260618'
   - '[ovmvo-permanent] 🇺🇸 004  | ⬇️ 8KB/s'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3B7FF9'
+  - '[free18-clash] 🇫🇮_芬兰_92'
+  - '[cbusifabcap-uri] ❓Other_29|518KB/s|A004-260618'
+  - '[free18-clash] 🇫🇮_芬兰_93'
+  - '[cbusifabcap-clashmeta] ❓Other_24|573KB/s|A001-260618'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 431589'
+  - '[ermaozi-subscribe] 🇩🇪DE_1|1.3MB/s'
+  - '[ermaozi-subscribe] 🇩🇪DE_3|3.5MB/s'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4767B8'
+  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-14'
+  - '[cbusifabcap-uri] ❓Other_4|442KB/s|A004-260618'
+  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-15'
+  - '[cbusifabcap-clashmeta] ❓Other_28|1.7MB/s|C002-260622'
+  - '[ermaozi-subscribe] 🇩🇪DE_6|3.4MB/s'
 - name: AUTO
   type: url-test
   proxies: &id001
+  - '[cbusifabcap-clashmeta] ❓Other_13|77KB/s|B007-260618'
+  - '[cbusifabcap-uri] ❓Other_13|77KB/s|B007-260618'
+  - '[nexus-nodes-all] 16'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 09E0B6'
+  - '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]-4'
+  - '[chengaopan-merged] 🇭🇰 香港 | HKG #8'
+  - '[snapdragon-systemproxy] 🇳🇱NL_16 ⇽中转_0@15'
+  - '[share-daily-node] FR-HTTP-02'
   - '[cbusifabcap-clashmeta] ❓Other_7|1.7MB/s|R002-260618'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146459'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146567'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1832880229'
-  - '[cbusifabcap-uri] ❓Other_3|2.1MB/s|M002-260618'
-  - '[nirevil-clashmeta] 🇦🇺Wind24-Sydney-Australia'
   - '[free-v2ray-verified-clash] AM 🇦🇲 | @Raydikalx | 911010'
   - '[cbusifabcap-uri] 🇧🇬BG_2|2.3MB/s|A004-260618'
   - '[cbusifabcap-uri] 🇧🇬BG_4|1.8MB/s|A004-260618'
   - '[cbusifabcap-uri] 🇧🇷BR_2|256KB/s|A004-260618'
-  - '[cbusifabcap-uri] ❓Other_21|72KB/s|B007-260618'
   - '[cbusifabcap-uri] 🇨🇦CA_40|1.4MB/s|M002-260618'
   - '[cbusifabcap-uri] 🇨🇦CA_41|917KB/s|R002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861C59'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9C0660'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 25E0AC'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 269005'
-  - '[cbusifabcap-uri] 🇱🇹LT_3|273KB/s|A004-260618'
   - '[cbusifabcap-uri] 🇧🇷BR_6|434KB/s|P002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CEAF8A'
   - '[cbusifabcap-uri] 🇨🇦CA_38|236KB/s|G001-260618'
@@ -8848,20 +8825,14 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇫🇮[www.v2nodes.com] vless-FI-1... #3'
   - '[clashfree-daily] 未知 VLESS-226 | free-nodes'
   - '[nexus-nodes-all] CA 🇨🇦 | @Raydikalx | 120428'
-  - '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]'
-  - '[igareck-vless] 🇧🇷 Brazil, São Paulo | [BL]-2'
   - '[ermaozi-subscribe] 🇮🇳 印度 | IND'
   - '[clashfree-daily] 未知 VLESS-241 | free-nodes'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4FBEA3'
   - '[clashfree-daily] 未知 VLESS-246 | free-nodes'
   - '[clashfree-daily] 未知 VLESS-247 | free-nodes'
-  - '[chengaopan-base64] 🇫🇷[www.v2nodes.com] trojan-FR-... #2'
   - '[cbusifabcap-uri] 🇨🇦CA_39|1.5MB/s|M002-260618'
-  - '[chengaopan-base64] 🇫🇷[www.v2nodes.com] trojan-FR-... #3'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 72D103'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_14|191KB/s|P002-260618'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1828371613'
-  - '[clashfree-daily] 未知 VLESS-209 | free-nodes'
   - '[clashfree-daily] 未知 VLESS-210 | free-nodes'
   - '[chengaopan-merged] 🇺🇸 美国 | USA #5'
   - '[snapdragon-systemproxy] 🇬🇧GB_08_0@7'
@@ -8886,7 +8857,6 @@ proxy-groups:
   - '[free18-clash] 🇨🇾_塞浦路斯_85'
   - '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
   - '[free18-clash] 🇩🇪_德国_127'
-  - '[share-daily-node] UN-VLESS-01'
   - '[free18-clash] 🇫🇷_法国_226'
   - '[free18-clash] 🇬🇧_英国_21'
   - '[cbusifabcap-uri] 🇨🇦CA_3|610KB/s|M002-260618'
@@ -8900,7 +8870,6 @@ proxy-groups:
   - '[cbusifabcap-uri] 🇨🇦CA_4|68KB/s|P002-260618'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1828371109'
   - '[au1rxx-free-vpn-subscriptions] hysteria2-1828371117'
-  - '[cbusifabcap-clashmeta] ❓Other_26|96KB/s|M003-260806'
   - '[snapdragon-systemproxy] 🇺🇸US_81_0@80'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
   - '[cbusifabcap-uri] 🇨🇦CA_1|169KB/s|C002-260622'
@@ -8952,7 +8921,6 @@ proxy-groups:
   - '[cbusifabcap-uri] 🇫🇷FR_13|937KB/s|A004-260618'
   - '[ermaozi-subscribe] RO_speednode_0083'
   - '[cbusifabcap-uri] 🇫🇷FR_14|96KB/s|T001-260618'
-  - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827145928'
   - '[cbusifabcap-uri] 🇫🇷FR_15|992KB/s|B007-260618'
   - '[au1rxx-free-vpn-subscriptions] shadowsocks-1827145971'
   - '[ermaozi-subscribe] RO_speednode_0087'
@@ -8970,12 +8938,10 @@ proxy-groups:
   - '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
   - '[cbusifabcap-clashmeta] ❓Other_11|138KB/s|R002-260618'
   - '[cbusifabcap-uri] ❓Other_13|623KB/s'
-  - '[free18-clash] 日期：10-15'
   - '[cbusifabcap-clashmeta] ❓Other_12|303KB/s|A004-260618'
   - '[chengaopan-base64] @confiig_hub #1'
   - '[ermaozi-subscribe] @confiig_hub #1'
   - '[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 6D786F'
-  - '[free18-clash] 每天更新，请加电报群防止失联'
   - '[cbusifabcap-clashmeta] ❓Other_14|333KB/s|B007-260618'
   - '[chengaopan-base64] @FarazV2ray'
   - '[ermaozi-subscribe] @FarazV2ray'
@@ -9046,14 +9012,12 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_33|341KB/s|R002-260618'
   - '[iboxz-collector] 🇨🇦 CA | 104.21.91.244'
   - '[share-daily-node] HK-VLESS-01'
-  - '[snapdragon-systemproxy] 🇬🇧GB_19_0@18'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
   - '[cbusifabcap-clashmeta] ❓Other_34|218KB/s|R002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0CF2D2'
   - '[share-daily-node] HK-VLESS-02'
   - '[snapdragon-systemproxy] 🇬🇧GB_20_0@19'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
-  - '[cbusifabcap-clashmeta] ❓Other_36|151KB/s|A004-260618'
   - '[share-daily-node] HK-VLESS-04'
   - '[snapdragon-systemproxy] 🇬🇧GB_22_0@21'
   - '[cbusifabcap-uri] ❓Other_4|239KB/s|B007-260618'
@@ -9141,7 +9105,6 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_63|211KB/s|R002-260618'
   - '[free18-clash] 🇩🇪_德国_287'
   - '[surfboardv2ray-eternity] 🇨🇦CA-149.22.95.183-4005 | 42.282MB'
-  - '[cbusifabcap-clashmeta] ❓Other_64|130KB/s|S004-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 46B566'
   - '[share-daily-node] SG-HTTP-03'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 47648B'
@@ -9288,7 +9251,6 @@ proxy-groups:
   - '[ermaozi-subscribe] US_speednode_0133'
   - '[ermaozi-subscribe] US_speednode_0134'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
-  - '[cbusifabcap-uri] 🇳🇱NL_10|434KB/s|A004-260618'
   - '[ermaozi-subscribe] US_speednode_0140'
   - '[snapdragon-systemproxy] 🇺🇦UA_63_0@62'
   - '[ermaozi-subscribe] US_speednode_0141'
@@ -9299,7 +9261,6 @@ proxy-groups:
   - '[snapdragon-systemproxy] 🇺🇦UA_65_0@64'
   - '[cbusifabcap-clashmeta] 🇭🇰HK_2|160KB/s|A004-260618'
   - '[cbusifabcap-uri] 🇳🇱NL_14|343KB/s'
-  - '[cbusifabcap-clashmeta] ❓Other_10|210KB/s|R002-260618'
   - '[snapdragon-systemproxy] 🇺🇦UA_66_0@65'
   - '[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | 134D04'
   - '[nexus-nodes-all] 10336@proxy_online_net'
@@ -9621,6 +9582,19 @@ proxy-groups:
   - '[cbusifabcap-uri] ❓Other_24|573KB/s|A001-260618'
   - '[ovmvo-permanent] 🇺🇸 004  | ⬇️ 8KB/s'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3B7FF9'
+  - '[free18-clash] 🇫🇮_芬兰_92'
+  - '[cbusifabcap-uri] ❓Other_29|518KB/s|A004-260618'
+  - '[free18-clash] 🇫🇮_芬兰_93'
+  - '[cbusifabcap-clashmeta] ❓Other_24|573KB/s|A001-260618'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 431589'
+  - '[ermaozi-subscribe] 🇩🇪DE_1|1.3MB/s'
+  - '[ermaozi-subscribe] 🇩🇪DE_3|3.5MB/s'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4767B8'
+  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-14'
+  - '[cbusifabcap-uri] ❓Other_4|442KB/s|A004-260618'
+  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-15'
+  - '[cbusifabcap-clashmeta] ❓Other_28|1.7MB/s|C002-260622'
+  - '[ermaozi-subscribe] 🇩🇪DE_6|3.4MB/s'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
