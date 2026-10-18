@@ -634,6 +634,14 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
+- name: '[share-daily-node] US-HTTP-22'
+  type: http
+  server: tzoa.fun
+  port: 443
+  udp: true
+  tls: true
+  sni: tzoa.fun
+  skip-cert-verify: false
 - name: '[share-daily-node] US-HTTP-23'
   type: http
   server: 138.199.35.214
@@ -666,14 +674,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[cbusifabcap-clashmeta] ❓OtherT1_1|378KB/s|R002-260618'
-  port: 8443
-  server: 45.142.141.5
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[share-daily-node] US-HTTP-29'
   type: http
   server: 138.199.35.207
@@ -862,11 +862,11 @@ proxy-groups:
   - '[share-daily-node] US-HTTP-01'
   - '[share-daily-node] US-HTTP-07'
   - '[share-daily-node] US-HTTP-12'
+  - '[share-daily-node] US-HTTP-22'
   - '[share-daily-node] US-HTTP-23'
   - '[share-daily-node] US-HTTP-24'
   - '[share-daily-node] US-HTTP-25'
   - '[share-daily-node] US-HTTP-27'
-  - '[cbusifabcap-clashmeta] ❓OtherT1_1|378KB/s|R002-260618'
   - '[share-daily-node] US-HTTP-29'
   - '[share-daily-node] US-HTTP-30'
   - '[share-daily-node] US-HTTP-36'
@@ -962,11 +962,11 @@ proxy-groups:
   - '[share-daily-node] US-HTTP-01'
   - '[share-daily-node] US-HTTP-07'
   - '[share-daily-node] US-HTTP-12'
+  - '[share-daily-node] US-HTTP-22'
   - '[share-daily-node] US-HTTP-23'
   - '[share-daily-node] US-HTTP-24'
   - '[share-daily-node] US-HTTP-25'
   - '[share-daily-node] US-HTTP-27'
-  - '[cbusifabcap-clashmeta] ❓OtherT1_1|378KB/s|R002-260618'
   - '[share-daily-node] US-HTTP-29'
   - '[share-daily-node] US-HTTP-30'
   - '[share-daily-node] US-HTTP-36'

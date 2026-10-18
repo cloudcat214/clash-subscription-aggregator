@@ -1,4 +1,61 @@
 proxies:
+- name: '[snapdragon-systemproxy] 🇿🇦ZA_151_1@150'
+  server: 102.37.156.224
+  type: ss
+  country: 🇿🇦ZA
+  port: 443
+  password: aduB9HGxQHjA2SBMRjkHX6
+  cipher: chacha20-ietf-poly1305
+- name: '[cbusifabcap-uri] 🇧🇬BG_1|1.9MB/s|A004-260618'
+  type: ss
+  server: 213.183.63.60
+  port: 9061
+  cipher: aes-256-cfb
+  password: 4R3hUfZ2FHhDmNcP
+- name: '[cbusifabcap-uri] 🇧🇬BG_2|2.3MB/s|A004-260618'
+  type: ss
+  server: 213.183.63.60
+  port: 9049
+  cipher: aes-256-cfb
+  password: PRBf4BS2HvJqtWxY
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AF86F8'
+  server: 188.114.97.6
+  port: 443
+  type: trojan
+  password: humanity
+  udp: true
+  sni: www.volumeroot.com
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
+- name: '[cbusifabcap-uri] 🇧🇬BG_4|1.8MB/s|A004-260618'
+  type: ss
+  server: 213.183.63.60
+  port: 9085
+  cipher: aes-256-cfb
+  password: 9ej82EKe2gq7gLAM
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B71E47'
+  server: 172.64.150.43
+  port: 2052
+  type: vless
+  uuid: 5744e593-1cc8-48fa-b8ca-57cd494fe35b
+  udp: true
+  tls: false
+  servername: eu02.123450908.xyz
+  network: ws
+  ws-opts:
+    path: /rain1226
+    headers:
+      Host: eu02.123450908.xyz
+- name: '[cbusifabcap-uri] 🇧🇷BR_2|256KB/s|A004-260618'
+  type: vless
+  server: test.keoplentuio.xyz
+  port: 2053
+  uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
+  network: raw
 - name: '[cbusifabcap-uri] ❓Other_16|1.2MB/s|F003-260618'
   type: vless
   server: 57.129.132.223
@@ -706,16 +763,6 @@ proxies:
       Host: 45.144.234.157
     path: /vless
   servername: 45.144.234.157
-- name: '[cbusifabcap-uri] 🇩🇪DE_9|315KB/s|A004-260618'
-  type: vless
-  server: ov-germany1.09vpn.com
-  port: 80
-  uuid: 7d90f043-ed7f-40c9-ac2f-352987904958
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: ov-germany1.09vpn.com
 - name: '[ovmvo-permanent] 🇳🇱 036  | ⬇️ 4KB/s'
   type: socks5
   server: 185.145.99.41
@@ -1189,20 +1236,6 @@ proxies:
     path: /vless
     headers:
       Host: 5.253.29.254
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663B4'
-  server: 104.16.10.2
-  port: 443
-  type: vless
-  uuid: 3c52e091-6714-4915-949f-2149fe69951b
-  udp: true
-  tls: true
-  servername: v2ray.simspeedup.com
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: v2ray.simspeedup.com
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145434'
   password: user317_windows:c70565e9-a99f-40ef-b96c-469a3949eed2
   port: 18642
@@ -1232,20 +1265,6 @@ proxies:
     path: /vless
     headers:
       Host: 185.253.116.33
-- name: '[nirevil-clashmeta] 🇦🇺Wind31-Sydney-Australia'
-  type: wireguard
-  server: 103.77.232.76
-  port: 65142
-  ip: 100.80.234.177
-  private-key: cIq+3tcHVT7gRMl4kIv0WE68ERiTmDtA7rhyHhLJ/mg=
-  public-key: eSxX+L8qX+1MdmwjtlZGIDbDivFdURBh5Rm1KfUpYzc=
-  udp: true
-  pre-shared-key: N/gfMZSjvP8mbXfVP2hnD5CX8BkGvOyheJ67mCpD+QQ=
-  mtu: 1280
-  amnezia-wg-option:
-    jc: 3
-    jmin: 10
-    jmax: 50
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
   server: 104.21.70.228
   port: 443
@@ -2489,13 +2508,6 @@ proxies:
   tls: true
   sni: www.bing.com
   skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145205'
-  password: https://xship.best
-  port: 443
-  server: starlink-ft.251313.xyz
-  skip-cert-verify: true
-  sni: xship.top
-  type: hysteria2
 - name: '[cbusifabcap-clashmeta] ❓Other_25|224KB/s|P002-260618'
   password: None
   port: 9002
@@ -6811,14 +6823,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[cbusifabcap-clashmeta] ❓OtherT1_1|378KB/s|R002-260618'
-  port: 8443
-  server: 45.142.141.5
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CB851E'
   server: 104.18.0.181
   port: 2082
@@ -6854,16 +6858,6 @@ proxies:
   port: 9002
   udp: true
   tls: true
-  skip-cert-verify: true
-- name: '[cbusifabcap-uri] 🇦🇺AU_5|511KB/s|R002-260618'
-  type: hysteria2
-  server: 152.67.115.203
-  port: 443
-  password: 633bc3be486b646190661ac2387c150a
-  tls: true
-  sni: www.bing.com
-  obfs: salamander
-  obfs-password: 850a3fb1cd33a28f12d837578ae1a2e7
   skip-cert-verify: true
 - name: '[share-daily-node] US-HTTP-36'
   type: http
@@ -7996,11 +7990,3 @@ proxies:
   tls: true
   sni: 194.87.118.184
   skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] trojan-1827147998'
-  password: UX82473651
-  port: 443
-  server: 18.141.136.8
-  skip-cert-verify: false
-  sni: musical-mouse.rooster465.autos
-  type: trojan
-  udp: true

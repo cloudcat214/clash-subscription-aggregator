@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-18T02:09:56Z",
-  "status": "ok",
+  "generated_at": "2026-10-18T02:40:43Z",
+  "status": "degraded",
   "active_probe": true,
   "published": 800,
   "sources": [
@@ -306,17 +306,17 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1776,
-      "accepted": 1218,
+      "parsed": 1798,
+      "accepted": 1251,
       "drops": {
         "invalid_uuid": 1,
-        "duplicate": 557
+        "duplicate": 546
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "b70555fd28fad165d8dde72de0374e5ebba591dbe7d2d7be7fdba5b9328ac84f"
+      "sha256": "a420c208f14b9a4afde1ba35c929e8e9ca97ac40c80fb18a4af5c6ae442a79b8"
     },
     {
       "id": "chengaopan-merged",
@@ -712,18 +712,14 @@
     {
       "id": "leon406-share-vless",
       "kind": "public",
-      "status": "ok",
-      "parsed": 13107,
-      "accepted": 13107,
-      "drops": {
-        "invalid_uuid": 276,
-        "missing_reality_public_key": 27
-      },
+      "status": "error",
+      "parsed": 0,
+      "accepted": 0,
+      "error": "SourceError",
       "source_repo": "https://github.com/Leon406/SubCrawler",
       "license": "unknown",
       "publicly_offered": true,
-      "authorized": true,
-      "sha256": "0956806a7d6f1c05dcb3f1b293218df1f1a49ef6671200bcc05dd65cb3bc9f0f"
+      "authorized": true
     },
     {
       "id": "mahdibland-eternity",
@@ -864,32 +860,32 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 301,
-      "process_exit": 400
+      "http_error": 149,
+      "process_exit": 600
     },
-    "pool_size_before": 1670,
-    "pool_size": 1713,
+    "pool_size_before": 1713,
+    "pool_size": 1711,
     "probe_queue": "verified_pool_first",
     "pool_probe_candidates": 1080,
     "pool_retested": 1080,
     "new_candidates_tested": 360,
-    "pool_added": 43,
-    "pool_evicted": 3,
-    "pool_recovered": 3,
-    "retained_count": 1120,
+    "pool_added": 0,
+    "pool_evicted": 9,
+    "pool_recovered": 7,
+    "retained_count": 1071,
     "shrink_guard_ratio": 0.2,
     "failed_pool_size_before": 5000,
     "failed_pool_due": 360,
-    "failed_pool_retested": 357,
-    "failed_pool_promoted": 3,
-    "failed_pool_added": 320,
-    "failed_pool_evicted_active": 3,
-    "failed_pool_pruned": 317,
+    "failed_pool_retested": 353,
+    "failed_pool_promoted": 7,
+    "failed_pool_added": 369,
+    "failed_pool_evicted_active": 9,
+    "failed_pool_pruned": 362,
     "failed_pool_size": 5000,
     "stage1_tested": 1800,
-    "stage1_passed": 1133,
-    "stage2_tested": 1133,
-    "stage2_stable": 1118,
+    "stage1_passed": 1089,
+    "stage2_tested": 1089,
+    "stage2_stable": 1076,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -898,19 +894,19 @@
     }
   },
   "node_quality": {
-    "candidates": 34724,
+    "candidates": 22418,
     "tested": 1800,
-    "verified": 1099,
-    "fast": 1132,
-    "stable": 1099,
-    "failed": 701,
-    "not_tested": 32924,
-    "not_tested_budget": 32924,
-    "failed_probe": 668,
-    "below_quality_threshold": 33,
-    "dropped": 701,
+    "verified": 1051,
+    "fast": 1087,
+    "stable": 1051,
+    "failed": 749,
+    "not_tested": 20618,
+    "not_tested_budget": 20618,
+    "failed_probe": 712,
+    "below_quality_threshold": 37,
+    "dropped": 749,
     "published": 800,
-    "success_rate": 0.6201851851851852
+    "success_rate": 0.5953703703703703
   },
   "core_validation": {
     "status": "not_tested",
