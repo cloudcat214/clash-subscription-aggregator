@@ -1,4 +1,41 @@
 proxies:
+- name: '[cbusifabcap-uri] ❓Other_16|1.2MB/s|F003-260618'
+  type: vless
+  server: 57.129.132.223
+  port: 80
+  uuid: dbb78c94-9f87-4d7d-b945-2000b60352fd
+  sni: '---@External_Net---@External_Net---@External_Net---@External_Net---@External_Net'
+  network: ws
+  ws-opts:
+    path: /vless/
+- name: '[cbusifabcap-clashmeta] ❓Other_16|1.2MB/s|F003-260618'
+  network: ws
+  port: 80
+  server: 57.129.132.223
+  sub_tag: F003-260618
+  type: vless
+  udp: true
+  uuid: dbb78c94-9f87-4d7d-b945-2000b60352fd
+  ws-opts:
+    headers:
+      Host: ''
+      User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/42.0.2311.90 Safari/537.36
+    path: /vless/
+  xudp: true
+  packet-encoding: xudp
+  servername: '---@External_Net---@External_Net---@External_Net---@External_Net---@External_Net'
+- name: '[cbusifabcap-uri] ❓Other_21|72KB/s|B007-260618'
+  type: trojan
+  server: 144.31.195.61
+  port: 443
+  password: humanity
+  tls: true
+  sni: wWw.Volumeroot.cOm.
+  network: ws
+  client-fingerprint: unsafe
+  ws-opts:
+    path: /assignment
 - name: '[cbusifabcap-uri] 🇨🇦CA_40|1.4MB/s|M002-260618'
   type: vless
   server: milo.rubinaz.xyz
@@ -980,13 +1017,6 @@ proxies:
     path: /fp
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1828123865'
-  password: 64c05afc-ce81-4ba0-b697-afa04da1427e
-  port: 44443
-  server: 104.168.6.236
-  skip-cert-verify: true
-  sni: bing.com
-  type: hysteria2
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1828150748'
   password: f87376e17da040ed04c9665ce8972930
   port: 50160
@@ -1274,20 +1304,6 @@ proxies:
   skip-cert-verify: true
   sni: 194.87.118.184
   type: hysteria2
-- down: ''
-  fingerprint: ''
-  name: '[cbusifabcap-clashmeta] ❓Other_18|74KB/s'
-  obfs: salamander
-  obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
-  password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
-  port: 5010
-  server: nas.aizhzo.com
-  skip-cert-verify: true
-  sni: 127.0.0.1
-  type: hysteria2
-  up: ''
-  udp: true
-  disable-sni: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1828371117'
   password: 7ab3c77e-8fcc-4848-918f-cae3d4eac794
   port: 2053
@@ -7988,18 +8004,3 @@ proxies:
   sni: musical-mouse.rooster465.autos
   type: trojan
   udp: true
-- down: ''
-  fingerprint: ''
-  name: '[cbusifabcap-clashmeta] ❓Other_21|194KB/s|A004-260618'
-  obfs: ''
-  obfs-password: ''
-  password: 7ab3c77e-8fcc-4848-918f-cae3d4eac794
-  port: 2053
-  server: 194.87.118.184
-  skip-cert-verify: true
-  sni: 194.87.118.184
-  sub_tag: A004-260618
-  type: hysteria2
-  up: ''
-  udp: true
-  disable-sni: true

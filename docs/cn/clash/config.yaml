@@ -11,100 +11,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- alterId: 0
-  cipher: auto
-  name: '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
-  network: ws
-  port: 443
-  server: 172.67.137.209
-  servername: ukl.lovehk.xyz
-  skip-cert-verify: true
-  tls: true
-  type: vmess
-  udp: true
-  uuid: f5f0babe-aea2-4f07-a1fc-3c9820253f49
-  ws-opts:
-    headers:
-      Host: ukl.lovehk.xyz
-    path: /London31
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663B4'
-  server: 104.16.10.2
-  port: 443
-  type: vless
-  uuid: 3c52e091-6714-4915-949f-2149fe69951b
-  udp: true
-  tls: true
-  servername: v2ray.simspeedup.com
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: v2ray.simspeedup.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
-  server: 104.21.70.228
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B72A46'
-  server: 104.21.37.56
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.volumeroot.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumeroot.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
-  server: 104.16.111.202
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 76F5D4'
-  server: 104.27.46.35
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'
   port: 443
   server: 66.64.100.66
@@ -113,19 +19,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A57F2F'
-  server: 104.21.34.106
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[share-daily-node] US-HTTP-17'
   type: http
   server: 162.217.114.50
@@ -133,47 +26,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-12'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: qq
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-13'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: safari
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0AD519'
-  server: 172.67.187.145
-  port: 80
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
 - name: '[share-daily-node] US-HTTP-20'
   type: http
   server: 24.225.10.211
@@ -181,16 +33,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-21'
-  type: http
-  server: 147.182.216.4
-  port: 443
-  udp: true
-  tls: true
-  sni: 93b6d804.acsnet.co
-  skip-cert-verify: false
-  username: testuser1
-  password: e4b72b531a2d10900519
 - name: '[ermaozi-subscribe] RO_speednode_0082'
   port: 9002
   server: 193.176.84.24
@@ -198,17 +40,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[cbusifabcap-uri] 🇫🇷FR_13|937KB/s|A004-260618'
-  type: vless
-  server: 172.64.150.43
-  port: 8080
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  sni: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
 - name: '[ermaozi-subscribe] RO_speednode_0083'
   port: 9002
   server: 193.176.84.25
@@ -216,19 +47,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[cbusifabcap-uri] 🇫🇷FR_14|96KB/s|T001-260618'
-  type: vless
-  server: cf.130519.xyz
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
 - name: '[ermaozi-subscribe] RO_speednode_0087'
   port: 9002
   server: 193.176.84.20
@@ -236,19 +54,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[cbusifabcap-uri] 🇫🇷FR_19|986KB/s|B007-260618'
-  type: vless
-  server: 172.67.155.65
-  port: 8443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /cart/docs/www/proxyip=108.160.132.132
-    headers:
-      Host: lucasjow.us.ci
 - name: '[cbusifabcap-clashmeta] ❓Other_10|212KB/s|K001-260618'
   password: 'null'
   port: 9002
@@ -259,17 +64,6 @@ proxies:
   type: http
   username: 'null'
   udp: true
-- name: '[cbusifabcap-uri] ❓Other_12|303KB/s|A004-260618'
-  type: vless
-  server: 188.114.97.6
-  port: 8080
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  sni: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
 - name: '[cbusifabcap-clashmeta] ❓Other_11|138KB/s|R002-260618'
   port: 6103
   server: 87.98.174.157
@@ -278,23 +72,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[cbusifabcap-clashmeta] ❓Other_12|303KB/s|A004-260618'
-  network: ws
-  port: 8080
-  server: 188.114.97.6
-  sub_tag: A004-260618
-  type: vless
-  udp: true
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  ws-opts:
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-      User-Agent: Mozilla/5.0 (Linux; Android 8.0.0; FIG-LX3 Build/HUAWEIFIG-LX3)
-        AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
-    path: /sg-melbi
-  xudp: true
-  packet-encoding: xudp
-  servername: hhlfy.twiladaphne.ndjp.net
 - name: '[cbusifabcap-clashmeta] ❓Other_18|228KB/s|R002-260618'
   port: 9002
   server: 138.199.35.200
@@ -324,22 +101,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[cbusifabcap-clashmeta] ❓Other_20|214KB/s|R002-260618'
-  password: None
-  port: 9002
-  server: 193.176.84.22
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] NL_speednode_0004'
-  port: 9002
-  server: 84.17.47.125
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   type: http
   server: fan.571589.xyz
@@ -366,20 +127,6 @@ proxies:
   type: http
   username: 'null'
   udp: true
-- name: '[ermaozi-subscribe] NL_speednode_0006'
-  port: 9002
-  server: 84.17.47.150
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[share-daily-node] CA-HTTP-05'
-  type: http
-  server: 142.44.210.129
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[ermaozi-subscribe] NL_speednode_0007'
   port: 9002
   server: 84.17.47.148
@@ -417,13 +164,6 @@ proxies:
   port: 9002
   tls: true
   skip-cert-verify: true
-- name: '[ermaozi-subscribe] NL_speednode_0009'
-  port: 9002
-  server: 84.17.47.146
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
 - name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 03'
   type: http
   server: 193.176.84.24
@@ -450,14 +190,6 @@ proxies:
   port: 9002
   tls: true
   skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] ❓Other_29|325KB/s'
-  port: 9002
-  server: 193.176.84.17
-  skip-cert-verify: true
-  sni: www.bing.com
-  tls: true
-  type: http
-  udp: true
 - name: '[share-daily-node] FR-HTTP-01'
   type: http
   server: 103.82.101.44
@@ -466,34 +198,6 @@ proxies:
   tls: true
   sni: f3a61d8406d537345747f99f8a281007-3f754ed5da1bba09.apache-iv.com
   skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] RO - zhuhai.uk 06'
-  type: http
-  server: 193.176.84.21
-  port: 9002
-  tls: true
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 028A48'
-  server: guanwang.awsno.com
-  port: 443
-  type: vmess
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  network: ws
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-- delay: 1801
-  name: '[cbusifabcap-clashmeta] ❓Other_30|248KB/s|G001-260618'
-  port: 9002
-  server: 193.176.84.31
-  skip-cert-verify: true
-  sub_tag: G001-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[share-daily-node] FR-HTTP-03'
   type: http
   server: 141.94.16.4
@@ -509,89 +213,12 @@ proxies:
   password: 'null'
   tls: true
   skip-cert-verify: true
-- name: '[cbusifabcap-uri] ❓Other_44|128KB/s|A004-260618'
-  type: vless
-  server: 104.18.35.86
-  port: 8080
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  sni: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 06ADD7'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-    headers:
-      Host: lucasjow.us.ci
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
   type: http
   server: jewelscollecti.icu
   port: 443
   tls: true
   skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] ❓Other_33|341KB/s|R002-260618'
-  password: 'null'
-  port: 9002
-  server: 84.17.47.125
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  username: 'null'
-  udp: true
-- name: '[iboxz-collector] 🇨🇦 CA | 104.21.91.244'
-  type: vless
-  server: 104.21.91.244
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-    headers:
-      Host: lucasjow.us.ci
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
-  type: http
-  server: 98.101.229.212
-  port: 8090
-  tls: true
-  skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] ❓Other_34|218KB/s|R002-260618'
-  port: 443
-  server: 82.65.162.76
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0CF2D2'
-  server: 188.114.98.0
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM---MARAMBASHI---MARAMBASHI---MARAMBASHI---MARAMBASHI
-    headers:
-      Host: lucasjow.us.ci
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
   type: http
   server: 138.199.35.197
@@ -600,30 +227,6 @@ proxies:
   password: 'null'
   tls: true
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 15797E'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /cart/docs/www/proxyip
-    headers:
-      Host: lucasjow.us.ci
-- name: '[cbusifabcap-uri] ❓Other_52|252KB/s|M002-260618'
-  type: vless
-  server: 104.18.35.86
-  port: 8080
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  network: ws
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
 - name: '[share-daily-node] IT-HTTP-01'
   type: http
   server: 95.229.15.89
@@ -631,96 +234,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1B764B'
-  server: 188.114.98.0
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?Telegram---Vpney
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] IT-HTTP-03'
-  type: http
-  server: 109.116.41.154
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] ❓Other_44|128KB/s|A004-260618'
-  network: ws
-  port: 8080
-  server: 104.18.35.86
-  sub_tag: A004-260618
-  type: vless
-  udp: true
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  ws-opts:
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-      User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/44.0.2403.157 Safari/537.36
-    path: /sg-melbi
-  xudp: true
-  packet-encoding: xudp
-  servername: hhlfy.twiladaphne.ndjp.net
-- name: '[iboxz-collector] 🇨🇦 CA | 172.67.155.65'
-  type: vless
-  server: 172.67.155.65
-  port: 2053
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /cart/docs/www/proxyip=108.160.132.132
-    headers:
-      Host: lucasjow.us.ci
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 21A212'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: '%25'
-    headers:
-      Host: lucasjow.us.ci
-- name: '[iboxz-collector] 🇨🇦 CA | 172.67.155.65-2'
-  type: vless
-  server: 172.67.155.65
-  port: 8443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /cart/docs/www/proxyip=108.160.132.132
-    headers:
-      Host: lucasjow.us.ci
-- name: '[ovmvo-permanent] 🇸🇬 022  | ⬇️ 5MB/s'
-  server: 172.64.150.28
-  port: 2082
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  tls: false
-  tfo: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
 - alpn:
   - h3
   - h2
@@ -747,50 +260,6 @@ proxies:
   xudp: true
   packet-encoding: xudp
   servername: snip.edgeoneai.cc.cd
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 22A83C'
-  server: 104.21.7.133
-  port: 80
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 23A580'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM---MARAMBASHI---MARAMBASHI---MARAMBASHI---MARAMBASHI
-    headers:
-      Host: lucasjow.us.ci
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 253B12'
-  server: 104.17.136.198
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
 - name: '[share-daily-node] PL-HTTP-01'
   type: http
   server: 151.115.54.133
@@ -798,34 +267,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[cbusifabcap-uri] ❓Other_70|243KB/s|K001-260618'
-  type: vless
-  server: 104.18.35.86
-  port: 2082
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  sni: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- encryption: none
-  name: '[cbusifabcap-clashmeta] ❓Other_52|252KB/s|M002-260618'
-  network: ws
-  port: 8080
-  server: 104.18.35.86
-  sub_tag: M002-260618
-  type: vless
-  udp: true
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  ws-opts:
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-      User-Agent: Mozilla/5.0 (Linux; Android 7.0; Moto C Build/NRD90M.059) AppleWebKit/537.36
-        (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
-    path: /sg-melbi
-  xudp: true
-  packet-encoding: xudp
 - name: '[share-daily-node] RO-HTTP-05'
   type: http
   server: 193.176.84.34
@@ -834,21 +275,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3353B7'
-  server: 172.66.203.67
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
 - name: '[share-daily-node] RO-HTTP-11'
   type: http
   server: 193.176.84.32
@@ -857,69 +283,9 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[cbusifabcap-uri] ❓Other_75|64KB/s|A004-260618'
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /cart/docs/www/proxyip
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] RO-HTTP-13'
-  type: http
-  server: 193.176.84.37
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[cbusifabcap-clashmeta] ❓Other_55|212KB/s|R002-260618'
   port: 443
   server: 185.219.159.16
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] RO_speednode_0041'
-  port: 9002
-  server: 193.176.84.33
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 35A445'
-  server: 104.18.43.174
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: qq
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] RO-HTTP-19'
-  type: http
-  server: 193.176.84.30
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  username: 'null'
-  password: 'null'
-- name: '[cbusifabcap-clashmeta] ❓Other_56|114KB/s|R002-260618'
-  port: 443
-  server: 137.175.22.84
   skip-cert-verify: true
   sub_tag: R002-260618
   tls: true
@@ -939,36 +305,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[share-daily-node] RO-HTTP-29'
-  type: http
-  server: 193.176.84.36
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[ermaozi-subscribe] RO_speednode_0044'
-  port: 9002
-  server: 193.176.84.35
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[iboxz-collector] 🇨🇦 CA | 188.114.97.6-8'
-  type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-    headers:
-      Host: lucasjow.us.ci
 - name: '[share-daily-node] RO-HTTP-41'
   type: http
   server: 193.176.84.39
@@ -992,103 +328,6 @@ proxies:
   tls: true
   sni: www.bing.com
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
-  server: us5-1.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server4.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /androirfdsreoightrjh
-    headers:
-      Host: server4.9966338.xyz
-- name: '[iboxz-collector] 🇨🇦 CA | 188.114.98.0'
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?Telegram---mehrosaboran
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] RU-HTTP-01'
-  type: http
-  server: 194.186.179.62
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[iboxz-collector] 🇨🇦 CA | 188.114.98.0-2'
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?Telegram---bored_vpn
-    headers:
-      Host: lucasjow.us.ci
-- name: '[cbusifabcap-clashmeta] ❓Other_63|211KB/s|R002-260618'
-  port: 443
-  server: 185.246.153.42
-  skip-cert-verify: true
-  sni: 482c8436a1f7c908b48a1757abb5dd79-3791fb4df2db250b.apache-iv.com
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 46B566'
-  server: cf.0sm.com
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
-- name: '[share-daily-node] SG-HTTP-03'
-  type: http
-  server: 185.250.38.135
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 47648B'
-  server: 104.21.91.244
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-    headers:
-      Host: lucasjow.us.ci
 - name: '[share-daily-node] SG-HTTP-04'
   type: http
   server: 154.26.138.233
@@ -1117,21 +356,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4EC4EF'
-  server: cf.090227.xyz
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
 - name: '[share-daily-node] SG-HTTP-08'
   type: http
   server: 154.26.139.23
@@ -1139,164 +363,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] ❓Other_70|243KB/s|K001-260618'
-  network: ws
-  port: 2082
-  server: 104.18.35.86
-  sub_tag: K001-260618
-  type: vless
-  udp: true
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  ws-opts:
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/70.0.3538.67 Safari/537.36
-    path: /fp
-  xudp: true
-  packet-encoding: xudp
-  servername: hhlfy.twiladaphne.ndjp.net
-- name: '[share-daily-node] SG-HTTP-09'
+- name: '[share-daily-node] SG-HTTP-10'
   type: http
-  server: 154.26.139.27
+  server: 154.26.137.244
   port: 443
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-2'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: edge
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  name: '[cbusifabcap-clashmeta] ❓Other_75|64KB/s|A004-260618'
-  network: ws
-  port: 443
-  server: 188.114.98.0
-  sub_tag: A004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  ws-opts:
-    headers:
-      Host: lucasjow.us.ci
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/60.0.3112.101 Safari/537.36
-    path: /cart/docs/www/proxyip
-  xudp: true
-  packet-encoding: xudp
-  servername: lucasjow.us.ci
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-3'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: android
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-4'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
-- name: '[share-daily-node] US-HTTP-02'
-  type: http
-  server: voteshirleysew.club
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- client-fingerprint: chrome
-  encryption: none
-  name: '[cbusifabcap-clashmeta] ❓Other_77|204KB/s|F003-260618'
-  network: ws
-  port: 8443
-  server: 2.28.42.209
-  sub_tag: F003-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-  ws-opts:
-    headers:
-      Host: snip.edgeoneai.cc.cd
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/36.0.1985.125 Safari/537.36
-    path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
-  xudp: true
-  packet-encoding: xudp
-  servername: snip.edgeoneai.cc.cd
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 553976'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?Telegram---mehrosaboran
-    headers:
-      Host: lucasjow.us.ci
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-5'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: firefox
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
-- name: '[share-daily-node] US-HTTP-03'
-  type: http
-  server: voteshirleysew.club
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: false
 - name: '[free18-clash] 🇫🇮_芬兰_69'
   type: vless
   server: 152.233.71.81
@@ -1311,19 +384,6 @@ proxies:
     short-id: 1c3e8241a8743df9
   skip-cert-verify: true
   udp: true
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-6'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: ios
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
 - name: '[share-daily-node] US-HTTP-05'
   type: http
   server: 138.199.35.199
@@ -1345,32 +405,6 @@ proxies:
     short-id: 1c3e8241a8743df9
   skip-cert-verify: true
   udp: true
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-7'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: qq
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-8'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: safari
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: ccc.010304.xyz
 - name: '[share-daily-node] US-HTTP-11'
   type: http
   server: 138.199.35.195
@@ -1379,39 +413,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-9'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: android
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- name: '[share-daily-node] US-HTTP-14'
-  type: http
-  server: 138.199.35.196
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-10'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: firefox
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
 - name: '[share-daily-node] US-HTTP-15'
   type: http
   server: 138.199.35.211
@@ -1419,19 +420,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-11'
-  type: vless
-  server: 188.164.248.216
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: ios
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
 - name: '[ermaozi-subscribe] RO_speednode_0097'
   password: None
   port: 9002
@@ -1440,21 +428,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
-  server: www.shopify.com
-  port: 443
-  type: vmess
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: guanwang.awsno.com
-  network: ws
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: guanwang.awsno.com
 - name: '[cbusifabcap-clashmeta] 🇫🇮FI_12|212KB/s|R002-260618'
   port: 8080
   server: 65.109.179.56
@@ -1463,46 +436,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7E7881'
-  server: 172.64.150.28
-  port: 2082
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  udp: true
-  tls: false
-  servername: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F5870'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: lucasjow.us.ci
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F8340'
-  server: 188.114.98.0
-  port: 443
-  type: vless
-  uuid: 20ff936a-8eb5-4d27-9cce-93f2016d467b
-  udp: true
-  tls: true
-  servername: free.nadun.store
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: free.nadun.store
 - name: '[ermaozi-subscribe] RO_speednode_0110'
   port: 9002
   server: 193.176.84.27
@@ -1510,20 +443,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 80057E'
-  server: 104.18.43.174
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-    headers:
-      Host: lucasjow.us.ci
 - name: '[cbusifabcap-clashmeta] 🇫🇮FI_5|288KB/s|R002-260618'
   port: 8443
   server: 198.105.124.180
@@ -1532,141 +451,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[cbusifabcap-uri] 🇮🇱IL_2|388KB/s|P002-260618'
-  type: vless
-  server: 185.253.75.119
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- name: '[nexus-nodes-all] @v2ray_phoenix'
-  type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    headers:
-      Host: lucasjow.us.ci
-- name: '[cbusifabcap-clashmeta] 🇫🇷FR_13|937KB/s|A004-260618'
-  network: ws
-  port: 8080
-  server: 172.64.150.43
-  sub_tag: A004-260618
-  type: vless
-  udp: true
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  ws-opts:
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-      User-Agent: Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/57.0.2987.133 Safari/537.36
-    path: /sg-melbi
-  xudp: true
-  packet-encoding: xudp
-  servername: hhlfy.twiladaphne.ndjp.net
-- client-fingerprint: chrome
-  name: '[cbusifabcap-clashmeta] 🇫🇷FR_14|96KB/s|T001-260618'
-  network: ws
-  port: 443
-  server: cf.130519.xyz
-  sub_tag: T001-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-      User-Agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/533.2 (KHTML,
-        like Gecko) Chrome/5.0.342.1 Safari/533.2
-    path: /
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8B1289'
-  server: 172.64.229.21
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
-- alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  encryption: none
-  name: '[cbusifabcap-clashmeta] 🇫🇷FR_17|483KB/s|B007-260618'
-  network: ws
-  port: 443
-  server: 188.114.98.0
-  sub_tag: B007-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
-  ws-opts:
-    headers:
-      Host: snip.edgeoneai.cc.cd
-      User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/62.0.3202.94 Safari/537.36
-    path: /?TELEGRAM-TOOTFFARANGI
-  xudp: true
-  packet-encoding: xudp
-  servername: snip.edgeoneai.cc.cd
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8BB1EE'
-  server: us16-4.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server1.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /efrsdioy98wert?ed=2560
-    headers:
-      Host: server1.9966338.xyz
-- client-fingerprint: chrome
-  encryption: none
-  name: '[cbusifabcap-clashmeta] 🇫🇷FR_19|986KB/s|B007-260618'
-  network: ws
-  port: 8443
-  server: 172.67.155.65
-  sub_tag: B007-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  ws-opts:
-    headers:
-      Host: lucasjow.us.ci
-      User-Agent: Mozilla/5.0 (Linux; Android 7.0; TRT-LX3 Build/HUAWEITRT-LX3) AppleWebKit/537.36
-        (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
-    path: /cart/docs/www/proxyip=108.160.132.132
-  xudp: true
-  packet-encoding: xudp
-  servername: lucasjow.us.ci
 - name: '[ermaozi-subscribe] RO_speednode_0124'
   port: 9002
   server: 193.176.84.32
@@ -1674,53 +458,10 @@ proxies:
   tls: true
   type: http
   udp: true
-- encryption: none
-  name: '[cbusifabcap-clashmeta] 🇫🇷FR_1|299KB/s|B007-260618'
-  network: ws
-  port: 2082
-  server: 172.64.150.28
-  sub_tag: B007-260618
-  type: vless
-  udp: true
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  ws-opts:
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/49.0.2623.112 Safari/537.36
-    path: /fp
-  xudp: true
-  packet-encoding: xudp
-  servername: hhlfy.twiladaphne.ndjp.net
 - name: '[ermaozi-subscribe] RO_speednode_0126'
   port: 9002
   server: 193.176.84.39
   skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[cbusifabcap-clashmeta] 🇫🇷FR_3|273KB/s|A004-260618'
-  network: ws
-  port: 8080
-  server: 188.114.97.6
-  sub_tag: A004-260618
-  type: vless
-  udp: true
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  ws-opts:
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7
-        (KHTML, like Gecko) Chrome/7.0.517.44 Safari/534.7
-    path: /sg-melbi
-  xudp: true
-  packet-encoding: xudp
-- name: '[cbusifabcap-clashmeta] 🇫🇷FR_4|69KB/s|R002-260618'
-  port: 443
-  server: 103.82.101.44
-  skip-cert-verify: true
-  sni: f3a61d8406d537345747f99f8a281007-3f754ed5da1bba09.apache-iv.com
-  sub_tag: R002-260618
   tls: true
   type: http
   udp: true
@@ -1732,21 +473,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9A6C18'
-  server: us5-1.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server4.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /androirfdsreoightrjh?ed=2560
-    headers:
-      Host: server4.9966338.xyz
 - name: '[ermaozi-subscribe] US_speednode_0131'
   password: 'null'
   port: 9002
@@ -1756,28 +482,6 @@ proxies:
   type: http
   udp: true
   username: 'null'
-- name: '[ermaozi-subscribe] US_speednode_0133'
-  port: 443
-  server: fan.365747.xyz
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
-  server: cf.0sm.com
-  port: 80
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
 - name: '[ermaozi-subscribe] US_speednode_0140'
   password: None
   port: 443
@@ -1799,156 +503,12 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A4F840'
-  server: cf.877771.xyz
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
-- name: '[cbusifabcap-clashmeta] ❓Other_10|210KB/s|R002-260618'
-  port: 443
-  server: 137.175.77.35
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[nexus-nodes-all] 10336@proxy_online_net'
-  type: vless
-  server: 188.114.97.6
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-    headers:
-      Host: lucasjow.us.ci
-- name: '[zhuhaiuk-free-nodes] JP - zhuhai.uk 02'
-  type: http
-  server: fan.571589.xyz
-  port: 443
-  tls: true
 - name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
   type: http
   server: 185.93.106.214
   port: 443
   tls: true
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0C8E98'
-  server: 172.66.203.67
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: vmess.lbw666.dpdns.org
-- name: '[ermaozi-subscribe] рҹҮәрҹҮё_US_зҫҺеӣҪ_1'
-  type: vmess
-  server: guanwang.awsno.com
-  port: 443
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: guanwang.awsno.com
-  network: ws
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: guanwang.awsno.com
-  udp: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
-  type: http
-  server: purecambogiasl.live
-  port: 443
-  tls: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5331AC'
-  server: 172.64.229.21
-  port: 443
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: vmess.lbw666.dpdns.org
-  network: ws
-  ws-opts:
-    path: /ws?ed=2048
-    headers:
-      Host: vmess.lbw666.dpdns.org
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6D4339'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: '%252'
-    headers:
-      Host: lucasjow.us.ci
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 73342A'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: '3'
-    headers:
-      Host: lucasjow.us.ci
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 878FF1'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] JP-HTTP-02'
-  type: http
-  server: fan.587475.xyz
-  port: 443
-  udp: true
-  tls: true
-  sni: fan.587475.xyz
-  skip-cert-verify: false
 - name: '[share-daily-node] NL-HTTP-25'
   type: http
   server: 84.17.47.146
@@ -1957,13 +517,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[share-daily-node] NL-HTTP-49'
-  type: http
-  server: 51.158.243.91
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[share-daily-node] NL-HTTP-50'
   type: http
   server: 82.196.9.7
@@ -1973,41 +526,6 @@ proxies:
   skip-cert-verify: true
   username: testuser1
   password: e4b72b531a2d10900519
-- name: '[nexus-nodes-all] @IRAN_V2RAY1-3'
-  type: vless
-  server: cf.090227.xyz
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /cart/docs/www/proxyip=108.160.132.132
-    headers:
-      Host: lucasjow.us.ci
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A65B5A'
-  server: cf.090227.xyz
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /cart/docs/www/proxyip
-    headers:
-      Host: lucasjow.us.ci
-- name: '[cbusifabcap-clashmeta] ❓OtherT1_1|900KB/s|R002-260618'
-  port: 8443
-  server: 45.142.141.5
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[share-daily-node] RO-HTTP-03'
   type: http
   server: 193.176.84.37
@@ -2016,48 +534,6 @@ proxies:
   tls: true
   sni: www.bing.com
   skip-cert-verify: true
-- name: '[share-daily-node] RO-HTTP-10'
-  type: http
-  server: 193.176.84.36
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[share-daily-node] RO-HTTP-100'
-  type: http
-  server: 193.176.84.26
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[share-daily-node] RO-HTTP-107'
-  type: http
-  server: 193.176.84.36
-  port: 9002
-  udp: true
-  tls: true
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: '[snapdragon-systemproxy] 🏁ZZ_154_1@153'
-  server: www.shopify.com
-  type: vmess
-  country: 🏁ZZ
-  port: 443
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
-  network: ws
-  servername: guanwang.awsno.com
-  http-opts: {}
-  h2-opts: {}
-  tls: true
-  skip-cert-verify: true
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      HOST: guanwang.awsno.com
 - name: '[share-daily-node] RO-HTTP-20'
   type: http
   server: 193.176.84.30
@@ -2067,70 +543,6 @@ proxies:
   skip-cert-verify: true
   username: 'null'
   password: 'null'
-- name: '[share-daily-node] RO-HTTP-26'
-  type: http
-  server: 193.176.84.34
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[chengaopan-base64] http-fan.365747.xyz:443'
-  type: http
-  server: fan.365747.xyz
-  port: 443
-  tls: true
-- name: '[nexus-nodes-all] @MARAMBASHI 🇳🇱'
-  type: vless
-  server: 104.18.43.174
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  tls: true
-  sni: lucasjow.us.ci
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] RO-HTTP-33'
-  type: http
-  server: 193.176.84.35
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  username: 'null'
-  password: 'null'
-- name: '[chengaopan-base64] http-purposebydesig.club:443'
-  type: http
-  server: purposebydesig.club
-  port: 443
-  password: None
-  tls: true
-- name: '[share-daily-node] RO-HTTP-34'
-  type: http
-  server: 193.176.84.20
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B52D10'
-  server: us16-4.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server1.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /efrsdioy98wert
-    headers:
-      Host: server1.9966338.xyz
 - name: '[share-daily-node] RO-HTTP-47'
   type: http
   server: 193.176.84.21
@@ -2138,6 +550,15 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[share-daily-node] RO-HTTP-67'
+  type: http
+  server: 193.176.84.36
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  username: 'null'
+  password: 'null'
 - name: '[share-daily-node] RO-HTTP-71'
   type: http
   server: 193.176.84.16
@@ -2168,28 +589,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[share-daily-node] RO-HTTP-91'
-  type: http
-  server: 193.176.84.27
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | BEA641'
-  server: 188.114.98.0
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: '3'
-    headers:
-      Host: lucasjow.us.ci
 - name: '[share-daily-node] RO-HTTP-97'
   type: http
   server: 193.176.84.32
@@ -2211,123 +610,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[ermaozi-subscribe] 🇨🇦CA_3|1.2MB/s'
-  port: 443
-  server: 35.183.131.26
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 172737'
-  server: 172.67.155.65
-  port: 8443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /cart/docs/www/proxyip=108.160.132.132
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] SG-HTTP-13'
-  type: http
-  server: 154.26.138.236
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 27F122'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?Telegram---DailyConfigs---DailyConfigs---DailyConfigs
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] SG-HTTP-15'
-  type: http
-  server: 154.26.139.27
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] SG-HTTP-16'
-  type: http
-  server: 154.26.138.166
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 64E4B9'
-  server: 172.64.144.82
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: qq
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] SG-HTTP-18'
-  type: http
-  server: 154.26.138.253
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861FD7'
-  server: jp5.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server11.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /ieusrdgfhteuirgfiuws?ed=2560
-    headers:
-      Host: server11.9966338.xyz
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 898FDB'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM--V2ray_confiig?ed=2560
-    headers:
-      Host: lucasjow.us.ci
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9DB2F1'
-  server: 172.67.155.65
-  port: 8443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /cart/docs/www/proxyip
-    headers:
-      Host: lucasjow.us.ci
 - name: '[share-daily-node] US-HTTP-01'
   type: http
   server: voteshirleysew.club
@@ -2344,29 +626,6 @@ proxies:
   sni: mmgr.club
   skip-cert-verify: true
   password: None
-- name: '[share-daily-node] US-HTTP-09'
-  type: http
-  server: 138.199.35.196
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | ACE740'
-  server: yg1.ygkkk.dpdns.org
-  port: 443
-  type: vmess
-  uuid: b2ba4a73-3123-479e-aa96-5973a9ecd0c0
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: jmp1.907737.xyz
-  network: ws
-  ws-opts:
-    path: /b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm
-    headers:
-      Host: jmp1.907737.xyz
 - name: '[share-daily-node] US-HTTP-12'
   type: http
   server: 138.199.35.206
@@ -2375,15 +634,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[share-daily-node] US-HTTP-13'
-  type: http
-  server: 138.199.35.197
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  username: 'null'
-  password: 'null'
 - name: '[share-daily-node] US-HTTP-23'
   type: http
   server: 138.199.35.214
@@ -2408,21 +658,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9F20E'
-  server: guanwang.awsno.com
-  port: 443
-  type: vmess
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: guanwang.awsno.com
-  network: ws
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: guanwang.awsno.com
 - name: '[share-daily-node] US-HTTP-27'
   type: http
   server: 138.199.35.198
@@ -2439,19 +674,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CB851E'
-  server: 104.18.0.181
-  port: 2082
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  udp: true
-  tls: false
-  servername: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
 - name: '[share-daily-node] US-HTTP-29'
   type: http
   server: 138.199.35.207
@@ -2468,82 +690,11 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-35'
-  type: http
-  server: 138.199.35.196
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[share-daily-node] US-HTTP-36'
   type: http
   server: 138.199.35.209
   port: 9002
   udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D91EF8'
-  server: 188.114.98.0
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /?Telegram---DailyConfigs---DailyConfigs---DailyConfigs
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] US-HTTP-37'
-  type: http
-  server: 138.199.35.212
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-38'
-  type: http
-  server: 138.199.35.195
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[share-daily-node] US-HTTP-39'
-  type: http
-  server: voteshirleysew.club
-  port: 443
-  udp: true
-  tls: true
-  sni: voteshirleysew.club
-  skip-cert-verify: false
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DE5F37'
-  server: 188.114.98.0
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM-TOOTFFARANGI
-    headers:
-      Host: lucasjow.us.ci
-- name: '[share-daily-node] US-HTTP-40'
-  type: http
-  server: 138.199.35.204
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[zhuhaiuk-free-nodes] ID - zhuhai.uk 02'
-  type: http
-  server: kimberlymilano.icu
-  port: 443
   tls: true
   skip-cert-verify: true
 - name: '[share-daily-node] CZ-HTTP-02'
@@ -2568,21 +719,6 @@ proxies:
   tls: true
   sni: 84.17.47.150
   skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AA7783'
-  server: eu3.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server40.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /aiaiai
-    headers:
-      Host: server40.9966338.xyz
 - name: '[share-daily-node] IT-HTTP-04'
   type: http
   server: 95.229.15.89
@@ -2602,41 +738,6 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C1DD08'
-  server: 104.19.33.25
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CE34C5'
-  server: mix2.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server10.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /rthiugoyretdsuigg?ed=2560
-    headers:
-      Host: server10.9966338.xyz
-- name: '[share-daily-node] RO-HTTP-14'
-  type: http
-  server: 193.176.84.37
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
   password: 'null'
   port: 9002
@@ -2647,62 +748,6 @@ proxies:
   type: http
   username: 'null'
   udp: true
-- name: '[share-daily-node] RO-HTTP-48'
-  type: http
-  server: 193.176.84.34
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 2E1AB6'
-  server: 172.64.150.28
-  port: 2082
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  udp: true
-  tls: false
-  servername: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 36C924'
-  server: 104.17.162.11
-  port: 2082
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  udp: true
-  tls: false
-  servername: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A8DB9C'
-  server: 104.16.215.234
-  port: 8080
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  udp: true
-  tls: false
-  servername: hhlfy.twiladaphne.ndjp.net
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '[cbusifabcap-clashmeta] 🇦🇺AU_2|409KB/s|R002-260618'
-  password: None
-  port: 443
-  server: 159.13.44.228
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
   port: 443
   server: 159.13.44.228
@@ -2710,66 +755,6 @@ proxies:
   sub_tag: R002-260618
   tls: true
   type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
-  server: us5-1.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: server4.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /androirfdsreoightrjh?ed=2560
-    headers:
-      Host: server4.9966338.xyz
-- name: '[free18-clash] 🏳️_未知_272'
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  network: ws
-  servername: lucasjow.us.ci
-  tls: true
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?TELEGRAM-TOOTFFARANGI
-    headers:
-      Host: lucasjow.us.ci
-  skip-cert-verify: true
-  udp: true
-- name: '[free18-clash] 🏳️_未知_273'
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  network: ws
-  servername: lucasjow.us.ci
-  tls: true
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?Telegram---bored_vpn
-    headers:
-      Host: lucasjow.us.ci
-  skip-cert-verify: true
-  udp: true
-- name: '[free18-clash] 🏳️_未知_275'
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  network: ws
-  servername: lucasjow.us.ci
-  tls: true
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?Telegram---mehrosaboran
-    headers:
-      Host: lucasjow.us.ci
-  skip-cert-verify: true
   udp: true
 - name: '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
   server: 152.233.71.81
@@ -2799,536 +784,200 @@ proxy-groups:
   proxies:
   - DIRECT
   - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
-  - '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663B4'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B72A46'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 76F5D4'
   - '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A57F2F'
   - '[share-daily-node] US-HTTP-17'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-12'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-13'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0AD519'
   - '[share-daily-node] US-HTTP-20'
-  - '[share-daily-node] US-HTTP-21'
   - '[ermaozi-subscribe] RO_speednode_0082'
-  - '[cbusifabcap-uri] 🇫🇷FR_13|937KB/s|A004-260618'
   - '[ermaozi-subscribe] RO_speednode_0083'
-  - '[cbusifabcap-uri] 🇫🇷FR_14|96KB/s|T001-260618'
   - '[ermaozi-subscribe] RO_speednode_0087'
-  - '[cbusifabcap-uri] 🇫🇷FR_19|986KB/s|B007-260618'
   - '[cbusifabcap-clashmeta] ❓Other_10|212KB/s|K001-260618'
-  - '[cbusifabcap-uri] ❓Other_12|303KB/s|A004-260618'
   - '[cbusifabcap-clashmeta] ❓Other_11|138KB/s|R002-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_12|303KB/s|A004-260618'
   - '[cbusifabcap-clashmeta] ❓Other_18|228KB/s|R002-260618'
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[cbusifabcap-clashmeta] ❓Other_19|212KB/s|R002-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_20|214KB/s|R002-260618'
-  - '[ermaozi-subscribe] NL_speednode_0004'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[ermaozi-subscribe] NL_speednode_0005'
   - '[cbusifabcap-clashmeta] ❓Other_23|265KB/s|R002-260618'
-  - '[ermaozi-subscribe] NL_speednode_0006'
-  - '[share-daily-node] CA-HTTP-05'
   - '[ermaozi-subscribe] NL_speednode_0007'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
   - '[cbusifabcap-clashmeta] ❓Other_25|224KB/s|P002-260618'
   - '[ermaozi-subscribe] NL_speednode_0008'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
-  - '[ermaozi-subscribe] NL_speednode_0009'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 03'
   - '[ermaozi-subscribe] NL_speednode_0010'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 04'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 05'
-  - '[cbusifabcap-clashmeta] ❓Other_29|325KB/s'
   - '[share-daily-node] FR-HTTP-01'
-  - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 06'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 028A48'
-  - '[cbusifabcap-clashmeta] ❓Other_30|248KB/s|G001-260618'
   - '[share-daily-node] FR-HTTP-03'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
-  - '[cbusifabcap-uri] ❓Other_44|128KB/s|A004-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 06ADD7'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
-  - '[cbusifabcap-clashmeta] ❓Other_33|341KB/s|R002-260618'
-  - '[iboxz-collector] 🇨🇦 CA | 104.21.91.244'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
-  - '[cbusifabcap-clashmeta] ❓Other_34|218KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0CF2D2'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 15797E'
-  - '[cbusifabcap-uri] ❓Other_52|252KB/s|M002-260618'
   - '[share-daily-node] IT-HTTP-01'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1B764B'
-  - '[share-daily-node] IT-HTTP-03'
-  - '[cbusifabcap-clashmeta] ❓Other_44|128KB/s|A004-260618'
-  - '[iboxz-collector] 🇨🇦 CA | 172.67.155.65'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 21A212'
-  - '[iboxz-collector] 🇨🇦 CA | 172.67.155.65-2'
-  - '[ovmvo-permanent] 🇸🇬 022  | ⬇️ 5MB/s'
   - '[cbusifabcap-clashmeta] ❓Other_46|214KB/s|S004-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 22A83C'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 23A580'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 253B12'
   - '[share-daily-node] PL-HTTP-01'
-  - '[cbusifabcap-uri] ❓Other_70|243KB/s|K001-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_52|252KB/s|M002-260618'
   - '[share-daily-node] RO-HTTP-05'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3353B7'
   - '[share-daily-node] RO-HTTP-11'
-  - '[cbusifabcap-uri] ❓Other_75|64KB/s|A004-260618'
-  - '[share-daily-node] RO-HTTP-13'
   - '[cbusifabcap-clashmeta] ❓Other_55|212KB/s|R002-260618'
-  - '[ermaozi-subscribe] RO_speednode_0041'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 35A445'
-  - '[share-daily-node] RO-HTTP-19'
-  - '[cbusifabcap-clashmeta] ❓Other_56|114KB/s|R002-260618'
   - '[ermaozi-subscribe] RO_speednode_0042'
   - '[share-daily-node] RO-HTTP-28'
-  - '[share-daily-node] RO-HTTP-29'
-  - '[ermaozi-subscribe] RO_speednode_0044'
-  - '[iboxz-collector] 🇨🇦 CA | 188.114.97.6-8'
   - '[share-daily-node] RO-HTTP-41'
   - '[ermaozi-subscribe] RO_speednode_0045'
   - '[share-daily-node] RO-HTTP-61'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
-  - '[iboxz-collector] 🇨🇦 CA | 188.114.98.0'
-  - '[share-daily-node] RU-HTTP-01'
-  - '[iboxz-collector] 🇨🇦 CA | 188.114.98.0-2'
-  - '[cbusifabcap-clashmeta] ❓Other_63|211KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 46B566'
-  - '[share-daily-node] SG-HTTP-03'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 47648B'
   - '[share-daily-node] SG-HTTP-04'
   - '[share-daily-node] SG-HTTP-05'
   - '[share-daily-node] SG-HTTP-06'
   - '[share-daily-node] SG-HTTP-07'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4EC4EF'
   - '[share-daily-node] SG-HTTP-08'
-  - '[cbusifabcap-clashmeta] ❓Other_70|243KB/s|K001-260618'
-  - '[share-daily-node] SG-HTTP-09'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-2'
-  - '[cbusifabcap-clashmeta] ❓Other_75|64KB/s|A004-260618'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-3'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-4'
-  - '[share-daily-node] US-HTTP-02'
-  - '[cbusifabcap-clashmeta] ❓Other_77|204KB/s|F003-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 553976'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-5'
-  - '[share-daily-node] US-HTTP-03'
+  - '[share-daily-node] SG-HTTP-10'
   - '[free18-clash] 🇫🇮_芬兰_69'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-6'
   - '[share-daily-node] US-HTTP-05'
   - '[free18-clash] 🇫🇮_芬兰_70'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-7'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-8'
   - '[share-daily-node] US-HTTP-11'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-9'
-  - '[share-daily-node] US-HTTP-14'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-10'
   - '[share-daily-node] US-HTTP-15'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-11'
   - '[ermaozi-subscribe] RO_speednode_0097'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_12|212KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7E7881'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F5870'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F8340'
   - '[ermaozi-subscribe] RO_speednode_0110'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 80057E'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_5|288KB/s|R002-260618'
-  - '[cbusifabcap-uri] 🇮🇱IL_2|388KB/s|P002-260618'
-  - '[nexus-nodes-all] @v2ray_phoenix'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_13|937KB/s|A004-260618'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_14|96KB/s|T001-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8B1289'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_17|483KB/s|B007-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8BB1EE'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_19|986KB/s|B007-260618'
   - '[ermaozi-subscribe] RO_speednode_0124'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_1|299KB/s|B007-260618'
   - '[ermaozi-subscribe] RO_speednode_0126'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_3|273KB/s|A004-260618'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_4|69KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇫🇷FR_6|223KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9A6C18'
   - '[ermaozi-subscribe] US_speednode_0131'
-  - '[ermaozi-subscribe] US_speednode_0133'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
   - '[ermaozi-subscribe] US_speednode_0140'
   - '[ermaozi-subscribe] US_speednode_0141'
   - '[ermaozi-subscribe] US_speednode_0143'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A4F840'
-  - '[cbusifabcap-clashmeta] ❓Other_10|210KB/s|R002-260618'
-  - '[nexus-nodes-all] 10336@proxy_online_net'
-  - '[zhuhaiuk-free-nodes] JP - zhuhai.uk 02'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0C8E98'
-  - '[ermaozi-subscribe] рҹҮәрҹҮё_US_зҫҺеӣҪ_1'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5331AC'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6D4339'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 73342A'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 878FF1'
-  - '[share-daily-node] JP-HTTP-02'
   - '[share-daily-node] NL-HTTP-25'
-  - '[share-daily-node] NL-HTTP-49'
   - '[share-daily-node] NL-HTTP-50'
-  - '[nexus-nodes-all] @IRAN_V2RAY1-3'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A65B5A'
-  - '[cbusifabcap-clashmeta] ❓OtherT1_1|900KB/s|R002-260618'
   - '[share-daily-node] RO-HTTP-03'
-  - '[share-daily-node] RO-HTTP-10'
-  - '[share-daily-node] RO-HTTP-100'
-  - '[share-daily-node] RO-HTTP-107'
-  - '[snapdragon-systemproxy] 🏁ZZ_154_1@153'
   - '[share-daily-node] RO-HTTP-20'
-  - '[share-daily-node] RO-HTTP-26'
-  - '[chengaopan-base64] http-fan.365747.xyz:443'
-  - '[nexus-nodes-all] @MARAMBASHI 🇳🇱'
-  - '[share-daily-node] RO-HTTP-33'
-  - '[chengaopan-base64] http-purposebydesig.club:443'
-  - '[share-daily-node] RO-HTTP-34'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B52D10'
   - '[share-daily-node] RO-HTTP-47'
+  - '[share-daily-node] RO-HTTP-67'
   - '[share-daily-node] RO-HTTP-71'
   - '[share-daily-node] RO-HTTP-84'
   - '[share-daily-node] RO-HTTP-88'
   - '[share-daily-node] RO-HTTP-90'
-  - '[share-daily-node] RO-HTTP-91'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | BEA641'
   - '[share-daily-node] RO-HTTP-97'
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-12'
-  - '[ermaozi-subscribe] 🇨🇦CA_3|1.2MB/s'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 172737'
-  - '[share-daily-node] SG-HTTP-13'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 27F122'
-  - '[share-daily-node] SG-HTTP-15'
-  - '[share-daily-node] SG-HTTP-16'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 64E4B9'
-  - '[share-daily-node] SG-HTTP-18'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861FD7'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 898FDB'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9DB2F1'
   - '[share-daily-node] US-HTTP-01'
   - '[share-daily-node] US-HTTP-07'
-  - '[share-daily-node] US-HTTP-09'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | ACE740'
   - '[share-daily-node] US-HTTP-12'
-  - '[share-daily-node] US-HTTP-13'
   - '[share-daily-node] US-HTTP-23'
   - '[share-daily-node] US-HTTP-24'
   - '[share-daily-node] US-HTTP-25'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9F20E'
   - '[share-daily-node] US-HTTP-27'
   - '[cbusifabcap-clashmeta] ❓OtherT1_1|378KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CB851E'
   - '[share-daily-node] US-HTTP-29'
   - '[share-daily-node] US-HTTP-30'
-  - '[share-daily-node] US-HTTP-35'
   - '[share-daily-node] US-HTTP-36'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D91EF8'
-  - '[share-daily-node] US-HTTP-37'
-  - '[share-daily-node] US-HTTP-38'
-  - '[share-daily-node] US-HTTP-39'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DE5F37'
-  - '[share-daily-node] US-HTTP-40'
-  - '[zhuhaiuk-free-nodes] ID - zhuhai.uk 02'
   - '[share-daily-node] CZ-HTTP-02'
   - '[zhuhaiuk-free-nodes] LT - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AA7783'
   - '[share-daily-node] IT-HTTP-04'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
   - '[ermaozi-subscribe] 🇩🇪DE_3|1.4MB/s'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C1DD08'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CE34C5'
-  - '[share-daily-node] RO-HTTP-14'
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
-  - '[share-daily-node] RO-HTTP-48'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 2E1AB6'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 36C924'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A8DB9C'
-  - '[cbusifabcap-clashmeta] 🇦🇺AU_2|409KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
-  - '[free18-clash] 🏳️_未知_272'
-  - '[free18-clash] 🏳️_未知_273'
-  - '[free18-clash] 🏳️_未知_275'
   - '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
   - '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
 - name: AUTO
   type: url-test
   proxies: &id001
   - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
-  - '[chengaopan-merged] 🇬🇧 英国 | GBR #1'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A957A8'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663B4'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B72A46'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 161FA2'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 76F5D4'
   - '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A57F2F'
   - '[share-daily-node] US-HTTP-17'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-12'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-13'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0AD519'
   - '[share-daily-node] US-HTTP-20'
-  - '[share-daily-node] US-HTTP-21'
   - '[ermaozi-subscribe] RO_speednode_0082'
-  - '[cbusifabcap-uri] 🇫🇷FR_13|937KB/s|A004-260618'
   - '[ermaozi-subscribe] RO_speednode_0083'
-  - '[cbusifabcap-uri] 🇫🇷FR_14|96KB/s|T001-260618'
   - '[ermaozi-subscribe] RO_speednode_0087'
-  - '[cbusifabcap-uri] 🇫🇷FR_19|986KB/s|B007-260618'
   - '[cbusifabcap-clashmeta] ❓Other_10|212KB/s|K001-260618'
-  - '[cbusifabcap-uri] ❓Other_12|303KB/s|A004-260618'
   - '[cbusifabcap-clashmeta] ❓Other_11|138KB/s|R002-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_12|303KB/s|A004-260618'
   - '[cbusifabcap-clashmeta] ❓Other_18|228KB/s|R002-260618'
   - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[cbusifabcap-clashmeta] ❓Other_19|212KB/s|R002-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_20|214KB/s|R002-260618'
-  - '[ermaozi-subscribe] NL_speednode_0004'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[ermaozi-subscribe] NL_speednode_0005'
   - '[cbusifabcap-clashmeta] ❓Other_23|265KB/s|R002-260618'
-  - '[ermaozi-subscribe] NL_speednode_0006'
-  - '[share-daily-node] CA-HTTP-05'
   - '[ermaozi-subscribe] NL_speednode_0007'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
   - '[cbusifabcap-clashmeta] ❓Other_25|224KB/s|P002-260618'
   - '[ermaozi-subscribe] NL_speednode_0008'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 02'
-  - '[ermaozi-subscribe] NL_speednode_0009'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 03'
   - '[ermaozi-subscribe] NL_speednode_0010'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 04'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 05'
-  - '[cbusifabcap-clashmeta] ❓Other_29|325KB/s'
   - '[share-daily-node] FR-HTTP-01'
-  - '[zhuhaiuk-free-nodes] RO - zhuhai.uk 06'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 028A48'
-  - '[cbusifabcap-clashmeta] ❓Other_30|248KB/s|G001-260618'
   - '[share-daily-node] FR-HTTP-03'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
-  - '[cbusifabcap-uri] ❓Other_44|128KB/s|A004-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 06ADD7'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
-  - '[cbusifabcap-clashmeta] ❓Other_33|341KB/s|R002-260618'
-  - '[iboxz-collector] 🇨🇦 CA | 104.21.91.244'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
-  - '[cbusifabcap-clashmeta] ❓Other_34|218KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0CF2D2'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 15797E'
-  - '[cbusifabcap-uri] ❓Other_52|252KB/s|M002-260618'
   - '[share-daily-node] IT-HTTP-01'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1B764B'
-  - '[share-daily-node] IT-HTTP-03'
-  - '[cbusifabcap-clashmeta] ❓Other_44|128KB/s|A004-260618'
-  - '[iboxz-collector] 🇨🇦 CA | 172.67.155.65'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 21A212'
-  - '[iboxz-collector] 🇨🇦 CA | 172.67.155.65-2'
-  - '[ovmvo-permanent] 🇸🇬 022  | ⬇️ 5MB/s'
   - '[cbusifabcap-clashmeta] ❓Other_46|214KB/s|S004-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 22A83C'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 23A580'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 253B12'
   - '[share-daily-node] PL-HTTP-01'
-  - '[cbusifabcap-uri] ❓Other_70|243KB/s|K001-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_52|252KB/s|M002-260618'
   - '[share-daily-node] RO-HTTP-05'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3353B7'
   - '[share-daily-node] RO-HTTP-11'
-  - '[cbusifabcap-uri] ❓Other_75|64KB/s|A004-260618'
-  - '[share-daily-node] RO-HTTP-13'
   - '[cbusifabcap-clashmeta] ❓Other_55|212KB/s|R002-260618'
-  - '[ermaozi-subscribe] RO_speednode_0041'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 35A445'
-  - '[share-daily-node] RO-HTTP-19'
-  - '[cbusifabcap-clashmeta] ❓Other_56|114KB/s|R002-260618'
   - '[ermaozi-subscribe] RO_speednode_0042'
   - '[share-daily-node] RO-HTTP-28'
-  - '[share-daily-node] RO-HTTP-29'
-  - '[ermaozi-subscribe] RO_speednode_0044'
-  - '[iboxz-collector] 🇨🇦 CA | 188.114.97.6-8'
   - '[share-daily-node] RO-HTTP-41'
   - '[ermaozi-subscribe] RO_speednode_0045'
   - '[share-daily-node] RO-HTTP-61'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
-  - '[iboxz-collector] 🇨🇦 CA | 188.114.98.0'
-  - '[share-daily-node] RU-HTTP-01'
-  - '[iboxz-collector] 🇨🇦 CA | 188.114.98.0-2'
-  - '[cbusifabcap-clashmeta] ❓Other_63|211KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 46B566'
-  - '[share-daily-node] SG-HTTP-03'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 47648B'
   - '[share-daily-node] SG-HTTP-04'
   - '[share-daily-node] SG-HTTP-05'
   - '[share-daily-node] SG-HTTP-06'
   - '[share-daily-node] SG-HTTP-07'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4EC4EF'
   - '[share-daily-node] SG-HTTP-08'
-  - '[cbusifabcap-clashmeta] ❓Other_70|243KB/s|K001-260618'
-  - '[share-daily-node] SG-HTTP-09'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-2'
-  - '[cbusifabcap-clashmeta] ❓Other_75|64KB/s|A004-260618'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-3'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-4'
-  - '[share-daily-node] US-HTTP-02'
-  - '[cbusifabcap-clashmeta] ❓Other_77|204KB/s|F003-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 553976'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-5'
-  - '[share-daily-node] US-HTTP-03'
+  - '[share-daily-node] SG-HTTP-10'
   - '[free18-clash] 🇫🇮_芬兰_69'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-6'
   - '[share-daily-node] US-HTTP-05'
   - '[free18-clash] 🇫🇮_芬兰_70'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-7'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-8'
   - '[share-daily-node] US-HTTP-11'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-9'
-  - '[share-daily-node] US-HTTP-14'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-10'
   - '[share-daily-node] US-HTTP-15'
-  - '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-11'
   - '[ermaozi-subscribe] RO_speednode_0097'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_12|212KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7E7881'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F5870'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7F8340'
   - '[ermaozi-subscribe] RO_speednode_0110'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 80057E'
   - '[cbusifabcap-clashmeta] 🇫🇮FI_5|288KB/s|R002-260618'
-  - '[cbusifabcap-uri] 🇮🇱IL_2|388KB/s|P002-260618'
-  - '[nexus-nodes-all] @v2ray_phoenix'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_13|937KB/s|A004-260618'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_14|96KB/s|T001-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8B1289'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_17|483KB/s|B007-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8BB1EE'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_19|986KB/s|B007-260618'
   - '[ermaozi-subscribe] RO_speednode_0124'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_1|299KB/s|B007-260618'
   - '[ermaozi-subscribe] RO_speednode_0126'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_3|273KB/s|A004-260618'
-  - '[cbusifabcap-clashmeta] 🇫🇷FR_4|69KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇫🇷FR_6|223KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9A6C18'
   - '[ermaozi-subscribe] US_speednode_0131'
-  - '[ermaozi-subscribe] US_speednode_0133'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1CD58'
   - '[ermaozi-subscribe] US_speednode_0140'
   - '[ermaozi-subscribe] US_speednode_0141'
   - '[ermaozi-subscribe] US_speednode_0143'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A4F840'
-  - '[cbusifabcap-clashmeta] ❓Other_10|210KB/s|R002-260618'
-  - '[nexus-nodes-all] 10336@proxy_online_net'
-  - '[zhuhaiuk-free-nodes] JP - zhuhai.uk 02'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0C8E98'
-  - '[ermaozi-subscribe] рҹҮәрҹҮё_US_зҫҺеӣҪ_1'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5331AC'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6D4339'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 73342A'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 878FF1'
-  - '[share-daily-node] JP-HTTP-02'
   - '[share-daily-node] NL-HTTP-25'
-  - '[share-daily-node] NL-HTTP-49'
   - '[share-daily-node] NL-HTTP-50'
-  - '[nexus-nodes-all] @IRAN_V2RAY1-3'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A65B5A'
-  - '[cbusifabcap-clashmeta] ❓OtherT1_1|900KB/s|R002-260618'
   - '[share-daily-node] RO-HTTP-03'
-  - '[share-daily-node] RO-HTTP-10'
-  - '[share-daily-node] RO-HTTP-100'
-  - '[share-daily-node] RO-HTTP-107'
-  - '[snapdragon-systemproxy] 🏁ZZ_154_1@153'
   - '[share-daily-node] RO-HTTP-20'
-  - '[share-daily-node] RO-HTTP-26'
-  - '[chengaopan-base64] http-fan.365747.xyz:443'
-  - '[nexus-nodes-all] @MARAMBASHI 🇳🇱'
-  - '[share-daily-node] RO-HTTP-33'
-  - '[chengaopan-base64] http-purposebydesig.club:443'
-  - '[share-daily-node] RO-HTTP-34'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B52D10'
   - '[share-daily-node] RO-HTTP-47'
+  - '[share-daily-node] RO-HTTP-67'
   - '[share-daily-node] RO-HTTP-71'
   - '[share-daily-node] RO-HTTP-84'
   - '[share-daily-node] RO-HTTP-88'
   - '[share-daily-node] RO-HTTP-90'
-  - '[share-daily-node] RO-HTTP-91'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | BEA641'
   - '[share-daily-node] RO-HTTP-97'
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-12'
-  - '[ermaozi-subscribe] 🇨🇦CA_3|1.2MB/s'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 172737'
-  - '[share-daily-node] SG-HTTP-13'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 27F122'
-  - '[share-daily-node] SG-HTTP-15'
-  - '[share-daily-node] SG-HTTP-16'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 64E4B9'
-  - '[share-daily-node] SG-HTTP-18'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861FD7'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 898FDB'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9DB2F1'
   - '[share-daily-node] US-HTTP-01'
   - '[share-daily-node] US-HTTP-07'
-  - '[share-daily-node] US-HTTP-09'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | ACE740'
   - '[share-daily-node] US-HTTP-12'
-  - '[share-daily-node] US-HTTP-13'
   - '[share-daily-node] US-HTTP-23'
   - '[share-daily-node] US-HTTP-24'
   - '[share-daily-node] US-HTTP-25'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C9F20E'
   - '[share-daily-node] US-HTTP-27'
   - '[cbusifabcap-clashmeta] ❓OtherT1_1|378KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CB851E'
   - '[share-daily-node] US-HTTP-29'
   - '[share-daily-node] US-HTTP-30'
-  - '[share-daily-node] US-HTTP-35'
   - '[share-daily-node] US-HTTP-36'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D91EF8'
-  - '[share-daily-node] US-HTTP-37'
-  - '[share-daily-node] US-HTTP-38'
-  - '[share-daily-node] US-HTTP-39'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | DE5F37'
-  - '[share-daily-node] US-HTTP-40'
-  - '[zhuhaiuk-free-nodes] ID - zhuhai.uk 02'
   - '[share-daily-node] CZ-HTTP-02'
   - '[zhuhaiuk-free-nodes] LT - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AA7783'
   - '[share-daily-node] IT-HTTP-04'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
   - '[ermaozi-subscribe] 🇩🇪DE_3|1.4MB/s'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C1DD08'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | CE34C5'
-  - '[share-daily-node] RO-HTTP-14'
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
-  - '[share-daily-node] RO-HTTP-48'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 2E1AB6'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 36C924'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A8DB9C'
-  - '[cbusifabcap-clashmeta] 🇦🇺AU_2|409KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
-  - '[free18-clash] 🏳️_未知_272'
-  - '[free18-clash] 🏳️_未知_273'
-  - '[free18-clash] 🏳️_未知_275'
   - '[ermaozi-subscribe] 🇭🇰 香港 | HKG 8'
   - '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
   url: https://www.gstatic.com/generate_204

@@ -8,6 +8,9 @@
       "tag": "proxy",
       "outbounds": [
         "direct",
+        "[cbusifabcap-uri] ❓Other_16|1.2MB/s|F003-260618",
+        "[cbusifabcap-clashmeta] ❓Other_16|1.2MB/s|F003-260618",
+        "[cbusifabcap-uri] ❓Other_21|72KB/s|B007-260618",
         "[cbusifabcap-uri] 🇨🇦CA_41|917KB/s|R002-260618",
         "[chengaopan-base64] 🇫🇷[www.v2nodes.com] trojan-FR-... #5",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 861C59",
@@ -92,7 +95,6 @@
         "[free18-clash] 🇫🇷_法国_294",
         "[snapdragon-systemproxy] 🇮🇳IN_104_1@103",
         "[cbusifabcap-uri] 🇫🇷FR_1|299KB/s|B007-260618",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-1828123865",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1828150748",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1827145654",
         "[free18-clash] 🇨🇾_塞浦路斯_85",
@@ -774,6 +776,59 @@
     {
       "type": "direct",
       "tag": "direct"
+    },
+    {
+      "type": "vless",
+      "tag": "[cbusifabcap-uri] ❓Other_16|1.2MB/s|F003-260618",
+      "server": "57.129.132.223",
+      "server_port": 80,
+      "uuid": "dbb78c94-9f87-4d7d-b945-2000b60352fd",
+      "tls": {
+        "enabled": true,
+        "server_name": "---@External_Net---@External_Net---@External_Net---@External_Net---@External_Net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vless/"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[cbusifabcap-clashmeta] ❓Other_16|1.2MB/s|F003-260618",
+      "server": "57.129.132.223",
+      "server_port": 80,
+      "uuid": "dbb78c94-9f87-4d7d-b945-2000b60352fd",
+      "tls": {
+        "enabled": true,
+        "server_name": "---@External_Net---@External_Net---@External_Net---@External_Net---@External_Net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vless/",
+        "headers": {
+          "Host": "",
+          "User-Agent": "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "[cbusifabcap-uri] ❓Other_21|72KB/s|B007-260618",
+      "server": "144.31.195.61",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "wWw.Volumeroot.cOm.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "unsafe"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment"
+      }
     },
     {
       "type": "trojan",
@@ -2117,18 +2172,6 @@
         "headers": {
           "Host": "hhlfy.twiladaphne.ndjp.net"
         }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1828123865",
-      "server": "104.168.6.236",
-      "server_port": 44443,
-      "password": "64c05afc-ce81-4ba0-b697-afa04da1427e",
-      "tls": {
-        "enabled": true,
-        "server_name": "bing.com",
-        "insecure": true
       }
     },
     {
