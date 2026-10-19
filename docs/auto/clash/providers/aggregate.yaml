@@ -1,4 +1,86 @@
 proxies:
+- name: '[snapdragon-systemproxy] 🇨🇦CA_04 ⇽中转_1@3'
+  server: ca.tronsg.com
+  type: trojan
+  country: 🇨🇦CA
+  port: 443
+  password: Trojan@82164024
+  sni: ca.tronsg.com
+  skip-cert-verify: true
+  udp: true
+- cipher: aes-256-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1828227474'
+  password: SBM7R883jBmnqe6C
+  port: 9053
+  server: 91.201.65.122
+  type: ss
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: '[cbusifabcap-clashmeta] ❓Other_3|317KB/s|S004-260618'
+  network: ws
+  port: 80
+  server: 168.138.43.75
+  skip-cert-verify: false
+  sub_tag: S004-260618
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
+  ws-opts:
+    headers:
+      Host: jp01.a0a.xyz
+    path: /cctv13.m3u8
+  xudp: true
+  packet-encoding: xudp
+  servername: jp01.a0a.xyz
+- name: '[free18-clash] 🇧🇾_白俄罗斯_44'
+  type: vless
+  server: 178.172.227.124
+  port: 10444
+  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  servername: ads.x5.ru
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+  reality-opts:
+    public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
+    short-id: 8debcf36f1cc69ff
+  skip-cert-verify: true
+  udp: true
+- name: '[cbusifabcap-uri] 🇦🇪AE_1|773KB/s|T001-260618'
+  type: vless
+  server: uae.unixzone.us
+  port: 22573
+  uuid: 39947382-3212-41c9-bc3a-589574ac8b23
+  sni: uae.unixzone.us
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: uae.unixzone.us
+- name: '[igareck-vless] 🇩🇪 Germany, Frankfurt am Main | [BL]'
+  type: vless
+  server: sdcdethyerft.localip.ir
+  port: 2087
+  uuid: a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d
+  tls: true
+  sni: sdcdethyerft.localip.ir
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /hokm
+    headers:
+      Host: sdcdethyerft.localip.ir
+- name: '[nomorewalls-list] 🇭🇰[www.v2nodes.com] trojan-HK-...'
+  password: XuMweB2PWs
+  port: 45464
+  server: 2.27.109.179
+  skip-cert-verify: false
+  sni: 2.27.109.179.sslip.io
+  type: trojan
 - name: '[free18-clash] 🏳️_未知_189'
   type: vless
   server: 172.67.156.147
@@ -547,20 +629,6 @@ proxies:
     path: /ws
     headers:
       Host: a.cwvps.eu.org
-- name: '[nirevil-clashmeta] 🇲🇰Wind12-NorthMacedonia'
-  type: wireguard
-  server: 185.225.28.52
-  port: 65142
-  ip: 100.80.234.177
-  private-key: cIq+3tcHVT7gRMl4kIv0WE68ERiTmDtA7rhyHhLJ/mg=
-  public-key: 9J0kA4c4i7N/+6B+3j0zFkDTHocZNsw6eK6+sLZ1qCQ=
-  udp: true
-  pre-shared-key: N/gfMZSjvP8mbXfVP2hnD5CX8BkGvOyheJ67mCpD+QQ=
-  mtu: 1280
-  amnezia-wg-option:
-    jc: 3
-    jmin: 10
-    jmax: 50
 - cipher: chacha20-ietf-poly1305
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146803'
   password: QFWzCw2uX9B9i6qAYeFBIE
@@ -4327,20 +4395,6 @@ proxies:
     path: /
     headers:
       Host: lucasjow.us.ci
-- name: '[free18-clash] 🇲🇩_摩尔多瓦_121'
-  type: vless
-  server: ro2.aiage.work
-  port: 443
-  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
-  servername: ro2.aiage.work
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: firefox
-  reality-opts:
-    public-key: pkKL2cqqPNxc1rqrvhJmexI7NOeZFaGUawAwqQpVY3c
-    short-id: 1d2fecf1d2475168
-  skip-cert-verify: true
-  udp: true
 - name: '[ermaozi-subscribe] RO_speednode_0110'
   port: 9002
   server: 193.176.84.27
@@ -5686,16 +5740,6 @@ proxies:
   skip-cert-verify: true
   sni: css.rbxcdn.com
   type: hysteria2
-- name: '[cbusifabcap-uri] 🇦🇺AU_5|517KB/s|R002-260618'
-  type: hysteria2
-  server: 152.67.115.203
-  port: 443
-  password: 633bc3be486b646190661ac2387c150a
-  tls: true
-  sni: www.bing.com
-  obfs: salamander
-  obfs-password: 850a3fb1cd33a28f12d837578ae1a2e7
-  skip-cert-verify: true
 - name: '[share-daily-node] RO-HTTP-10'
   type: http
   server: 193.176.84.36
@@ -8040,45 +8084,3 @@ proxies:
   port: 443
   password: shadowsocks
   cipher: aes-128-gcm
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 380A40'
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM--V2ray_confiig?ed=2560
-    headers:
-      Host: lucasjow.us.ci
-- name: '[snapdragon-systemproxy] 🇬🇧GB_44_0@43'
-  server: 82.38.31.205
-  type: ss
-  country: 🇬🇧GB
-  port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1832650664'
-  password: 84a506ca5aca505696a454d828420b3f
-  port: 50160
-  server: 140.238.213.114
-  skip-cert-verify: true
-  sni: 140.238.213.114
-  type: hysteria2
-- name: '[clashfree-daily] 未知 VLESS-187 | free-nodes'
-  server: tk1.high-speed-test-56424.me
-  port: 443
-  type: vless
-  uuid: 37615d66-5467-44a3-bc23-f2c3bef7f761
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM
-    short-id: 21270a66
-  servername: aws.amazon.com
-  client-fingerprint: chrome
-  network: tcp
