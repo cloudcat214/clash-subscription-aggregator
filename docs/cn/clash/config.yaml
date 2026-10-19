@@ -817,6 +817,21 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: false
+- name: '[share-daily-node] RO-HTTP-12'
+  type: http
+  server: 193.176.84.17
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] RO-HTTP-27'
+  type: http
+  server: 193.176.84.34
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  password: None
 proxy-groups:
 - name: PROXY
   type: select
@@ -928,6 +943,8 @@ proxy-groups:
   - '[share-daily-node] SG-HTTP-27'
   - '[share-daily-node] SG-HTTP-28'
   - '[share-daily-node] US-HTTP-04'
+  - '[share-daily-node] RO-HTTP-12'
+  - '[share-daily-node] RO-HTTP-27'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -1037,6 +1054,8 @@ proxy-groups:
   - '[share-daily-node] SG-HTTP-27'
   - '[share-daily-node] SG-HTTP-28'
   - '[share-daily-node] US-HTTP-04'
+  - '[share-daily-node] RO-HTTP-12'
+  - '[share-daily-node] RO-HTTP-27'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
