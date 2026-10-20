@@ -584,6 +584,15 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-07'
+  type: http
+  server: mmgr.club
+  port: 443
+  udp: true
+  tls: true
+  sni: mmgr.club
+  skip-cert-verify: true
+  password: None
 - name: '[share-daily-node] US-HTTP-12'
   type: http
   server: 138.199.35.206
@@ -911,6 +920,7 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-12'
   - '[share-daily-node] US-HTTP-01'
+  - '[share-daily-node] US-HTTP-07'
   - '[share-daily-node] US-HTTP-12'
   - '[share-daily-node] US-HTTP-22'
   - '[share-daily-node] US-HTTP-23'
@@ -1022,6 +1032,7 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-12'
   - '[share-daily-node] US-HTTP-01'
+  - '[share-daily-node] US-HTTP-07'
   - '[share-daily-node] US-HTTP-12'
   - '[share-daily-node] US-HTTP-22'
   - '[share-daily-node] US-HTTP-23'
