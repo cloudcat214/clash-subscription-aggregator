@@ -584,15 +584,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-07'
-  type: http
-  server: mmgr.club
-  port: 443
-  udp: true
-  tls: true
-  sni: mmgr.club
-  skip-cert-verify: true
-  password: None
 - name: '[share-daily-node] US-HTTP-12'
   type: http
   server: 138.199.35.206
@@ -761,6 +752,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[share-daily-node] SG-HTTP-21'
+  type: http
+  server: 154.26.138.246
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[share-daily-node] SG-HTTP-23'
   type: http
   server: 154.26.139.7
@@ -796,6 +794,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-04'
+  type: http
+  server: voteshirleysew.club
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: false
 - name: '[share-daily-node] RO-HTTP-07'
   type: http
   server: 193.176.84.39
@@ -898,7 +903,6 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-12'
   - '[share-daily-node] US-HTTP-01'
-  - '[share-daily-node] US-HTTP-07'
   - '[share-daily-node] US-HTTP-12'
   - '[share-daily-node] US-HTTP-22'
   - '[share-daily-node] US-HTTP-23'
@@ -921,11 +925,13 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-66'
   - '[share-daily-node] SG-HTTP-19'
   - '[share-daily-node] SG-HTTP-20'
+  - '[share-daily-node] SG-HTTP-21'
   - '[share-daily-node] SG-HTTP-23'
   - '[share-daily-node] SG-HTTP-24'
   - '[share-daily-node] SG-HTTP-26'
   - '[share-daily-node] SG-HTTP-27'
   - '[share-daily-node] SG-HTTP-28'
+  - '[share-daily-node] US-HTTP-04'
   - '[share-daily-node] RO-HTTP-07'
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
@@ -1007,7 +1013,6 @@ proxy-groups:
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-12'
   - '[share-daily-node] US-HTTP-01'
-  - '[share-daily-node] US-HTTP-07'
   - '[share-daily-node] US-HTTP-12'
   - '[share-daily-node] US-HTTP-22'
   - '[share-daily-node] US-HTTP-23'
@@ -1030,11 +1035,13 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-66'
   - '[share-daily-node] SG-HTTP-19'
   - '[share-daily-node] SG-HTTP-20'
+  - '[share-daily-node] SG-HTTP-21'
   - '[share-daily-node] SG-HTTP-23'
   - '[share-daily-node] SG-HTTP-24'
   - '[share-daily-node] SG-HTTP-26'
   - '[share-daily-node] SG-HTTP-27'
   - '[share-daily-node] SG-HTTP-28'
+  - '[share-daily-node] US-HTTP-04'
   - '[share-daily-node] RO-HTTP-07'
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
