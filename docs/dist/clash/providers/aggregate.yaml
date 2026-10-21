@@ -1,4 +1,43 @@
 proxies:
+- name: '[share-daily-node] IT-HTTP-05'
+  type: http
+  server: 93.42.177.250
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- cipher: aes-256-cfb
+  name: '[cbusifabcap-clashmeta] ❓Other_3|235KB/s|A004-260618'
+  password: rpgbNnU9rDDU4aWZ
+  port: 9094
+  server: 185.135.86.175
+  sub_tag: A004-260618
+  type: ss
+  udp: true
+- client-fingerprint: firefox
+  encryption: none
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] ❓Other_11|1.7MB/s|M002-260618'
+  network: raw
+  port: 443
+  reality-opts:
+    public-key: qc2DcqT9zPPZr6ePZ7ukxACWrYhRNIBjDIjCK7veyQg
+    short-id: a44ff7d2e80213c2
+  server: 145.223.68.58
+  sub_tag: M002-260618
+  tls: true
+  type: vless
+  udp: true
+  uuid: edb50d20-2d3e-4c1e-8a75-a17168a89aa5
+  xudp: true
+  packet-encoding: xudp
+  servername: www.cloudflare.com
+- name: '[chengaopan-base64] http-13.229.91.101:2080'
+  type: http
+  server: 13.229.91.101
+  port: 2080
+  username: '1234'
+  password: '1234'
 - name: '[cbusifabcap-clashmeta] ❓Other_15|238KB/s|R002-260618'
   port: 443
   server: 84.235.228.156
@@ -100,19 +139,6 @@ proxies:
     path: /platform103
     headers:
       Host: platform103.halalkhor.info
-- name: '[cbusifabcap-uri] ❓Other_19|143KB/s|S004-260618'
-  type: trojan
-  server: 144.31.195.61
-  port: 443
-  password: humanity
-  tls: true
-  sni: www.pleadcourt.org
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: unsafe
-  ws-opts:
-    path: /assignment
 - name: '[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-6'
   type: vless
   server: platform103.golnamakcert.top
@@ -182,19 +208,6 @@ proxies:
   skip-cert-verify: true
   sni: https3a2f2ft.me2fwangcai2efa3bfc3bcc3a1
   type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9'
-  server: 104.21.70.228
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 - name: '[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | B8B9A3'
   server: 84.235.244.108
   port: 22573
@@ -416,20 +429,6 @@ proxies:
     path: /
     headers:
       Host: ccc.010304.xyz
-- cipher: aes-256-gcm
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146336'
-  password: 3eOFeNssde7PYYMv
-  port: 443
-  server: 84.247.155.196
-  type: ss
-  udp: true
-- cipher: aes-256-gcm
-  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146658'
-  password: 3eOFeNssde7PYYMv
-  port: 80
-  server: 84.247.155.196
-  type: ss
-  udp: true
 - name: '[snapdragon-systemproxy] 🇬🇧GB_21_0@20'
   server: 82.38.31.217
   type: ss
@@ -5860,14 +5859,6 @@ proxies:
   port: 8080
   cipher: rc4-md5
   password: 14fFPrbezE3HDZzsMOr6
-- name: '[cbusifabcap-uri] 🇨🇦CA_6|1.3MB/s|M002-260618'
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  network: tcp
 - client-fingerprint: chrome
   name: '[cbusifabcap-clashmeta] 🇧🇬BG_3|677KB/s|P002-260618'
   network: ws
@@ -5919,34 +5910,6 @@ proxies:
   tls: true
   sni: www.bing.com
   skip-cert-verify: true
-- alterId: '0'
-  cipher: auto
-  name: '[cbusifabcap-clashmeta] 🇨🇦CA_10|1017KB/s|C002-260622'
-  network: raw
-  port: 18000
-  server: 134.195.196.211
-  skip-cert-verify: false
-  sub_tag: C002-260622
-  tls: false
-  type: vmess
-  udp: true
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  xudp: true
-  packet-encoding: xudp
-- alterId: 0
-  cipher: auto
-  name: '[cbusifabcap-clashmeta] 🇨🇦CA_11|1.5MB/s|M002-260618'
-  port: 18000
-  server: 134.195.196.211
-  skip-cert-verify: false
-  sub_tag: M002-260618
-  tls: false
-  type: vmess
-  udp: true
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  xudp: true
-  network: tcp
-  packet-encoding: xudp
 - name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 0FF40C'
   server: 5.252.179.15
   port: 443
@@ -6817,16 +6780,6 @@ proxies:
     path: /fp=chrome
     headers:
       Host: ccc.010304.xyz
-- name: '[chengaopan-base64] 🇦🇺 澳大利亚 | AUS'
-  type: hysteria2
-  server: 152.67.115.203
-  port: 443
-  password: 633bc3be486b646190661ac2387c150a
-  tls: true
-  sni: www.bing.com
-  obfs: salamander
-  obfs-password: 850a3fb1cd33a28f12d837578ae1a2e7
-  skip-cert-verify: true
 - name: '[clashfree-daily] 未知 VLESS-208 | free-nodes'
   server: 83.147.18.75
   port: 443
@@ -7679,21 +7632,6 @@ proxies:
   server: 82.38.31.190
   type: ss
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 51C037'
-  server: 104.17.77.77
-  port: 8443
-  type: vmess
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
 - alpn:
   - h3
   auth-str: dongtaiwang.com
@@ -7945,20 +7883,6 @@ proxies:
   skip-cert-verify: true
   sni: https://t.me/wangcai2�
   type: hysteria2
-- name: '[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 4A5FC7'
-  server: 51.161.204.244
-  port: 443
-  type: vless
-  uuid: 36e89875-9c53-482b-bc41-d3890e9da176
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  servername: www.cloudflare.com
-  reality-opts:
-    public-key: gCAazs5uxNuMZIxfDdw8wPE0nwKY4QfBfBkQveKAkEk
-    short-id: 0ad08b47f498efd2
-  client-fingerprint: firefox
-  network: tcp
 - name: '[free18-clash] 🇸🇬_新加坡_20'
   type: vless
   server: 511.150333.xyz
@@ -7978,3 +7902,57 @@ proxies:
   port: 443
   tls: true
   skip-cert-verify: true
+- cipher: aes-256-cfb
+  name: '[cbusifabcap-clashmeta] ❓Other_13|1.1MB/s|M001-260618'
+  password: M3t2ZEQcMGRWBjRa
+  port: 9011
+  server: 5.188.181.201
+  sub_tag: M001-260618
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] ❓Other_13|1.1MB/s|M001-260618'
+  type: ss
+  server: 5.188.181.201
+  port: 9011
+  cipher: aes-256-cfb
+  password: M3t2ZEQcMGRWBjRa
+- name: '[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | 02BB68'
+  server: 195.123.226.21
+  port: 443
+  type: vless
+  uuid: 6589c320-db68-43cd-a273-b46299bab355
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: gateway.icloud.com
+  reality-opts:
+    public-key: rabtI-ymNXBUvYYRwAw8DiR-1pdP7U0WPIaCBHEkgzo
+    short-id: 77bb0d07bddbc832
+  client-fingerprint: chrome
+  network: tcp
+- name: '[free18-clash] 🇸🇬_新加坡_21'
+  type: vless
+  server: 511.150333.xyz
+  port: 21001
+  uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  servername: www.cloudflare.com
+  tls: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
+    short-id: ab39fc68ab3dee81
+  skip-cert-verify: true
+  udp: true
+- name: '[zhuhaiuk-free-nodes] SE - zhuhai.uk 02'
+  type: http
+  server: 138.16.163.249
+  port: 8443
+  tls: true
+  skip-cert-verify: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331424'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 202.146.222.29
+  skip-cert-verify: true
+  sni: https://t.me/wangcai2≡ƒç¿≡ƒç│
+  type: hysteria2
