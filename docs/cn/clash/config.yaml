@@ -3,6 +3,12 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
+- name: '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
+  type: socks5
+  server: 47.242.19.215
+  port: 8899
+  username: admin
+  password: admin
 - name: '[share-daily-node] RO-HTTP-40'
   type: http
   server: 193.176.84.32
@@ -842,11 +848,35 @@ proxies:
   skip-cert-verify: true
   username: 'null'
   password: 'null'
+- name: '[share-daily-node] RO-HTTP-30'
+  type: http
+  server: 193.176.84.34
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  password: None
+- name: '[share-daily-node] RO-HTTP-37'
+  type: http
+  server: 193.176.84.23
+  port: 9002
+  udp: true
+  tls: true
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: '[share-daily-node] RO-HTTP-60'
+  type: http
+  server: 193.176.84.29
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - DIRECT
+  - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[share-daily-node] RO-HTTP-40'
   - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'
@@ -956,9 +986,13 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
   - '[share-daily-node] RO-HTTP-64'
+  - '[share-daily-node] RO-HTTP-30'
+  - '[share-daily-node] RO-HTTP-37'
+  - '[share-daily-node] RO-HTTP-60'
 - name: AUTO
   type: url-test
   proxies: &id001
+  - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[share-daily-node] RO-HTTP-40'
   - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'
@@ -1068,6 +1102,9 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
   - '[share-daily-node] RO-HTTP-64'
+  - '[share-daily-node] RO-HTTP-30'
+  - '[share-daily-node] RO-HTTP-37'
+  - '[share-daily-node] RO-HTTP-60'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
