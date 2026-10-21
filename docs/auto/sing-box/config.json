@@ -8,6 +8,17 @@
       "tag": "proxy",
       "outbounds": [
         "direct",
+        "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-4",
+        "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-5",
+        "[cbusifabcap-uri] ❓Other_19|143KB/s|S004-260618",
+        "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-6",
+        "[cbusifabcap-clashmeta] ❓Other_19|143KB/s|S004-260618",
+        "[cbusifabcap-uri] ❓Other_1|578KB/s",
+        "[free-v2ray-verified-clash] BY 🇧🇾 | @Raydikalx | 2466B3",
+        "[mahdibland-ssagg-merge] 🇦🇪AE-31.57.190.71-0490",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1853489155",
+        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 004741",
+        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9",
         "[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | B8B9A3",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1827145205",
         "[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | F16E75",
@@ -23,7 +34,6 @@
         "[cbusifabcap-clashmeta] ❓Other_15|388KB/s|A004-260618",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1853331477",
         "[zhuhaiuk-free-nodes] SG - zhuhai.uk 03",
-        "[au1rxx-free-vpn-subscriptions] shadowsocks-1827147591",
         "[mahdibland-eternity] 🇫🇷FR-54.37.131.126-0164 | 1.29MB",
         "[cbusifabcap-uri] ❓Other_25|599KB/s|A004-260618",
         "[cbusifabcap-clashmeta] ❓Other_2|671KB/s|A004-260618",
@@ -713,7 +723,6 @@
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5405DE",
         "[cbusifabcap-clashmeta] 🇦🇪AE_1|467KB/s|A003-260618",
         "[cbusifabcap-clashmeta] 🇦🇪AE_3|832KB/s|M003-260806",
-        "[au1rxx-free-vpn-subscriptions] trojan-1827188340",
         "[cbusifabcap-clashmeta] 🇦🇪AE_4|583KB/s|T001-260618",
         "[cbusifabcap-uri] 🇧🇬BG_4|1.0MB/s|P002-260618",
         "[ermaozi-subscribe] 🇫🇷FR_4|2.7MB/s",
@@ -754,21 +763,195 @@
         "[cbusifabcap-clashmeta] 🇧🇷BR_1|570KB/s|R002-260618",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8E6A77",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 903F46",
-        "[nexus-nodes-all] CA 🇨🇦 | @Raydikalx | 9F7A9A",
-        "[free18-clash] 🇸🇬_新加坡_10",
-        "[free18-clash] 🇸🇬_新加坡_102",
-        "[free18-clash] 🇸🇬_新加坡_11",
-        "[share-daily-node] NL-HTTP-20",
-        "[free18-clash] 🇸🇬_新加坡_12",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-1832764816",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1087B8",
-        "[share-daily-node] RO-HTTP-64",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-1832764823"
+        "[nexus-nodes-all] CA 🇨🇦 | @Raydikalx | 9F7A9A"
       ]
     },
     {
       "type": "direct",
       "tag": "direct"
+    },
+    {
+      "type": "vless",
+      "tag": "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-4",
+      "server": "platform103.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform103",
+        "headers": {
+          "Host": "platform103.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-5",
+      "server": "platform103.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform103",
+        "headers": {
+          "Host": "platform103.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "[cbusifabcap-uri] ❓Other_19|143KB/s|S004-260618",
+      "server": "144.31.195.61",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.pleadcourt.org",
+        "alpn": [
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "unsafe"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-6",
+      "server": "platform103.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "tls": {
+        "enabled": true,
+        "server_name": "platform103.golnamakcert.top",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/platform103",
+        "headers": {
+          "Host": "platform103.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "[cbusifabcap-clashmeta] ❓Other_19|143KB/s|S004-260618",
+      "server": "144.31.195.61",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.pleadcourt.org",
+        "alpn": [
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "unsafe"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+        }
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[cbusifabcap-uri] ❓Other_1|578KB/s",
+      "server": "82.38.31.190",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] BY 🇧🇾 | @Raydikalx | 2466B3",
+      "server": "178.172.227.228",
+      "server_port": 14430,
+      "uuid": "b6e5dc56-836f-48c1-9163-b0b0b43b647d",
+      "tls": {
+        "enabled": true,
+        "server_name": "178.172.227.228",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vless",
+        "headers": {
+          "Host": "178.172.227.228"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "[mahdibland-ssagg-merge] 🇦🇪AE-31.57.190.71-0490",
+      "server": "31.57.190.71",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.pleadcourt.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.pleadcourt.org"
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1853489155",
+      "server": "202.146.222.29",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "https3a2f2ft.me2fwangcai2efa3bfc3bcc3a1",
+        "insecure": true
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 004741",
+      "server": "51.222.200.165",
+      "server_port": 5000,
+      "method": "aes-256-gcm",
+      "password": "Y6R9pAtvxxzmGC"
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0378E9",
+      "server": "104.21.70.228",
+      "server_port": 443,
+      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp3.yohototo.top"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/tyxyws",
+        "headers": {
+          "Host": "jp3.yohototo.top"
+        }
+      }
     },
     {
       "type": "vless",
@@ -996,14 +1179,6 @@
           "short_id": "6ba85179e30d4fc2"
         }
       }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1827147591",
-      "server": "15.204.247.206",
-      "server_port": 4444,
-      "method": "aes-256-gcm",
-      "password": "pKEW8JPByTVTLtM"
     },
     {
       "type": "vmess",
@@ -10213,18 +10388,6 @@
       }
     },
     {
-      "type": "trojan",
-      "tag": "[au1rxx-free-vpn-subscriptions] trojan-1827188340",
-      "server": "139.180.146.200",
-      "server_port": 8886,
-      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437",
-      "tls": {
-        "enabled": true,
-        "server_name": "139.180.146.200",
-        "insecure": true
-      }
-    },
-    {
       "type": "vless",
       "tag": "[cbusifabcap-clashmeta] 🇦🇪AE_4|583KB/s|T001-260618",
       "server": "uae.unixzone.us",
@@ -10825,154 +10988,6 @@
         "headers": {
           "Host": "lucasjow.us.ci"
         }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free18-clash] 🇸🇬_新加坡_10",
-      "server": "511.150333.xyz",
-      "server_port": 21002,
-      "uuid": "41b1c169-5905-4d98-b6a6-56896c25737c",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU",
-          "short_id": "3ab8d93dd9b1a5be"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free18-clash] 🇸🇬_新加坡_102",
-      "server": "147.93.173.45",
-      "server_port": 10444,
-      "uuid": "75c5f51b-d548-4eab-a26e-aa10fc3dbc7b",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "video.yandex.ru",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo",
-          "short_id": "8debcf36f1cc69ff"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free18-clash] 🇸🇬_新加坡_11",
-      "server": "511.150333.xyz",
-      "server_port": 21003,
-      "uuid": "41b1c169-5905-4d98-b6a6-56896c25737c",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU",
-          "short_id": "bab49aa4c2a88d27"
-        }
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[share-daily-node] NL-HTTP-20",
-      "server": "51.158.243.91",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free18-clash] 🇸🇬_新加坡_12",
-      "server": "511.150333.xyz",
-      "server_port": 21004,
-      "uuid": "41b1c169-5905-4d98-b6a6-56896c25737c",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU",
-          "short_id": "2df2bd9d8366cef1"
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1832764816",
-      "server": "45.32.10.7",
-      "server_port": 443,
-      "password": "96ab5cd282733fd4c312a61f972f330a",
-      "tls": {
-        "enabled": true,
-        "server_name": "vp3.yysyy.online"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1087B8",
-      "server": "188.114.97.6",
-      "server_port": 443,
-      "uuid": "e6df2095-a73c-4043-8693-8d5a03686870",
-      "tls": {
-        "enabled": true,
-        "server_name": "lucasjow.us.ci"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?Telegram---mehrosaboranfp=chrome",
-        "headers": {
-          "Host": "lucasjow.us.ci"
-        }
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[share-daily-node] RO-HTTP-64",
-      "server": "193.176.84.30",
-      "server_port": 9002,
-      "username": "null",
-      "password": "null",
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1832764823",
-      "server": "66.94.121.46",
-      "server_port": 443,
-      "password": "gf1:gfhysteria2024",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.broadcom.com",
-        "insecure": true
       }
     }
   ]
