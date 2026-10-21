@@ -686,13 +686,6 @@ proxies:
   tls: true
   sni: 84.17.47.150
   skip-cert-verify: true
-- name: '[share-daily-node] IT-HTTP-04'
-  type: http
-  server: 95.229.15.89
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
   type: http
   server: 138.199.35.214
@@ -840,6 +833,15 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
+- name: '[share-daily-node] RO-HTTP-64'
+  type: http
+  server: 193.176.84.30
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  username: 'null'
+  password: 'null'
 proxy-groups:
 - name: PROXY
   type: select
@@ -933,7 +935,6 @@ proxy-groups:
   - '[share-daily-node] CZ-HTTP-02'
   - '[zhuhaiuk-free-nodes] LT - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
-  - '[share-daily-node] IT-HTTP-04'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
   - '[ermaozi-subscribe] 🇩🇪DE_3|1.4MB/s'
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
@@ -954,6 +955,7 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
+  - '[share-daily-node] RO-HTTP-64'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -1045,7 +1047,6 @@ proxy-groups:
   - '[share-daily-node] CZ-HTTP-02'
   - '[zhuhaiuk-free-nodes] LT - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 03'
-  - '[share-daily-node] IT-HTTP-04'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
   - '[ermaozi-subscribe] 🇩🇪DE_3|1.4MB/s'
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
@@ -1066,6 +1067,7 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
+  - '[share-daily-node] RO-HTTP-64'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
