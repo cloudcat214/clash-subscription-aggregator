@@ -1,4 +1,155 @@
 proxies:
+- type: vless
+  name: '[ovmvo-permanent] 🇩🇪 029  | ⬇️ 754KB/s'
+  server: ge-s-1.pythonmakemigreat.wiki
+  port: 443
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  skip-cert-verify: false
+  packet-encoding: xudp
+  reality-opts:
+    public-key: 5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8
+    short-id: 2c9a2790ad5900b2
+  network: raw
+  servername: ge-s-1.pythonmakemigreat.wiki
+- name: '[chengaopan-base64] http-157.22.183.72:443'
+  type: http
+  server: 157.22.183.72
+  port: 443
+  username: 'null'
+  password: 'null'
+  tls: true
+- name: '[share-daily-node] NL-HTTP-103'
+  type: http
+  server: 157.22.183.72
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: false
+  username: 'null'
+  password: 'null'
+- name: '[snapdragon-systemproxy] 🇰🇷KR_115_1@114'
+  server: 146.56.112.110
+  type: vmess
+  country: 🇰🇷KR
+  port: 8888
+  uuid: e7c302f3-90d6-42dd-9d7d-94a3683a3707
+  alterId: 0
+  cipher: auto
+  network: tcp
+  http-opts: {}
+  h2-opts: {}
+  skip-cert-verify: true
+- cipher: aes-256-gcm
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146987'
+  password: sxajCTwrlK0zl+zmHpX0p0jXIfatnzlLzWlSQ950L1c=
+  port: 52351
+  server: 103.107.52.106
+  type: ss
+  udp: true
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1828372442'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: vpn-tw-002.fastervpn.world
+  skip-cert-verify: true
+  sni: vpn-tw-002.fastervpn.world
+  type: hysteria2
+- name: '[free18-clash] 日期：10-20'
+  type: vless
+  server: 511.150333.xyz
+  port: 21001
+  uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  servername: www.cloudflare.com
+  tls: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
+    short-id: ab39fc68ab3dee81
+  skip-cert-verify: true
+  udp: true
+- name: '[nexus-nodes-all] 10691@proxy_online_net'
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  tls: true
+  sni: lucasjow.us.ci
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET?ed=2560
+    headers:
+      Host: lucasjow.us.ci
+- name: '[surfboardv2ray-eternity] 🇬🇧GB-169.150.210.233-3741 | 28.555MB'
+  server: 169.150.210.233
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: '[ts-sf-fly] 未知 198.0KB/s'
+  type: vmess
+  server: us5-1.998998.best
+  port: 443
+  cipher: auto
+  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
+  alterId: 0
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /androirfdsreoightrjh
+    headers:
+      host: server4.9966338.xyz
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1830467063'
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  port: 443
+  server: 103.115.109.49
+  skip-cert-verify: true
+  sni: https%3a%2f%2ft.me%2fwangcai2
+  type: hysteria2
+- name: '[cbusifabcap-clashmeta] ❓Other_101|92KB/s|R002-260618'
+  port: 7615
+  server: 47.90.206.169
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[cbusifabcap-uri] ❓Other_102|365KB/s|M003-260806'
+  type: trojan
+  server: 91.245.225.79
+  port: 2053
+  password: humanity
+  tls: true
+  sni: www.calmlunch.com
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /assignment
+- name: '[ermaozi-subscribe] SE_speednode_0020'
+  port: 443
+  server: 217.210.129.243
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[free-v2ray-verified-clash] AT 🇦🇹 | @Raydikalx | BE2A03'
+  server: 212.183.88.136
+  port: 443
+  type: trojan
+  password: humanity
+  udp: true
+  sni: www.calmlunch.com
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
 - cipher: aes-128-gcm
   name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146667'
   password: shadowsocks
@@ -140,30 +291,6 @@ proxies:
   skip-cert-verify: true
   type: http
   username: '1234'
-- name: '[snapdragon-systemproxy] 🇮🇷IR_102 ⇽中转_1@101'
-  server: de-d21e56c13c.shamanapp.online
-  type: vmess
-  country: 🇮🇷IR
-  port: 33744
-  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
-  alterId: 0
-  cipher: auto
-  network: ws
-  servername: de-d21e56c13c.shamanapp.online:33744
-  http-opts: {}
-  h2-opts: {}
-  skip-cert-verify: true
-  ws-opts:
-    path: /ShamanVMESS2026
-    headers:
-      HOST: de-d21e56c13c.shamanapp.online:33744
-- name: '[cbusifabcap-uri] ❓Other_19|235KB/s|M003-260806'
-  type: vless
-  server: 204.216.216.23
-  port: 10086
-  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
-  sni: /?bia_telegram@marambashi_marambashi_marambashi_marambashi_marambashi
-  network: tcp
 - name: '[share-daily-node] RO-HTTP-21'
   type: http
   server: 193.176.84.32
@@ -214,14 +341,6 @@ proxies:
   obfs-password: 850a3fb1cd33a28f12d837578ae1a2e7
   skip-cert-verify: true
   tfo: false
-- name: '[pawdroid-free-servers] 美国+V2CROSS.COM-2'
-  type: hysteria2
-  server: starlink-ft.251313.xyz
-  port: 443
-  password: https://xship.best
-  tls: true
-  sni: xship.top
-  skip-cert-verify: true
 - name: '[share-daily-node] RO-HTTP-23'
   type: http
   server: 193.176.84.16
@@ -434,20 +553,6 @@ proxies:
     short-id: 0e
   client-fingerprint: chrome
   network: tcp
-- name: '[nirevil-clashmeta] 🇦🇷Wind37-BuenosAires-Argentina'
-  type: wireguard
-  server: 190.103.176.148
-  port: 65142
-  ip: 100.80.234.177
-  private-key: cIq+3tcHVT7gRMl4kIv0WE68ERiTmDtA7rhyHhLJ/mg=
-  public-key: 2+O8VAshLkyWM1b6Ye2Cuoa3R/guKZgQ+YLoCsseWCU=
-  udp: true
-  pre-shared-key: N/gfMZSjvP8mbXfVP2hnD5CX8BkGvOyheJ67mCpD+QQ=
-  mtu: 1280
-  amnezia-wg-option:
-    jc: 3
-    jmin: 10
-    jmax: 50
 - name: '[cbusifabcap-uri] ❓Other_4|380KB/s'
   type: vless
   server: 204.216.216.23
@@ -651,34 +756,6 @@ proxies:
   xudp: true
   packet-encoding: xudp
   servername: yahoo.com
-- name: '[cbusifabcap-uri] ❓Other_6|87KB/s|P002-260618'
-  type: vless
-  server: 159.65.51.189
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- client-fingerprint: chrome
-  name: '[cbusifabcap-clashmeta] ❓Other_6|87KB/s|P002-260618'
-  network: ws
-  port: 443
-  server: 159.65.51.189
-  sub_tag: P002-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-    path: /
-  servername: ccc.010304.xyz
 - name: '[cbusifabcap-uri] 🇦🇪AE_1|910KB/s|M003-260806'
   type: vless
   server: 84.235.244.108
@@ -700,39 +777,6 @@ proxies:
     path: /
     headers:
       Host: uae.unixzone.us
-- client-fingerprint: chrome
-  encryption: none
-  name: '[cbusifabcap-clashmeta] ❓Other_10|332KB/s|B007-260618'
-  network: ws
-  port: 443
-  server: 216.173.67.59
-  sub_tag: B007-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-      User-Agent: Mozilla/5.0 (Linux; Android 5.1; A37f Build/LMY47V) AppleWebKit/537.36
-        (KHTML, like Gecko) Chrome/43.0.2357.93 Mobile Safari/537.36
-    path: /
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-- name: '[cbusifabcap-uri] ❓Other_10|332KB/s|B007-260618'
-  type: vless
-  server: 216.173.67.59
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
 - name: '[snapdragon-systemproxy] 🇬🇧GB_21_0@20'
   server: 82.38.31.217
   type: ss
@@ -856,19 +900,6 @@ proxies:
   port: 8080
   password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
-- name: '[cbusifabcap-uri] ❓Other_7|395KB/s|B007-260618'
-  type: vless
-  server: 216.173.67.59
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
 - name: '[share-daily-node] RO-HTTP-40'
   type: http
   server: 193.176.84.32
@@ -1778,13 +1809,6 @@ proxies:
   port: 443
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145136'
-  password: u63SxILNwtrQZ7Y1ZrFaZfsA
-  port: 8443
-  server: 8.211.175.236
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
 - name: '[cbusifabcap-clashmeta] ❓Other_19|212KB/s|R002-260618'
   port: 9002
   server: 138.199.35.211
@@ -3197,13 +3221,6 @@ proxies:
   uuid: 1a8ecc41-6e62-431b-8eca-87c2fa4dc286
   xudp: true
   packet-encoding: xudp
-- name: '[share-daily-node] SG-HTTP-10'
-  type: http
-  server: 154.26.137.244
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145810'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
@@ -3740,19 +3757,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[cbusifabcap-uri] 🇮🇱IL_2|388KB/s|P002-260618'
-  type: vless
-  server: 185.253.75.119
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  tls: true
-  sni: ccc.010304.xyz
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
 - name: '[nexus-nodes-all] @v2ray_phoenix'
   type: vless
   server: 188.114.97.6
@@ -7978,20 +7982,6 @@ proxies:
   port: 443
   tls: true
   skip-cert-verify: true
-- cipher: aes-256-cfb
-  name: '[cbusifabcap-clashmeta] ❓Other_13|1.1MB/s|M001-260618'
-  password: M3t2ZEQcMGRWBjRa
-  port: 9011
-  server: 5.188.181.201
-  sub_tag: M001-260618
-  type: ss
-  udp: true
-- name: '[cbusifabcap-uri] ❓Other_13|1.1MB/s|M001-260618'
-  type: ss
-  server: 5.188.181.201
-  port: 9011
-  cipher: aes-256-cfb
-  password: M3t2ZEQcMGRWBjRa
 - name: '[free18-clash] 🇸🇬_新加坡_21'
   type: vless
   server: 511.150333.xyz
@@ -8005,9 +7995,3 @@ proxies:
     short-id: ab39fc68ab3dee81
   skip-cert-verify: true
   udp: true
-- name: '[zhuhaiuk-free-nodes] SE - zhuhai.uk 02'
-  type: http
-  server: 138.16.163.249
-  port: 8443
-  tls: true
-  skip-cert-verify: true
