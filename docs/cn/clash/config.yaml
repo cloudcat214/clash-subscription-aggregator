@@ -802,6 +802,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-04'
+  type: http
+  server: voteshirleysew.club
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: false
 - name: '[share-daily-node] RO-HTTP-07'
   type: http
   server: 193.176.84.39
@@ -982,6 +989,7 @@ proxy-groups:
   - '[share-daily-node] SG-HTTP-26'
   - '[share-daily-node] SG-HTTP-27'
   - '[share-daily-node] SG-HTTP-28'
+  - '[share-daily-node] US-HTTP-04'
   - '[share-daily-node] RO-HTTP-07'
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
@@ -1098,6 +1106,7 @@ proxy-groups:
   - '[share-daily-node] SG-HTTP-26'
   - '[share-daily-node] SG-HTTP-27'
   - '[share-daily-node] SG-HTTP-28'
+  - '[share-daily-node] US-HTTP-04'
   - '[share-daily-node] RO-HTTP-07'
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'

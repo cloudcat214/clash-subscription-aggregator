@@ -8,6 +8,10 @@
       "tag": "proxy",
       "outbounds": [
         "direct",
+        "[pawdroid-free-servers] 美国+加利福尼亚-2",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1833548672",
+        "[cbusifabcap-uri] ❓Other_6|532KB/s|S004-260618",
+        "[cbusifabcap-uri] ❓Other_7|458KB/s|C002-260622",
         "[share-daily-node] IT-HTTP-05",
         "[cbusifabcap-clashmeta] ❓Other_3|235KB/s|A004-260618",
         "[chengaopan-base64] http-13.229.91.101:2080",
@@ -16,7 +20,6 @@
         "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-8",
         "[cbusifabcap-clashmeta] ❓Other_22|699KB/s",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 404682",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-1827145159",
         "[zhuhaiuk-free-nodes] HK - zhuhai.uk",
         "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-4",
         "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-5",
@@ -49,7 +52,6 @@
         "[cbusifabcap-clashmeta] ❓Other_8|269KB/s|R002-260618",
         "[cbusifabcap-clashmeta] ❓Other_24|88KB/s|A004-260618",
         "[cbusifabcap-uri] 🇨🇭CH_2|105KB/s|B007-260618",
-        "[cbusifabcap-uri] 🇨🇭CH_4|249KB/s|B007-260618",
         "[cbusifabcap-uri] ❓Other_17|357KB/s|A004-260618",
         "[cbusifabcap-uri] ❓Other_36|151KB/s|A004-260618",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146801",
@@ -668,7 +670,6 @@
         "[cbusifabcap-uri] ❓Other_4|442KB/s|A004-260618",
         "[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-15",
         "[ermaozi-subscribe] 🇩🇪DE_6|3.4MB/s",
-        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4EEB2E",
         "[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-16",
         "[clashfree-daily] 未知 VLESS-208 | free-nodes",
         "[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-17",
@@ -683,7 +684,6 @@
         "[chengaopan-base64] 🇨🇦[www.v2nodes.com] vless-CA-1... #7",
         "[clashfree-daily] 未知 VLESS-217 | free-nodes",
         "[clashfree-daily] 未知 VLESS-218 | free-nodes",
-        "[au1rxx-free-vpn-subscriptions] trojan-1827149658",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5405DE",
         "[cbusifabcap-clashmeta] 🇦🇪AE_1|467KB/s|A003-260618",
         "[cbusifabcap-clashmeta] 🇦🇪AE_3|832KB/s|M003-260806",
@@ -713,7 +713,6 @@
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6961EF",
         "[cbusifabcap-uri] 🇨🇦CA_28|1.4MB/s|M002-260618",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6F967A",
-        "[au1rxx-free-vpn-subscriptions] trojan-1827530434",
         "[cbusifabcap-clashmeta] 🇧🇬BG_4|1.0MB/s|P002-260618",
         "[cbusifabcap-uri] 🇨🇦CA_2|1.1MB/s|A004-260618",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 82F5D4",
@@ -739,7 +738,6 @@
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146306",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146590",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 563C3B",
-        "[free18-clash] 🇵🇱_波兰_26",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5D8148",
         "[share-daily-node] RO-HTTP-01",
         "[mahdibland-eternity] 🇫🇷FR-145.239.55.210-0189 | 3.204MB",
@@ -766,12 +764,83 @@
         "[free-v2ray-verified-clash] BG 🇧🇬 | @Raydikalx | 02BB68",
         "[free18-clash] 🇸🇬_新加坡_21",
         "[zhuhaiuk-free-nodes] SE - zhuhai.uk 02",
-        "[au1rxx-free-vpn-subscriptions] hysteria2-1853331424"
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1853331424",
+        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0D2B11",
+        "[free18-clash] 🇸🇬_新加坡_22"
       ]
     },
     {
       "type": "direct",
       "tag": "direct"
+    },
+    {
+      "type": "vless",
+      "tag": "[pawdroid-free-servers] 美国+加利福尼亚-2",
+      "server": "ge-s-1.pythonmakemigreat.wiki",
+      "server_port": 443,
+      "uuid": "f8d52ece-fad4-478d-875d-df6eed3befa7",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "ge-s-1.pythonmakemigreat.wiki",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8",
+          "short_id": "2c9a2790ad5900b2"
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1833548672",
+      "server": "78.17.128.153",
+      "server_port": 35076,
+      "password": "b4c8ee9caa74b7ba0a61",
+      "tls": {
+        "enabled": true,
+        "server_name": "scrap.halyvanedorogo.ru"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "[cbusifabcap-uri] ❓Other_6|532KB/s|S004-260618",
+      "server": "168.138.43.75",
+      "server_port": 80,
+      "uuid": "11c3627f-31e8-4695-dfbd-34076e2f1f5d",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/cctv13.m3u8",
+        "headers": {
+          "Host": "168.138.43.75"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[cbusifabcap-uri] ❓Other_7|458KB/s|C002-260622",
+      "server": "162.159.153.4",
+      "server_port": 443,
+      "uuid": "f2a73750-3087-48ff-a763-1348c15dce68",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.mAxImA.DpDnS.OrG",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "rAyAn-007.mAxImA.DpDnS.OrG"
+        }
+      }
     },
     {
       "type": "http",
@@ -869,18 +938,6 @@
         "headers": {
           "Host": "jp3.yohototo.top"
         }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1827145159",
-      "server": "8.209.247.109",
-      "server_port": 443,
-      "password": "usqmqUKJFIlCmvkCNSY64L3k",
-      "tls": {
-        "enabled": true,
-        "server_name": "bing.com",
-        "insecure": true
       }
     },
     {
@@ -1397,22 +1454,6 @@
       "tag": "[cbusifabcap-uri] 🇨🇭CH_2|105KB/s|B007-260618",
       "server": "208.69.78.217",
       "server_port": 8444,
-      "password": "capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw",
-      "obfs": {
-        "type": "salamander",
-        "password": "mbQXP2ASuHbF6ZPq"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "vpn.local",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "[cbusifabcap-uri] 🇨🇭CH_4|249KB/s|B007-260618",
-      "server": "208.69.78.217",
-      "server_port": 21158,
       "password": "capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw",
       "obfs": {
         "type": "salamander",
@@ -9514,24 +9555,6 @@
     },
     {
       "type": "vless",
-      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4EEB2E",
-      "server": "188.114.98.0",
-      "server_port": 443,
-      "uuid": "e6df2095-a73c-4043-8693-8d5a03686870",
-      "tls": {
-        "enabled": true,
-        "server_name": "lucasjow.us.ci"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "lucasjow.us.ci"
-        }
-      }
-    },
-    {
-      "type": "vless",
       "tag": "[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-16",
       "server": "188.164.248.216",
       "server_port": 443,
@@ -9795,13 +9818,6 @@
           "short_id": "d7de3a6ff4018957"
         }
       }
-    },
-    {
-      "type": "trojan",
-      "tag": "[au1rxx-free-vpn-subscriptions] trojan-1827149658",
-      "server": "109.206.241.10",
-      "server_port": 449,
-      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
     },
     {
       "type": "vless",
@@ -10228,18 +10244,6 @@
       }
     },
     {
-      "type": "trojan",
-      "tag": "[au1rxx-free-vpn-subscriptions] trojan-1827530434",
-      "server": "109.206.241.10",
-      "server_port": 449,
-      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1",
-      "tls": {
-        "enabled": true,
-        "server_name": "russiapower.accesscam.org",
-        "insecure": true
-      }
-    },
-    {
       "type": "vless",
       "tag": "[cbusifabcap-clashmeta] 🇧🇬BG_4|1.0MB/s|P002-260618",
       "server": "155.103.71.142",
@@ -10624,28 +10628,6 @@
         "path": "/?Telegram---DailyConfigs---DailyConfigs---DailyConfigsfp=chrome",
         "headers": {
           "Host": "lucasjow.us.ci"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "[free18-clash] 🇵🇱_波兰_26",
-      "server": "144.31.101.196",
-      "server_port": 33891,
-      "uuid": "1c794e75-bcd4-4a65-9f69-ed0a10f33d60",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "browser.yandex.com",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "HXXIkFRPeRpluXJ7SOoUGf9EOq4Lw-oJpvg1W0UPbEw",
-          "short_id": "5bd7b68ca4c04443"
         }
       }
     },
@@ -11042,6 +11024,49 @@
         "enabled": true,
         "server_name": "https://t.me/wangcai2≡ƒç¿≡ƒç│",
         "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0D2B11",
+      "server": "b2n.ir",
+      "server_port": 443,
+      "uuid": "e6df2095-a73c-4043-8693-8d5a03686870",
+      "tls": {
+        "enabled": true,
+        "server_name": "lucasjow.us.ci",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/cart/docs/www/proxyip=108.160.132.132?ed#Telegram---bored_vpn",
+        "headers": {
+          "Host": "lucasjow.us.ci"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free18-clash] 🇸🇬_新加坡_22",
+      "server": "511.150333.xyz",
+      "server_port": 21003,
+      "uuid": "41b1c169-5905-4d98-b6a6-56896c25737c",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU",
+          "short_id": "bab49aa4c2a88d27"
+        }
       }
     }
   ]

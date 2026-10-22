@@ -1,4 +1,55 @@
 proxies:
+- name: '[cbusifabcap-uri] ❓Other_4|380KB/s'
+  type: vless
+  server: 204.216.216.23
+  port: 10086
+  uuid: 9f0285ee-20ca-4953-bcdb-86a920652923
+  network: raw
+- name: '[pawdroid-free-servers] 美国+加利福尼亚-2'
+  type: vless
+  server: ge-s-1.pythonmakemigreat.wiki
+  port: 443
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  tls: true
+  sni: ge-s-1.pythonmakemigreat.wiki
+  network: tcp
+  client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: 5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8
+    short-id: 2c9a2790ad5900b2
+- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1833548672'
+  password: b4c8ee9caa74b7ba0a61
+  port: 35076
+  server: 78.17.128.153
+  skip-cert-verify: false
+  sni: scrap.halyvanedorogo.ru
+  type: hysteria2
+- name: '[cbusifabcap-uri] ❓Other_6|532KB/s|S004-260618'
+  type: vmess
+  server: 168.138.43.75
+  port: 80
+  uuid: 11c3627f-31e8-4695-dfbd-34076e2f1f5d
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /cctv13.m3u8
+    headers:
+      Host: 168.138.43.75
+- name: '[cbusifabcap-uri] ❓Other_7|458KB/s|C002-260622'
+  type: vless
+  server: 162.159.153.4
+  port: 443
+  uuid: f2a73750-3087-48ff-a763-1348c15dce68
+  tls: true
+  sni: rAyAn-007.mAxImA.DpDnS.OrG
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: rAyAn-007.mAxImA.DpDnS.OrG
 - name: '[share-daily-node] IT-HTTP-05'
   type: http
   server: 93.42.177.250
@@ -104,13 +155,6 @@ proxies:
     jc: 3
     jmin: 10
     jmax: 50
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1827145159'
-  password: usqmqUKJFIlCmvkCNSY64L3k
-  port: 443
-  server: 8.209.247.109
-  skip-cert-verify: true
-  sni: bing.com
-  type: hysteria2
 - name: '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   type: socks5
   server: 47.242.19.215
@@ -506,16 +550,6 @@ proxies:
   type: hysteria2
   server: 208.69.78.217
   port: 8444
-  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  tls: true
-  sni: vpn.local
-  obfs: salamander
-  obfs-password: mbQXP2ASuHbF6ZPq
-  skip-cert-verify: true
-- name: '[cbusifabcap-uri] 🇨🇭CH_4|249KB/s|B007-260618'
-  type: hysteria2
-  server: 208.69.78.217
-  port: 21158
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
   tls: true
   sni: vpn.local
@@ -1399,18 +1433,6 @@ proxies:
   port: 36699
   auth-str: dongtaiwang.com
   sni: bing.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: '[chrome147-embedded-hysteria] [内嵌] hysteria v1'
-  type: hysteria
-  server: 5.83.129.153
-  port: 20088
-  auth-str: dongtaiwang.com
-  sni: apple.com
   skip-cert-verify: true
   alpn:
   - h3
@@ -6755,19 +6777,6 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4EEB2E'
-  server: 188.114.98.0
-  port: 443
-  type: vless
-  uuid: e6df2095-a73c-4043-8693-8d5a03686870
-  udp: true
-  tls: true
-  servername: lucasjow.us.ci
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: lucasjow.us.ci
 - name: '[igareck-vless] 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]-16'
   type: vless
   server: 188.164.248.216
@@ -7005,14 +7014,6 @@ proxies:
   servername: www.apple.com
   client-fingerprint: chrome
   network: tcp
-- name: '[au1rxx-free-vpn-subscriptions] trojan-1827149658'
-  password: oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1
-  port: 449
-  server: 109.206.241.10
-  skip-cert-verify: true
-  sni: ''
-  type: trojan
-  udp: true
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5405DE'
   server: 188.114.97.6
   port: 443
@@ -7351,14 +7352,6 @@ proxies:
     path: /
     headers:
       Host: lucasjow.us.ci
-- name: '[au1rxx-free-vpn-subscriptions] trojan-1827530434'
-  password: oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1
-  port: 449
-  server: 109.206.241.10
-  skip-cert-verify: true
-  sni: russiapower.accesscam.org
-  type: trojan
-  udp: true
 - client-fingerprint: chrome
   name: '[cbusifabcap-clashmeta] 🇧🇬BG_4|1.0MB/s|P002-260618'
   network: ws
@@ -7665,20 +7658,6 @@ proxies:
     path: /?Telegram---DailyConfigs---DailyConfigs---DailyConfigsfp=chrome
     headers:
       Host: lucasjow.us.ci
-- name: '[free18-clash] 🇵🇱_波兰_26'
-  type: vless
-  server: 144.31.101.196
-  port: 33891
-  uuid: 1c794e75-bcd4-4a65-9f69-ed0a10f33d60
-  servername: browser.yandex.com
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: HXXIkFRPeRpluXJ7SOoUGf9EOq4Lw-oJpvg1W0UPbEw
-    short-id: 5bd7b68ca4c04443
-  skip-cert-verify: true
-  udp: true
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5D8148'
   server: cf.090227.xyz
   port: 443
@@ -7956,3 +7935,30 @@ proxies:
   skip-cert-verify: true
   sni: https://t.me/wangcai2≡ƒç¿≡ƒç│
   type: hysteria2
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0D2B11'
+  server: b2n.ir
+  port: 443
+  type: vless
+  uuid: e6df2095-a73c-4043-8693-8d5a03686870
+  udp: true
+  tls: true
+  servername: lucasjow.us.ci
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /cart/docs/www/proxyip=108.160.132.132?ed#Telegram---bored_vpn
+    headers:
+      Host: lucasjow.us.ci
+- name: '[free18-clash] 🇸🇬_新加坡_22'
+  type: vless
+  server: 511.150333.xyz
+  port: 21003
+  uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  servername: www.cloudflare.com
+  tls: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
+    short-id: bab49aa4c2a88d27
+  skip-cert-verify: true
+  udp: true
