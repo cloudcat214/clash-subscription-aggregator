@@ -3,6 +3,13 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
+- name: '[share-daily-node] RO-HTTP-15'
+  type: http
+  server: 193.176.84.20
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[share-daily-node] RO-HTTP-21'
   type: http
   server: 193.176.84.32
@@ -596,13 +603,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-01'
-  type: http
-  server: voteshirleysew.club
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[share-daily-node] US-HTTP-07'
   type: http
   server: mmgr.club
@@ -852,52 +852,12 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[share-daily-node] RO-HTTP-64'
-  type: http
-  server: 193.176.84.30
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  username: 'null'
-  password: 'null'
-- name: '[share-daily-node] RO-HTTP-30'
-  type: http
-  server: 193.176.84.34
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[share-daily-node] RO-HTTP-37'
-  type: http
-  server: 193.176.84.23
-  port: 9002
-  udp: true
-  tls: true
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: '[share-daily-node] RO-HTTP-60'
-  type: http
-  server: 193.176.84.29
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] RO-HTTP-63'
-  type: http
-  server: 193.176.84.35
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  username: 'null'
-  password: 'null'
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - DIRECT
+  - '[share-daily-node] RO-HTTP-15'
   - '[share-daily-node] RO-HTTP-21'
   - '[share-daily-node] RO-HTTP-23'
   - '[share-daily-node] RO-HTTP-24'
@@ -974,7 +934,6 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-97'
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-12'
-  - '[share-daily-node] US-HTTP-01'
   - '[share-daily-node] US-HTTP-07'
   - '[share-daily-node] US-HTTP-12'
   - '[share-daily-node] US-HTTP-22'
@@ -1008,14 +967,10 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
-  - '[share-daily-node] RO-HTTP-64'
-  - '[share-daily-node] RO-HTTP-30'
-  - '[share-daily-node] RO-HTTP-37'
-  - '[share-daily-node] RO-HTTP-60'
-  - '[share-daily-node] RO-HTTP-63'
 - name: AUTO
   type: url-test
   proxies: &id001
+  - '[share-daily-node] RO-HTTP-15'
   - '[share-daily-node] RO-HTTP-21'
   - '[share-daily-node] RO-HTTP-23'
   - '[share-daily-node] RO-HTTP-24'
@@ -1092,7 +1047,6 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-97'
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-12'
-  - '[share-daily-node] US-HTTP-01'
   - '[share-daily-node] US-HTTP-07'
   - '[share-daily-node] US-HTTP-12'
   - '[share-daily-node] US-HTTP-22'
@@ -1126,11 +1080,6 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
-  - '[share-daily-node] RO-HTTP-64'
-  - '[share-daily-node] RO-HTTP-30'
-  - '[share-daily-node] RO-HTTP-37'
-  - '[share-daily-node] RO-HTTP-60'
-  - '[share-daily-node] RO-HTTP-63'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
