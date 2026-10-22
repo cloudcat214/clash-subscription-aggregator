@@ -19,6 +19,15 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[share-daily-node] RO-HTTP-24'
+  type: http
+  server: 193.176.84.36
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  username: 'null'
+  password: 'null'
 - name: '[share-daily-node] RO-HTTP-39'
   type: http
   server: 193.176.84.16
@@ -27,12 +36,6 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
-- name: '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
-  type: socks5
-  server: 47.242.19.215
-  port: 8899
-  username: admin
-  password: admin
 - name: '[share-daily-node] RO-HTTP-40'
   type: http
   server: 193.176.84.32
@@ -872,8 +875,8 @@ proxy-groups:
   - DIRECT
   - '[share-daily-node] RO-HTTP-21'
   - '[share-daily-node] RO-HTTP-23'
+  - '[share-daily-node] RO-HTTP-24'
   - '[share-daily-node] RO-HTTP-39'
-  - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[share-daily-node] RO-HTTP-40'
   - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'
@@ -987,8 +990,8 @@ proxy-groups:
   proxies: &id001
   - '[share-daily-node] RO-HTTP-21'
   - '[share-daily-node] RO-HTTP-23'
+  - '[share-daily-node] RO-HTTP-24'
   - '[share-daily-node] RO-HTTP-39'
-  - '[zhuhaiuk-free-nodes] HK - zhuhai.uk'
   - '[share-daily-node] RO-HTTP-40'
   - '[cbusifabcap-clashmeta] ❓Other_2|633KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_47|265KB/s|R002-260618'

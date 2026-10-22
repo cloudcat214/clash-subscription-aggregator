@@ -8,6 +8,14 @@
       "tag": "proxy",
       "outbounds": [
         "direct",
+        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 20F2CD",
+        "[pawdroid-free-servers] 欧洲+V2CROSS.COM",
+        "[ts-sf-fly] 未知107 306.6KB/s",
+        "[ts-sf-fly] 未知122 204.6KB/s",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1854309346",
+        "[ermaozi-subscribe] ❓Other_2|4.3MB/s",
+        "[snapdragon-systemproxy] 🇮🇷IR_102 ⇽中转_1@101",
+        "[cbusifabcap-uri] ❓Other_19|235KB/s|M003-260806",
         "[share-daily-node] RO-HTTP-21",
         "[snapdragon-systemproxy] 🇬🇧GB_60_0@59",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1853488203",
@@ -40,18 +48,14 @@
         "[cbusifabcap-uri] ❓Other_7|458KB/s|C002-260622",
         "[share-daily-node] IT-HTTP-05",
         "[cbusifabcap-clashmeta] ❓Other_3|235KB/s|A004-260618",
-        "[chengaopan-base64] http-13.229.91.101:2080",
         "[cbusifabcap-clashmeta] ❓Other_15|238KB/s|R002-260618",
         "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-7",
         "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-8",
-        "[cbusifabcap-clashmeta] ❓Other_22|699KB/s",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 404682",
-        "[zhuhaiuk-free-nodes] HK - zhuhai.uk",
         "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-4",
         "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-5",
         "[igareck-vless] 🇯🇵 Japan, Shibuya City | [BL]-6",
         "[cbusifabcap-clashmeta] ❓Other_19|143KB/s|S004-260618",
-        "[cbusifabcap-uri] ❓Other_1|578KB/s",
         "[free-v2ray-verified-clash] BY 🇧🇾 | @Raydikalx | 2466B3",
         "[mahdibland-ssagg-merge] 🇦🇪AE-31.57.190.71-0490",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1853489155",
@@ -660,7 +664,6 @@
         "[cbusifabcap-clashmeta] 🇦🇪AE_2|619KB/s|C002-260622",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0663A7",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146478",
-        "[share-daily-node] US-HTTP-33",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0C6963",
         "[share-daily-node] US-HTTP-34",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 125F8B",
@@ -721,10 +724,7 @@
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146015",
         "[clashfree-daily] 未知 VLESS-232 | free-nodes",
         "[free-v2ray-verified-clash] AE 🇦🇪 | @Raydikalx | 1A1942",
-        "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146118",
         "[cbusifabcap-clashmeta] 🇦🇹AT_1|2.4MB/s|A001-260618",
-        "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146295",
-        "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146426",
         "[cbusifabcap-clashmeta] 🇦🇺AU_1|403KB/s|A004-260618",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146843",
         "[cbusifabcap-clashmeta] 🇦🇺AU_4|400KB/s|R002-260618",
@@ -768,6 +768,133 @@
     {
       "type": "direct",
       "tag": "direct"
+    },
+    {
+      "type": "vmess",
+      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 20F2CD",
+      "server": "172.67.167.78",
+      "server_port": 8443,
+      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2ray1.dozapp.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/lMnsZUN4/",
+        "headers": {
+          "Host": "v2ray1.dozapp.xyz"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "[pawdroid-free-servers] 欧洲+V2CROSS.COM",
+      "server": "185.36.141.81",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.calmlunch.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "[ts-sf-fly] 未知107 306.6KB/s",
+      "server": "chatgpt.com",
+      "server_port": 8443,
+      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/lMnsZUN4/",
+        "headers": {
+          "host": "v2ray1.dozapp.xyz"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "[ts-sf-fly] 未知122 204.6KB/s",
+      "server": "172.67.167.78",
+      "server_port": 8443,
+      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/lMnsZUN4/",
+        "headers": {
+          "host": "v2ray1.dozapp.xyz"
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1854309346",
+      "server": "185.156.44.99",
+      "server_port": 443,
+      "password": "gf1:gfhysteria2024",
+      "tls": {
+        "enabled": true,
+        "server_name": "google.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[ermaozi-subscribe] ❓Other_2|4.3MB/s",
+      "server": "13.229.54.109",
+      "server_port": 2080,
+      "username": "1234",
+      "password": "1234"
+    },
+    {
+      "type": "vmess",
+      "tag": "[snapdragon-systemproxy] 🇮🇷IR_102 ⇽中转_1@101",
+      "server": "de-d21e56c13c.shamanapp.online",
+      "server_port": 33744,
+      "uuid": "b3a11068-1a7e-4643-85de-7c82cce46943",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "de-d21e56c13c.shamanapp.online:33744",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ShamanVMESS2026",
+        "headers": {
+          "HOST": "de-d21e56c13c.shamanapp.online:33744"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[cbusifabcap-uri] ❓Other_19|235KB/s|M003-260806",
+      "server": "204.216.216.23",
+      "server_port": 10086,
+      "uuid": "9f0285ee-20ca-4953-bcdb-86a920652923",
+      "tls": {
+        "enabled": true,
+        "server_name": "/?bia_telegram@marambashi_marambashi_marambashi_marambashi_marambashi"
+      }
     },
     {
       "type": "http",
@@ -1238,14 +1365,6 @@
     },
     {
       "type": "http",
-      "tag": "[chengaopan-base64] http-13.229.91.101:2080",
-      "server": "13.229.91.101",
-      "server_port": 2080,
-      "username": "1234",
-      "password": "1234"
-    },
-    {
-      "type": "http",
       "tag": "[cbusifabcap-clashmeta] ❓Other_15|238KB/s|R002-260618",
       "server": "84.235.228.156",
       "server_port": 443,
@@ -1291,14 +1410,6 @@
       }
     },
     {
-      "type": "http",
-      "tag": "[cbusifabcap-clashmeta] ❓Other_22|699KB/s",
-      "server": "54.169.174.62",
-      "server_port": 2080,
-      "username": "1234",
-      "password": "1234"
-    },
-    {
       "type": "vless",
       "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 404682",
       "server": "104.17.169.13",
@@ -1315,14 +1426,6 @@
           "Host": "jp3.yohototo.top"
         }
       }
-    },
-    {
-      "type": "socks",
-      "tag": "[zhuhaiuk-free-nodes] HK - zhuhai.uk",
-      "server": "47.242.19.215",
-      "server_port": 8899,
-      "username": "admin",
-      "password": "admin"
     },
     {
       "type": "vless",
@@ -1398,14 +1501,6 @@
           "User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
         }
       }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "[cbusifabcap-uri] ❓Other_1|578KB/s",
-      "server": "82.38.31.190",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
     },
     {
       "type": "vless",
@@ -9434,16 +9529,6 @@
       "password": "shadowsocks"
     },
     {
-      "type": "http",
-      "tag": "[share-daily-node] US-HTTP-33",
-      "server": "162.217.114.50",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "insecure": true
-      }
-    },
-    {
       "type": "vless",
       "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 0C6963",
       "server": "188.114.97.6",
@@ -10371,35 +10456,11 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146118",
-      "server": "193.29.139.132",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "shadowsocks",
       "tag": "[cbusifabcap-clashmeta] 🇦🇹AT_1|2.4MB/s|A001-260618",
       "server": "82.110.60.9",
       "server_port": 19999,
       "method": "aes-256-gcm",
       "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146295",
-      "server": "82.38.31.220",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146426",
-      "server": "82.38.31.219",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
     },
     {
       "type": "vless",
