@@ -868,6 +868,38 @@ proxies:
   skip-cert-verify: true
   username: 'null'
   password: 'null'
+- name: '[share-daily-node] RO-HTTP-30'
+  type: http
+  server: 193.176.84.34
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  password: None
+- name: '[share-daily-node] RO-HTTP-37'
+  type: http
+  server: 193.176.84.23
+  port: 9002
+  udp: true
+  tls: true
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: '[share-daily-node] RO-HTTP-60'
+  type: http
+  server: 193.176.84.29
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] RO-HTTP-63'
+  type: http
+  server: 193.176.84.35
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  username: 'null'
+  password: 'null'
 proxy-groups:
 - name: PROXY
   type: select
@@ -985,6 +1017,10 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
   - '[share-daily-node] RO-HTTP-64'
+  - '[share-daily-node] RO-HTTP-30'
+  - '[share-daily-node] RO-HTTP-37'
+  - '[share-daily-node] RO-HTTP-60'
+  - '[share-daily-node] RO-HTTP-63'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -1100,6 +1136,10 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
   - '[share-daily-node] RO-HTTP-64'
+  - '[share-daily-node] RO-HTTP-30'
+  - '[share-daily-node] RO-HTTP-37'
+  - '[share-daily-node] RO-HTTP-60'
+  - '[share-daily-node] RO-HTTP-63'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
