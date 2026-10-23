@@ -866,6 +866,20 @@ proxies:
   tls: true
   skip-cert-verify: true
   password: None
+- name: '[share-daily-node] NL-HTTP-38'
+  type: http
+  server: 89.150.35.94
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] NL-HTTP-46'
+  type: http
+  server: 51.159.225.197
+  port: 19362
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[share-daily-node] NL-HTTP-62'
   type: http
   server: 185.238.170.10
@@ -998,6 +1012,8 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
+  - '[share-daily-node] NL-HTTP-38'
+  - '[share-daily-node] NL-HTTP-46'
   - '[share-daily-node] NL-HTTP-62'
   - '[share-daily-node] NL-HTTP-87'
 - name: AUTO
@@ -1115,6 +1131,8 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
+  - '[share-daily-node] NL-HTTP-38'
+  - '[share-daily-node] NL-HTTP-46'
   - '[share-daily-node] NL-HTTP-62'
   - '[share-daily-node] NL-HTTP-87'
   url: https://www.gstatic.com/generate_204
