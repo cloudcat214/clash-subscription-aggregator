@@ -122,6 +122,16 @@ def test_collect_snapshots_keeps_only_on_nodes() -> None:
     assert snapshots[node_key(carried)]["name"] == "carried"
 
 
+def test_legacy_name_hash_keys_are_migrated() -> None:
+    module = _load()
+    node = _node("legacy")
+    mapping = module.legacy_key_map([node])
+    assert mapping[module.legacy_name_key("legacy")] == node_key(node)
+    assert module.migrate_legacy_keys(
+        [module.legacy_name_key("legacy"), "unknown-key"], mapping
+    ) == [node_key(node), "unknown-key"]
+
+
 def test_main_writes_snapshots_for_run_on_nodes(tmp_path, monkeypatch) -> None:
     module = _load()
     on_node = _node("on", "http")

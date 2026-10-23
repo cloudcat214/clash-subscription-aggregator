@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import os
 import sys
@@ -162,6 +163,31 @@ def check_port(
     return str(document.get("state") or "")
 
 
+def legacy_name_key(name: str) -> str:
+    """The pre-stable-identity algorithm: hash of the display name."""
+    return hashlib.sha256(name.encode("utf-8")).hexdigest()[:16]
+
+
+def legacy_key_map(
+    proxies: list[dict[str, object]],
+) -> dict[str, str]:
+    """Map old name-hash keys onto the current content-based keys."""
+    return {
+        legacy_name_key(str(proxy["name"])): node_key(proxy)
+        for proxy in proxies
+        if isinstance(proxy.get("name"), str)
+    }
+
+
+def migrate_legacy_keys(keys: list[str], mapping: dict[str, str]) -> list[str]:
+    """Rewrite keys written before the identity change; unknown keys are kept.
+
+    Keeping unknown keys is deliberate: absence from one rotation is not
+    evidence of failure, and the builder simply ignores keys it cannot render.
+    """
+    return [mapping.get(key, key) for key in keys]
+
+
 def collect_snapshots(
     stable_keys: list[str],
     published_nodes: dict[str, dict[str, object]],
@@ -209,6 +235,7 @@ def main() -> int:
     args = parser.parse_args()
 
     proxies = load_published(args.dist_dir)
+    legacy_map = legacy_key_map(proxies)
     allowed_types = {
         item.strip().lower() for item in str(args.types).split(",") if item.strip()
     }
@@ -251,6 +278,13 @@ def main() -> int:
             previous_on = []
             previous_off = {}
             previous_nodes = {}
+    previous_on = migrate_legacy_keys(previous_on, legacy_map)
+    previous_off = {
+        legacy_map.get(key, key): count for key, count in previous_off.items()
+    }
+    previous_nodes = {
+        legacy_map.get(key, key): node for key, node in previous_nodes.items()
+    }
 
     published_keys = {node_key(proxy) for proxy in proxies}
     results: dict[str, str] = {}
