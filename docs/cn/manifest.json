@@ -1,26 +1,41 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T21:03:41Z",
+  "generated_at": "2026-10-23T23:27:49Z",
   "filter": "cn-feedback",
+  "blocked_applied": false,
+  "blocked_expires_at": "2026-10-21T02:07:59Z",
   "counts": {
-    "source_published": 800,
-    "selected": 116,
-    "blocked_keys": 170
+    "source_published": 116,
+    "selected": 31,
+    "from_published": 31,
+    "from_snapshot": 0,
+    "snapshot_invalid": 0,
+    "snapshot_name_conflicts": 0,
+    "max_nodes": 400,
+    "blocked_keys": 0
   },
   "feedback": {
-    "keys": 7,
+    "keys": 6,
     "generated_at": "2026-10-16T15:02:19Z",
-    "age_hours": 174.0,
+    "age_hours": 176.4,
     "tested": 800,
-    "stable": 7,
-    "verified": 5
+    "stable": 6,
+    "verified": 6
   },
   "feedback_extra": {
-    "keys": 215,
-    "generated_at": "2026-10-23T21:03:40Z",
+    "keys": 244,
+    "generated_at": "2026-10-23T23:27:48Z",
     "age_hours": 0.0,
-    "tested": 800,
-    "stable": 215,
-    "verified": 215
+    "tested": 116,
+    "stable": 244,
+    "verified": 244
+  },
+  "blocked": {
+    "applied": false,
+    "matched_keys": 0,
+    "ttl_hours": 72.0,
+    "names": 0,
+    "expires_at": "2026-10-21T02:07:59Z",
+    "skipped_reason": "expired"
   }
 }
