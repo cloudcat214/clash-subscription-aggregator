@@ -743,6 +743,20 @@ proxies:
   tls: true
   type: http
   udp: true
+- name: '[share-daily-node] NL-HTTP-54'
+  type: http
+  server: 51.158.243.91
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] PL-HTTP-03'
+  type: http
+  server: 151.115.54.133
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[share-daily-node] RO-HTTP-06'
   type: http
   server: 193.176.84.39
@@ -769,6 +783,13 @@ proxies:
 - name: '[share-daily-node] SG-HTTP-20'
   type: http
   server: 154.26.138.229
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] SG-HTTP-21'
+  type: http
+  server: 154.26.138.246
   port: 443
   udp: true
   tls: true
@@ -841,6 +862,21 @@ proxies:
   type: http
   server: 138.199.35.195
   port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  password: None
+- name: '[share-daily-node] NL-HTTP-62'
+  type: http
+  server: 185.238.170.10
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] NL-HTTP-87'
+  type: http
+  server: 5.255.118.82
+  port: 443
   udp: true
   tls: true
   skip-cert-verify: true
@@ -945,10 +981,13 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
+  - '[share-daily-node] NL-HTTP-54'
+  - '[share-daily-node] PL-HTTP-03'
   - '[share-daily-node] RO-HTTP-06'
   - '[share-daily-node] RO-HTTP-66'
   - '[share-daily-node] SG-HTTP-19'
   - '[share-daily-node] SG-HTTP-20'
+  - '[share-daily-node] SG-HTTP-21'
   - '[share-daily-node] SG-HTTP-23'
   - '[share-daily-node] SG-HTTP-24'
   - '[share-daily-node] SG-HTTP-26'
@@ -959,6 +998,8 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
+  - '[share-daily-node] NL-HTTP-62'
+  - '[share-daily-node] NL-HTTP-87'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -1057,10 +1098,13 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓Other_18|671KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_3|389KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇧🇷BR_1|550KB/s|R002-260618'
+  - '[share-daily-node] NL-HTTP-54'
+  - '[share-daily-node] PL-HTTP-03'
   - '[share-daily-node] RO-HTTP-06'
   - '[share-daily-node] RO-HTTP-66'
   - '[share-daily-node] SG-HTTP-19'
   - '[share-daily-node] SG-HTTP-20'
+  - '[share-daily-node] SG-HTTP-21'
   - '[share-daily-node] SG-HTTP-23'
   - '[share-daily-node] SG-HTTP-24'
   - '[share-daily-node] SG-HTTP-26'
@@ -1071,6 +1115,8 @@ proxy-groups:
   - '[share-daily-node] RO-HTTP-12'
   - '[share-daily-node] RO-HTTP-27'
   - '[share-daily-node] US-HTTP-16'
+  - '[share-daily-node] NL-HTTP-62'
+  - '[share-daily-node] NL-HTTP-87'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
