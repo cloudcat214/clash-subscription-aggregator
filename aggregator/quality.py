@@ -1,18 +1,37 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import math
 from collections.abc import Iterable, Mapping
 
+from .parsing import VOLATILE_IDENTITY_FIELDS
 from .parsing import quality_score as structure_quality_score
 
 _VERDICT_ORDER = {"fast": 0, "verified": 1, "stable": 2, "not_tested": 3}
+# Single source of truth for "which fields are not part of a node's identity".
+VOLATILE_NODE_FIELDS = frozenset(
+    VOLATILE_IDENTITY_FIELDS - {"source", "source_repo", "quality_score"}
+)
 
 
 def node_key(node: Mapping[str, object]) -> str:
-    """Return a stable identifier without exposing a node name or credentials."""
-    name = str(node.get("name") or "")
-    return hashlib.sha256(name.encode("utf-8")).hexdigest()[:16]
+    """Return a stable identifier without exposing a node name or credentials.
+
+    The identity is derived from protocol-relevant fields only (type, server,
+    port, credentials, transport options, plugin options, ...). Volatile
+    presentation fields are dropped, so renaming or re-tagging a node keeps its
+    key and its pool/feedback history.
+    """
+    payload = {
+        str(field): value
+        for field, value in node.items()
+        if str(field) not in VOLATILE_NODE_FIELDS
+    }
+    encoded = json.dumps(
+        payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False, default=str
+    )
+    return hashlib.sha256(encoded.encode("utf-8")).hexdigest()[:16]
 
 
 def _number(value: object) -> float | None:

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import yaml
@@ -26,7 +27,12 @@ def _load_module():
 
 
 def _node(name: str) -> dict[str, object]:
-    return {"name": name, "type": "http", "server": "node.example", "port": 8080}
+    return {
+        "name": name,
+        "type": "http",
+        "server": f"{name}.example",
+        "port": 8080,
+    }
 
 
 def _write_dist(tmp_path: Path, proxies: list[dict[str, object]]) -> Path:
@@ -37,7 +43,11 @@ def _write_dist(tmp_path: Path, proxies: list[dict[str, object]]) -> Path:
     return dist_dir
 
 
-def _write_feedback(path: Path, keys: list[str]) -> None:
+def _write_feedback(
+    path: Path,
+    keys: list[str],
+    nodes: dict[str, dict[str, object]] | None = None,
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     document = {
         "schema_version": 1,
@@ -48,6 +58,8 @@ def _write_feedback(path: Path, keys: list[str]) -> None:
         "verified": len(keys),
         "stable_keys": keys,
     }
+    if nodes is not None:
+        document["nodes"] = nodes
     path.write_text(json.dumps(document), encoding="utf-8")
 
 
@@ -68,11 +80,12 @@ def test_builds_filtered_channel(tmp_path: Path) -> None:
     assert [proxy["name"] for proxy in config["proxies"]] == ["a", "c"]
     manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["filter"] == "cn-feedback"
-    assert manifest["counts"] == {
-        "source_published": 3,
-        "selected": 2,
-        "blocked_keys": 0,
-    }
+    assert manifest["counts"]["source_published"] == 3
+    assert manifest["counts"]["selected"] == 2
+    assert manifest["counts"]["from_published"] == 2
+    assert manifest["counts"]["from_snapshot"] == 0
+    assert manifest["counts"]["blocked_keys"] == 0
+    assert manifest["blocked_applied"] is False
     assert manifest["feedback"]["stable"] == 2
     assert manifest["feedback"]["age_hours"] >= 0
 
@@ -134,9 +147,7 @@ def test_builds_with_extra_feedback_union(tmp_path: Path) -> None:
         (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
     )
     assert {proxy["name"] for proxy in config["proxies"]} == {"a", "b"}
-    manifest = json.loads(
-        (output_dir / "manifest.json").read_text(encoding="utf-8")
-    )
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["feedback_extra"]["stable"] == 1
 
 
@@ -153,23 +164,35 @@ def test_builds_with_only_extra_feedback(tmp_path: Path) -> None:
     )
 
     assert result["status"] == "built"
-    manifest = json.loads(
-        (output_dir / "manifest.json").read_text(encoding="utf-8")
-    )
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["counts"]["selected"] == 1
 
 
-def test_blocked_keys_are_subtracted(tmp_path: Path) -> None:
+def _write_blocked(path: Path, names: list[str], expires_at: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "generated_at": "2026-10-17T00:00:00Z",
+                "expires_at": expires_at,
+                "ttl_hours": 72,
+                "names": names,
+                "count": len(names),
+            }
+        ),
+        encoding="utf-8",
+    )
+
+
+def test_blocked_names_are_subtracted(tmp_path: Path) -> None:
     module = _load_module()
     proxies = [_node("a"), _node("b"), _node("c")]
     dist_dir = _write_dist(tmp_path, proxies)
     feedback = tmp_path / "cn-feedback" / "latest.json"
     _write_feedback(feedback, [node_key(proxies[0]), node_key(proxies[1])])
     blocked = tmp_path / "cn-feedback" / "blocked.json"
-    blocked.write_text(
-        json.dumps({"schema_version": 1, "keys": [node_key(proxies[1])]}),
-        encoding="utf-8",
-    )
+    _write_blocked(blocked, ["b"], "2999-01-01T00:00:00Z")
     output_dir = tmp_path / "docs" / "cn"
 
     result = module.build_cn_channel(dist_dir, feedback, output_dir, None, blocked)
@@ -179,7 +202,201 @@ def test_blocked_keys_are_subtracted(tmp_path: Path) -> None:
         (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
     )
     assert [proxy["name"] for proxy in config["proxies"]] == ["a"]
-    manifest = json.loads(
-        (output_dir / "manifest.json").read_text(encoding="utf-8")
-    )
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["counts"]["blocked_keys"] == 1
+    assert manifest["blocked"]["names"] == 1
+
+
+def test_expired_blocked_names_are_ignored(tmp_path: Path) -> None:
+    module = _load_module()
+    proxies = [_node("a"), _node("b")]
+    dist_dir = _write_dist(tmp_path, proxies)
+    feedback = tmp_path / "cn-feedback" / "latest.json"
+    _write_feedback(feedback, [node_key(proxies[0]), node_key(proxies[1])])
+    blocked = tmp_path / "cn-feedback" / "blocked.json"
+    _write_blocked(blocked, ["b"], "2020-01-01T00:00:00Z")
+    output_dir = tmp_path / "docs" / "cn"
+
+    result = module.build_cn_channel(dist_dir, feedback, output_dir, None, blocked)
+
+    assert result["status"] == "built"
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert [proxy["name"] for proxy in config["proxies"]] == ["a", "b"]
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["counts"]["blocked_keys"] == 0
+
+
+def test_blocked_without_expiry_is_ignored(tmp_path: Path) -> None:
+    module = _load_module()
+    proxies = [_node("a"), _node("b")]
+    dist_dir = _write_dist(tmp_path, proxies)
+    feedback = tmp_path / "cn-feedback" / "latest.json"
+    _write_feedback(feedback, [node_key(proxies[0]), node_key(proxies[1])])
+    blocked = tmp_path / "cn-feedback" / "blocked.json"
+    blocked.parent.mkdir(parents=True, exist_ok=True)
+    # Legacy hash form (no names / expires_at) must not silently apply forever.
+    blocked.write_text(
+        json.dumps({"schema_version": 1, "keys": [node_key(proxies[1])]}),
+        encoding="utf-8",
+    )
+    output_dir = tmp_path / "docs" / "cn"
+
+    module.build_cn_channel(dist_dir, feedback, output_dir, None, blocked)
+
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert [proxy["name"] for proxy in config["proxies"]] == ["a", "b"]
+
+
+def _write_blocked_derived(
+    path: Path, names: list[str], generated_at: datetime, ttl_hours: int = 72
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "generated_at": generated_at.replace(microsecond=0)
+                .isoformat()
+                .replace("+00:00", "Z"),
+                "ttl_hours": ttl_hours,
+                "names": names,
+                "count": len(names),
+            }
+        ),
+        encoding="utf-8",
+    )
+
+
+def test_blocked_expiry_is_derived_from_generated_at(tmp_path: Path) -> None:
+    module = _load_module()
+    proxies = [_node("a"), _node("b")]
+    dist_dir = _write_dist(tmp_path, proxies)
+    feedback = tmp_path / "cn-feedback" / "latest.json"
+    _write_feedback(feedback, [node_key(proxies[0]), node_key(proxies[1])])
+    blocked = tmp_path / "cn-feedback" / "blocked.json"
+    _write_blocked_derived(
+        blocked, ["b"], datetime.now(UTC) - timedelta(hours=1), ttl_hours=72
+    )
+    output_dir = tmp_path / "docs" / "cn"
+
+    module.build_cn_channel(dist_dir, feedback, output_dir, None, blocked)
+
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert [proxy["name"] for proxy in config["proxies"]] == ["a"]
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["blocked_applied"] is True
+    assert manifest["blocked_expires_at"] is not None
+    assert manifest["counts"]["blocked_keys"] == 1
+
+
+def test_blocked_ttl_expired_by_generated_at_is_ignored(tmp_path: Path) -> None:
+    module = _load_module()
+    proxies = [_node("a"), _node("b")]
+    dist_dir = _write_dist(tmp_path, proxies)
+    feedback = tmp_path / "cn-feedback" / "latest.json"
+    _write_feedback(feedback, [node_key(proxies[0]), node_key(proxies[1])])
+    blocked = tmp_path / "cn-feedback" / "blocked.json"
+    _write_blocked_derived(
+        blocked, ["b"], datetime.now(UTC) - timedelta(hours=100), ttl_hours=72
+    )
+    output_dir = tmp_path / "docs" / "cn"
+
+    module.build_cn_channel(dist_dir, feedback, output_dir, None, blocked)
+
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert [proxy["name"] for proxy in config["proxies"]] == ["a", "b"]
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["blocked_applied"] is False
+    assert manifest["blocked"]["skipped_reason"] == "expired"
+    assert manifest["counts"]["blocked_keys"] == 0
+
+
+def test_snapshot_node_is_added_when_missing_from_published(tmp_path: Path) -> None:
+    module = _load_module()
+    published = _node("a")
+    snapshot = _node("b")
+    dist_dir = _write_dist(tmp_path, [published])
+    cloud = tmp_path / "cn-feedback" / "cloud.json"
+    _write_feedback(
+        cloud,
+        [node_key(published), node_key(snapshot)],
+        {node_key(snapshot): snapshot},
+    )
+    output_dir = tmp_path / "docs" / "cn"
+
+    result = module.build_cn_channel(
+        dist_dir, tmp_path / "missing.json", output_dir, cloud
+    )
+
+    assert result["status"] == "built"
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert {proxy["name"] for proxy in config["proxies"]} == {"a", "b"}
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["counts"]["selected"] == 2
+    assert manifest["counts"]["from_published"] == 1
+    assert manifest["counts"]["from_snapshot"] == 1
+
+
+def test_max_nodes_prefers_published_nodes(tmp_path: Path) -> None:
+    module = _load_module()
+    published = _node("a")
+    snapshot = _node("b")
+    dist_dir = _write_dist(tmp_path, [published])
+    cloud = tmp_path / "cn-feedback" / "cloud.json"
+    _write_feedback(
+        cloud,
+        [node_key(published), node_key(snapshot)],
+        {node_key(snapshot): snapshot},
+    )
+    output_dir = tmp_path / "docs" / "cn"
+
+    result = module.build_cn_channel(
+        dist_dir, tmp_path / "missing.json", output_dir, cloud, max_nodes=1
+    )
+
+    assert result["status"] == "built"
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert [proxy["name"] for proxy in config["proxies"]] == ["a"]
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["counts"]["selected"] == 1
+    assert manifest["counts"]["from_published"] == 1
+    assert manifest["counts"]["from_snapshot"] == 0
+
+
+def test_unrenderable_snapshot_is_skipped_and_counted(tmp_path: Path) -> None:
+    module = _load_module()
+    published = _node("a")
+    dist_dir = _write_dist(tmp_path, [published])
+    broken: dict[str, object] = {
+        "name": "b",
+        "type": "http",
+        "server": "b.example",
+    }  # port missing
+    cloud = tmp_path / "cn-feedback" / "cloud.json"
+    _write_feedback(cloud, [node_key(published)], {"broken": broken})
+    output_dir = tmp_path / "docs" / "cn"
+
+    result = module.build_cn_channel(
+        dist_dir, tmp_path / "missing.json", output_dir, cloud
+    )
+
+    assert result["status"] == "built"
+    config = yaml.safe_load(
+        (output_dir / "clash" / "config.yaml").read_text(encoding="utf-8")
+    )
+    assert [proxy["name"] for proxy in config["proxies"]] == ["a"]
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["counts"]["snapshot_invalid"] == 1
+    assert manifest["counts"]["from_snapshot"] == 0

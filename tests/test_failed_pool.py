@@ -14,7 +14,12 @@ from aggregator.verified_pool import pool_document
 
 
 def node(name: str) -> dict[str, object]:
-    return {"name": name, "type": "http", "server": "node.example", "port": 8080}
+    return {
+        "name": name,
+        "type": "http",
+        "server": f"{name}.example",
+        "port": 8080,
+    }
 
 
 def failed(n: dict[str, object]) -> dict[str, object]:

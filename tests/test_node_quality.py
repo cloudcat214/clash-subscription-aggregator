@@ -55,11 +55,11 @@ def _quality():
     return quality
 
 
-def _node(name: str, server: str = "node.example.invalid") -> dict:
+def _node(name: str, server: str | None = None) -> dict:
     return {
         "name": name,
         "type": "ss",
-        "server": server,
+        "server": server or f"{name}.example.invalid",
         "port": 8443,
         "cipher": "aes-256-gcm",
         "password": "placeholder",
@@ -506,8 +506,22 @@ def test_probe_node_task_exception_is_redacted_and_isolated(monkeypatch) -> None
         }
 
     monkeypatch.setattr(probe_mod, "_probe_one_node", fake_probe, raising=False)
+    nodes = [
+        {
+            "name": "good-node",
+            "type": "http",
+            "server": "good.example.invalid",
+            "port": 80,
+        },
+        {
+            "name": "bad-node",
+            "type": "http",
+            "server": "bad.example.invalid",
+            "port": 80,
+        },
+    ]
     result = probe_nodes(
-        [{"name": "good-node"}, {"name": "bad-node"}],
+        nodes,
         mihomo_path="/fake/mihomo",
         rounds=3,
         timeout=1.0,
@@ -518,9 +532,7 @@ def test_probe_node_task_exception_is_redacted_and_isolated(monkeypatch) -> None
     assert "secret-node-endpoint" not in serialized
     results = cast(list[dict[str, object]], result["results"])
     bad = next(
-        item
-        for item in results
-        if item["node_key"] == probe_mod.node_key({"name": "bad-node"})
+        item for item in results if item["node_key"] == probe_mod.node_key(nodes[1])
     )
     assert bad["rounds_passed"] == 0
     assert bad["error_category"] == "invalid_response"

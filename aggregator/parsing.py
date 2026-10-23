@@ -1033,11 +1033,30 @@ def normalize_proxies_with_drops(
     return unique, drops
 
 
+VOLATILE_IDENTITY_FIELDS = {
+    # Presentation / run-dependent: subscriptions re-render these every refresh,
+    # so two records that differ only here are the same physical node.
+    "name",
+    "up",
+    "down",
+    "sub_tag",
+    "sub-tag",
+    "ports",
+    "udp",
+    "delay",
+    "country",
+    # Pipeline metadata, never part of a node's wire identity.
+    "source",
+    "source_repo",
+    "quality_score",
+}
+
+
 def _identity(proxy: Mapping[str, object]) -> str:
     identity = {
         key: value
         for key, value in proxy.items()
-        if key not in {"name", "source", "source_repo", "quality_score"}
+        if key not in VOLATILE_IDENTITY_FIELDS
     }
     return json.dumps(identity, ensure_ascii=False, sort_keys=True, default=str)
 

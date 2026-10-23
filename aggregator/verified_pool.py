@@ -23,6 +23,24 @@ def _eviction_limit(source_id: str) -> int:
     return EVICTION_FAILURES
 
 
+def _completeness(entry: dict[str, object]) -> tuple[str, int]:
+    """Order duplicates so the newest, most-tested entry wins."""
+    return (
+        str(entry.get("last_rechecked_at") or ""),
+        cast(int, entry.get("total_passes") or 0),
+    )
+
+
+def _dedupe_by_key(entries: list[dict[str, object]]) -> list[dict[str, object]]:
+    best: dict[str, dict[str, object]] = {}
+    for entry in entries:
+        key = str(entry["key"])
+        prior = best.get(key)
+        if prior is None or _completeness(entry) > _completeness(prior):
+            best[key] = entry
+    return list(best.values())
+
+
 def load_verified_pool(path: Path) -> list[dict[str, object]]:
     if not path.is_file():
         return []
@@ -39,16 +57,20 @@ def load_verified_pool(path: Path) -> list[dict[str, object]]:
     if not isinstance(raw_nodes, list):
         raise TypeError("verified_pool_invalid")
     entries: list[dict[str, object]] = []
-    seen: set[str] = set()
     for raw_entry in raw_nodes:
         if not isinstance(raw_entry, dict):
             raise TypeError("verified_pool_invalid")
         node = raw_entry.get("node")
-        key = raw_entry.get("key")
-        if not isinstance(node, dict) or not isinstance(key, str) or not key:
+        # The stored key is only a hint: older files used a different identity
+        # algorithm (display name). Always trust the recomputed key so a state
+        # migration does not invalidate the whole pool.
+        stored_key = raw_entry.get("key")
+        if (
+            not isinstance(node, dict)
+            or not isinstance(stored_key, str)
+            or not stored_key
+        ):
             raise TypeError("verified_pool_invalid")
-        if node_key(node) != key or key in seen:
-            raise ValueError("verified_pool_invalid")
         source_id = raw_entry.get("source_id")
         if not isinstance(source_id, str) or not source_id:
             raise TypeError("verified_pool_invalid")
@@ -65,9 +87,10 @@ def load_verified_pool(path: Path) -> list[dict[str, object]]:
                 raise TypeError("verified_pool_invalid")
         if cast(int, raw_entry["consecutive_failures"]) >= _eviction_limit(source_id):
             raise ValueError("verified_pool_invalid")
-        entries.append(copy.deepcopy(raw_entry))
-        seen.add(key)
-    return entries
+        entry = copy.deepcopy(raw_entry)
+        entry["key"] = node_key(node)
+        entries.append(entry)
+    return _dedupe_by_key(entries)
 
 
 def pool_document(

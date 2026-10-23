@@ -225,6 +225,7 @@ jobs:
             --feedback cn-feedback/latest.json \
             --feedback-extra cn-feedback/cloud.json \
             --blocked cn-feedback/blocked.json \
+            --max-nodes 400 \
             --output docs/cn
 
       - name: Commit changed auto artifacts

@@ -19,7 +19,7 @@ def _node(name: str) -> dict[str, object]:
     return {
         "name": name,
         "type": "ss",
-        "server": "node.example.invalid",
+        "server": f"{name}.example.invalid",
         "port": 8443,
         "cipher": "aes-256-gcm",
         "password": "synthetic-password",

@@ -23,6 +23,7 @@ State file format (same envelope the builder understands):
   "stable": <len(stable_keys)>,
   "verified": <len(stable_keys)>,
   "stable_keys": [<node keys currently reachable>],
+  "nodes": {<key>: <full node config>},   # snapshots so /cn survives rotation
   "cn_off": {<key>: <confirmed off count>},
   "tested_this_run": n, "on_this_run": x, "off_this_run": y, "errors": z
 }
@@ -31,6 +32,7 @@ State file format (same envelope the builder understands):
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import os
 import sys
@@ -106,7 +108,15 @@ def merge_on_state(
     published_keys: set[str],
     results: dict[str, str],
 ) -> tuple[list[str], dict[str, int]]:
-    on_keys = {key for key in previous_on if key in published_keys}
+    """Carry forward the "on" set; only a tested, twice-confirmed "off" removes.
+
+    Absence from ``published_keys`` is *not* evidence of failure: the rotating
+    window and the hourly cloud refresh both mean a node can be missing from a
+    single run through no fault of its own. Pruning on absence is what made the
+    /cn set shrink run after run, so records are kept until the probe itself
+    says otherwise.
+    """
+    on_keys = {key for key in previous_on}
     off_state = {
         key: int(count)
         for key, count in previous_off.items()
@@ -152,6 +162,28 @@ def check_port(
     return str(document.get("state") or "")
 
 
+def collect_snapshots(
+    stable_keys: list[str],
+    published_nodes: dict[str, dict[str, object]],
+    previous_nodes: dict[str, dict[str, object]],
+) -> dict[str, dict[str, object]]:
+    """Return a full config snapshot for every node that is currently "on".
+
+    The /cn builder must not depend on the node still being inside the rotating
+    published set: a node that was reachable once keeps its config here even
+    after the publisher drops it from the current top-N. Only "on" keys are
+    kept, so this stays small (~400 nodes).
+    """
+    snapshots: dict[str, dict[str, object]] = {}
+    for key in stable_keys:
+        node = published_nodes.get(key)
+        if node is None:
+            node = previous_nodes.get(key)
+        if isinstance(node, dict):
+            snapshots[key] = copy.deepcopy(node)
+    return snapshots
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dist-dir", type=Path, default=ROOT / "dist-auto")
@@ -194,6 +226,7 @@ def main() -> int:
     output_path = Path(args.output)
     previous_on: list[str] = []
     previous_off: dict[str, int] = {}
+    previous_nodes: dict[str, dict[str, object]] = {}
     if output_path.is_file():
         try:
             previous = json.loads(output_path.read_text(encoding="utf-8"))
@@ -207,9 +240,17 @@ def main() -> int:
                     for key, count in off_counts.items()
                     if isinstance(count, int) and not isinstance(count, bool)
                 }
+            raw_nodes = previous.get("nodes")
+            if isinstance(raw_nodes, dict):
+                previous_nodes = {
+                    str(key): node
+                    for key, node in raw_nodes.items()
+                    if isinstance(node, dict)
+                }
         except (OSError, json.JSONDecodeError, TypeError, ValueError):
             previous_on = []
             previous_off = {}
+            previous_nodes = {}
 
     published_keys = {node_key(proxy) for proxy in proxies}
     results: dict[str, str] = {}
@@ -272,6 +313,8 @@ def main() -> int:
     stable, off_state = merge_on_state(
         previous_on, previous_off, published_keys, results
     )
+    published_nodes = {node_key(proxy): copy.deepcopy(proxy) for proxy in proxies}
+    nodes = collect_snapshots(stable, published_nodes, previous_nodes)
     document = {
         "schema_version": 1,
         "generated_at": _utc_now(),
@@ -281,6 +324,7 @@ def main() -> int:
         "stable": len(stable),
         "verified": len(stable),
         "stable_keys": stable,
+        "nodes": nodes,
         "cn_off": off_state,
         "tested_this_run": len(results),
         "on_this_run": on_count,
@@ -293,7 +337,8 @@ def main() -> int:
     )
     print(
         f"[cn-expand] tested={document['tested_this_run']} on={on_count} "
-        f"off={off_count} errors={errors} stable_total={len(stable)} -> {output_path}",
+        f"off={off_count} errors={errors} stable_total={len(stable)} "
+        f"snapshots={len(nodes)} -> {output_path}",
         flush=True,
     )
     return 0

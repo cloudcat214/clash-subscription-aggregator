@@ -298,7 +298,12 @@ def test_pool_shrink_guard_uses_fifty_percent_for_previous_pool_above_active_poo
 
     assert run_pipeline(config_path, output_dir, state_dir).success is True
     previous = (output_dir / "clash/providers/aggregate.yaml").read_text()
-    pool_nodes = [_node(f"[fixture] node-{index}") for index in range(4)]
+    # Same physical nodes as the source, already tagged by the pipeline. Only
+    # the display name differs, which must not create a new identity.
+    pool_nodes = [
+        {**_node(f"node-{index}"), "name": f"[fixture] node-{index}"}
+        for index in range(4)
+    ]
     pool_path = state_dir / "verified-pool.json"
     pool_path.write_text(
         json.dumps(

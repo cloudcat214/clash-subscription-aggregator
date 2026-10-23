@@ -4,6 +4,7 @@ import yaml
 
 from aggregator import pipeline
 from aggregator.pipeline import initialize_dist, run_pipeline
+from aggregator.quality import node_key
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -222,3 +223,44 @@ def test_private_source_never_enters_public_dist_even_when_publish_is_true(
         encoding="utf-8"
     )
     assert provider == "proxies: []\n"
+
+
+def _sticky_node(name: str) -> dict[str, object]:
+    return {
+        "name": name,
+        "type": "http",
+        "server": f"new-{name}.example",
+        "port": 8080,
+    }
+
+
+def test_sticky_publish_order_prefers_previous_members() -> None:
+    nodes = [_sticky_node(name) for name in ("a", "b", "c", "d")]
+    previous = {node_key(nodes[2]), node_key(nodes[0])}
+
+    ordered = pipeline.sticky_publish_order(nodes, previous, 3)
+    assert [node["name"] for node in ordered] == ["a", "c", "b"]
+    # Deterministic: same input, same output.
+    assert pipeline.sticky_publish_order(nodes, previous, 3) == ordered
+    # Budget is honoured after the sticky partition.
+    assert len(pipeline.sticky_publish_order(nodes, previous, 2)) == 2
+
+
+def test_sticky_publish_order_without_previous_keeps_pool_order() -> None:
+    nodes = [_sticky_node(name) for name in ("a", "b", "c")]
+    ordered = pipeline.sticky_publish_order(nodes, set(), 2)
+    assert [node["name"] for node in ordered] == ["a", "b"]
+
+
+def test_previous_publish_keys_reads_docs_dist(tmp_path: Path) -> None:
+    output_dir = tmp_path / "dist-auto"
+    config_dir = tmp_path / "docs" / "dist" / "clash"
+    config_dir.mkdir(parents=True)
+    proxies = [_sticky_node("a"), _sticky_node("b")]
+    (config_dir / "config.yaml").write_text(
+        yaml.safe_dump({"proxies": proxies}, sort_keys=False), encoding="utf-8"
+    )
+
+    keys = pipeline._previous_publish_keys(output_dir)
+
+    assert keys == {node_key(proxy) for proxy in proxies}

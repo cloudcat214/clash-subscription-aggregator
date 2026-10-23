@@ -561,14 +561,18 @@ def _normalize_probe_rows(
     for row in raw_rows:
         name = row.get("name")
         key = row.get("node_key", row.get("name_hash"))
-        node = by_name.get(name) if isinstance(name, str) else None
-        if node is None and isinstance(key, str):
-            node = by_key.get(key)
+        # Resolve by identity first: two different physical nodes may share a
+        # display name (a pool node keeps its old name while a fresh candidate
+        # gets the same one), so name alone is not a safe index.
+        node = by_key.get(key) if isinstance(key, str) else None
+        if node is None and isinstance(name, str):
+            node = by_name.get(name)
         if node is None:
             raise TypeError("probe_results_invalid")
-        normalized_name = str(node.get("name") or "")
-        if normalized_name in normalized:
+        identity = node_key(node)
+        if identity in normalized:
             raise ValueError("probe_results_duplicate")
+
         passed = row.get("rounds_passed")
         total = row.get("rounds_total", row.get("rounds", rounds_default))
         if (
@@ -613,8 +617,8 @@ def _normalize_probe_rows(
             fast_latency_ms=cast(float, policy["fast_latency_ms"]),
             error_category=error_category,
         )
-        verdict["node_key"] = node_key(node)
-        normalized[normalized_name] = verdict
+        verdict["node_key"] = identity
+        normalized[identity] = verdict
         rows.append(verdict)
     return normalized, rows
 
@@ -973,6 +977,50 @@ def _previous_published_count(output_dir: Path, state_dir: Path) -> int:
         except (OSError, ValueError, AttributeError):
             continue
     return 0
+
+
+def _previous_publish_keys(output_dir: Path) -> set[str]:
+    """Identity keys from the last published config (``docs/dist``).
+
+    The workflow checks out the previous commit before running, so this file is
+    the exact set subscribers saw last hour. Reading it is best-effort: a cold
+    start or a test run simply has no previous set.
+    """
+    config_path = output_dir.parent / "docs" / "dist" / "clash" / "config.yaml"
+    try:
+        document = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    except (OSError, yaml.YAMLError):
+        return set()
+    proxies = document.get("proxies") if isinstance(document, dict) else None
+    if not isinstance(proxies, list):
+        return set()
+    return {
+        node_key(proxy)
+        for proxy in proxies
+        if isinstance(proxy, dict) and proxy.get("name")
+    }
+
+
+def sticky_publish_order(
+    nodes: list[dict[str, object]],
+    previous_keys: set[str],
+    max_nodes: int,
+) -> list[dict[str, object]]:
+    """Prefer last-run members, then fall back to pool order.
+
+    Deterministic: the same node list and previous key set always produce the
+    same output; pool order is the tie-breaker, so nodes that are new (or were
+    not published before) keep their existing relative order.
+    """
+    budget = max(0, max_nodes)
+    order = sorted(
+        range(len(nodes)),
+        key=lambda index: (
+            0 if node_key(nodes[index]) in previous_keys else 1,
+            index,
+        ),
+    )
+    return [nodes[index] for index in order[:budget]]
 
 
 def run_pipeline(
@@ -1522,8 +1570,10 @@ def run_pipeline(
                 )
             except OSError:
                 raise ValueError("pool_write_failed")
-            proxies = active_pool_nodes(
-                pool_entries, cast(int, policy["publish_max_nodes"])
+            proxies = sticky_publish_order(
+                active_pool_nodes(pool_entries, len(pool_entries)),
+                _previous_publish_keys(output_dir),
+                cast(int, policy["publish_max_nodes"]),
             )
             node_quality = _node_quality_counts(
                 total_probe_candidates,

@@ -3,8 +3,9 @@
 Tests every loaded proxy node with two delay rounds through the running Clash
 Verge core (named pipe, the same path the UI uses), then:
 
-- writes ``cn-feedback/blocked.json`` with nodes that failed both rounds, so the
-  /cn builder can subtract them from the union of local + cloud candidates;
+- writes ``cn-feedback/blocked.json`` with the *names* of nodes that failed both
+  rounds (plus a 72h ``expires_at``), so the /cn builder can subtract them from
+  the union of local + cloud candidates; rewriting the file renews the TTL;
 - prints pass-rate statistics by protocol type and by source prefix, which the
   cloud-side expansion can use to avoid wasting probes on hopeless families.
 
@@ -14,7 +15,6 @@ This is a one-shot local audit; the cloud pipeline keeps working without it.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 import re
@@ -22,7 +22,7 @@ import threading
 import time
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +30,7 @@ APP = Path(os.environ["APPDATA"]) / "io.github.clash-verge-rev.clash-verge-rev"
 MERGE_CONFIG = APP / "clash-verge.yaml"
 TARGET = "https://www.gstatic.com/generate_204"
 TIMEOUT_MS = 5000
+BLOCKED_TTL_HOURS = 72
 GROUP_TYPES = {
     "Selector",
     "URLTest",
@@ -263,16 +264,26 @@ def main() -> int:
         )
 
     args.blocked.parent.mkdir(parents=True, exist_ok=True)
-    blocked_keys = sorted(
-        {hashlib.sha256(name.encode("utf-8")).hexdigest()[:16] for name in blocked}
+    generated_at = str(summary["generated_at"])
+    # Names (not hashes): the local profile is the only place a name is
+    # meaningful, and the builder maps names onto whatever the cloud published.
+    blocked_names = sorted({str(name) for name in blocked})
+    expires_at = (
+        (datetime.fromisoformat(str(generated_at)) + timedelta(hours=BLOCKED_TTL_HOURS))
+        .astimezone(UTC)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
     )
     args.blocked.write_text(
         json.dumps(
             {
                 "schema_version": 1,
-                "generated_at": summary["generated_at"],
-                "keys": blocked_keys,
-                "count": len(blocked_keys),
+                "generated_at": generated_at,
+                "expires_at": expires_at,
+                "ttl_hours": BLOCKED_TTL_HOURS,
+                "names": blocked_names,
+                "count": len(blocked_names),
             },
             ensure_ascii=False,
             indent=2,
@@ -290,7 +301,7 @@ def main() -> int:
         + "\n",
         encoding="utf-8",
     )
-    print(f"blocked list -> {args.blocked} ({len(blocked_keys)} keys)")
+    print(f"blocked list -> {args.blocked} ({len(blocked_names)} names)")
     print(f"report -> {args.report}")
     return 0
 
