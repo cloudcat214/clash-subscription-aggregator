@@ -72,7 +72,6 @@
         "[free-v2ray-verified-clash] AT 🇦🇹 | @Raydikalx | BE2A03",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827146667",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 074A7C",
-        "[snapdragon-systemproxy] 🇯🇵JP_112_1@111",
         "[cbusifabcap-clashmeta] ❓Other_19|235KB/s|M003-260806",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1923CC",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1827145501",
@@ -103,7 +102,6 @@
         "[free-v2ray-verified-clash] AM 🇦🇲 | @Raydikalx | 476AF1",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1833548672",
         "[cbusifabcap-uri] ❓Other_6|532KB/s|S004-260618",
-        "[share-daily-node] IT-HTTP-05",
         "[cbusifabcap-clashmeta] ❓Other_3|235KB/s|A004-260618",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 404682",
         "[cbusifabcap-clashmeta] ❓Other_19|143KB/s|S004-260618",
@@ -763,7 +761,10 @@
         "[clashfree-daily] 未知 VLESS-244 | free-nodes",
         "[cbusifabcap-uri] 🇨🇦CA_1|1.5MB/s|M002-260618",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6961EF",
-        "[cbusifabcap-uri] 🇨🇦CA_28|1.4MB/s|M002-260618"
+        "[cbusifabcap-uri] 🇨🇦CA_28|1.4MB/s|M002-260618",
+        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6F967A",
+        "[cbusifabcap-clashmeta] 🇧🇬BG_4|1.0MB/s|P002-260618",
+        "[cbusifabcap-uri] 🇨🇦CA_2|1.1MB/s|A004-260618"
       ]
     },
     {
@@ -1750,18 +1751,6 @@
       }
     },
     {
-      "type": "vmess",
-      "tag": "[snapdragon-systemproxy] 🇯🇵JP_112_1@111",
-      "server": "172.111.146.64",
-      "server_port": 80,
-      "uuid": "05b8c783-7f59-47f9-9923-06a465679f6a",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/vmess/"
-      }
-    },
-    {
       "type": "vless",
       "tag": "[cbusifabcap-clashmeta] ❓Other_19|235KB/s|M003-260806",
       "server": "204.216.216.23",
@@ -2197,16 +2186,6 @@
         "headers": {
           "Host": "168.138.43.75"
         }
-      }
-    },
-    {
-      "type": "http",
-      "tag": "[share-daily-node] IT-HTTP-05",
-      "server": "93.42.177.250",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "insecure": true
       }
     },
     {
@@ -11043,6 +11022,54 @@
       "server": "milo.rubinaz.xyz",
       "server_port": 8080,
       "uuid": "6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8"
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6F967A",
+      "server": "cf.090227.xyz",
+      "server_port": 443,
+      "uuid": "e6df2095-a73c-4043-8693-8d5a03686870",
+      "tls": {
+        "enabled": true,
+        "server_name": "lucasjow.us.ci"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "lucasjow.us.ci"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[cbusifabcap-clashmeta] 🇧🇬BG_4|1.0MB/s|P002-260618",
+      "server": "155.103.71.142",
+      "server_port": 443,
+      "uuid": "d342d11e-d224-4463-b982-532309285094",
+      "tls": {
+        "enabled": true,
+        "server_name": "ccc.010304.xyz",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/fp=chrome",
+        "headers": {
+          "Host": "ccc.010304.xyz"
+        }
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[cbusifabcap-uri] 🇨🇦CA_2|1.1MB/s|A004-260618",
+      "server": "138.197.141.58",
+      "server_port": 8080,
+      "method": "rc4-md5",
+      "password": "14fFPrbezE3HDZzsMOr6"
     }
   ]
 }
