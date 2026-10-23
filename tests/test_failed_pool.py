@@ -1,4 +1,4 @@
-﻿import json
+import json
 from pathlib import Path
 
 import yaml
@@ -6,6 +6,7 @@ import yaml
 from aggregator.failed_pool import (
     due_failed_pool_nodes,
     failed_pool_document,
+    load_runtime_pools,
     merge_failed_pool,
 )
 from aggregator.pipeline import run_pipeline
@@ -401,3 +402,43 @@ def test_probe_budget_keeps_new_candidates_when_pools_nearly_fill_budget(
     assert manifest["verification"]["pool_probe_candidates"] == 2
     assert manifest["verification"]["failed_pool_due"] == 1
     assert manifest["verification"]["new_candidates_tested"] == 1
+
+
+def test_load_runtime_pools_drops_identity_migration_overlap(tmp_path: Path) -> None:
+    shared = node("shared")
+    verified_entry = {
+        "key": "legacy-name-hash",
+        "node": shared,
+        "source_id": "fixture",
+        "first_seen_at": "2026-10-24T00:00:00Z",
+        "last_rechecked_at": "2026-10-24T00:10:00Z",
+        "last_conclusion": "stable",
+        "consecutive_failures": 0,
+        "total_passes": 2,
+    }
+    failed_entry = {
+        "key": "another-legacy-hash",
+        "node": shared,
+        "source_id": "fixture",
+        "first_failed_at": "2026-10-24T00:00:00Z",
+        "last_rechecked_at": "2026-10-24T00:10:00Z",
+        "next_retry_at": "2026-10-24T01:00:00Z",
+        "consecutive_failures": 1,
+        "total_failures": 1,
+        "last_conclusion": "failed",
+    }
+    verified_path = tmp_path / "verified-pool.json"
+    failed_path = tmp_path / "failed-pool.json"
+    verified_path.write_text(
+        json.dumps(pool_document([verified_entry], "2026-10-24T00:10:00Z")),
+        encoding="utf-8",
+    )
+    failed_path.write_text(
+        json.dumps(failed_pool_document([failed_entry], "2026-10-24T00:10:00Z")),
+        encoding="utf-8",
+    )
+
+    verified, failed = load_runtime_pools(verified_path, failed_path)
+
+    assert [entry["key"] for entry in verified] == [node_key(shared)]
+    assert failed == []

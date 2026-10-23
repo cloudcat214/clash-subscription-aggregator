@@ -114,9 +114,14 @@ def load_runtime_pools(
     verified_entries = load_verified_pool(verified_path)
     failed_entries = load_failed_pool(failed_path)
     verified_keys = {str(entry["key"]) for entry in verified_entries}
-    failed_keys = {str(entry["key"]) for entry in failed_entries}
-    if verified_keys & failed_keys:
-        raise ValueError("pool_overlap")
+    # A cache written before the identity change may hold the same physical
+    # node twice (verified under one display name, failed under another).
+    # Re-keying collapses those entries, so resolve the overlap instead of
+    # aborting the whole cache: verified entries win and are not retried as
+    # failures.
+    failed_entries = [
+        entry for entry in failed_entries if str(entry["key"]) not in verified_keys
+    ]
     return verified_entries, failed_entries
 
 
