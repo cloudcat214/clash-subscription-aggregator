@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T23:43:28Z",
+  "generated_at": "2026-10-23T23:50:42Z",
   "vantage": "cloud+apihz-mainland-tcp",
   "method": "apihz-cn-tcp; rotating-window; two-strike",
-  "tested": 253,
-  "stable": 264,
-  "verified": 264,
+  "tested": 313,
+  "stable": 266,
+  "verified": 266,
   "stable_keys": [
     "001a92db15ce2439",
     "01f959e70453a026",
@@ -62,7 +62,6 @@
     "338dd0647d441bdd",
     "368353f9d22e8f90",
     "36ba093379b9a24b",
-    "36bac815c65acc42",
     "3715c14ed592833e",
     "384564f6cb33ff6e",
     "385e3227553fbdab",
@@ -93,6 +92,7 @@
     "501c797ab4d6d2b0",
     "50ece6b04285ead4",
     "519888b845370a30",
+    "51a08d80bb5e77bf",
     "5371580d7a4b46b7",
     "5741f7dab65b9fd3",
     "58e7b25520ced746",
@@ -117,9 +117,11 @@
     "7080d25034fc6fa2",
     "726fc1018998561c",
     "72c157be7dd31c29",
+    "7346b17603204b70",
     "7405e215859153f6",
     "74503293bcaf3796",
     "748e198ed88a20ab",
+    "7712710938bf2681",
     "7713d6d706258f5f",
     "7752634970c1cb2b",
     "78888996cf6495b2",
@@ -431,6 +433,25 @@
       "tls": true,
       "skip-cert-verify": true
     },
+    "51a08d80bb5e77bf": {
+      "name": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B",
+      "server": "www.shopify.com",
+      "port": 443,
+      "type": "vmess",
+      "uuid": "6a89a215-22bf-4bd7-9642-b95b2e09583a",
+      "alterId": 0,
+      "cipher": "auto",
+      "udp": true,
+      "tls": true,
+      "servername": "guanwang.awsno.com",
+      "network": "ws",
+      "ws-opts": {
+        "path": "/hls/cctv5phd.m3u8",
+        "headers": {
+          "Host": "guanwang.awsno.com"
+        }
+      }
+    },
     "5741f7dab65b9fd3": {
       "name": "[share-daily-node] GR-HTTP-01",
       "type": "http",
@@ -484,6 +505,25 @@
       "udp": true,
       "tls": true,
       "skip-cert-verify": true
+    },
+    "7346b17603204b70": {
+      "name": "[ermaozi-subscribe] 🇱🇺LU_1|2.6MB/s",
+      "password": "None",
+      "port": 9443,
+      "server": "185.221.132.226",
+      "skip-cert-verify": true,
+      "tls": true,
+      "type": "http"
+    },
+    "7712710938bf2681": {
+      "name": "[cbusifabcap-clashmeta] 🇩🇪DE_14|1.3MB/s|R002-260618",
+      "port": 443,
+      "server": "149.36.50.1",
+      "skip-cert-verify": true,
+      "sub_tag": "R002-260618",
+      "tls": true,
+      "type": "http",
+      "udp": true
     },
     "7713d6d706258f5f": {
       "name": "[share-daily-node] US-HTTP-25",
@@ -859,10 +899,10 @@
     }
   },
   "cn_off": {
-    "1c9fba2f6dbd857b": 1,
     "700cf1fb05ccfda4": 1,
     "8f84778ee60cf336": 1,
-    "bc32786f709e8baa": 1
+    "bc32786f709e8baa": 1,
+    "d2f64749b58aa6c9": 1
   },
   "tested_this_run": 60,
   "on_this_run": 59,

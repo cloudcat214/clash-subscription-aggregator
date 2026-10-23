@@ -132,13 +132,6 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[share-daily-node] IT-HTTP-03'
-  type: http
-  server: 91.243.118.217
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[share-daily-node] IT-HTTP-04'
   type: http
   server: 95.229.15.89
@@ -460,6 +453,43 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
+  server: www.shopify.com
+  port: 443
+  type: vmess
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: guanwang.awsno.com
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+- name: '[ermaozi-subscribe] 🇱🇺LU_1|2.6MB/s'
+  password: None
+  port: 9443
+  server: 185.221.132.226
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[cbusifabcap-clashmeta] 🇩🇪DE_14|1.3MB/s|R002-260618'
+  port: 443
+  server: 149.36.50.1
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[share-daily-node] IT-HTTP-03'
+  type: http
+  server: 91.243.118.217
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 proxy-groups:
 - name: PROXY
   type: select
@@ -482,7 +512,6 @@ proxy-groups:
   - '[share-daily-node] ID-HTTP-02'
   - '[share-daily-node] IN-HTTP-01'
   - '[share-daily-node] IT-HTTP-01'
-  - '[share-daily-node] IT-HTTP-03'
   - '[share-daily-node] IT-HTTP-04'
   - '[share-daily-node] JP-HTTP-01'
   - '[share-daily-node] LV-HTTP-01'
@@ -527,6 +556,10 @@ proxy-groups:
   - '[share-daily-node] ZA-HTTP-04'
   - '[share-daily-node] ZA-HTTP-05'
   - '[ermaozi-subscribe] 🇪🇸ES_1|2.0MB/s'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
+  - '[ermaozi-subscribe] 🇱🇺LU_1|2.6MB/s'
+  - '[cbusifabcap-clashmeta] 🇩🇪DE_14|1.3MB/s|R002-260618'
+  - '[share-daily-node] IT-HTTP-03'
 - name: AUTO
   type: url-test
   proxies: &id001
@@ -547,7 +580,6 @@ proxy-groups:
   - '[share-daily-node] ID-HTTP-02'
   - '[share-daily-node] IN-HTTP-01'
   - '[share-daily-node] IT-HTTP-01'
-  - '[share-daily-node] IT-HTTP-03'
   - '[share-daily-node] IT-HTTP-04'
   - '[share-daily-node] JP-HTTP-01'
   - '[share-daily-node] LV-HTTP-01'
@@ -592,6 +624,10 @@ proxy-groups:
   - '[share-daily-node] ZA-HTTP-04'
   - '[share-daily-node] ZA-HTTP-05'
   - '[ermaozi-subscribe] 🇪🇸ES_1|2.0MB/s'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
+  - '[ermaozi-subscribe] 🇱🇺LU_1|2.6MB/s'
+  - '[cbusifabcap-clashmeta] 🇩🇪DE_14|1.3MB/s|R002-260618'
+  - '[share-daily-node] IT-HTTP-03'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
   interval: 600
