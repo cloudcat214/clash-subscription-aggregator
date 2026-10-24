@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T03:05:21Z",
+  "generated_at": "2026-10-24T04:39:33Z",
   "vantage": "cloud+apihz-mainland-tcp",
   "method": "apihz-cn-tcp; rotating-window; two-strike",
   "tested": 800,
-  "stable": 289,
-  "verified": 289,
+  "stable": 295,
+  "verified": 295,
   "stable_keys": [
     "001a92db15ce2439",
     "00c3bdedaa486e63",
@@ -111,6 +111,7 @@
     "5b7bde6d32e27f46",
     "5bcbadca6944f602",
     "5d207d816f476a8e",
+    "5d98e4154c845937",
     "5f799527ce6ad4d7",
     "5fbb8a87376be481",
     "6371845da7463ee1",
@@ -139,6 +140,7 @@
     "7712710938bf2681",
     "7713d6d706258f5f",
     "7752634970c1cb2b",
+    "788320fd77c973b9",
     "78888996cf6495b2",
     "791a92c50d43170a",
     "7c63ef04a06ec3a1",
@@ -185,7 +187,6 @@
     "9da11c03a9b32424",
     "9ec64e50cba96203",
     "9f4ba42c0eb9f31d",
-    "9fb8249805251449",
     "9fe5327a5a826837",
     "a046084a02c4e536",
     "a36e4bf5f1c3e9c2",
@@ -193,6 +194,7 @@
     "a4b0786bc7e3aab5",
     "a597702cee5e9372",
     "a752211c86548de2",
+    "a8e46ad963d6272d",
     "a8ffdc199ed601fe",
     "a94b3059c703fe41",
     "aa9b3908e72ecd04",
@@ -224,6 +226,7 @@
     "c0bc6814813f38bc",
     "c29612e3593f5201",
     "c2be9c9047ada659",
+    "c3325aa9ea850c2a",
     "c42ef5886f1933ad",
     "c45c8669c61fff45",
     "c5fcd5340e02e17d",
@@ -240,6 +243,7 @@
     "ce4ffd88b00d1a1a",
     "ced689a92f0a3ed9",
     "cef21dd309e97c42",
+    "d0768551bc42f358",
     "d10b1fb321ee9400",
     "d1178c861efdee00",
     "d15c987bec9fc968",
@@ -286,6 +290,7 @@
     "ec2336664ae4d85e",
     "ec5baafe6248ab8a",
     "f0cc2ca2271cce53",
+    "f0d6ce6bc62eb4f4",
     "f13fda8491a71e8c",
     "f22710963808877a",
     "f45ef0bd151e5e3e",
@@ -294,6 +299,7 @@
     "fa410e715d462c85",
     "fa4fe22db635a37c",
     "fbadb71c4f1c0947",
+    "fbc206cfc37c2543",
     "ff61fb544c39d4d3",
     "ffd3688b2eb09568"
   ],
@@ -632,6 +638,16 @@
       "tls": true,
       "type": "http"
     },
+    "5d98e4154c845937": {
+      "name": "[cbusifabcap-clashmeta] 🇧🇷BR_1|514KB/s|R002-260618",
+      "port": 443,
+      "server": "134.65.17.77",
+      "skip-cert-verify": true,
+      "sub_tag": "R002-260618",
+      "tls": true,
+      "type": "http",
+      "udp": true
+    },
     "5f799527ce6ad4d7": {
       "name": "[cbusifabcap-clashmeta] 🇩🇪DE_45|1.3MB/s|R002-260618",
       "port": 443,
@@ -737,6 +753,15 @@
       "udp": true,
       "tls": true,
       "skip-cert-verify": true
+    },
+    "788320fd77c973b9": {
+      "name": "[ermaozi-subscribe] RO_speednode_0022",
+      "port": 9002,
+      "server": "193.176.84.34",
+      "skip-cert-verify": true,
+      "tls": true,
+      "type": "http",
+      "udp": true
     },
     "7e92e0a44b15c0b0": {
       "name": "[share-daily-node] LV-HTTP-02",
@@ -867,6 +892,15 @@
       "udp": true,
       "tls": true,
       "skip-cert-verify": true
+    },
+    "a8e46ad963d6272d": {
+      "name": "[ermaozi-subscribe] RO_speednode_0021",
+      "port": 9002,
+      "server": "193.176.84.26",
+      "skip-cert-verify": true,
+      "tls": true,
+      "type": "http",
+      "udp": true
     },
     "aa9b3908e72ecd04": {
       "name": "[share-daily-node] GB-HTTP-03",
@@ -1010,6 +1044,15 @@
       "tls": true,
       "skip-cert-verify": true
     },
+    "c3325aa9ea850c2a": {
+      "name": "[ermaozi-subscribe] RO_speednode_0020",
+      "port": 9002,
+      "server": "193.176.84.21",
+      "skip-cert-verify": true,
+      "tls": true,
+      "type": "http",
+      "udp": true
+    },
     "c45c8669c61fff45": {
       "name": "[share-daily-node] US-HTTP-09",
       "type": "http",
@@ -1045,6 +1088,17 @@
       "udp": true,
       "tls": true,
       "skip-cert-verify": true
+    },
+    "d0768551bc42f358": {
+      "name": "[cbusifabcap-clashmeta] ❓Other_30|207KB/s|P002-260618",
+      "password": "None",
+      "port": 9002,
+      "server": "138.199.35.213",
+      "skip-cert-verify": true,
+      "sub_tag": "P002-260618",
+      "tls": true,
+      "type": "http",
+      "udp": true
     },
     "d2f64749b58aa6c9": {
       "name": "[share-daily-node] US-HTTP-20",
@@ -1192,6 +1246,17 @@
       "type": "http",
       "udp": true
     },
+    "f0d6ce6bc62eb4f4": {
+      "name": "[cbusifabcap-clashmeta] 🇦🇺AU_1|404KB/s|R002-260618",
+      "password": "None",
+      "port": 443,
+      "server": "159.13.44.228",
+      "skip-cert-verify": true,
+      "sub_tag": "R002-260618",
+      "tls": true,
+      "type": "http",
+      "udp": true
+    },
     "f45ef0bd151e5e3e": {
       "name": "[share-daily-node] US-HTTP-27",
       "type": "http",
@@ -1218,6 +1283,15 @@
       "udp": true,
       "tls": true,
       "skip-cert-verify": true
+    },
+    "fbc206cfc37c2543": {
+      "name": "[share-daily-node] NL-HTTP-38",
+      "type": "http",
+      "server": "84.17.47.149",
+      "port": 9002,
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": true
     }
   },
   "cn_off": {
@@ -1225,10 +1299,11 @@
     "700cf1fb05ccfda4": 1,
     "8f84778ee60cf336": 1,
     "bc32786f709e8baa": 1,
-    "cb2231a39c87bc10": 1
+    "cb2231a39c87bc10": 1,
+    "d2f64749b58aa6c9": 1
   },
-  "tested_this_run": 39,
-  "on_this_run": 34,
+  "tested_this_run": 46,
+  "on_this_run": 41,
   "off_this_run": 5,
-  "errors": 6
+  "errors": 3
 }

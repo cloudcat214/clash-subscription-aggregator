@@ -44,13 +44,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] ❓Other_1|1.2MB/s'
-  password: '1234'
-  port: 2080
-  server: 13.212.90.38
-  skip-cert-verify: true
-  type: http
-  username: '1234'
 - name: '[share-daily-node] NL-HTTP-02'
   type: http
   server: 84.17.47.146
@@ -333,13 +326,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] 🇸🇬SG_3|3.4MB/s'
-  password: '1234'
-  port: 2080
-  server: 54.169.228.182
-  skip-cert-verify: true
-  type: http
-  username: '1234'
 - name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
   server: us5-1.998998.best
   port: 443
@@ -362,11 +348,57 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] 🇪🇸ES_6|616KB/s|R002-260618'
-  port: 8090
-  server: 80.24.34.107
+- name: '[cbusifabcap-clashmeta] 🇧🇷BR_1|514KB/s|R002-260618'
+  port: 443
+  server: 134.65.17.77
   skip-cert-verify: true
   sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] RO_speednode_0020'
+  port: 9002
+  server: 193.176.84.21
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] RO_speednode_0021'
+  port: 9002
+  server: 193.176.84.26
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] RO_speednode_0022'
+  port: 9002
+  server: 193.176.84.34
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇦🇺AU_1|404KB/s|R002-260618'
+  password: None
+  port: 443
+  server: 159.13.44.228
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[share-daily-node] NL-HTTP-38'
+  type: http
+  server: 84.17.47.149
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[cbusifabcap-clashmeta] ❓Other_30|207KB/s|P002-260618'
+  password: None
+  port: 9002
+  server: 138.199.35.213
+  skip-cert-verify: true
+  sub_tag: P002-260618
   tls: true
   type: http
   udp: true
@@ -487,6 +519,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇸🇬SG_3|3.4MB/s'
+  password: '1234'
+  port: 2080
+  server: 54.169.228.182
+  skip-cert-verify: true
+  type: http
+  username: '1234'
 - name: '[share-daily-node] GR-HTTP-01'
   type: http
   server: 149.22.85.78
@@ -605,6 +644,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[ermaozi-subscribe] ❓Other_1|1.2MB/s'
+  password: '1234'
+  port: 2080
+  server: 13.212.90.38
+  skip-cert-verify: true
+  type: http
+  username: '1234'
 - name: '[cbusifabcap-clashmeta] 🇨🇭CH_1|632KB/s'
   password: ''
   port: 9443
@@ -681,6 +727,14 @@ proxies:
   tls: true
   type: http
   udp: true
+- name: '[cbusifabcap-clashmeta] 🇪🇸ES_6|616KB/s|R002-260618'
+  port: 8090
+  server: 80.24.34.107
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
 - name: '[share-daily-node] HK-HTTP-03'
   type: http
   server: 146.70.9.226
@@ -739,7 +793,6 @@ proxy-groups:
   - '[share-daily-node] IT-HTTP-04'
   - '[ermaozi-subscribe] US_speednode_0023'
   - '[ermaozi-subscribe] US_speednode_0024'
-  - '[ermaozi-subscribe] ❓Other_1|1.2MB/s'
   - '[share-daily-node] NL-HTTP-02'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
   - '[share-daily-node] US-HTTP-03'
@@ -774,10 +827,15 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇩🇪DE_45|1.3MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_4|610KB/s|P002-260618'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_54|4.3MB/s|R002-260618'
-  - '[ermaozi-subscribe] 🇸🇬SG_3|3.4MB/s'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
   - '[share-daily-node] IT-HTTP-03'
-  - '[cbusifabcap-clashmeta] 🇪🇸ES_6|616KB/s|R002-260618'
+  - '[cbusifabcap-clashmeta] 🇧🇷BR_1|514KB/s|R002-260618'
+  - '[ermaozi-subscribe] RO_speednode_0020'
+  - '[ermaozi-subscribe] RO_speednode_0021'
+  - '[ermaozi-subscribe] RO_speednode_0022'
+  - '[cbusifabcap-clashmeta] 🇦🇺AU_1|404KB/s|R002-260618'
+  - '[share-daily-node] NL-HTTP-38'
+  - '[cbusifabcap-clashmeta] ❓Other_30|207KB/s|P002-260618'
   - '[share-daily-node] JP-HTTP-01'
   - '[cbusifabcap-clashmeta] 🇧🇬BG_2|1.2MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇧🇦BA_1|1.1MB/s|R002-260618'
@@ -794,6 +852,7 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇧🇬BG_5|902KB/s|R002-260618'
   - '[share-daily-node] ZA-HTTP-05'
   - '[share-daily-node] US-HTTP-24'
+  - '[ermaozi-subscribe] 🇸🇬SG_3|3.4MB/s'
   - '[share-daily-node] GR-HTTP-01'
   - '[share-daily-node] IN-HTTP-01'
   - '[ermaozi-subscribe] 🇩🇪DE_2|1.3MB/s'
@@ -811,6 +870,7 @@ proxy-groups:
   - '[share-daily-node] HK-HTTP-04'
   - '[share-daily-node] GB-HTTP-03'
   - '[share-daily-node] HK-HTTP-02'
+  - '[ermaozi-subscribe] ❓Other_1|1.2MB/s'
   - '[cbusifabcap-clashmeta] 🇨🇭CH_1|632KB/s'
   - '[ermaozi-subscribe] 🇪🇸ES_1|2.0MB/s'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_47|539KB/s|R002-260618'
@@ -821,6 +881,7 @@ proxy-groups:
   - '[share-daily-node] MX-HTTP-02'
   - '[share-daily-node] MX-HTTP-01'
   - '[cbusifabcap-clashmeta] 🇨🇭CH_10|1.5MB/s|R002-260618'
+  - '[cbusifabcap-clashmeta] 🇪🇸ES_6|616KB/s|R002-260618'
   - '[share-daily-node] HK-HTTP-03'
   - '[ermaozi-subscribe] 🇩🇪DE_1|1017KB/s'
   - '[share-daily-node] US-HTTP-21'
@@ -836,7 +897,6 @@ proxy-groups:
   - '[share-daily-node] IT-HTTP-04'
   - '[ermaozi-subscribe] US_speednode_0023'
   - '[ermaozi-subscribe] US_speednode_0024'
-  - '[ermaozi-subscribe] ❓Other_1|1.2MB/s'
   - '[share-daily-node] NL-HTTP-02'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
   - '[share-daily-node] US-HTTP-03'
@@ -871,10 +931,15 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇩🇪DE_45|1.3MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_4|610KB/s|P002-260618'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_54|4.3MB/s|R002-260618'
-  - '[ermaozi-subscribe] 🇸🇬SG_3|3.4MB/s'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
   - '[share-daily-node] IT-HTTP-03'
-  - '[cbusifabcap-clashmeta] 🇪🇸ES_6|616KB/s|R002-260618'
+  - '[cbusifabcap-clashmeta] 🇧🇷BR_1|514KB/s|R002-260618'
+  - '[ermaozi-subscribe] RO_speednode_0020'
+  - '[ermaozi-subscribe] RO_speednode_0021'
+  - '[ermaozi-subscribe] RO_speednode_0022'
+  - '[cbusifabcap-clashmeta] 🇦🇺AU_1|404KB/s|R002-260618'
+  - '[share-daily-node] NL-HTTP-38'
+  - '[cbusifabcap-clashmeta] ❓Other_30|207KB/s|P002-260618'
   - '[share-daily-node] JP-HTTP-01'
   - '[cbusifabcap-clashmeta] 🇧🇬BG_2|1.2MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇧🇦BA_1|1.1MB/s|R002-260618'
@@ -891,6 +956,7 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇧🇬BG_5|902KB/s|R002-260618'
   - '[share-daily-node] ZA-HTTP-05'
   - '[share-daily-node] US-HTTP-24'
+  - '[ermaozi-subscribe] 🇸🇬SG_3|3.4MB/s'
   - '[share-daily-node] GR-HTTP-01'
   - '[share-daily-node] IN-HTTP-01'
   - '[ermaozi-subscribe] 🇩🇪DE_2|1.3MB/s'
@@ -908,6 +974,7 @@ proxy-groups:
   - '[share-daily-node] HK-HTTP-04'
   - '[share-daily-node] GB-HTTP-03'
   - '[share-daily-node] HK-HTTP-02'
+  - '[ermaozi-subscribe] ❓Other_1|1.2MB/s'
   - '[cbusifabcap-clashmeta] 🇨🇭CH_1|632KB/s'
   - '[ermaozi-subscribe] 🇪🇸ES_1|2.0MB/s'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_47|539KB/s|R002-260618'
@@ -918,6 +985,7 @@ proxy-groups:
   - '[share-daily-node] MX-HTTP-02'
   - '[share-daily-node] MX-HTTP-01'
   - '[cbusifabcap-clashmeta] 🇨🇭CH_10|1.5MB/s|R002-260618'
+  - '[cbusifabcap-clashmeta] 🇪🇸ES_6|616KB/s|R002-260618'
   - '[share-daily-node] HK-HTTP-03'
   - '[ermaozi-subscribe] 🇩🇪DE_1|1017KB/s'
   - '[share-daily-node] US-HTTP-21'
