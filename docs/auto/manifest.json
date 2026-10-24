@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T00:07:51Z",
+  "generated_at": "2026-10-24T00:21:08Z",
   "status": "degraded",
   "active_probe": true,
   "counts": {
-    "published": 679,
+    "published": 800,
     "sources": 57,
     "parsed": 28179,
-    "accepted": 22544
+    "accepted": 22542
   },
   "protocols": {
-    "http": 93,
-    "hysteria2": 85,
-    "socks5": 2,
-    "ss": 7,
-    "trojan": 107,
-    "vless": 339,
-    "vmess": 44,
-    "wireguard": 2
+    "http": 45,
+    "hysteria2": 86,
+    "socks5": 3,
+    "ss": 16,
+    "trojan": 124,
+    "vless": 467,
+    "vmess": 53,
+    "wireguard": 6
   },
   "sources": [
     {
@@ -437,8 +437,8 @@
       "id": "iboxz-collector",
       "kind": "public",
       "status": "ok",
-      "parsed": 338,
-      "accepted": 291,
+      "parsed": 340,
+      "accepted": 293,
       "drops": {
         "invalid_uuid": 23,
         "vless URI must include UUID, host and port": 2,
@@ -449,7 +449,7 @@
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "4631e81eede5575a91aacd292e47b460f5f11b023b56974b0a83bbfbced1cd5e"
+      "sha256": "52714ca5a2347d158cad7a14bfb8dd16ec2b88e272a67bb3ba8682b48c9ddf92"
     },
     {
       "id": "snapdragon-systemproxy",
@@ -514,16 +514,16 @@
       "id": "ovmvo-permanent",
       "kind": "public",
       "status": "ok",
-      "parsed": 62,
-      "accepted": 59,
+      "parsed": 60,
+      "accepted": 55,
       "drops": {
-        "unsupported proxy type": 3
+        "unsupported proxy type": 5
       },
       "source_repo": "https://github.com/ovmvo/FreeSub",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "f0018188ae9a5b86a02d764e031d8def787a157f961dfa33173a28d5d77c76e0"
+      "sha256": "9cc8625c9f276aa2151fd2d84775106815f2bf07d33f6ed43b65645cce244cb5"
     },
     {
       "id": "nirevil-singbox",
@@ -848,26 +848,26 @@
     },
     {
       "path": "clash/config.yaml",
-      "sha256": "22d5f2eefe35ecb6abb9e604793b79b0210b7e97bdd41588f20f2e5bca68b529",
-      "bytes": 287969
+      "sha256": "d7f0ba986b1b76bdaf4a75a6b3e4e964d459d3a7d3d7e3807cee4615be081e50",
+      "bytes": 361052
     },
     {
       "path": "clash/providers/aggregate.yaml",
-      "sha256": "881c00d4fca140ac79122050c73d0267703df0f4a3a65f27e6505455167e2877",
-      "bytes": 207519
+      "sha256": "0993c0c9e33440a6b141e2533194e046e6c189fbd3ba032c782d1e4db5f6cb75",
+      "bytes": 264096
     },
     {
       "path": "sing-box/config.json",
-      "sha256": "612c2b3abb892a59e393eb8dd2ea53a0847958d60b31e1ce58b93e77ac56f901",
-      "bytes": 301817
+      "sha256": "c3bc041a19c58c4c29698c145da7ebaf990e7e9dad5feaa998ae3525a443267a",
+      "bytes": 369086
     }
   ],
   "drops": {
     "invalid_uuid": 338,
-    "duplicate": 9073,
+    "duplicate": 9072,
     "proxy port is outside 1..65535": 4,
     "private_server": 49,
-    "unsupported proxy type": 21,
+    "unsupported proxy type": 23,
     "vmess URI payload is not valid JSON": 127,
     "unsupported_scheme": 34,
     "invalid_uri": 6,
@@ -878,13 +878,13 @@
     "unsupported_outbound": 1
   },
   "sing_box": {
-    "unsupported": 87,
+    "unsupported": 122,
     "drop_reasons": {
-      "invalid_hysteria2_up_mbps": 30,
-      "unsupported_protocol:wireguard": 2,
+      "invalid_hysteria2_up_mbps": 31,
+      "unsupported_protocol:wireguard": 6,
       "unsupported_transport:http": 2,
-      "unsupported_transport:raw": 50,
-      "unsupported_transport:xhttp": 3
+      "unsupported_transport:raw": 78,
+      "unsupported_transport:xhttp": 5
     }
   },
   "verification": {
@@ -903,31 +903,31 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 1179
+      "http_error": 999
     },
-    "pool_size_before": 313,
-    "pool_size": 679,
+    "pool_size_before": 679,
+    "pool_size": 832,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 313,
-    "pool_retested": 313,
-    "new_candidates_tested": 1487,
-    "pool_added": 372,
-    "pool_evicted": 6,
+    "pool_probe_candidates": 679,
+    "pool_retested": 679,
+    "new_candidates_tested": 1121,
+    "pool_added": 207,
+    "pool_evicted": 54,
     "pool_recovered": 0,
-    "retained_count": 679,
+    "retained_count": 832,
     "shrink_guard_ratio": 0.2,
-    "failed_pool_size_before": 4718,
+    "failed_pool_size_before": 5000,
     "failed_pool_due": 0,
     "failed_pool_retested": 0,
     "failed_pool_promoted": 0,
-    "failed_pool_added": 1121,
-    "failed_pool_evicted_active": 6,
-    "failed_pool_pruned": 839,
+    "failed_pool_added": 968,
+    "failed_pool_evicted_active": 54,
+    "failed_pool_pruned": 968,
     "failed_pool_size": 5000,
     "stage1_tested": 1800,
-    "stage1_passed": 712,
-    "stage2_tested": 712,
-    "stage2_stable": 643,
+    "stage1_passed": 903,
+    "stage2_tested": 903,
+    "stage2_stable": 830,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -936,19 +936,19 @@
     }
   },
   "node_quality": {
-    "candidates": 19020,
+    "candidates": 19024,
     "tested": 1800,
-    "verified": 621,
-    "fast": 648,
-    "stable": 621,
-    "failed": 1179,
-    "not_tested": 17220,
-    "not_tested_budget": 17220,
-    "failed_probe": 1150,
-    "below_quality_threshold": 29,
-    "dropped": 1179,
-    "published": 679,
-    "success_rate": 0.35444444444444445
+    "verified": 801,
+    "fast": 840,
+    "stable": 801,
+    "failed": 999,
+    "not_tested": 17224,
+    "not_tested_budget": 17224,
+    "failed_probe": 960,
+    "below_quality_threshold": 39,
+    "dropped": 999,
+    "published": 800,
+    "success_rate": 0.4575925925925926
   },
   "limitations": [
     "HTTP(S) checks only fetch and parse the configured source.",
