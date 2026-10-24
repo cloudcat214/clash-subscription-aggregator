@@ -900,6 +900,71 @@ def test_pipeline_rejects_probe_settings_over_budget(
     assert health["verification"]["policy_error"] == "probe_parameters_over_budget"
 
 
+def test_publish_cap_accepts_1000_and_still_rejects_1001(tmp_path: Path) -> None:
+    """发布上限 1000 合法且真正放开（不被旧的 800 硬顶截断），1001 仍拒绝。"""
+
+    def fake_probe(proxies):
+        return {
+            "status": "performed",
+            "backend": "delay",
+            "tested": len(proxies),
+            "max_nodes": 900,
+            "rounds": 3,
+            "concurrency": 16,
+            "timeout_seconds": 8.0,
+            "results": [
+                {
+                    "name": proxy["name"],
+                    "rounds_passed": 3,
+                    "rounds_total": 3,
+                    "latency_ms": 100.0,
+                    "p95_latency_ms": 100.0,
+                }
+                for proxy in proxies
+            ],
+        }
+
+    overrides = {
+        "probe_backend": "delay",
+        "probe_interface": "WLAN",
+        "probe_max_nodes": 900,
+        "probe_concurrency": 16,
+    }
+
+    (tmp_path / "allow").mkdir()
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path / "allow",
+        active_probe=True,
+        node_count=900,
+        settings_overrides={**overrides, "probe_publish_max_nodes": 1000},
+    )
+    result = run_pipeline(config_path, output_dir, state_dir, probe_runner=fake_probe)
+
+    assert result.success is True
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["counts"]["published"] == 900
+
+    rejected_calls = {"count": 0}
+
+    def fake_probe_rejected(_proxies):
+        rejected_calls["count"] += 1
+        return {"status": "performed", "backend": "delay", "results": []}
+
+    (tmp_path / "reject").mkdir()
+    config_path, output_dir, state_dir = _write_pipeline_inputs(
+        tmp_path / "reject",
+        active_probe=True,
+        settings_overrides={**overrides, "probe_publish_max_nodes": 1001},
+    )
+    rejected = run_pipeline(
+        config_path, output_dir, state_dir, probe_runner=fake_probe_rejected
+    )
+
+    assert rejected.success is False
+    assert rejected.failure_reason == "probe_parameters_over_budget"
+    assert rejected_calls["count"] == 0
+
+
 def test_pipeline_allows_delay_backend_limits(tmp_path: Path) -> None:
     """delay 后端允许 2000 节点/16 并发，但仍走同一质量筛选。"""
 
