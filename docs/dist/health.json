@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T23:45:10Z",
+  "generated_at": "2026-10-24T00:07:51Z",
   "status": "degraded",
   "active_probe": true,
-  "published": 313,
+  "published": 679,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -153,18 +153,18 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1376,
-      "accepted": 1179,
+      "parsed": 1681,
+      "accepted": 1475,
       "drops": {
-        "invalid_uuid": 2,
-        "duplicate": 195
+        "invalid_uuid": 3,
+        "duplicate": 203
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "48c6a98ef6b34393c48d92901d56bbd101a1dc74dd84e994deb3f55413649ec8"
+      "sha256": "d666c9cfd6a3aee14f372cdd7e2e18f11524fde46b1d5df2b0bc0af49e64f9f1"
     },
     {
       "id": "p-configs-vless",
@@ -202,7 +202,7 @@
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "0232b352590c4f47930394f2cea196ae435daec59814b71aa043a3e79b4f9054"
+      "sha256": "2ad0978945bd27938fd8e12e460c03d554d8aa13be1d81e8e36d6f494108c426"
     },
     {
       "id": "anaer-sub",
@@ -267,13 +267,16 @@
       "id": "zhuhaiuk-free-nodes",
       "kind": "public",
       "status": "ok",
-      "parsed": 27,
+      "parsed": 31,
       "accepted": 27,
+      "drops": {
+        "unsupported proxy type": 4
+      },
       "source_repo": "https://github.com/zhuhaiuk/free-nodes",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "f91436d31e7fa44c89e448096848535da3b92c142cd4e8765dad4bbdc7bf45ad"
+      "sha256": "dab2a534ac86529a1f53f3116f72dee2e3e040f468299e66deaa41520121e776"
     },
     {
       "id": "freefq-free",
@@ -657,23 +660,23 @@
       "id": "epodonios-v2ray",
       "kind": "public",
       "status": "ok",
-      "parsed": 7470,
-      "accepted": 4404,
+      "parsed": 7383,
+      "accepted": 4376,
       "drops": {
         "unsupported_scheme": 6,
         "ss URI has no method/password pair": 7,
-        "ss URI has no host/port": 5,
+        "ss URI has no host/port": 10,
         "invalid_uri": 5,
-        "invalid_uuid": 214,
-        "vmess URI payload is not valid JSON": 14,
-        "private_server": 7,
-        "duplicate": 3059
+        "invalid_uuid": 228,
+        "vmess URI payload is not valid JSON": 15,
+        "private_server": 5,
+        "duplicate": 3002
       },
       "source_repo": "https://github.com/Epodonios/v2ray-configs",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "bc5ab618407ee529322f30aeec23d1def851f95b416b72a2d0f37d76f505e363"
+      "sha256": "75217093df1f748fa6a357d654907b84a50271f7443647ba7d4b1806bdc9e40a"
     },
     {
       "id": "leon406-share-v2",
@@ -842,32 +845,31 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 295,
-      "process_exit": 1200
+      "http_error": 1179
     },
-    "pool_size_before": 253,
-    "pool_size": 313,
+    "pool_size_before": 313,
+    "pool_size": 679,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 253,
-    "pool_retested": 253,
-    "new_candidates_tested": 1547,
-    "pool_added": 73,
-    "pool_evicted": 13,
+    "pool_probe_candidates": 313,
+    "pool_retested": 313,
+    "new_candidates_tested": 1487,
+    "pool_added": 372,
+    "pool_evicted": 6,
     "pool_recovered": 0,
-    "retained_count": 313,
+    "retained_count": 679,
     "shrink_guard_ratio": 0.2,
-    "failed_pool_size_before": 3231,
+    "failed_pool_size_before": 4718,
     "failed_pool_due": 0,
     "failed_pool_retested": 0,
     "failed_pool_promoted": 0,
-    "failed_pool_added": 1487,
-    "failed_pool_evicted_active": 13,
-    "failed_pool_pruned": 0,
-    "failed_pool_size": 4718,
+    "failed_pool_added": 1121,
+    "failed_pool_evicted_active": 6,
+    "failed_pool_pruned": 839,
+    "failed_pool_size": 5000,
     "stage1_tested": 1800,
-    "stage1_passed": 326,
-    "stage2_tested": 326,
-    "stage2_stable": 322,
+    "stage1_passed": 712,
+    "stage2_tested": 712,
+    "stage2_stable": 643,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -876,19 +878,19 @@
     }
   },
   "node_quality": {
-    "candidates": 18758,
+    "candidates": 19020,
     "tested": 1800,
-    "verified": 305,
-    "fast": 323,
-    "stable": 305,
-    "failed": 1495,
-    "not_tested": 16958,
-    "not_tested_budget": 16958,
-    "failed_probe": 1476,
-    "below_quality_threshold": 19,
-    "dropped": 1495,
-    "published": 313,
-    "success_rate": 0.1761111111111111
+    "verified": 621,
+    "fast": 648,
+    "stable": 621,
+    "failed": 1179,
+    "not_tested": 17220,
+    "not_tested_budget": 17220,
+    "failed_probe": 1150,
+    "below_quality_threshold": 29,
+    "dropped": 1179,
+    "published": 679,
+    "success_rate": 0.35444444444444445
   },
   "core_validation": {
     "status": "not_tested",
