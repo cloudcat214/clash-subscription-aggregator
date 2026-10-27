@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-26T20:51:04Z",
+  "generated_at": "2026-10-27T05:53:55Z",
   "status": "degraded",
   "active_probe": true,
-  "published": 112,
+  "published": 209,
   "sources": [
     {
       "id": "alvin-ip1",
@@ -153,17 +153,18 @@
       "id": "free-v2ray-verified-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 1256,
-      "accepted": 1059,
+      "parsed": 1498,
+      "accepted": 1273,
       "drops": {
-        "duplicate": 197
+        "invalid_uuid": 3,
+        "duplicate": 222
       },
       "source_repo": "https://github.com/0xRadikal/Free-v2ray-Configs",
       "license": "MIT",
       "evidence": "https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/LICENSE",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "8a6ff49a9767bd5befeab2572258e0f6387a548f939678b586d2668cffb0c21f"
+      "sha256": "ad3efe2fe7c594ce9928daa940fbb33d4594c4522b2a98c15d7d29465097f980"
     },
     {
       "id": "p-configs-vless",
@@ -195,13 +196,13 @@
       "id": "pawdroid-free-servers",
       "kind": "public",
       "status": "ok",
-      "parsed": 11,
-      "accepted": 11,
+      "parsed": 16,
+      "accepted": 16,
       "source_repo": "https://github.com/Pawdroid/Free-servers",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "058d94869f99034f3ea88c6538f6839786f3a165ae136cb6626a19a6aeab075f"
+      "sha256": "e25061df42e1094fdf2f8992b065c787cc5cde81daeffdf7b92a3e45c2389ec4"
     },
     {
       "id": "anaer-sub",
@@ -240,17 +241,19 @@
       "id": "ermaozi-subscribe",
       "kind": "public",
       "status": "ok",
-      "parsed": 392,
-      "accepted": 378,
+      "parsed": 455,
+      "accepted": 434,
       "drops": {
         "private_server": 10,
-        "unsupported proxy type": 4
+        "unsupported proxy type": 4,
+        "invalid_uuid": 2,
+        "duplicate": 5
       },
       "source_repo": "https://github.com/ermaozi/get_subscribe",
       "license": "GPL-3.0",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "51d381a58c970bdf10dcbb57cdbe2f1cea3af9f41f07f983705b069868452e88"
+      "sha256": "a935898ad3e042a070840714bbd522237e80ca49710438a9478f02dafd39d877"
     },
     {
       "id": "vxiaov-free-proxies",
@@ -268,16 +271,16 @@
       "id": "zhuhaiuk-free-nodes",
       "kind": "public",
       "status": "ok",
-      "parsed": 32,
+      "parsed": 33,
       "accepted": 31,
       "drops": {
-        "unsupported proxy type": 1
+        "unsupported proxy type": 2
       },
       "source_repo": "https://github.com/zhuhaiuk/free-nodes",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "634779b98f524e1f3e9842f4d0280fddff2b5b02467ab7e082059b27bab89a5a"
+      "sha256": "441eeabe6e01011fc8fbe1d4e6b28080d4eb29756bf253a63d45192b1a5a4e69"
     },
     {
       "id": "freefq-free",
@@ -298,23 +301,23 @@
       "id": "au1rxx-free-vpn-subscriptions",
       "kind": "public",
       "status": "ok",
-      "parsed": 1741,
-      "accepted": 1090,
+      "parsed": 1700,
+      "accepted": 1062,
       "drops": {
-        "duplicate": 651
+        "duplicate": 638
       },
       "source_repo": "https://github.com/Au1rxx/free-vpn-subscriptions",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "88e8ddcb8c65308a9a1088407e0ab41b220077d4a25589a26000945d4d1d436f"
+      "sha256": "6ca378d057b509bcabce9da2d2ae84d837ad9eb0e69ad8bc8fa8c01ceb60d1d4"
     },
     {
       "id": "chengaopan-merged",
       "kind": "public",
       "status": "ok",
-      "parsed": 104,
-      "accepted": 94,
+      "parsed": 107,
+      "accepted": 97,
       "drops": {
         "private_server": 10
       },
@@ -322,76 +325,76 @@
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "922a11b2bfd8f01dd74243c86502678adfb09b9854eaee6e8c8eec3f0879bff8"
+      "sha256": "b3e01a9363442d322311a2ad5e530e441bf8e31b66f18c6bc2d61e6b2ee123ea"
     },
     {
       "id": "chengaopan-base64",
       "kind": "public",
       "status": "ok",
-      "parsed": 523,
-      "accepted": 519,
+      "parsed": 509,
+      "accepted": 507,
       "drops": {
-        "vmess URI payload is not valid JSON": 14,
-        "invalid_uuid": 1,
-        "hysteria2 URI must include password, host and port": 1,
-        "duplicate": 4
+        "vmess URI payload is not valid JSON": 13,
+        "invalid_uuid": 4,
+        "duplicate": 2
       },
       "source_repo": "https://github.com/chengaopan/AutoMergePublicNodes",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "a13d84e8fc9525e5a44529c4322f63fc8e750301fe074337920743104fe2ab1d"
+      "sha256": "fc30ea2fe2efb7011631712956776d48fa0e2e273dbb28cda2dabe1666cb590e"
     },
     {
       "id": "free18-clash",
       "kind": "public",
       "status": "ok",
-      "parsed": 277,
-      "accepted": 266,
+      "parsed": 222,
+      "accepted": 214,
       "drops": {
-        "duplicate": 11
+        "invalid_uuid": 1,
+        "duplicate": 7
       },
       "source_repo": "https://github.com/free18/v2ray",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "7ff5c3df4d788114e0c0f65cf480a615bf7e62c462256777a58587ea0c03add6"
+      "sha256": "343bbccdb8afcc58fb8d75da1d9961df9798081379b21631286c08a497e7bf84"
     },
     {
       "id": "cbusifabcap-clashmeta",
       "kind": "public",
       "status": "ok",
-      "parsed": 1331,
-      "accepted": 1305,
+      "parsed": 1903,
+      "accepted": 1873,
       "drops": {
-        "unsupported proxy type": 9,
+        "unsupported proxy type": 8,
         "invalid_uuid": 1,
-        "duplicate": 16
+        "duplicate": 21
       },
       "source_repo": "https://github.com/cbusifabcap/daily_free_vpn",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "bd478672c969bffcaee4b86d92222c366f8ad8ed8fbb0b796694b82012ca8f60"
+      "sha256": "8b345d7d52b7ba844a316fcac2b97bb3bbc05ef2499b6b9fb7b2b7c2b1aaa2a3"
     },
     {
       "id": "cbusifabcap-uri",
       "kind": "public",
       "status": "ok",
-      "parsed": 921,
-      "accepted": 862,
+      "parsed": 1443,
+      "accepted": 1366,
       "drops": {
-        "vmess URI payload is not valid JSON": 10,
-        "invalid_uri": 1,
-        "unsupported_scheme": 14,
+        "vmess URI payload is not valid JSON": 17,
+        "unsupported_scheme": 20,
+        "trojan URI must include host and port": 1,
         "invalid_uuid": 1,
-        "duplicate": 59
+        "duplicate": 77
       },
       "source_repo": "https://github.com/cbusifabcap/daily_free_vpn",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "b9594468223d53fd65451fad3be5dfa55a4fbcf16e19655e7027f61cf9202f79"
+      "sha256": "4d73d77e255ad105aca232d2c0e7aee995b120a8a1435b932efcf805d2f11b71"
     },
     {
       "id": "huibq-trojanlinks",
@@ -409,65 +412,66 @@
       "id": "igareck-vless",
       "kind": "public",
       "status": "ok",
-      "parsed": 63,
-      "accepted": 60,
+      "parsed": 147,
+      "accepted": 146,
       "drops": {
-        "invalid_uuid": 22,
-        "duplicate": 3
+        "invalid_uuid": 13,
+        "duplicate": 1
       },
       "source_repo": "https://github.com/igareck/vpn-configs-for-russia",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "9435e6f1e1ba1b8e0f5a01d672fd033db937674fcc12e0161c483abf4bb97fef"
+      "sha256": "47376421a49621f3f58477a80eaf09190669b915cad303b06af6b9d5299a4cae"
     },
     {
       "id": "iboxz-collector",
       "kind": "public",
       "status": "ok",
-      "parsed": 355,
-      "accepted": 305,
+      "parsed": 354,
+      "accepted": 299,
       "drops": {
         "vless URI must include UUID, host and port": 2,
         "invalid_uuid": 19,
-        "duplicate": 50
+        "vmess URI payload is not valid JSON": 1,
+        "duplicate": 55
       },
       "source_repo": "https://github.com/iboxz/free-v2ray-collector",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "4c0e90e3c261ca3bed3c484947f5859bcc81302625bad2e6bed82d29a4c8303a"
+      "sha256": "837b66cdb291e1843f086e02bdff00fffa85c3bcbb6d4dcb4986d1c0a9a6b565"
     },
     {
       "id": "snapdragon-systemproxy",
       "kind": "public",
       "status": "ok",
-      "parsed": 179,
-      "accepted": 179,
+      "parsed": 192,
+      "accepted": 192,
       "source_repo": "https://github.com/SnapdragonLee/SystemProxy",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "60cbd8e1808b17a2f795d5bdad2f056dc24277cbb588c2e88792b5034e3b068c"
+      "sha256": "aea5e241bd41670505d29ae9a8f3cd86b0dd53644eebfff33e56ad84940d7103"
     },
     {
       "id": "nexus-nodes-all",
       "kind": "public",
       "status": "ok",
-      "parsed": 2839,
-      "accepted": 1841,
+      "parsed": 2851,
+      "accepted": 1834,
       "drops": {
-        "ss URI has no method/password pair": 47,
-        "invalid_uuid": 56,
-        "vmess URI payload is not valid JSON": 41,
-        "missing_reality_public_key": 17,
-        "duplicate": 998
+        "ss URI has no method/password pair": 39,
+        "invalid_uuid": 57,
+        "vmess URI payload is not valid JSON": 39,
+        "missing_reality_public_key": 14,
+        "duplicate": 1017
       },
       "source_repo": "https://github.com/ninjastrikers/nexus-nodes",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "cd05d1d07475778d765a29dc95308a544eea9fe3f5b1ef29de651bd6bb8b6595"
+      "sha256": "4808df998f173f24515413a1218dca088e5d5bbadc04a3197c3b05875459c509"
     },
     {
       "id": "nodeshare-2026",
@@ -546,16 +550,18 @@
       "id": "share-daily-node",
       "kind": "public",
       "status": "ok",
-      "parsed": 222,
-      "accepted": 193,
+      "parsed": 294,
+      "accepted": 195,
       "drops": {
-        "duplicate": 29
+        "unsupported proxy type": 6,
+        "invalid_uuid": 1,
+        "duplicate": 92
       },
       "source_repo": "https://github.com/share-daily/node",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "50b7152d71897fa1f5d4081c588e8d75957bfd2620932d0df616b545157d020c"
+      "sha256": "3fbf8088f9ecc96580636508e37586fb59935f48b9f250bee1cba1e60cc6c095"
     },
     {
       "id": "mfuu-freeproxies",
@@ -583,8 +589,8 @@
       "id": "nomorewalls-list",
       "kind": "public",
       "status": "ok",
-      "parsed": 104,
-      "accepted": 94,
+      "parsed": 107,
+      "accepted": 97,
       "drops": {
         "private_server": 10
       },
@@ -592,7 +598,7 @@
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "86375d8737fdd8af4ca1afc940796b97c3fb5b2311259385525cc545f0f5df86"
+      "sha256": "1c7b9af59eb02b127fbf131de56a81fd27c855b67d0b4101a5363352462a271f"
     },
     {
       "id": "ripaojiedian-freenode",
@@ -611,15 +617,15 @@
       "kind": "public",
       "status": "ok",
       "parsed": 200,
-      "accepted": 196,
+      "accepted": 195,
       "drops": {
-        "invalid_uuid": 4
+        "invalid_uuid": 5
       },
       "source_repo": "https://github.com/ts-sf/fly",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "987ddb3bf3131252cbe5dd8a8383cf96116bff2d3ba9c0a2011e56992d7746e8"
+      "sha256": "bd268b13b93d61b387e238b6dd7953f9444b7d856a557ae39fa25b9c6fa394c3"
     },
     {
       "id": "aiboboxx-v2rayfree",
@@ -660,24 +666,23 @@
       "id": "epodonios-v2ray",
       "kind": "public",
       "status": "ok",
-      "parsed": 7473,
-      "accepted": 4418,
+      "parsed": 7457,
+      "accepted": 4390,
       "drops": {
         "ss URI has no method/password pair": 10,
-        "unsupported_scheme": 5,
-        "ss URI has no host/port": 9,
+        "unsupported_scheme": 6,
+        "ss URI has no host/port": 4,
         "invalid_uri": 5,
-        "invalid_uuid": 189,
-        "missing_reality_public_key": 1,
-        "vmess URI payload is not valid JSON": 7,
+        "invalid_uuid": 187,
+        "vmess URI payload is not valid JSON": 13,
         "private_server": 2,
-        "duplicate": 3053
+        "duplicate": 3065
       },
       "source_repo": "https://github.com/Epodonios/v2ray-configs",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "7c36f1b65978721a25e9244c1d210839455130bfe7092a1d41308b4f3fa9f194"
+      "sha256": "397d4e2ec197d062d48d25212e5b7f2bad73432bb809f1ccea2c949b481a1a64"
     },
     {
       "id": "leon406-share-v2",
@@ -712,31 +717,31 @@
       "kind": "public",
       "status": "ok",
       "parsed": 201,
-      "accepted": 200,
+      "accepted": 194,
       "drops": {
-        "duplicate": 1
+        "duplicate": 7
       },
       "source_repo": "https://github.com/mahdibland/ShadowsocksAggregator",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "2678df2317cc8812d0ae1ae82cab3fb11342c3e2dddd5abf3a3e735d3dbdd2c2"
+      "sha256": "28af744c51657064fbe915adb040168d020f8e55d3b987400bbc91c27e636563"
     },
     {
       "id": "mahdibland-ssagg-merge",
       "kind": "public",
       "status": "ok",
-      "parsed": 4471,
-      "accepted": 4382,
+      "parsed": 4580,
+      "accepted": 4490,
       "drops": {
         "private_server": 1,
-        "duplicate": 88
+        "duplicate": 89
       },
       "source_repo": "https://github.com/mahdibland/SSAggregator",
       "license": "unknown",
       "publicly_offered": true,
       "authorized": true,
-      "sha256": "d192415ff759c55cf3c3eacc40bfa84c6a5b8ff370773a13a5fb95f26c7d4a7c"
+      "sha256": "a63789d27a1b032cc53903c9cad435b1a7f4d6511b2ed37d9a609f494bd8ef79"
     },
     {
       "id": "zyzmzyz-free-nodes",
@@ -846,32 +851,32 @@
     "fast_latency_ms": 800.0,
     "latency_score_cap_ms": 5000.0,
     "error_categories": {
-      "http_error": 534,
-      "process_exit": 1266
+      "http_error": 591,
+      "process_exit": 1000
     },
-    "pool_size_before": 488,
-    "pool_size": 112,
+    "pool_size_before": 0,
+    "pool_size": 209,
     "probe_queue": "verified_pool_first",
-    "pool_probe_candidates": 488,
-    "pool_retested": 488,
-    "new_candidates_tested": 952,
-    "pool_added": 0,
-    "pool_evicted": 376,
+    "pool_probe_candidates": 0,
+    "pool_retested": 0,
+    "new_candidates_tested": 1440,
+    "pool_added": 209,
+    "pool_evicted": 0,
     "pool_recovered": 0,
-    "retained_count": 112,
+    "retained_count": 209,
     "shrink_guard_ratio": 0.2,
     "failed_pool_size_before": 5000,
     "failed_pool_due": 360,
     "failed_pool_retested": 360,
     "failed_pool_promoted": 0,
-    "failed_pool_added": 1328,
-    "failed_pool_evicted_active": 376,
-    "failed_pool_pruned": 1328,
+    "failed_pool_added": 1231,
+    "failed_pool_evicted_active": 0,
+    "failed_pool_pruned": 1231,
     "failed_pool_size": 5000,
     "stage1_tested": 1800,
-    "stage1_passed": 266,
-    "stage2_tested": 266,
-    "stage2_stable": 0,
+    "stage1_passed": 239,
+    "stage2_tested": 239,
+    "stage2_stable": 231,
     "interface_mode": "auto",
     "direct_control": {
       "status": "passed",
@@ -880,19 +885,19 @@
     }
   },
   "node_quality": {
-    "candidates": 19866,
+    "candidates": 20872,
     "tested": 1800,
-    "verified": 0,
-    "fast": 0,
-    "stable": 0,
-    "failed": 1800,
-    "not_tested": 18066,
-    "not_tested_budget": 18066,
-    "failed_probe": 1800,
-    "below_quality_threshold": 0,
-    "dropped": 1800,
-    "published": 112,
-    "success_rate": 0.0
+    "verified": 209,
+    "fast": 237,
+    "stable": 209,
+    "failed": 1591,
+    "not_tested": 19072,
+    "not_tested_budget": 19072,
+    "failed_probe": 1562,
+    "below_quality_threshold": 29,
+    "dropped": 1591,
+    "published": 209,
+    "success_rate": 0.12555555555555556
   },
   "core_validation": {
     "status": "not_tested",
