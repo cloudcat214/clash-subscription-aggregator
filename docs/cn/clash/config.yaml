@@ -3,29 +3,6 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
-- name: '[ermaozi-subscribe] 🇦🇹AT_3|2.4MB/s'
-  password: None
-  port: 443
-  server: 146.70.244.18
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[ermaozi-subscribe] 🇧🇪BE_1|2.0MB/s|R002-260618'
-  password: None
-  port: 443
-  server: 146.70.176.242
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
-  password: None
-  port: 443
-  server: 185.94.192.210
-  skip-cert-verify: true
-  tls: true
-  type: http
 - name: '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   type: http
   server: 77.221.136.60
@@ -71,6 +48,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇦🇹AT_3|2.4MB/s'
+  password: None
+  port: 443
+  server: 146.70.244.18
+  skip-cert-verify: true
+  tls: true
+  type: http
 - name: '[ermaozi-subscribe] 🇧🇦BA_1|2.3MB/s'
   password: None
   port: 9443
@@ -82,6 +66,22 @@ proxies:
   type: socks5
   server: 101.36.104.239
   port: 10808
+- name: '[ermaozi-subscribe] 🇧🇪BE_1|2.0MB/s|R002-260618'
+  password: None
+  port: 443
+  server: 146.70.176.242
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
+  password: None
+  port: 443
+  server: 185.94.192.210
+  skip-cert-verify: true
+  tls: true
+  type: http
 - name: '[share-daily-node] NL-HTTP-02'
   type: http
   server: 84.17.47.149
@@ -1427,17 +1427,17 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
-  - '[ermaozi-subscribe] 🇦🇹AT_3|2.4MB/s'
-  - '[ermaozi-subscribe] 🇧🇪BE_1|2.0MB/s|R002-260618'
-  - '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[ermaozi-subscribe] ❓Other_1|1.4MB/s'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
   - '[share-daily-node] DE-HTTP-03'
   - '[share-daily-node] DE-HTTP-06'
   - '[share-daily-node] DK-HTTP-01'
+  - '[ermaozi-subscribe] 🇦🇹AT_3|2.4MB/s'
   - '[ermaozi-subscribe] 🇧🇦BA_1|2.3MB/s'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk 02'
+  - '[ermaozi-subscribe] 🇧🇪BE_1|2.0MB/s|R002-260618'
+  - '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
   - '[share-daily-node] NL-HTTP-02'
   - '[ermaozi-subscribe] 🇧🇬BG_3|1.4MB/s'
   - '[share-daily-node] NL-HTTP-74'
@@ -1616,17 +1616,17 @@ proxy-groups:
 - name: AUTO
   type: url-test
   proxies: &id001
-  - '[ermaozi-subscribe] 🇦🇹AT_3|2.4MB/s'
-  - '[ermaozi-subscribe] 🇧🇪BE_1|2.0MB/s|R002-260618'
-  - '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
   - '[zhuhaiuk-free-nodes] SE - zhuhai.uk'
   - '[ermaozi-subscribe] ❓Other_1|1.4MB/s'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
   - '[share-daily-node] DE-HTTP-03'
   - '[share-daily-node] DE-HTTP-06'
   - '[share-daily-node] DK-HTTP-01'
+  - '[ermaozi-subscribe] 🇦🇹AT_3|2.4MB/s'
   - '[ermaozi-subscribe] 🇧🇦BA_1|2.3MB/s'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk 02'
+  - '[ermaozi-subscribe] 🇧🇪BE_1|2.0MB/s|R002-260618'
+  - '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
   - '[share-daily-node] NL-HTTP-02'
   - '[ermaozi-subscribe] 🇧🇬BG_3|1.4MB/s'
   - '[share-daily-node] NL-HTTP-74'
