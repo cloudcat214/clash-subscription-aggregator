@@ -3,204 +3,131 @@ allow-lan: false
 mode: rule
 log-level: info
 proxies:
-- name: '[share-daily-node] CA-HTTP-15'
-  type: http
-  server: 142.44.210.129
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] IT-HTTP-03'
-  type: http
-  server: 95.229.15.89
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] SG-HTTP-15'
-  type: http
-  server: 154.26.138.244
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] SG-HTTP-24'
+- name: '[share-daily-node] SG-HTTP-21'
   type: http
   server: 154.26.138.236
   port: 443
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
-  type: http
-  server: tzoa.fun
-  port: 443
-  username: 'null'
-  password: None
-  tls: true
-- name: '[share-daily-node] SG-HTTP-29'
+- name: '[share-daily-node] SG-HTTP-27'
   type: http
   server: 154.26.139.27
   port: 443
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
+- name: '[share-daily-node] SG-HTTP-28'
   type: http
-  server: zebpay.site
-  port: 443
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] SG-HTTP-33'
-  type: http
-  server: 51.79.173.71
+  server: 154.26.138.244
   port: 443
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
+- name: '[zhuhaiuk-free-nodes] FR - zhuhai.uk 02'
   type: http
-  server: fullmanfirm.icu
+  server: 82.65.162.76
   port: 443
   username: 'null'
   password: 'null'
   tls: true
-- name: '[cbusifabcap-clashmeta] ❓Other_20|273KB/s|K001-260618'
-  password: ''
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] FR - zhuhai.uk 03'
+  type: http
+  server: fan.132031.xyz
   port: 443
-  server: berniesbodybla.fun
+  tls: true
+  sni: fan.132031.xyz
+- name: '[zhuhaiuk-free-nodes] ID - zhuhai.uk'
+  type: http
+  server: 103.86.117.202
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] IL - zhuhai.uk'
+  type: http
+  server: 62.90.77.30
+  port: 443
+  username: 'null'
+  password: 'null'
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] NL-HTTP-04'
+  type: http
+  server: 84.17.47.146
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  type: http
+  server: 84.17.47.125
+  port: 9002
+  tls: true
+  sni: 84.17.47.125
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk'
+  type: http
+  server: 137.175.22.116
+  port: 443
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
+  type: http
+  server: 45.150.164.18
+  port: 8443
+  tls: true
+  sni: 45.150.164.18
+  skip-cert-verify: true
+- name: '[cbusifabcap-clashmeta] 🇦🇱AL_3|875KB/s|P002-260618'
+  password: None
+  port: 443
+  server: 87.120.103.226
+  skip-cert-verify: true
+  sub_tag: P002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇦🇺AU_2|395KB/s|R002-260618'
+  password: None
+  port: 443
+  server: 159.13.44.228
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] 🇮🇪IE_2|1.2MB/s'
+  password: None
+  port: 9443
+  server: 149.88.96.12
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[cbusifabcap-clashmeta] 🇧🇬BG_3|1.2MB/s|R002-260618'
+  password: None
+  port: 443
+  server: 185.94.192.210
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[ermaozi-subscribe] 🇱🇺LU_1|2.8MB/s'
+  port: 443
+  server: 185.221.132.242
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[cbusifabcap-clashmeta] 🇨🇦CA_25|956KB/s|K001-260618'
+  password: None
+  port: 9443
+  server: 149.88.98.81
   skip-cert-verify: true
   sub_tag: K001-260618
   tls: true
   type: http
   username: ''
-  udp: true
-  sni: berniesbodybla.fun
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
-  type: http
-  server: 44.229.69.166
-  port: 8443
-  tls: true
-  skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] ❓Other_31|890KB/s|R002-260618'
-  port: 8090
-  server: 82.96.128.175
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[share-daily-node] US-HTTP-01'
-  type: http
-  server: purposebydesig.club
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[cbusifabcap-clashmeta] ❓Other_35|417KB/s|R002-260618'
-  password: 'null'
-  port: 443
-  server: efr-marktplatz.club
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  username: 'null'
-  udp: true
-  sni: efr-marktplatz.club
-- name: '[share-daily-node] US-HTTP-18'
-  type: http
-  server: 149.40.56.130
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-19'
-  type: http
-  server: 104.244.210.242
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-23'
-  type: http
-  server: 68.235.56.59
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-29'
-  type: http
-  server: 162.244.227.36
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-31'
-  type: http
-  server: 38.28.193.188
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] VN-HTTP-01'
-  type: http
-  server: 103.9.79.218
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] ZA-HTTP-01'
-  type: http
-  server: 165.73.248.90
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] ZA-HTTP-02'
-  type: http
-  server: 197.242.159.23
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] ZA-HTTP-03'
-  type: http
-  server: 108.181.120.26
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
-  server: www.shopify.com
-  port: 443
-  type: vmess
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: guanwang.awsno.com
-  network: ws
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: guanwang.awsno.com
-- name: '[share-daily-node] ZA-HTTP-04'
-  type: http
-  server: 197.242.155.197
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] ❓Other_86|82KB/s|P002-260618'
-  password: None
-  port: 9443
-  server: 146.70.170.210
-  skip-cert-verify: true
-  sub_tag: P002-260618
-  tls: true
-  type: http
   udp: true
 - name: '[cbusifabcap-clashmeta] 🇩🇪DE_30|679KB/s|R002-260618'
   password: 'null'
@@ -326,6 +253,27 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[share-daily-node] ZA-HTTP-04'
+  type: http
+  server: 197.242.155.197
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-23'
+  type: http
+  server: 68.235.56.59
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-29'
+  type: http
+  server: 138.199.35.199
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[ermaozi-subscribe] 🇨🇦CA_1|3.2MB/s'
   password: None
   port: 9443
@@ -333,6 +281,14 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
+  type: http
+  server: 138.199.35.216
+  port: 9002
+  username: 'null'
+  password: 'null'
+  tls: true
+  skip-cert-verify: true
 - name: '[cbusifabcap-clashmeta] ❓Other_116|222KB/s|P002-260618'
   password: None
   port: 443
@@ -382,6 +338,20 @@ proxies:
 - name: '[share-daily-node] SG-HTTP-04'
   type: http
   server: 154.26.138.249
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-31'
+  type: http
+  server: 38.28.193.188
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] ZA-HTTP-01'
+  type: http
+  server: 197.242.155.133
   port: 443
   udp: true
   tls: true
@@ -442,6 +412,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
+  type: http
+  server: fullmanfirm.icu
+  port: 443
+  username: 'null'
+  password: 'null'
+  tls: true
 - name: '[ermaozi-subscribe] 🇩🇪DE_3|1.6MB/s'
   password: None
   port: 443
@@ -449,6 +426,19 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[share-daily-node] CA-HTTP-15'
+  type: http
+  server: 142.44.210.129
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
+  type: http
+  server: 44.229.69.166
+  port: 8443
+  tls: true
+  skip-cert-verify: true
 - name: '[cbusifabcap-clashmeta] 🇨🇦CA_40|673KB/s|P002-260618'
   password: None
   port: 443
@@ -524,6 +514,24 @@ proxies:
   tls: true
   type: http
   udp: true
+- name: '[cbusifabcap-clashmeta] ❓Other_35|417KB/s|R002-260618'
+  password: 'null'
+  port: 443
+  server: efr-marktplatz.club
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  username: 'null'
+  udp: true
+  sni: efr-marktplatz.club
+- name: '[share-daily-node] US-HTTP-01'
+  type: http
+  server: purposebydesig.club
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  password: None
 - name: '[cbusifabcap-clashmeta] 🇦🇺AU_9|286KB/s|R002-260618'
   port: 443
   server: 103.62.50.130
@@ -540,9 +548,23 @@ proxies:
   tls: true
   type: http
   udp: true
+- name: '[share-daily-node] SG-HTTP-24'
+  type: http
+  server: 154.26.138.246
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[share-daily-node] US-HTTP-03'
   type: http
   server: fan.365747.xyz
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-19'
+  type: http
+  server: 104.244.210.242
   port: 443
   udp: true
   tls: true
@@ -577,20 +599,33 @@ proxies:
   type: http
   udp: true
   sni: fan.973511.xyz
+- name: '[share-daily-node] ZA-HTTP-02'
+  type: http
+  server: 197.242.159.23
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
+  server: www.shopify.com
+  port: 443
+  type: vmess
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: guanwang.awsno.com
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
 - name: '[cbusifabcap-clashmeta] 🇦🇹AT_1|1.3MB/s|R002-260618'
   port: 443
   server: 146.70.244.18
   skip-cert-verify: true
   sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[cbusifabcap-clashmeta] ❓Other_84|395KB/s|P002-260618'
-  password: None
-  port: 9443
-  server: 149.88.96.12
-  skip-cert-verify: true
-  sub_tag: P002-260618
   tls: true
   type: http
   udp: true
@@ -826,19 +861,6 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk'
-  type: vless
-  server: saas.sin.fan
-  port: 443
-  uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
-  tls: true
-  servername: vp5.1145678.xyz
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /zh-cn/wenku/seller
-    headers:
-      Host: vp5.1145678.xyz
 - name: '[cbusifabcap-clashmeta] ❓Other_43|409KB/s|R002-260618'
   password: 'null'
   port: 443
@@ -888,6 +910,13 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[share-daily-node] US-HTTP-18'
+  type: http
+  server: 12.221.146.147
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[share-daily-node] ID-HTTP-02'
   type: http
   server: 103.87.68.146
@@ -903,14 +932,6 @@ proxies:
   password: e4b72b531a2d10900519
   tls: true
   sni: 93b6d804.acsnet.co
-- name: '[cbusifabcap-clashmeta] ❓Other_48|89KB/s|R002-260618'
-  port: 443
-  server: 137.175.22.116
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[share-daily-node] GE-HTTP-01'
   type: http
   server: 195.54.178.210
@@ -1156,6 +1177,13 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[share-daily-node] IT-HTTP-03'
+  type: http
+  server: 95.229.15.89
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[share-daily-node] NL-HTTP-80'
   type: http
   server: 5.2.73.112
@@ -1187,6 +1215,13 @@ proxies:
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[share-daily-node] ZA-HTTP-03'
+  type: http
+  server: 108.181.120.26
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[ermaozi-subscribe] 🇬🇧GB_8|2.7MB/s'
   port: 443
   server: 84.17.50.193
@@ -1296,15 +1331,6 @@ proxies:
   tls: true
   sni: fan.587475.xyz
   skip-cert-verify: false
-- name: '[cbusifabcap-clashmeta] ❓Other_38|235KB/s|P002-260618'
-  password: None
-  port: 443
-  server: 87.120.103.226
-  skip-cert-verify: true
-  sub_tag: P002-260618
-  tls: true
-  type: http
-  udp: true
 - name: '[cbusifabcap-clashmeta] 🇨🇭CH_10|1.5MB/s|R002-260618'
   port: 443
   server: 31.7.62.50
@@ -1404,19 +1430,19 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[share-daily-node] NL-HTTP-02'
-  type: http
-  server: 84.17.47.146
-  port: 9002
-  udp: true
-  tls: true
-  skip-cert-verify: true
 - name: '[ermaozi-subscribe] 🇩🇪DE_1|1017KB/s'
   port: 443
   server: 149.36.50.157
   skip-cert-verify: true
   tls: true
   type: http
+- name: '[share-daily-node] VN-HTTP-01'
+  type: http
+  server: 103.9.79.218
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
 - name: '[share-daily-node] GR-HTTP-02'
   type: http
   server: 149.22.85.65
@@ -1444,13 +1470,6 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
-  password: None
-  port: 443
-  server: 185.94.192.210
-  skip-cert-verify: true
-  tls: true
-  type: http
 - name: '[share-daily-node] DK-HTTP-01'
   type: http
   server: 185.245.84.50
@@ -1458,12 +1477,12 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[cbusifabcap-clashmeta] 🇦🇺AU_1|404KB/s|R002-260618'
+- name: '[cbusifabcap-clashmeta] ❓Other_86|82KB/s|P002-260618'
   password: None
-  port: 443
-  server: 159.13.44.228
+  port: 9443
+  server: 146.70.170.210
   skip-cert-verify: true
-  sub_tag: R002-260618
+  sub_tag: P002-260618
   tls: true
   type: http
   udp: true
@@ -1548,6 +1567,39 @@ proxies:
   udp: true
   tls: true
   skip-cert-verify: true
+- name: '[cbusifabcap-clashmeta] ❓Other_31|890KB/s|R002-260618'
+  port: 8090
+  server: 82.96.128.175
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[share-daily-node] NL-HTTP-02'
+  type: http
+  server: 84.17.47.149
+  port: 9002
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[share-daily-node] SG-HTTP-33'
+  type: http
+  server: 51.79.173.71
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- name: '[cbusifabcap-clashmeta] ❓Other_20|273KB/s|K001-260618'
+  password: ''
+  port: 443
+  server: berniesbodybla.fun
+  skip-cert-verify: true
+  sub_tag: K001-260618
+  tls: true
+  type: http
+  username: ''
+  udp: true
+  sni: berniesbodybla.fun
 - name: '[ermaozi-subscribe] 🇩🇪DE_2|1.2MB/s|R002-260618'
   password: None
   port: 443
@@ -1562,32 +1614,23 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
-  - '[share-daily-node] CA-HTTP-15'
-  - '[share-daily-node] IT-HTTP-03'
-  - '[share-daily-node] SG-HTTP-15'
-  - '[share-daily-node] SG-HTTP-24'
+  - '[share-daily-node] SG-HTTP-21'
+  - '[share-daily-node] SG-HTTP-27'
+  - '[share-daily-node] SG-HTTP-28'
+  - '[zhuhaiuk-free-nodes] FR - zhuhai.uk 02'
+  - '[zhuhaiuk-free-nodes] FR - zhuhai.uk 03'
+  - '[zhuhaiuk-free-nodes] ID - zhuhai.uk'
+  - '[zhuhaiuk-free-nodes] IL - zhuhai.uk'
+  - '[share-daily-node] NL-HTTP-04'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
-  - '[share-daily-node] SG-HTTP-29'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
-  - '[share-daily-node] SG-HTTP-33'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
-  - '[cbusifabcap-clashmeta] ❓Other_20|273KB/s|K001-260618'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
-  - '[cbusifabcap-clashmeta] ❓Other_31|890KB/s|R002-260618'
-  - '[share-daily-node] US-HTTP-01'
-  - '[cbusifabcap-clashmeta] ❓Other_35|417KB/s|R002-260618'
-  - '[share-daily-node] US-HTTP-18'
-  - '[share-daily-node] US-HTTP-19'
-  - '[share-daily-node] US-HTTP-23'
-  - '[share-daily-node] US-HTTP-29'
-  - '[share-daily-node] US-HTTP-31'
-  - '[share-daily-node] VN-HTTP-01'
-  - '[share-daily-node] ZA-HTTP-01'
-  - '[share-daily-node] ZA-HTTP-02'
-  - '[share-daily-node] ZA-HTTP-03'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
-  - '[share-daily-node] ZA-HTTP-04'
-  - '[cbusifabcap-clashmeta] ❓Other_86|82KB/s|P002-260618'
+  - '[cbusifabcap-clashmeta] 🇦🇱AL_3|875KB/s|P002-260618'
+  - '[cbusifabcap-clashmeta] 🇦🇺AU_2|395KB/s|R002-260618'
+  - '[ermaozi-subscribe] 🇮🇪IE_2|1.2MB/s'
+  - '[cbusifabcap-clashmeta] 🇧🇬BG_3|1.2MB/s|R002-260618'
+  - '[ermaozi-subscribe] 🇱🇺LU_1|2.8MB/s'
+  - '[cbusifabcap-clashmeta] 🇨🇦CA_25|956KB/s|K001-260618'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_30|679KB/s|R002-260618'
   - '[share-daily-node] JP-HTTP-01'
   - '[ermaozi-subscribe] 🇧🇬BG_3|1.4MB/s'
@@ -1605,7 +1648,11 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇬🇧GB_5|2.9MB/s'
   - '[share-daily-node] US-HTTP-10'
   - '[ermaozi-subscribe] 🇬🇧GB_7|1.7MB/s'
+  - '[share-daily-node] ZA-HTTP-04'
+  - '[share-daily-node] US-HTTP-23'
+  - '[share-daily-node] US-HTTP-29'
   - '[ermaozi-subscribe] 🇨🇦CA_1|3.2MB/s'
+  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
   - '[cbusifabcap-clashmeta] ❓Other_116|222KB/s|P002-260618'
   - '[share-daily-node] US-HTTP-02'
   - '[cbusifabcap-clashmeta] ❓Other_49|210KB/s|P002-260618'
@@ -1613,6 +1660,8 @@ proxy-groups:
   - '[ermaozi-subscribe] IE_speednode_0010'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-04'
+  - '[share-daily-node] US-HTTP-31'
+  - '[share-daily-node] ZA-HTTP-01'
   - '[share-daily-node] SG-HTTP-08'
   - '[ermaozi-subscribe] 🇨🇿CZ_2|1016KB/s'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_6|433KB/s|P002-260618'
@@ -1620,7 +1669,10 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇩🇪DE_174|2.7MB/s|K001-260618'
   - '[cbusifabcap-clashmeta] ❓Other_79|214KB/s|P002-260618'
   - '[share-daily-node] ID-HTTP-01'
+  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
   - '[ermaozi-subscribe] 🇩🇪DE_3|1.6MB/s'
+  - '[share-daily-node] CA-HTTP-15'
+  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_40|673KB/s|P002-260618'
   - '[ermaozi-subscribe] 🇱🇺LU_1|1005KB/s'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
@@ -1630,15 +1682,20 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇩🇪DE_43|5.8MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇧🇬BG_9|1.2MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_33|249KB/s|R002-260618'
+  - '[cbusifabcap-clashmeta] ❓Other_35|417KB/s|R002-260618'
+  - '[share-daily-node] US-HTTP-01'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_9|286KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_34|241KB/s|R002-260618'
+  - '[share-daily-node] SG-HTTP-24'
   - '[share-daily-node] US-HTTP-03'
+  - '[share-daily-node] US-HTTP-19'
   - '[share-daily-node] SG-HTTP-05'
   - '[ermaozi-subscribe] 🇸🇬SG_3|3.4MB/s'
   - '[share-daily-node] US-HTTP-20'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_32|1.2MB/s|R002-260618'
+  - '[share-daily-node] ZA-HTTP-02'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
   - '[cbusifabcap-clashmeta] 🇦🇹AT_1|1.3MB/s|R002-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_84|395KB/s|P002-260618'
   - '[share-daily-node] GR-HTTP-01'
   - '[share-daily-node] US-HTTP-33'
   - '[share-daily-node] IN-HTTP-01'
@@ -1671,16 +1728,15 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓OtherT1_1|342KB/s|R002-260618'
   - '[ermaozi-subscribe] 🇨🇦CA_5|1.3MB/s'
   - '[ermaozi-subscribe] 🇨🇦CA_2|2.2MB/s'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
   - '[cbusifabcap-clashmeta] ❓Other_43|409KB/s|R002-260618'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[ermaozi-subscribe] 🇧🇪BE_1|2.0MB/s|R002-260618'
   - '[ermaozi-subscribe] 🇬🇧GB_6|2.9MB/s'
   - '[share-daily-node] US-HTTP-109'
   - '[share-daily-node] LV-HTTP-01'
+  - '[share-daily-node] US-HTTP-18'
   - '[share-daily-node] ID-HTTP-02'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
-  - '[cbusifabcap-clashmeta] ❓Other_48|89KB/s|R002-260618'
   - '[share-daily-node] GE-HTTP-01'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_20|618KB/s|R002-260618'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 08'
@@ -1712,10 +1768,12 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇨🇭CH_1|632KB/s'
   - '[ermaozi-subscribe] 🇪🇸ES_1|2.0MB/s'
   - '[ermaozi-subscribe] 🇮🇹IT_1|1.2MB/s'
+  - '[share-daily-node] IT-HTTP-03'
   - '[share-daily-node] NL-HTTP-80'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_16|4.2MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_47|539KB/s|R002-260618'
   - '[ermaozi-subscribe] 🇭🇺HU_1|3.8MB/s'
+  - '[share-daily-node] ZA-HTTP-03'
   - '[ermaozi-subscribe] 🇬🇧GB_8|2.7MB/s'
   - '[ermaozi-subscribe] 🇨🇿CZ_1|3.4MB/s'
   - '[cbusifabcap-clashmeta] 🇧🇦BA_1|1.3MB/s|R002-260618'
@@ -1731,7 +1789,6 @@ proxy-groups:
   - '[share-daily-node] MX-HTTP-01'
   - '[cbusifabcap-clashmeta] ❓Other_30|207KB/s|P002-260618'
   - '[share-daily-node] JP-HTTP-03'
-  - '[cbusifabcap-clashmeta] ❓Other_38|235KB/s|P002-260618'
   - '[cbusifabcap-clashmeta] 🇨🇭CH_10|1.5MB/s|R002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
   - '[ermaozi-subscribe] NL_speednode_0015'
@@ -1744,14 +1801,13 @@ proxy-groups:
   - '[share-daily-node] SG-HTTP-03'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_25|948KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_27|316KB/s|R002-260618'
-  - '[share-daily-node] NL-HTTP-02'
   - '[ermaozi-subscribe] 🇩🇪DE_1|1017KB/s'
+  - '[share-daily-node] VN-HTTP-01'
   - '[share-daily-node] GR-HTTP-02'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 028A48'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_2|420KB/s|R002-260618'
-  - '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
   - '[share-daily-node] DK-HTTP-01'
-  - '[cbusifabcap-clashmeta] 🇦🇺AU_1|404KB/s|R002-260618'
+  - '[cbusifabcap-clashmeta] ❓Other_86|82KB/s|P002-260618'
   - '[ermaozi-subscribe] 🇨🇦CA_3|2.7MB/s'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
   - '[share-daily-node] US-HTTP-11'
@@ -1762,36 +1818,31 @@ proxy-groups:
   - '[share-daily-node] US-HTTP-104'
   - '[cbusifabcap-clashmeta] ❓Other_35|108KB/s|P002-260618'
   - '[share-daily-node] SG-HTTP-25'
+  - '[cbusifabcap-clashmeta] ❓Other_31|890KB/s|R002-260618'
+  - '[share-daily-node] NL-HTTP-02'
+  - '[share-daily-node] SG-HTTP-33'
+  - '[cbusifabcap-clashmeta] ❓Other_20|273KB/s|K001-260618'
   - '[ermaozi-subscribe] 🇩🇪DE_2|1.2MB/s|R002-260618'
 - name: AUTO
   type: url-test
   proxies: &id001
-  - '[share-daily-node] CA-HTTP-15'
-  - '[share-daily-node] IT-HTTP-03'
-  - '[share-daily-node] SG-HTTP-15'
-  - '[share-daily-node] SG-HTTP-24'
+  - '[share-daily-node] SG-HTTP-21'
+  - '[share-daily-node] SG-HTTP-27'
+  - '[share-daily-node] SG-HTTP-28'
+  - '[zhuhaiuk-free-nodes] FR - zhuhai.uk 02'
+  - '[zhuhaiuk-free-nodes] FR - zhuhai.uk 03'
+  - '[zhuhaiuk-free-nodes] ID - zhuhai.uk'
+  - '[zhuhaiuk-free-nodes] IL - zhuhai.uk'
+  - '[share-daily-node] NL-HTTP-04'
+  - '[zhuhaiuk-free-nodes] NL - zhuhai.uk 02'
+  - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
-  - '[share-daily-node] SG-HTTP-29'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
-  - '[share-daily-node] SG-HTTP-33'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
-  - '[cbusifabcap-clashmeta] ❓Other_20|273KB/s|K001-260618'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
-  - '[cbusifabcap-clashmeta] ❓Other_31|890KB/s|R002-260618'
-  - '[share-daily-node] US-HTTP-01'
-  - '[cbusifabcap-clashmeta] ❓Other_35|417KB/s|R002-260618'
-  - '[share-daily-node] US-HTTP-18'
-  - '[share-daily-node] US-HTTP-19'
-  - '[share-daily-node] US-HTTP-23'
-  - '[share-daily-node] US-HTTP-29'
-  - '[share-daily-node] US-HTTP-31'
-  - '[share-daily-node] VN-HTTP-01'
-  - '[share-daily-node] ZA-HTTP-01'
-  - '[share-daily-node] ZA-HTTP-02'
-  - '[share-daily-node] ZA-HTTP-03'
-  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
-  - '[share-daily-node] ZA-HTTP-04'
-  - '[cbusifabcap-clashmeta] ❓Other_86|82KB/s|P002-260618'
+  - '[cbusifabcap-clashmeta] 🇦🇱AL_3|875KB/s|P002-260618'
+  - '[cbusifabcap-clashmeta] 🇦🇺AU_2|395KB/s|R002-260618'
+  - '[ermaozi-subscribe] 🇮🇪IE_2|1.2MB/s'
+  - '[cbusifabcap-clashmeta] 🇧🇬BG_3|1.2MB/s|R002-260618'
+  - '[ermaozi-subscribe] 🇱🇺LU_1|2.8MB/s'
+  - '[cbusifabcap-clashmeta] 🇨🇦CA_25|956KB/s|K001-260618'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_30|679KB/s|R002-260618'
   - '[share-daily-node] JP-HTTP-01'
   - '[ermaozi-subscribe] 🇧🇬BG_3|1.4MB/s'
@@ -1809,7 +1860,11 @@ proxy-groups:
   - '[ermaozi-subscribe] 🇬🇧GB_5|2.9MB/s'
   - '[share-daily-node] US-HTTP-10'
   - '[ermaozi-subscribe] 🇬🇧GB_7|1.7MB/s'
+  - '[share-daily-node] ZA-HTTP-04'
+  - '[share-daily-node] US-HTTP-23'
+  - '[share-daily-node] US-HTTP-29'
   - '[ermaozi-subscribe] 🇨🇦CA_1|3.2MB/s'
+  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
   - '[cbusifabcap-clashmeta] ❓Other_116|222KB/s|P002-260618'
   - '[share-daily-node] US-HTTP-02'
   - '[cbusifabcap-clashmeta] ❓Other_49|210KB/s|P002-260618'
@@ -1817,6 +1872,8 @@ proxy-groups:
   - '[ermaozi-subscribe] IE_speednode_0010'
   - '[zhuhaiuk-free-nodes] RO - zhuhai.uk'
   - '[share-daily-node] SG-HTTP-04'
+  - '[share-daily-node] US-HTTP-31'
+  - '[share-daily-node] ZA-HTTP-01'
   - '[share-daily-node] SG-HTTP-08'
   - '[ermaozi-subscribe] 🇨🇿CZ_2|1016KB/s'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_6|433KB/s|P002-260618'
@@ -1824,7 +1881,10 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇩🇪DE_174|2.7MB/s|K001-260618'
   - '[cbusifabcap-clashmeta] ❓Other_79|214KB/s|P002-260618'
   - '[share-daily-node] ID-HTTP-01'
+  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
   - '[ermaozi-subscribe] 🇩🇪DE_3|1.6MB/s'
+  - '[share-daily-node] CA-HTTP-15'
+  - '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_40|673KB/s|P002-260618'
   - '[ermaozi-subscribe] 🇱🇺LU_1|1005KB/s'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | EB4CDB'
@@ -1834,15 +1894,20 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇩🇪DE_43|5.8MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇧🇬BG_9|1.2MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_33|249KB/s|R002-260618'
+  - '[cbusifabcap-clashmeta] ❓Other_35|417KB/s|R002-260618'
+  - '[share-daily-node] US-HTTP-01'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_9|286KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] ❓Other_34|241KB/s|R002-260618'
+  - '[share-daily-node] SG-HTTP-24'
   - '[share-daily-node] US-HTTP-03'
+  - '[share-daily-node] US-HTTP-19'
   - '[share-daily-node] SG-HTTP-05'
   - '[ermaozi-subscribe] 🇸🇬SG_3|3.4MB/s'
   - '[share-daily-node] US-HTTP-20'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_32|1.2MB/s|R002-260618'
+  - '[share-daily-node] ZA-HTTP-02'
+  - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
   - '[cbusifabcap-clashmeta] 🇦🇹AT_1|1.3MB/s|R002-260618'
-  - '[cbusifabcap-clashmeta] ❓Other_84|395KB/s|P002-260618'
   - '[share-daily-node] GR-HTTP-01'
   - '[share-daily-node] US-HTTP-33'
   - '[share-daily-node] IN-HTTP-01'
@@ -1875,16 +1940,15 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] ❓OtherT1_1|342KB/s|R002-260618'
   - '[ermaozi-subscribe] 🇨🇦CA_5|1.3MB/s'
   - '[ermaozi-subscribe] 🇨🇦CA_2|2.2MB/s'
-  - '[zhuhaiuk-free-nodes] US - zhuhai.uk'
   - '[cbusifabcap-clashmeta] ❓Other_43|409KB/s|R002-260618'
   - '[zhuhaiuk-free-nodes] JP - zhuhai.uk'
   - '[ermaozi-subscribe] 🇧🇪BE_1|2.0MB/s|R002-260618'
   - '[ermaozi-subscribe] 🇬🇧GB_6|2.9MB/s'
   - '[share-daily-node] US-HTTP-109'
   - '[share-daily-node] LV-HTTP-01'
+  - '[share-daily-node] US-HTTP-18'
   - '[share-daily-node] ID-HTTP-02'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
-  - '[cbusifabcap-clashmeta] ❓Other_48|89KB/s|R002-260618'
   - '[share-daily-node] GE-HTTP-01'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_20|618KB/s|R002-260618'
   - '[zhuhaiuk-free-nodes] US - zhuhai.uk 08'
@@ -1916,10 +1980,12 @@ proxy-groups:
   - '[cbusifabcap-clashmeta] 🇨🇭CH_1|632KB/s'
   - '[ermaozi-subscribe] 🇪🇸ES_1|2.0MB/s'
   - '[ermaozi-subscribe] 🇮🇹IT_1|1.2MB/s'
+  - '[share-daily-node] IT-HTTP-03'
   - '[share-daily-node] NL-HTTP-80'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_16|4.2MB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_47|539KB/s|R002-260618'
   - '[ermaozi-subscribe] 🇭🇺HU_1|3.8MB/s'
+  - '[share-daily-node] ZA-HTTP-03'
   - '[ermaozi-subscribe] 🇬🇧GB_8|2.7MB/s'
   - '[ermaozi-subscribe] 🇨🇿CZ_1|3.4MB/s'
   - '[cbusifabcap-clashmeta] 🇧🇦BA_1|1.3MB/s|R002-260618'
@@ -1935,7 +2001,6 @@ proxy-groups:
   - '[share-daily-node] MX-HTTP-01'
   - '[cbusifabcap-clashmeta] ❓Other_30|207KB/s|P002-260618'
   - '[share-daily-node] JP-HTTP-03'
-  - '[cbusifabcap-clashmeta] ❓Other_38|235KB/s|P002-260618'
   - '[cbusifabcap-clashmeta] 🇨🇭CH_10|1.5MB/s|R002-260618'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 43E82E'
   - '[ermaozi-subscribe] NL_speednode_0015'
@@ -1948,14 +2013,13 @@ proxy-groups:
   - '[share-daily-node] SG-HTTP-03'
   - '[cbusifabcap-clashmeta] 🇨🇦CA_25|948KB/s|R002-260618'
   - '[cbusifabcap-clashmeta] 🇩🇪DE_27|316KB/s|R002-260618'
-  - '[share-daily-node] NL-HTTP-02'
   - '[ermaozi-subscribe] 🇩🇪DE_1|1017KB/s'
+  - '[share-daily-node] VN-HTTP-01'
   - '[share-daily-node] GR-HTTP-02'
   - '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 028A48'
   - '[cbusifabcap-clashmeta] 🇦🇺AU_2|420KB/s|R002-260618'
-  - '[ermaozi-subscribe] 🇧🇬BG_2|3.0MB/s'
   - '[share-daily-node] DK-HTTP-01'
-  - '[cbusifabcap-clashmeta] 🇦🇺AU_1|404KB/s|R002-260618'
+  - '[cbusifabcap-clashmeta] ❓Other_86|82KB/s|P002-260618'
   - '[ermaozi-subscribe] 🇨🇦CA_3|2.7MB/s'
   - '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
   - '[share-daily-node] US-HTTP-11'
@@ -1966,6 +2030,10 @@ proxy-groups:
   - '[share-daily-node] US-HTTP-104'
   - '[cbusifabcap-clashmeta] ❓Other_35|108KB/s|P002-260618'
   - '[share-daily-node] SG-HTTP-25'
+  - '[cbusifabcap-clashmeta] ❓Other_31|890KB/s|R002-260618'
+  - '[share-daily-node] NL-HTTP-02'
+  - '[share-daily-node] SG-HTTP-33'
+  - '[cbusifabcap-clashmeta] ❓Other_20|273KB/s|K001-260618'
   - '[ermaozi-subscribe] 🇩🇪DE_2|1.2MB/s|R002-260618'
   url: https://www.gstatic.com/generate_204
   timeout: 5000
