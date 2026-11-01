@@ -1,559 +1,961 @@
 proxies:
-- name: '[anaer-sub] 乌克兰 003'
-  type: trojan
-  network: ws
-  server: 87.76.190.244
-  port: 443
-  password: humanity
+- name: '[cbusifabcap-uri] ❓Other_31|1.1MB/s|M003-260806'
+  type: hysteria2
+  server: 51.15.16.68
+  port: 24146
+  password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   skip-cert-verify: true
+- alterId: 0
+  cipher: auto
+  name: '[chengaopan-merged] 🇭🇰 香港 | HKG #6'
+  network: ws
+  port: 443
+  server: 47.243.65.243
+  servername: lcv8v9l7oyamxxfz.v.3dns.vip
+  skip-cert-verify: true
+  tls: true
+  type: vmess
   udp: true
-  sni: www.cordweave.com
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
   ws-opts:
     headers:
-      Host: www.cordweave.com
-    path: /assignment
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1832880229'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+      Host: lcv8v9l7oyamxxfz.v.3dns.vip
+    path: /ws-vmess
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 05F2BC'
+  server: 151.101.1.242
   port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2üá®üá≥
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 25567D'
-  server: 104.26.0.1
-  port: 443
-  type: trojan
-  password: humanity
+  type: vless
+  uuid: b4a96c71-10f0-4798-9780-c0564cee0fd6
   udp: true
-  sni: www.calmlunch.com
-  client-fingerprint: chrome
+  tls: true
+  servername: minimize-evenness.cdn-content.com
   network: ws
   ws-opts:
-    path: /assignment
+    path: /ws
     headers:
-      Host: www.calmlunch.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331439'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+      Host: minimize-evenness.cdn-content.com
+- name: '[igareck-vless] 🇳🇱 The Netherlands, Amsterdam | [BL]-5'
+  type: vless
+  server: fr.golangwikito.cfd
   port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2ⁿß
-  type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331449'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2рҹүҹү
-  type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331471'
-  password: 4291c983-c520-46ac-82cc-48f14bef573f
-  port: 35013
-  server: 129.213.91.185
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331545'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: httpst.mewangcai2
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4BE185'
-  server: www.calmlunch.com
-  port: 443
-  type: trojan
-  password: humanity
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  tls: true
+  sni: fr.golangwikito.cfd
+  client-fingerprint: random
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA
+    short-id: e6d589857d1cec5e
+- type: wireguard
+  name: '[ovmvo-permanent] 🇨🇳 040  | ⬇️ 3MB/s'
+  server: 162.159.192.4
+  port: 500
+  private-key: KNvuLO48qoM6AJoQAhXeDsGPwwDWR9EoV+Enny4djUA=
   udp: true
-  sni: www.calmlunch.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331556'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2рҹүрҹү
-  type: hysteria2
-- name: '[share-daily-node] SG-HTTP-09'
+  ip: 172.16.0.2/32
+  reserved:
+  - 181
+  - 19
+  - 236
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  mtu: 1280
+  keepalive: '5'
+  wnoise: quic
+  wnoisecount: '5'
+  wnoisedelay: '5'
+  wpayloadsize: 40-90
+  persistent-keepalive: '5'
+- name: '[share-daily-node] NL-HTTP-60'
   type: http
-  server: 154.26.138.156
-  port: 443
+  server: 185.53.129.141
+  port: 9090
   udp: true
   tls: true
   skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331559'
-  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
-  port: 50160
-  server: 152.67.200.82
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331565'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+- name: '[zhuhaiuk-free-nodes] LV - zhuhai.uk'
+  type: http
+  server: 185.219.159.16
   port: 443
-  server: 202.146.222.29
+  username: 'null'
+  password: 'null'
+  tls: true
   skip-cert-verify: true
-  sni: https%3a%2f%2ft.me%2fwangcai2%c3%b0%c2%9f%c2%87%c2%a8%c3%b0%c2%9f%c2%87%c2%b3
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4EE83B'
-  server: 104.17.61.37
-  port: 443
-  type: trojan
-  password: humanity
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146004'
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.3
+  type: ss
   udp: true
-  sni: www.cordweave.com
+- name: '[chengaopan-merged] 🇭🇰 香港 | HKG #7'
+  password: 778f5385b4254495
+  port: 20014
+  server: hik160.pacemakere.com
+  skip-cert-verify: true
+  sni: hik160.pacemakere.com
+  type: trojan
+  udp: true
+- name: '[ermaozi-subscribe] 🇦🇹 奥地利 | AUT'
+  server: ench-snet-app.w-ctrip.cn
+  port: 38963
+  type: trojan
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
+  sni: cm.g.doubleclick.net
+  skip-cert-verify: true
+  udp: true
+- name: '[igareck-vless] 🇳🇱 The Netherlands, Amsterdam | [BL]-6'
+  type: vless
+  server: fr.golangwikito.cfd
+  port: 443
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  tls: true
+  sni: fr.golangwikito.cfd
+  network: tcp
+  client-fingerprint: random
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA
+    short-id: e6d589857d1cec5e
+- ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
+  keepalive: '25'
+  mtu: 1280
+  name: '[ovmvo-permanent] 🇨🇳 046  | ⬇️ 1KB/s'
+  persistent-keepalive: '25'
+  port: 7103
+  private-key: QJEpilscgBJU68hsICv40+5eEvOFp0TOb5WqAeu9Gls=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  reserved:
+  - 251
+  - 139
+  - 179
+  server: 8.6.112.196
+  type: wireguard
+  udp: true
+- name: '[zhuhaiuk-free-nodes] NL - zhuhai.uk'
+  type: http
+  server: 5.255.118.82
+  port: 443
+  username: 'null'
+  password: 'null'
+  tls: true
+  skip-cert-verify: true
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146118'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 193.29.139.132
+  type: ss
+  udp: true
+- name: '[chengaopan-base64] 🇧🇷 巴西 | BRA #1'
+  type: trojan
+  server: ench-snet-app.w-ctrip.cn
+  port: 16932
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
+  tls: true
+  sni: cm.g.doubleclick.net
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇦🇺[www.v2nodes.com] trojan-AU-...'
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  port: 443
+  server: 45.63.30.142
+  sni: connectwithemployerstohireyouridealteam.com
+  type: trojan
+- type: trojan
+  name: '[free18-clash] 🇪🇸_西班牙 (4)'
+  server: 66.163.118.62
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  udp: true
+  tls: true
+  servername: courses.discovergreatjobsandadvanceyourcareer.com
+  sni: courses.discovergreatjobsandadvanceyourcareer.com
+  skip-cert-verify: true
+- name: '[iboxz-collector] 🇨🇦 CA | 151.101.129.242'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 9760fa51-423f-4000-9dd8-15eccf811982
+  tls: true
+  sni: minimize-evenness.cdn-content.com
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: '[igareck-vless] 🇳🇱 The Netherlands, Amsterdam | [BL]-7'
+  type: vless
+  server: sw.golangwikito.cfd
+  port: 443
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  tls: true
+  sni: sw.golangwikito.cfd
+  network: tcp
+  client-fingerprint: edge
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg
+    short-id: a1037b25dcef6aa7
+- ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
+  keepalive: '25'
+  mtu: 1280
+  name: '[ovmvo-permanent] 🇨🇳 049  | ⬇️ 4MB/s'
+  persistent-keepalive: '25'
+  port: 1070
+  private-key: wIXy7GfDNO3qVxBoTmhjrPkvJTwORH5QZWcgx2g4qWI=
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  reserved:
+  - 155
+  - 212
+  - 1
+  server: 8.6.112.63
+  type: wireguard
+  udp: true
+- name: '[share-daily-node] UN-VMESS-01'
+  type: vmess
+  server: qo6a10b-g06.jp01-nn-vm0.entry.fr0528.art
+  port: 21586
+  udp: true
+  uuid: a3b5a6fc-0b92-3b66-beda-eb2a49361a21
+  network: tcp
+  tls: true
+  servername: qo6a10b-g06.jp01-nn-vm0.entry.fr0528.art
+  alterId: 1
+  cipher: auto
+  host: qo6a10b-g06.jp01-nn-vm0.entry.fr0528.art
+- name: '[zhuhaiuk-free-nodes] SG - zhuhai.uk'
+  type: socks5
+  server: 47.236.168.243
+  port: 1080
+  username: '8888'
+  password: '8888'
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146148'
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.2
+  type: ss
+  udp: true
+- name: '[cbusifabcap-clashmeta] ❓Other_23|501KB/s|R002-260618'
+  password: '1234'
+  port: 2080
+  server: 13.250.6.249
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  type: http
+  username: '1234'
+  udp: true
+- name: '[chengaopan-base64] 🇧🇾204438 | ⚡️Telegram = t.me/S...'
+  type: hysteria2
+  server: 13.143.188.143
+  port: 4444
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  tls: true
+  sni: bl1.nexfile.net
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 183B62'
+  server: www.gov.ua
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
   network: ws
   ws-opts:
-    path: /assignment
+    path: /
     headers:
-      Host: www.cordweave.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4F2836'
-  server: 104.17.119.105
+      Host: v6.bangfw.dpdns.org
+- type: trojan
+  name: '[free18-clash] 🇪🇸_西班牙 (5)'
+  server: 66.163.118.251
   port: 443
-  type: trojan
-  password: humanity
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   udp: true
-  sni: www.cordweave.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
+  tls: true
+  servername: resources.discovergreatjobsandadvanceyourcareer.com
+  sni: resources.discovergreatjobsandadvanceyourcareer.com
+  skip-cert-verify: true
 - type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 034  | ⬇️ 330KB/s'
-  server: 8.6.112.185
-  port: 988
-  private-key: OK48iAingSLbf3Rmts7qBapF+P4mzxaBn/UFeKhvP2I=
+  name: '[ovmvo-permanent] 🇨🇳 050  | ⬇️ 244KB/s'
+  server: 8.6.112.226
+  port: 1070
+  private-key: iHmpbPAWm1x6R3cX6WkVB+rla1bnVRE3sEEPRno3WW8=
+  udp: true
+  ip: 172.16.0.2/32
+  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
+  reserved:
+  - 137
+  - 41
+  - 130
+  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+  mtu: 1280
+  keepalive: '25'
+  persistent-keepalive: '25'
+- name: '[share-daily-node] UN-VMESS-02'
+  type: vmess
+  server: w01ghcd-g06.jp03-j7-vm0.entry.fr0528.art
+  port: 21586
+  udp: true
+  uuid: a3b5a6fc-0b92-3b66-beda-eb2a49361a21
+  network: tcp
+  tls: true
+  alterId: 1
+  cipher: auto
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 02'
+  type: http
+  server: mmgr.club
+  port: 443
+  tls: true
+  sni: mmgr.club
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] ❓Other_24|892KB/s|A004-260618'
+  network: raw
+  port: 18662
+  reality-opts:
+    public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
+    short-id: 48050fab
+  server: 67.220.73.204
+  sub_tag: A004-260618
+  tls: true
+  type: vless
+  udp: true
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  xudp: true
+  packet-encoding: xudp
+  servername: www.apple.com
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1CED47'
+  server: www.wto.org
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v6.bangfw.dpdns.org
+- type: wireguard
+  name: '[ovmvo-permanent] 🇨🇳 052  | ⬇️ 4KB/s'
+  server: 8.6.112.206
+  port: 8742
+  private-key: kOH5vgOwh9ifsB/tTAgoOjW/02SgvpVKgog7ynk1m10=
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
   reserved:
   - 111
-  - 84
-  - 118
+  - 24
+  - 156
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   mtu: 1280
   keepalive: '25'
   persistent-keepalive: '25'
-- name: '[share-daily-node] SG-HTTP-29'
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 03'
   type: http
-  server: 154.26.139.27
-  port: 443
-  udp: true
+  server: 138.199.35.200
+  port: 9002
   tls: true
   skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853341738'
-  password: maintell
-  port: 2053
-  server: 152.70.237.123
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4FA2E4'
-  server: 104.16.111.102
-  port: 443
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146388'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.184
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 1F0C13'
+  server: 104.17.70.206
+  port: 8443
   type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  uuid: 5f704d93-7e7f-45b5-81f5-08db4a946220
   udp: true
   tls: true
-  servername: jp3.yohototo.top
-  client-fingerprint: ios
+  servername: free.sahanwickramasinghe.com
   network: ws
   ws-opts:
-    path: /tyxyws
+    path: /
     headers:
-      Host: jp3.yohototo.top
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 035  | ⬇️ 2KB/s'
-  server: 8.6.112.254
-  port: 1180
-  private-key: sG3hYvD7bh72fCgK6Xiv6907Y97xc8XdGb1YuoEULWs=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
-  reserved:
-  - 11
-  - 2
-  - 247
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1280
-  keepalive: '25'
-  persistent-keepalive: '25'
-- name: '[share-daily-node] US-HTTP-02'
-  type: http
-  server: voteshirleysew.club
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853463914'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: vk.com#🍁97@oneclickvpnkeysvless://e13cf851-b4fd-413b-8d49-146e6eb8e5d4@166.88.35.245:80?encryption=none
-  type: hysteria2
-- name: '[chengaopan-base64] 🇦🇺[www.v2nodes.com] trojan-AU-...'
-  type: trojan
-  server: 45.63.30.142
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  tls: true
-  sni: connectwithemployerstohireyouridealteam.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4FBEA3'
-  server: 104.19.12.94
-  port: 443
+      Host: free.sahanwickramasinghe.com
+- name: '[iboxz-collector] 🇨🇦 CA | 172.64.146.66'
   type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 038  | ⬇️ 248KB/s'
-  server: 8.6.112.71
-  port: 4177
-  private-key: gGIbE6/NEAmU+pibYA5FwBf9v/Fn0zhcF8uJxM4dbWA=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
-  reserved:
-  - 8
-  - 86
-  - 145
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1280
-  keepalive: '25'
-  persistent-keepalive: '25'
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853488260'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 13.36.234.11
-  skip-cert-verify: true
-  sni: 13.36.234.11
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 50F15C'
-  server: 172.64.231.133
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.trusteeforward.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.trusteeforward.com
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 041  | ⬇️ 114KB/s'
-  server: 8.6.112.82
-  port: 891
-  private-key: 2FdNkyXwdlAAZ1GL66lwfoY3JcEfeaxEw367TIOdikE=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
-  reserved:
-  - 254
-  - 3
-  - 211
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1280
-  keepalive: '25'
-  persistent-keepalive: '25'
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853488313'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: 163.192.14.135
-  type: hysteria2
-- name: '[cbusifabcap-uri] 🇦🇺AU_2|502KB/s|R002-260618'
-  type: hysteria2
-  server: 152.67.115.203
-  port: 443
-  password: 633bc3be486b646190661ac2387c150a
-  tls: true
-  sni: www.bing.com
-  obfs: salamander
-  obfs-password: 850a3fb1cd33a28f12d837578ae1a2e7
-  skip-cert-verify: true
-- name: '[chengaopan-base64] 🇧🇬[www.v2nodes.com] vless-BG-3... #1'
-  type: vless
-  server: 155.103.71.142
+  server: cf.877774.xyz
   port: 443
   uuid: d342d11e-d224-4463-b982-532309285094
   tls: true
   sni: ccc.010304.xyz
   network: ws
   ws-opts:
-    path: /fp=chromefp=chrome
+    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=512
     headers:
       Host: ccc.010304.xyz
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 514518'
-  server: 104.18.41.167
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.cordweave.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
 - type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 044  | ⬇️ 5KB/s'
-  server: 8.6.112.4
-  port: 894
-  private-key: 2Beap1QU7ou7S5zTVk+CWnvvyM9TADiK3fR2iooDa2Q=
+  name: '[ovmvo-permanent] 🇨🇳 059  | ⬇️ 635KB/s'
+  server: 8.6.112.193
+  port: 8742
+  private-key: WDTGYgmQIqsU+xiBtRPjTxxcLYZOOtrCePgInf8ZA30=
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
   reserved:
-  - 250
-  - 124
-  - 5
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1280
-  keepalive: '25'
-  persistent-keepalive: '25'
-- name: '[cbusifabcap-uri] 🇦🇺AU_7|406KB/s|A004-260618'
-  type: trojan
-  server: 45.63.30.142
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  tls: true
-  sni: connectwithemployerstohireyouridealteam.com
-  network: tcp
-  client-fingerprint: chrome
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 048  | ⬇️ 2MB/s'
-  server: 8.6.112.101
-  port: 864
-  private-key: EJz9sVfpI2iqpCvVK7qbiZRZu7Agx5Sy4/yr8dI5vlo=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
-  reserved:
-  - 43
-  - 51
+  - 120
+  - 112
   - 131
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   mtu: 1280
   keepalive: '25'
   persistent-keepalive: '25'
-- name: '[share-daily-node] US-HTTP-16'
-  type: http
-  server: purposebydesig.club
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853503223'
-  password: 099830134df5ac3a04a4b21d39b8c395
-  port: 50160
-  server: 163.192.14.135
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[cbusifabcap-uri] 🇦🇺AU_8|427KB/s|A004-260618'
-  type: trojan
-  server: 45.63.30.142
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  tls: true
-  sni: 45.63.30.142
-  network: tcp
-  client-fingerprint: chrome
-  skip-cert-verify: true
-- alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  name: '[ermaozi-subscribe] 🇭🇰[www.v2nodes.com] vless-HK-1... #2'
-  port: 11907
-  server: 195.58.144.56
-  skip-cert-verify: false
-  tls: true
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 04'
   type: vless
-  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1854003030'
-  password: 96ab5cd282733fd4c312a61f972f330a
+  server: piracy-android.video-streams.org
   port: 443
-  server: vp3.yysyy.online
-  skip-cert-verify: false
-  sni: ''
-  type: hysteria2
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 57C753'
-  server: 104.17.110.1
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.cordweave.com
+  uuid: 909259b0-0a30-4ef5-bfd8-5ffe5d99cb56
+  tls: true
+  servername: piracy-android.video-streams.org
+  client-fingerprint: firefox
   network: ws
   ws-opts:
-    path: /assignment
+    path: /ws
     headers:
-      Host: www.cordweave.com
+      Host: piracy-android.video-streams.org
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146426'
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.219
+  type: ss
+  udp: true
+- name: '[chengaopan-merged] 🇸🇬 新加坡 | SGP #1'
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
+  port: 42338
+  server: ench-snet-app.w-ctrip.cn
+  skip-cert-verify: true
+  sni: cm.g.doubleclick.net
+  type: trojan
+  udp: true
+- name: '[ermaozi-subscribe] 🇨🇦[www.v2nodes.com] vless-CA-1... #3'
+  port: 8080
+  server: 168.222.43.53
+  tls: false
+  type: vless
+  uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]'
+  type: vless
+  server: 151.101.129.242
+  port: 443
+  uuid: 01520a52-6d92-4683-b525-00d5df476dce
+  tls: true
+  sni: grimness-backlogs.cdn-content.com
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
 - type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 069  | ⬇️ 425KB/s'
-  server: 8.6.112.233
-  port: 7156
-  private-key: uJRcdmVElvOV+o6BUW0D6tn/kltIIETT1bt2i7M75nQ=
+  name: '[ovmvo-permanent] 🇨🇳 061  | ⬇️ 1KB/s'
+  server: 8.6.112.113
+  port: 864
+  private-key: yNyRSGV2yPsyUjLf8hP/atC7aWDb6GkPRlV9ShD9yX8=
   udp: true
   ip: 172.16.0.2/32
   ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
   reserved:
-  - 75
-  - 52
-  - 97
+  - 53
+  - 109
+  - 201
   public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
   mtu: 1280
   keepalive: '25'
   persistent-keepalive: '25'
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1854030047'
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 06'
+  type: http
+  server: voteshirleysew.club
+  port: 443
+  username: bnVsbDpudWxs
+  tls: true
+- name: '[cbusifabcap-clashmeta] ❓Other_27|1.0MB/s|A004-260618'
+  network: tcp
+  port: 57259
+  server: 169.128.83.4
+  sub_tag: A004-260618
+  type: vless
+  udp: true
+  uuid: a1962f23-f8f8-412d-f2ce-3361e7b72889
+  xudp: true
+  packet-encoding: xudp
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 22A83C'
+  server: 104.21.7.133
+  port: 80
+  type: vmess
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  servername: vmess.lbw666.dpdns.org
+  network: ws
+  ws-opts:
+    path: /ws?ed=2048
+    headers:
+      Host: vmess.lbw666.dpdns.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-3'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 01520a52-6d92-4683-b525-00d5df476dce
+  tls: true
+  sni: ghosts-spasm.quick-cdn.net
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- type: hysteria
+  name: '[ovmvo-permanent] 🇩🇪 056  | ⬇️ 34KB/s'
+  server: 5.83.129.90
+  port: 54177
+  alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: '1000'
+  obfs: ''
+  protocol: udp
+  skip-cert-verify: true
+  sub-tag: C002-260622
+  up: '500'
+  udp: true
+  sni: apple.com
+- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 07'
+  type: http
+  server: 87992eef-te9j40-teq7xb-dnss.fmtdc1.sghuawei.com
+  port: 443
+  username: 16955d72-1794-11f0-a035-f23c95b6f51d
+  password: 16955d72-1794-11f0-a035-f23c95b6f51d
+  tls: true
+  skip-cert-verify: true
+- name: '[cbusifabcap-uri] ❓Other_41|211KB/s|P002-260618'
+  type: vless
+  server: 130.94.95.198
+  port: 57353
+  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+  tls: true
+  sni: in001.zestapp778.com
+  network: tcp
+  client-fingerprint: firefox
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 27BEE3'
+  server: 151.101.193.242
+  port: 443
+  type: vless
+  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  udp: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: '[iboxz-collector] 🇨🇦 CA | 52.60.191.53'
+  type: ss
+  server: 52.60.191.53
+  port: 443
+  cipher: aes-256-cfb
+  password: amazonskr05
+- down: ''
+  fingerprint: ''
+  name: '[cbusifabcap-clashmeta] ❓Other_2|464KB/s|A004-260618'
+  obfs: ''
+  obfs-password: ''
   password: 3d7634af8cb2c6cb4bac1c0efad8b43d
   port: 50160
   server: 152.67.200.82
   skip-cert-verify: true
-  sni: 'off'
+  sni: google.com
+  sub_tag: A004-260618
   type: hysteria2
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1854030061'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  up: ''
+  udp: true
+- name: '[cbusifabcap-uri] ❓Other_42|1.0MB/s|M003-260806'
+  type: tuic
+  server: 46b61821-tki800-tlwmty-1gevg.pccw3.hyhuawei.com
   port: 443
-  server: 160.187.100.109
+  uuid: f02ee2b4-d760-11ec-bd7c-f23c913c8d2b
+  password: f02ee2b4-d760-11ec-bd7c-f23c913c8d2b
+  tls: true
+  congestion-controller: bbr
+  udp-relay-mode: native
+  sni: 46b61821-tki800-tlwmty-1gevg.pccw3.hyhuawei.com
+  alpn:
+  - h3
+- name: '[chengaopan-merged] 🇹🇼 🇨🇳 台湾 | TWN #1'
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
+  port: 45503
+  server: ench-snet-app.w-ctrip.cn
   skip-cert-verify: true
-  sni: 'off'
-  type: hysteria2
-- name: '[cbusifabcap-clashmeta] 🇦🇪AE_2|931KB/s|A001-260618'
+  sni: cm.g.doubleclick.net
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 3353B7'
+  server: 172.66.203.67
+  port: 443
+  type: vmess
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: vmess.lbw666.dpdns.org
   network: ws
-  port: 14430
-  server: 95.174.68.188
-  sub_tag: A001-260618
+  ws-opts:
+    path: /ws?ed=2048
+    headers:
+      Host: vmess.lbw666.dpdns.org
+- cipher: aes-128-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146735'
+  password: shadowsocks
+  port: 443
+  server: 109.201.152.181
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 348595'
+  server: 151.101.1.242
+  port: 443
+  type: vless
+  uuid: d4fb9d35-6ae7-422a-8ac1-8903d12f8962
+  udp: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-8'
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- cipher: chacha20-ietf-poly1305
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146762'
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 443
+  server: 82.38.31.171
+  type: ss
+  udp: true
+- down: ''
+  fingerprint: ''
+  name: '[cbusifabcap-clashmeta] ❓Other_31|1.1MB/s|M003-260806'
+  obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
+  password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
+  port: 24146
+  server: 51.15.16.68
+  skip-cert-verify: true
+  sni: vpn.local
+  sub_tag: M003-260806
+  type: hysteria2
+  up: ''
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 477CBB'
+  server: 151.101.129.242
+  port: 443
+  type: vless
+  uuid: ecbc4229-e8d3-4607-8f02-fd592c9a0743
+  udp: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-9'
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  tls: true
+  sni: piracy-android.video-streams.org
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- name: '[nexus-nodes-all] @ICV2RAY-3'
+  type: vless
+  server: 43.174.193.1
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  sni: ccc.010304.xyz
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?TELEGRAM--------ICV2RAY?ed=2560fp=chrome
+    headers:
+      Host: ccc.010304.xyz
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] ❓Other_33|383KB/s|M003-260806'
+  network: raw
+  port: 19226
+  reality-opts:
+    public-key: PQjgf7GxBd2tDXf0zl9Z5rTZo7LdsWj0hGZLH-lJ-Uk
+    short-id: 7c
+  server: 77.91.69.169
+  sub_tag: M003-260806
+  tls: true
   type: vless
   udp: true
-  uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-  ws-opts:
-    headers:
-      Host: 95.174.68.188
-      User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
-        Chrome/70.0.3538.110 Safari/537.36
-    path: /vless
+  uuid: f0b144bd-4c44-440d-b630-d79ec82cad3a
   xudp: true
   packet-encoding: xudp
-  servername: 95.174.68.188
-- name: '[cbusifabcap-uri] 🇧🇷BR_5|629KB/s|M003-260806'
+  servername: yahoo.com
+- name: '[chengaopan-merged] 🇺🇸 美国 | USA #16'
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
+  port: 38994
+  server: ench-snet-app.w-ctrip.cn
+  skip-cert-verify: true
+  sni: cm.g.doubleclick.net
   type: trojan
-  server: 216.238.104.154
+  udp: true
+- name: '[ermaozi-subscribe] 🇨🇳 CN_147'
+  server: ench-snet-app.w-ctrip.cn
+  port: 30298
+  type: trojan
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
+  sni: cm.g.doubleclick.net
+  skip-cert-verify: true
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 49E2A9'
+  server: www.visa.com
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v6.bangfw.dpdns.org
+- name: '[iboxz-collector] 🇩🇪 DE | 18.185.177.244'
+  type: ss
+  server: 18.185.177.244
+  port: 443
+  cipher: aes-256-cfb
+  password: amazonskr05
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-10'
+  type: vless
+  server: 151.101.129.242
+  port: 443
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[nexus-nodes-all] @ICV2RAY-4'
+  type: vless
+  server: 43.174.193.1
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
+  tls: true
+  sni: ccc.010304.xyz
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: ccc.010304.xyz
+- name: '[chengaopan-merged] 🇺🇸 美国 | USA #9'
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
+  port: 35929
+  server: ench-snet-app.w-ctrip.cn
+  skip-cert-verify: true
+  sni: cm.g.doubleclick.net
+  type: trojan
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4EC4EF'
+  server: cf.090227.xyz
+  port: 443
+  type: vmess
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: vmess.lbw666.dpdns.org
+  network: ws
+  ws-opts:
+    path: /ws?ed=2048
+    headers:
+      Host: vmess.lbw666.dpdns.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-11'
+  type: vless
+  server: 151.101.129.242
+  port: 443
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  tls: true
+  sni: piracy-android.video-streams.org
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147315'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 68.183.227.4
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4FCA23'
+  server: 151.101.65.242
+  port: 443
+  type: vless
+  uuid: 7313aaa5-a2e0-4072-a699-34e73d68e288
+  udp: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- type: vless
+  name: '[free18-clash] 🇫🇷_法国 (8)'
+  server: 155.117.5.208
+  port: 2052
+  uuid: 1a8ecc41-6e62-431b-8eca-87c2fa4dc286
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-12'
+  type: vless
+  server: 151.101.193.242
+  port: 443
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147479'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 137.184.174.93
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 57E040'
+  server: 151.101.1.242
+  port: 443
+  type: vless
+  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  udp: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-13'
+  type: vless
+  server: 151.101.65.242
+  port: 443
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[nexus-nodes-all] @irdusti(52)🇺🇸¹'
+  type: trojan
+  server: 170.101.101.131
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   tls: true
-  sni: 216.238.104.154
+  sni: blog.explorecreativejobsandenhanceyourcareerportfolio.com
   network: tcp
-  client-fingerprint: chrome
-  skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1854030136'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: 'off'
-  type: hysteria2
-- name: '[cbusifabcap-clashmeta] 🇦🇪AE_3|899KB/s|T001-260618'
-  network: ws
-  port: 14430
-  server: 95.174.68.188
-  sub_tag: T001-260618
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147700'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 138.199.42.68
+  type: ss
+  udp: true
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] ❓Other_38|138KB/s|M003-260806'
+  network: tcp
+  port: 25152
+  reality-opts:
+    public-key: ZIZIfEd-cs4jAgYIav5ZAkfWaqvpG8DQP-SH6xhGDmc
+    short-id: 08c379434f36cdbe
+  server: 45.198.55.200
+  sub_tag: M003-260806
+  tls: true
   type: vless
   udp: true
-  uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-  ws-opts:
-    headers:
-      Host: 95.174.68.188
-      User-Agent: Mozilla/5.0 (Windows NT 6.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/55.0.2883.87 Safari/537.36
-    path: /vless
+  uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
   xudp: true
   packet-encoding: xudp
-- name: '[cbusifabcap-uri] 🇧🇾BY_1|749KB/s|F003-260618'
+  servername: www.samsung.com
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-14'
   type: vless
-  server: 95.128.71.79
-  port: 14430
-  uuid: 8cef7621-c6f0-486e-b51d-59c30c5b0b25
-  sni: 95.128.71.79
+  server: piracy-android.video-streams.org
+  port: 443
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  tls: true
+  sni: piracy-android.video-streams.org
   network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 95.128.71.79
-- name: '[ermaozi-subscribe] 🇮🇱[www.v2nodes.com] trojan-IL-...'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 64.176.163.182
-  skip-cert-verify: true
-  sni: exploreeducationsectoropportunitiestodayandadvancecareers.com
-  type: trojan
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6008A9'
-  server: 104.20.55.137
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.trusteeforward.com
   client-fingerprint: chrome
-  network: ws
   ws-opts:
-    path: /assignment
+    path: /ws
     headers:
-      Host: www.trusteeforward.com
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 078  | ⬇️ 578KB/s'
-  server: 188.114.97.7
-  port: 2371
-  private-key: 0MJASrRa+uN+/xyXc85mJL0S6vpHfLPlnOolzmo0g24=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
-  reserved:
-  - 191
-  - 143
-  - 132
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1280
-  keepalive: '25'
-  persistent-keepalive: '25'
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1854059937'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: www.bing.com
-  type: hysteria2
-- name: '[cbusifabcap-uri] 🇧🇾BY_4|704KB/s|A004-260618'
-  type: vless
-  server: 178.172.227.228
-  port: 14430
-  uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
-  sni: 178.172.227.228
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 178.172.227.228
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 618C2B'
-  server: www.shopify.com
+      Host: piracy-android.video-streams.org
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5D90F1'
+  server: 172.67.190.164
   port: 443
   type: vmess
   uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
@@ -567,1032 +969,342 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: guanwang.awsno.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1854131187'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.174
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- client-fingerprint: chrome
-  encryption: none
-  name: '[cbusifabcap-clashmeta] 🇦🇲AM_2|679KB/s|A003-260618'
-  network: tcp
-  port: 55983
-  reality-opts:
-    public-key: nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg
-    short-id: 0e
-  server: 77.91.68.70
-  sub_tag: A003-260618
-  tls: true
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-16'
   type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  tls: true
+  sni: minimize-evenness.cdn-content.com
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827962976'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 107.151.182.197
+  type: ss
   udp: true
-  uuid: f667a096-5231-4cfb-8759-92bb32473139
-  xudp: true
-  packet-encoding: xudp
-  servername: yahoo.com
-- name: '[cbusifabcap-uri] 🇧🇾BY_7|1.2MB/s|A004-260618'
+- name: '[cbusifabcap-uri] 🇧🇾BY_12|1.7MB/s|B007-260618'
   type: vless
   server: 178.172.227.124
-  port: 14430
+  port: 10443
   uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
   sni: 178.172.227.124
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 178.172.227.124
-- name: '[ermaozi-subscribe] 🇮🇳[www.v2nodes.com] trojan-IN-...'
-  password: 5t6i121em5lkmsmk
-  port: 42733
-  server: in002.zestapp778.com
-  skip-cert-verify: true
-  sni: in002.zestapp778.com
-  type: trojan
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6197E6'
-  server: 104.17.70.206
-  port: 8443
+  network: tcp
+- name: '[ermaozi-subscribe] 🇩🇪 德国 | DEU 4'
+  server: 151.101.131.6
+  port: 443
   type: vless
-  uuid: 5f704d93-7e7f-45b5-81f5-08db4a946220
+  uuid: bdf38176-48e9-40f1-9d1c-d501c333b464
+  tls: true
+  alpn:
+  - h3
+  servername: apps.apple.com
+  client-fingerprint: edge
+  network: xhttp
+  xhttp-opts:
+    path: /crownnet
+    host: kkbr.tm
+    mode: auto
+  udp: true
+- type: vless
+  name: '[free18-clash] 🇬🇧_英国 (3)'
+  server: 191.44.108.30
+  port: 443
+  uuid: 558b26f6-061b-4079-9b84-ca13b3e90ae3
+  flow: xtls-rprx-vision
   udp: true
   tls: true
-  servername: free.sahanwickramasinghe.com
+  servername: c8.qwyak.ru
+  sni: c8.qwyak.ru
+  skip-cert-verify: true
   client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: free.sahanwickramasinghe.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1855771838'
-  password: 184cdec28da5a09450803c8debcd2cc9
-  port: 50160
-  server: 138.3.208.26
-  skip-cert-verify: true
-  sni: ''
-  type: hysteria2
-- name: '[cbusifabcap-uri] 🇨🇦CA_19|1.4MB/s|M002-260618'
+  reality-opts:
+    public-key: 3pBHfffYFRPpe8Lt47cLSSgCgwNR-70blFzpEbm11AE
+    short-id: b2baf331493d3de1
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-19'
   type: vless
-  server: milo.rubinaz.xyz
+  server: 151.101.65.242
+  port: 443
+  uuid: 0f0e6a6c-f448-4931-b5a3-0fcdcd6dacec
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827963043'
+  password: 14fFPrbezE3HDZzsMOr6
   port: 8080
-  uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
-  network: raw
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1856442510'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https%3a%2f%2ft.me%2fwangcai2%f0%9f%87%a8%f0%9f%87%b3
-  type: hysteria2
-- auth: 633bc3be486b646190661ac2387c150a
-  name: '[cbusifabcap-clashmeta] 🇦🇺AU_2|502KB/s|R002-260618'
-  obfs: salamander
-  obfs-password: 850a3fb1cd33a28f12d837578ae1a2e7
-  password: 633bc3be486b646190661ac2387c150a
-  port: 443
-  server: 152.67.115.203
-  skip-cert-verify: true
-  sni: www.bing.com
-  sub_tag: R002-260618
-  type: hysteria2
+  server: 107.151.182.253
+  type: ss
   udp: true
-- name: '[cbusifabcap-uri] 🇨🇦CA_33|1.5MB/s|M002-260618'
+- name: '[cbusifabcap-uri] 🇨🇦CA_26|1.4MB/s|M002-260618'
   type: vless
   server: milo.rubinaz.xyz
   port: 8080
   uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
   sni: milo.rubinaz.xyz
-  network: tcp
-- client-fingerprint: chrome
-  name: '[ermaozi-subscribe] 🇮🇹[www.v2nodes.com] vless-IT-1... #4'
-  network: ws
-  port: 443
-  server: cf.090227.xyz
-  servername: ccc.010304.xyz
-  tls: true
-  type: vless
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-    path: /
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1875823307'
-  password: miaoge110
-  port: 51511
-  server: 5.45.100.100
-  skip-cert-verify: true
-  sni: www.bing.com
-  type: hysteria2
-- client-fingerprint: firefox
-  name: '[cbusifabcap-clashmeta] 🇦🇺AU_3|259KB/s|A004-260618'
   network: raw
-  port: 2053
-  reality-opts:
-    public-key: CYFeysLf--_IVhxQOCd3ZxLrAVWFFOkJzvIGHOVXN3E
-    short-id: 4cc9dc65f7770115
-  server: 46.250.240.80
-  sub_tag: A004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: 948df76f-505d-4608-9c76-a933ee3ccc76
-  xudp: true
-  packet-encoding: xudp
-  servername: www.cloudflare.com
-- name: '[cbusifabcap-uri] 🇨🇦CA_49|1.5MB/s|A004-260618'
-  type: vless
-  server: 168.222.43.53
-  port: 8080
-  uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
-  sni: 168.222.43.53
-  network: tcp
-- name: '[ermaozi-subscribe] 🇮🇹_IT_意大利'
-  type: ss
-  server: 202.50.253.81
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  skip-cert-verify: true
-  udp: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1877087164'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+- name: '[ermaozi-subscribe] 🇩🇪 德国 | DEU 5'
+  server: nlll.obxodvpn.us
   port: 443
-  server: 103.115.109.49
-  skip-cert-verify: true
-  sni: https://t.me/oneclickvpnkeys
   type: hysteria2
-- client-fingerprint: firefox
-  name: '[cbusifabcap-clashmeta] 🇦🇺AU_5|415KB/s|A004-260618'
-  network: tcp
-  port: 2053
-  reality-opts:
-    public-key: CYFeysLf--_IVhxQOCd3ZxLrAVWFFOkJzvIGHOVXN3E
-    short-id: 4cc9dc65f7770115
-  server: 46.250.240.80
-  sub_tag: A004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: 948df76f-505d-4608-9c76-a933ee3ccc76
-  xudp: true
-  packet-encoding: xudp
-  servername: www.cloudflare.com
-- name: '[cbusifabcap-uri] 🇨🇦CA_50|1.7MB/s|M003-260806'
-  type: vless
-  server: 155.117.5.208
-  port: 8080
-  uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
-  sni: 155.117.5.208
-  network: tcp
-- name: '[ermaozi-subscribe] 🇮🇹_IT_意大利_1'
-  type: ss
-  server: 202.50.253.72
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  password: c9aca131-c6a4-4518-9d7d-be52a60b4a3f
+  auth: c9aca131-c6a4-4518-9d7d-be52a60b4a3f
+  sni: nl1.obxodvpn.us
   skip-cert-verify: true
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 772BDC'
-  server: 172.67.67.89
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.cordweave.com
+- name: '[iboxz-collector] 🇩🇪 DE | 91.107.247.173'
+  type: vless
+  server: 91.107.247.173
+  port: 2083
+  uuid: 7858128a-6b5e-4f86-9bff-52c1f1e6439d
+  tls: true
+  sni: sino.bestsellers1.site
   network: ws
+  client-fingerprint: chrome
   ws-opts:
-    path: /assignment
+    path: /
     headers:
-      Host: www.cordweave.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1910185368'
-  password: d4ca9415f0eac7897472e1e5b86d2e96
+      Host: sino.bestsellers1.site
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-21'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
   port: 443
-  server: promo.betust.net
-  skip-cert-verify: false
-  sni: ''
-  type: hysteria2
-- name: '[ermaozi-subscribe] 🇮🇹_IT_意大利_2'
-  type: ss
-  server: 202.50.253.45
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  skip-cert-verify: true
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7944E1'
-  server: 172.66.0.118
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.cordweave.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1917575832'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 3.69.232.199
-  skip-cert-verify: true
-  sni: 127.0.0.1
-  type: hysteria2
-- client-fingerprint: chrome
-  name: '[cbusifabcap-clashmeta] 🇦🇺AU_7|406KB/s|A004-260618'
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 45.63.30.142
-  skip-cert-verify: false
-  sni: connectwithemployerstohireyouridealteam.com
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- name: '[cbusifabcap-uri] 🇨🇭CH_10|3.8MB/s|B007-260618'
-  type: hysteria2
-  server: 208.69.78.217
-  port: 21016
-  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  uuid: 0f0e6a6c-f448-4931-b5a3-0fcdcd6dacec
   tls: true
-  sni: vpn.local
-  obfs: salamander
-  obfs-password: mbQXP2ASuHbF6ZPq
-  skip-cert-verify: true
-- name: '[ermaozi-subscribe] 🇮🇹_IT_意大利_3'
-  type: ss
-  server: 202.50.253.90
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  skip-cert-verify: true
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7C97A1'
-  server: 104.21.7.133
-  port: 80
-  type: vmess
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  servername: vmess.lbw666.dpdns.org
+  sni: adheres-scruple.quick-cdn.net
   network: ws
+  client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
-      Host: vmess.lbw666.dpdns.org
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1926289829'
-  password: github.com/Alvin9999-newpac/fanqiang
-  port: 60111
-  server: 62.210.7.139
-  skip-cert-verify: true
-  sni: css.rbxcdn.com
-  type: hysteria2
-- client-fingerprint: chrome
-  name: '[cbusifabcap-clashmeta] 🇦🇺AU_8|427KB/s|A004-260618'
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 45.63.30.142
-  skip-cert-verify: true
-  sub_tag: A004-260618
-  type: trojan
+      Host: adheres-scruple.quick-cdn.net
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827963676'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 107.155.57.51
+  type: ss
   udp: true
-- name: '[cbusifabcap-uri] 🇨🇭CH_11|2.6MB/s|B007-260618'
-  type: hysteria2
-  server: 208.69.78.217
-  port: 21046
-  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  tls: true
-  sni: vpn.local
-  obfs: salamander
-  obfs-password: mbQXP2ASuHbF6ZPq
-  skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1929114993'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: '[cbusifabcap-clashmeta] ❓Other_42|1.0MB/s|M003-260806'
+  password: f02ee2b4-d760-11ec-bd7c-f23c913c8d2b
   port: 443
-  server: 3.64.194.247
-  skip-cert-verify: true
-  sni: vpn-de-002.fastervpn.world
-  type: hysteria2
-- client-fingerprint: chrome
-  name: '[cbusifabcap-clashmeta] 🇦🇺AU_9|432KB/s|A004-260618'
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 45.63.30.142
-  skip-cert-verify: true
-  sni: 45.63.30.142
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- name: '[cbusifabcap-uri] 🇨🇭CH_13|3.8MB/s|B007-260618'
-  type: hysteria2
-  server: 208.69.78.217
-  port: 33092
-  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  tls: true
-  sni: vpn.local
-  obfs: salamander
-  obfs-password: mbQXP2ASuHbF6ZPq
-  skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1938640639'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https%253a%252f%252ft.me%252fwangcai2%25d1%2580%25d2%25b9%25d2%25af%25d1%2591%25d1%2580%25d2%25b9%25d2%25af%25d1%2596
-  type: hysteria2
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] 🇦🇿AZ_1|729KB/s|M003-260806'
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: 8NkTRxC5Q7bptx-8ADobkuhPK-ZN0kEEbzv6tCFGMzE
-    short-id: 69984b9e02545831
-  server: 198.16.113.219
+  server: 46b61821-tki800-tlwmty-1gevg.pccw3.hyhuawei.com
+  sni: 46b61821-tki800-tlwmty-1gevg.pccw3.hyhuawei.com
   sub_tag: M003-260806
-  tls: true
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: f02ee2b4-d760-11ec-bd7c-f23c913c8d2b
+  version: 5
+- name: '[cbusifabcap-uri] 🇨🇦CA_38|1.5MB/s|A004-260618'
   type: vless
-  udp: true
-  uuid: e3e0e1c3-599e-4ae1-8ad4-d9e90effacc4
-  xudp: true
-  packet-encoding: xudp
-  servername: www.apple.com
-- name: '[cbusifabcap-uri] 🇨🇭CH_17|3.3MB/s|B007-260618'
-  type: hysteria2
-  server: 208.69.78.217
-  port: 33130
-  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  tls: true
-  sni: vpn.local
-  obfs: salamander
-  obfs-password: mbQXP2ASuHbF6ZPq
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8194ED'
-  server: 172.67.74.177
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.cordweave.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1938971779'
+  server: milo.networkforexir.site
+  port: 8080
+  uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
+  sni: milo.networkforexir.site
+  network: tcp
+- name: '[ermaozi-subscribe] 🇩🇪204269 | ⚡️Telegram = t.me/S...'
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   port: 443
   server: 3.76.221.4
   skip-cert-verify: true
   sni: 3.76.221.4
+  tls: false
   type: hysteria2
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] 🇦🇿AZ_2|797KB/s|M003-260806'
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: 8NkTRxC5Q7bptx-8ADobkuhPK-ZN0kEEbzv6tCFGMzE
-    short-id: 69984b9e02545831
-  server: 198.16.113.221
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: 98a24806-141a-43d3-b094-bd66c4eb93b8
-  xudp: true
-  packet-encoding: xudp
-  servername: www.apple.com
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1942159702'
-  password: 6da2c981-8c77-4340-bda3-93399b7aea26
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 6F89F3'
+  server: 151.101.193.242
   port: 443
-  server: store.blog-forme.ru
-  skip-cert-verify: false
-  sni: store.blog-forme.ru
-  type: hysteria2
-- client-fingerprint: chrome
-  encryption: none
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] 🇦🇿AZ_3|851KB/s|F003-260618'
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: 8NkTRxC5Q7bptx-8ADobkuhPK-ZN0kEEbzv6tCFGMzE
-    short-id: 69984b9e02545831
-  server: 198.16.113.222
-  sub_tag: F003-260618
-  tls: true
   type: vless
+  uuid: 9819d5c6-bc6e-4e31-8af7-c023ecff6022
   udp: true
-  uuid: 98a24806-141a-43d3-b094-bd66c4eb93b8
-  xudp: true
-  packet-encoding: xudp
-  servername: www.apple.com
-- name: '[cbusifabcap-uri] 🇨🇭CH_20|4.5MB/s|B007-260618'
-  type: hysteria2
-  server: 208.69.78.217
-  port: 21113
-  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
   tls: true
-  sni: vpn.local
-  obfs: salamander
-  obfs-password: mbQXP2ASuHbF6ZPq
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 81B71A'
-  server: 104.18.0.1
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.cordweave.com
+  servername: bounded-crammed.video-streams.org
+  client-fingerprint: firefox
   network: ws
   ws-opts:
-    path: /assignment
+    path: /ws
     headers:
-      Host: www.cordweave.com
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] 🇦🇿AZ_4|768KB/s|M003-260806'
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: 8NkTRxC5Q7bptx-8ADobkuhPK-ZN0kEEbzv6tCFGMzE
-    short-id: 69984b9e02545831
-  server: 198.16.113.220
-  sub_tag: M003-260806
-  tls: true
+      Host: bounded-crammed.video-streams.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-22'
   type: vless
-  udp: true
-  uuid: 98a24806-141a-43d3-b094-bd66c4eb93b8
-  xudp: true
-  packet-encoding: xudp
-  servername: www.apple.com
-- name: '[cbusifabcap-uri] 🇨🇭CH_21|4.0MB/s|B007-260618'
-  type: hysteria2
-  server: 208.69.78.217
-  port: 21147
-  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  tls: true
-  sni: vpn.local
-  obfs: salamander
-  obfs-password: mbQXP2ASuHbF6ZPq
-  skip-cert-verify: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 81F643'
-  server: 104.24.144.224
+  server: 151.101.1.242
   port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.cordweave.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '[share-daily-node] DE-HTTP-04'
-  type: http
-  server: 149.36.50.157
-  port: 443
-  udp: true
+  uuid: 11c1c5e2-7be9-464a-8945-abe4b131abd7
   tls: true
-  skip-cert-verify: true
-- name: '[ts-sf-fly] US21 28.9MB/s'
-  type: vmess
-  server: Rib9JXAYoqjGN2KW.v.3dns.vip
-  port: 443
-  cipher: auto
-  uuid: 9b31490d-190e-4ef1-af0a-7ccab3e7c3b5
-  alterId: 0
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      host: Rib9JXAYoqjGN2KW.v.3dns.vip
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] ❓Other_26|655KB/s|A004-260618'
-  network: tcp
-  port: 8443
-  reality-opts:
-    public-key: Q0dPyF2hFWgxL7hxntJWJammcb6zcRCyA-NOiOFrsAo
-    short-id: 1433a38abea1191c
-  server: 185.14.30.98
-  sub_tag: A004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: f5e70ce3-cfb4-4df1-b25c-d19bfae627c0
-  xudp: true
-  packet-encoding: xudp
-  servername: twitch.tv
-- name: '[cbusifabcap-uri] ❓Other_29|438KB/s|M003-260806'
-  type: vless
-  server: 128.241.25.11
-  port: 30021
-  uuid: 0b162350-5973-47b5-9829-c4da2c62350d
-  tls: true
-  sni: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
-- name: '[chengaopan-merged] 🇮🇳[www.v2nodes.com] trojan-IN-...'
-  password: 5t6i121em5lkmsmk
-  port: 42733
-  server: in002.zestapp778.com
-  sni: in002.zestapp778.com
-  type: trojan
-- name: '[mahdibland-ssagg-merge] 🇧🇪BE-141.98.233.6-0652'
-  server: 141.98.233.6
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.cordweave.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '[share-daily-node] DE-HTTP-05'
-  type: http
-  server: 149.36.50.1
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] RU - zhuhai.uk'
-  type: http
-  server: chalo-ru.nexorcdn.com
-  port: 27402
-  username: ef37886e2aacd6fa622e3de3810299c2
-  password: 9jkvAVV-9ufV6IGd
-  tls: true
-  sni: chalo-ru.nexorcdn.com
-- name: '[cbusifabcap-uri] ❓Other_2|335KB/s|A004-260618'
-  type: hysteria2
-  server: 160.187.100.109
-  port: 443
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  tls: true
-  sni: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-- name: '[mahdibland-ssagg-merge] 🇧🇬BG-185.82.218.224-0572'
-  server: 185.82.218.224
-  port: 443
-  type: trojan
-  password: humanity
-  sni: www.cordweave.com
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '[share-daily-node] DK-HTTP-02'
-  type: http
-  server: 185.245.84.50
-  port: 9443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] RU - zhuhai.uk 01'
-  type: vless
-  server: 201.24.121.243
-  port: 443
-  uuid: 32b5ca9b-3f81-4031-965d-e8b074216e8d
-  udp: true
-  network: grpc
-  tls: true
-  servername: kk-ru24a1.testkknegr.online
-  client-fingerprint: chrome
-  grpc-opts:
-    grpc-service-name: vlgrpc
-- name: '[chengaopan-merged] 🇰🇷 韩国 | KOR'
-  network: ws
-  password: humanity
-  port: 443
-  server: 64.110.82.71
-  skip-cert-verify: true
-  sni: www.cordweave.com
-  type: trojan
-  udp: true
-  ws-opts:
-    headers:
-      Host: www.cordweave.com
-    path: /assignment
-- name: '[igareck-vless] 🇩🇪 Germany, Frankfurt am Main | [BL]-3'
-  type: vless
-  server: 216.24.57.15
-  port: 443
-  uuid: 2ee0d2aa-867e-a77e-9538-2edfc0b242aa
-  tls: true
-  sni: four04-rd37.onrender.com
+  sni: minimize-evenness.cdn-content.com
   network: ws
   alpn:
   - http/1.1
-  ws-opts:
-    path: /ws/2ee0d2aa-867e-a77e-9538-2edfc0b242aafp=firefoxfp=chrome
-    headers:
-      Host: four04-rd37.onrender.com
-- name: '[share-daily-node] GB-HTTP-08'
-  type: http
-  server: 51.11.47.216
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk'
-  type: vless
-  server: 43.153.121.144
-  port: 443
-  uuid: df63ee5d-9530-464d-bb1c-ca1fa00e8b98
-  flow: xtls-rprx-vision
-  tls: true
-  servername: www.cloudflare.com
   client-fingerprint: chrome
-  reality-opts:
-    public-key: -6_eN_0VKwqVaYN_jU9WdQ9yEpiLGvJQffhGThYLqGQ
-    short-id: c2f1c482d8d339a5
-- client-fingerprint: chrome
-  name: '[cbusifabcap-clashmeta] ❓Other_29|438KB/s|M003-260806'
-  network: ws
-  port: 30021
-  server: 128.241.25.11
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: 0b162350-5973-47b5-9829-c4da2c62350d
   ws-opts:
+    path: /ws
     headers:
-      Host: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
-      User-Agent: Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/57.0.2987.133 Safari/537.36
-    path: /@Marisa_kristi
-  xudp: true
-  packet-encoding: xudp
-  servername: 5iv93opy8jus9z.bjo5si35c9i9ud4242fado49188obkoiermjuxj7zgxu.workers.dev
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 455EA4'
-  server: 172.64.153.61
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.calmlunch.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-- name: '[share-daily-node] JP-HTTP-01'
-  type: http
-  server: 37.120.210.146
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- down: ''
-  fingerprint: ''
-  name: '[cbusifabcap-clashmeta] ❓Other_2|335KB/s|A004-260618'
-  obfs: ''
-  obfs-password: ''
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 160.187.100.109
-  skip-cert-verify: true
-  sni: vpn-tw-002.fastervpn.world
-  sub_tag: A004-260618
-  type: hysteria2
-  up: ''
-  udp: true
-- name: '[share-daily-node] MX-HTTP-02'
-  type: http
-  server: 149.88.22.46
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] US - zhuhai.uk 05'
-  type: http
-  server: 149.34.248.65
-  port: 443
-  tls: true
-  sni: 149.34.248.65
-  skip-cert-verify: true
-- name: '[cbusifabcap-uri] ❓Other_34|64KB/s|F003-260618'
-  type: trojan
-  server: 179.255.127.200
-  port: 443
-  password: humanity
-  tls: true
-  sni: www.cordweave.com
-  network: ws
-  client-fingerprint: chrome
-  skip-cert-verify: true
-  ws-opts:
-    path: /assignment
-- cipher: aes-256-gcm
-  name: '[chengaopan-merged] 🇷🇺 俄罗斯 | RUS #1'
-  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
-  port: 18443
-  server: 46.17.46.27
+      Host: minimize-evenness.cdn-content.com
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827963705'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 107.155.57.11
   type: ss
   udp: true
-- name: '[ermaozi-subscribe] 🇬🇧[www.v2nodes.com] vless-GB-1... #5'
-  port: 10002
+- name: '[cbusifabcap-uri] 🇨🇦CA_44|647KB/s|A004-260618'
+  type: vless
   server: 178.83.45.226
-  tls: false
-  type: vless
-  uuid: c6362720-0931-4b91-b187-d8ecf3149734
-- type: vless
-  name: '[free18-clash] 🇨🇭_瑞士 (4)'
-  server: 45.90.57.119
-  port: 8443
-  uuid: f5e70ce3-cfb4-4df1-b25c-d19bfae627c0
-  flow: xtls-rprx-vision
-  udp: true
+  port: 8080
+  uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
+  network: raw
+- name: '[chengaopan-base64] 🇩🇪 德国 | DEU #4'
+  type: trojan
+  server: ench-snet-app.w-ctrip.cn
+  port: 41184
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
   tls: true
-  servername: twitch.tv
-  sni: twitch.tv
+  sni: cm.g.doubleclick.net
   skip-cert-verify: true
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: L6DeK_a25_ZjPKFOrQLoCPWuXi5KCIH_EcRpARmCwkI
-    short-id: 16036bbef04d0509
-- name: '[ermaozi-subscribe] 🇬🇧GB_1|2.1MB/s|R002-260618'
-  password: None
-  port: 443
-  server: 37.120.233.18
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 4D6095'
-  server: nomino.11hi8itbaf.workers.dev
-  port: 443
-  type: vmess
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: nomino.11hi8itbaf.workers.dev
-  network: ws
-  ws-opts:
-    path: /guanwang.awsno.com/hls/cctv5phd.m3u8
-    headers:
-      Host: nomino.11hi8itbaf.workers.dev
-- type: vless
-  name: '[free18-clash] 🇨🇭_瑞士 (5)'
-  server: 138.124.32.139
-  port: 443
-  uuid: 5254c281-3bc1-40ee-ba89-1aaf8c251402
-  flow: xtls-rprx-vision
-  udp: true
-  tls: true
-  servername: nl-modx-prime.storagedirectguide.com
-  sni: nl-modx-prime.storagedirectguide.com
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: node0aB_7yyVADkeieiBBpxqIlxNLQcvgotRClh0QXQ
-- name: '[share-daily-node] SG-HTTP-25'
-  type: http
-  server: 51.79.173.71
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[zhuhaiuk-free-nodes] KR - zhuhai.uk 02'
-  type: socks5
-  server: 121.169.46.116
-  port: 1090
-  username: VDJjbE0wUWxNMFE2VDJjbE0wUWxNMFE9Og==
 - client-fingerprint: chrome
-  encryption: none
-  fingerprint: CD6E838B9BFE31CAB8B3D5C858B0D6223FE84ECE236C1FDB281BE93C302E1E6E
-  name: '[cbusifabcap-clashmeta] ❓Other_33|367KB/s|M003-260806'
-  network: ws
-  port: 443
-  server: 146.75.57.238
-  sub_tag: M003-260806
+  name: '[ermaozi-subscribe] 🇩🇪[www.v2nodes.com] vless-DE-1... #1'
+  network: tcp
+  port: 63053
+  server: 179.253.179.109
+  servername: de2.derevohom.xyz
   tls: true
   type: vless
-  udp: true
-  uuid: 780aa2f6-1a02-4fa2-bcd0-fa7d469bdff7
+  uuid: e3aa3d22-a95e-407b-aacc-d855b90a5d70
   ws-opts:
-    headers:
-      Host: copy_az_channel_NUFiLTER_17i.global.ssl.fastly.net.
-      User-Agent: Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/55.0.2883.87 Safari/537.36
     path: /
-  xudp: true
-  packet-encoding: xudp
-  servername: cdn.akamai.steamstatic.com
-- name: '[chengaopan-merged] 🇺🇸[www.v2nodes.com] trojan-US-... #2'
-  network: tcp
-  password: 5t6i121em5lkmsmk
-  port: 57277
-  server: us001.zestapp778.com
-  skip-cert-verify: true
-  sni: us001.zestapp778.com
-  type: trojan
-- name: '[ermaozi-subscribe] 🇬🇧GB_2|1.1MB/s'
-  password: None
-  port: 9443
-  server: 84.17.50.214
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: '[nexus-nodes-all] @FarazV2ray'
-  type: trojan
-  server: 104.19.95.153
-  port: 443
-  password: humanity
-  tls: true
-  sni: www.calmlunch.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-- name: '[share-daily-node] SG-HTTP-26'
-  type: http
-  server: 103.107.198.226
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853331603'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  port: 443
-  server: 202.146.222.29
-  skip-cert-verify: true
-  sni: https://t.me/wangcai2ⁿß«ⁿß
-  type: hysteria2
-- name: '[chengaopan-merged] 🇺🇸[www.v2nodes.com] trojan-US-... #7'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 170.101.101.19
-  sni: learn.explorecreativejobsandenhanceyourcareerportfolio.com
-  type: trojan
-- name: '[ermaozi-subscribe] 🇬🇧GB_3|2.8MB/s'
-  password: None
-  port: 443
-  server: 84.17.50.193
-  skip-cert-verify: true
-  tls: true
-  type: http
-- type: vless
-  name: '[free18-clash] 🇨🇭_瑞士 (7)'
-  server: 138.124.39.251
-  port: 443
-  uuid: 5254c281-3bc1-40ee-ba89-1aaf8c251402
-  flow: xtls-rprx-vision
-  udp: true
-  tls: true
-  servername: nl-modx-prime.storagedirectguide.com
-  sni: nl-modx-prime.storagedirectguide.com
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: node0aB_7yyVADkeieiBBpxqIlxNLQcvgotRClh0QXQ
-- name: '[mahdibland-eternity] 🇺🇸US-66.163.112.76-3069 | 0.231MB'
-  server: 66.163.112.76
-  port: 443
-  type: trojan
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: api.unlockyourfuturefindyourperfectcareer.com
-  skip-cert-verify: false
-- name: '[ermaozi-subscribe] 🇬🇧GB_4|3.3MB/s'
-  password: None
-  port: 443
-  server: 185.164.138.156
-  skip-cert-verify: true
-  tls: true
-  type: http
-- type: trojan
-  name: '[free18-clash] 🇨🇱_智利'
-  server: 64.176.7.205
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  udp: true
-  tls: true
-  servername: advanceyouremploymentskillsandcareerdevelopmenthub.com
-  sni: advanceyouremploymentskillsandcareerdevelopmenthub.com
-  skip-cert-verify: true
-- name: '[ermaozi-subscribe] 🇬🇧GB_5|3.1MB/s'
-  password: None
-  port: 443
-  server: 212.102.63.61
-  skip-cert-verify: true
-  tls: true
-  type: http
-- type: trojan
-  name: '[free18-clash] 🇨🇿_捷克 (2)'
-  server: 141.133.174.88
-  port: 443
-  password: humanity
-  udp: true
-  tls: true
-  servername: www.cordweave.com
-  sni: www.cordweave.com
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /assignment
-- name: '[share-daily-node] US-HTTP-08'
-  type: http
-  server: berniesbodybla.fun
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[ts-sf-fly] 未知103 369.0KB/s'
-  type: vmess
-  server: 104.17.77.77
-  port: 8443
-  cipher: auto
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      host: v2ray1.dozapp.xyz
-- name: '[share-daily-node] US-HTTP-09'
-  type: http
-  server: purposebydesig.club
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  password: None
-- name: '[ermaozi-subscribe] 🇭🇰 香港 | HKG 5'
-  server: a736eb68-tmb1c0-tpkh0c-1r7od.hk2.hyhuawei.com
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 714DA3'
+  server: 151.101.129.242
   port: 443
   type: vless
-  uuid: 6d56436c-150d-11f0-b0c8-f23c913c8d2b
+  uuid: 7430b11a-3b3e-4806-9a44-638caf36cabb
+  udp: true
   tls: true
-  reality-opts:
-    public-key: c9DdggKaJGSH7FN3JgGbi9ZvsUqOGGpIr7BhzTWeTCo
-  servername: download.windowsupdate.com
+  servername: bounded-crammed.video-streams.org
   client-fingerprint: firefox
-  network: tcp
-- type: vless
-  name: '[free18-clash] 🇩🇪_德国 (10)'
-  server: connect.hondamotor.site
-  port: 10002
-  uuid: c6362720-0931-4b91-b187-d8ecf3149734
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- name: '[igareck-vless] 🇬🇪 Georgia, Tbilisi (Nadzaladevi District) | [BL]'
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-23'
   type: vless
-  server: 93.190.9.160
-  port: 3090
-  uuid: 0deac3ec-a11a-4b24-a332-19c93e7e2182
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless
-- name: '[share-daily-node] US-HTTP-12'
-  type: http
-  server: mmgr.club
+  server: 151.101.1.242
   port: 443
+  uuid: 11c1c5e2-7be9-464a-8945-abe4b131abd7
+  tls: true
+  sni: minimize-evenness.cdn-content.com
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827963904'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 138.199.43.159
+  type: ss
+  udp: true
+- alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  name: '[ermaozi-subscribe] 🇩🇪[www.v2nodes.com] vless-DE-1... #2'
+  network: ws
+  port: 465
+  server: hw14.roghanmo.com
+  servername: hw14.roghanmo.com.
+  tls: true
+  type: vless
+  uuid: 98aa35fc-7d2f-4744-a91b-7e33b4fdd9c8
+  ws-opts:
+    headers:
+      Host: hw14.roghanmo.com
+    path: /
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 735E00'
+  server: 216.152.147.74
+  port: 443
+  type: trojan
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  udp: true
+  sni: api.connectingpeoplewithgreatjobs.com
+  network: tcp
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-24'
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 11f654d8-8ee6-4663-8fc6-26f2a128b519
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827964140'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 138.197.141.58
+  type: ss
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 745AE4'
+  server: 151.101.129.242
+  port: 443
+  type: vless
+  uuid: e8bec62c-ba78-45e9-a216-44c1a138b88d
   udp: true
   tls: true
-  skip-cert-verify: true
-  username: 'null'
-  password: 'null'
-- name: '[au1rxx-free-vpn-subscriptions] hysteria2-1853489128'
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  servername: adheres-scruple.quick-cdn.net
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-25'
+  type: vless
+  server: 151.101.129.242
   port: 443
-  server: vpn-tw-002.fastervpn.world
-  skip-cert-verify: true
-  sni: vpn-tw-002.fastervpn.world%5cu0026insecure%3d1%5cu0026allowinsecure%3d1
-  type: hysteria2
+  uuid: 11f654d8-8ee6-4663-8fc6-26f2a128b519
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827966278'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 169.150.210.233
+  type: ss
+  udp: true
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] ❓Other_6|1.0MB/s'
+  name: '[cbusifabcap-clashmeta] ❓Other_4|604KB/s'
   network: tcp
-  port: 16016
+  port: 12683
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  server: 67.220.73.204
+  server: 103.75.118.228
   tls: true
   type: vless
   udp: true
@@ -1600,100 +1312,290 @@ proxies:
   xudp: true
   packet-encoding: xudp
   servername: www.apple.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 52EECF'
-  server: 162.159.228.224
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7AF7F2'
+  server: 151.101.65.242
   port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.pleadcourt.org
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.pleadcourt.org
-- name: '[cbusifabcap-clashmeta] ❓Other_7|748KB/s|R002-260618'
-  password: 'null'
-  port: 9002
-  server: 138.199.35.214
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  username: 'null'
-  udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 56ABBD'
-  server: 104.18.35.86
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.volumerOot.coM
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.volumerOot.coM
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 064  | ⬇️ 61KB/s'
-  server: 8.6.112.188
-  port: 3581
-  private-key: QN9e//MZcXBdaz7vDo7hX6tY5xh2yFzlActftLGlA10=
-  udp: true
-  ip: 172.16.0.2/32
-  ipv6: 2606:4700:110:81cf:afd6:7564:e1f3:2827/128
-  reserved:
-  - 255
-  - 89
-  - 117
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1280
-  keepalive: '25'
-  persistent-keepalive: '25'
-- name: '[share-daily-node] US-HTTP-17'
-  type: http
-  server: mmgr.club
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[cbusifabcap-clashmeta] ❓Other_8|96KB/s|R002-260618'
-  port: 443
-  server: 20.42.108.114
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-- name: '[cbusifabcap-uri] 🇧🇬BG_14|708KB/s|A001-260618'
   type: vless
-  server: 203.202.232.110
-  port: 443
-  uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
+  uuid: 9d50fde6-7e89-4dee-9fee-17a77046604c
+  udp: true
   tls: true
-  sni: vlso5.1d.mom
+  servername: ghosts-spasm.quick-cdn.net
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-26'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 11f654d8-8ee6-4663-8fc6-26f2a128b519
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827969041'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 23.251.121.242
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_11|3.1MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21047
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 7BF686'
+  server: 151.101.129.242
+  port: 443
+  type: vless
+  uuid: 5d76bd7c-d538-432f-a7d8-9be364427a19
+  udp: true
+  tls: true
+  servername: ghosts-spasm.quick-cdn.net
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- type: trojan
+  name: '[free18-clash] 🇮🇱_以色列'
+  server: 64.176.163.182
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  udp: true
+  tls: true
+  servername: exploreeducationsectoropportunitiestodayandadvancecareers.com
+  sni: exploreeducationsectoropportunitiestodayandadvancecareers.com
+  skip-cert-verify: true
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1828226862'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 68.183.235.122
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_13|3.1MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21054
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[chengaopan-base64] 🇩🇪204415 | ⚡️Telegram = t.me/S...'
+  type: hysteria2
+  server: 45.88.12.26
+  port: 443
+  password: e5ec2586-59b3-40fa-91b7-bb37a2f7744e
+  tls: true
+  sni: crt.onecloudstream.com
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 81CA5D'
+  server: 151.101.193.242
+  port: 443
+  type: vless
+  uuid: 66af2078-d185-4cfe-8fc2-028ec115cf66
+  udp: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1828226964'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 68.183.227.236
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_14|4.0MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21080
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1828227588'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 79.110.53.169
+  type: ss
+  udp: true
+- client-fingerprint: firefox
+  encryption: none
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] 🇦🇪AE_4|310KB/s|M003-260806'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: _0hmzeEAGEx6boacV3d-FrFGaFBYfdvJno39FxveJwM
+    short-id: e7c5f2a9
+  server: 91.132.48.199
+  sub_tag: M003-260806
+  tls: true
+  type: vless
+  udp: true
+  uuid: 0d607d84-0ae0-4b9c-a4f3-1766ab456e02
+  xudp: true
+  packet-encoding: xudp
+  servername: bunny.net
+- name: '[cbusifabcap-uri] 🇨🇭CH_16|2.6MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33171
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇩🇰DK_1|1.2MB/s'
+  password: None
+  port: 443
+  server: 185.245.84.50
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-30'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 18b91bec-1abf-45c0-bd06-f2c6ed22a125
+  tls: true
+  sni: bounded-crammed.video-streams.org
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1870576128'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 98.98.142.161
+  type: ss
+  udp: true
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] 🇦🇪AE_5|844KB/s|R002-260618'
+  port: 443
+  reality-opts:
+    public-key: _0hmzeEAGEx6boacV3d-FrFGaFBYfdvJno39FxveJwM
+    short-id: e7c5f2a9
+  server: uae.purchasebot.net
+  sub_tag: R002-260618
+  tls: true
+  type: vless
+  udp: true
+  uuid: 0d607d84-0ae0-4b9c-a4f3-1766ab456e02
+  network: tcp
+  servername: bunny.net
+- name: '[cbusifabcap-uri] 🇨🇭CH_17|3.7MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33013
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8C522B'
+  server: 151.101.1.242
+  port: 443
+  type: vless
+  uuid: 18dee1c0-77be-4596-88d6-c23bd83fdae6
+  udp: true
+  tls: true
+  servername: bounded-crammed.video-streams.org
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-31'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 18b91bec-1abf-45c0-bd06-f2c6ed22a125
+  tls: true
+  sni: bounded-crammed.video-streams.org
   network: ws
   client-fingerprint: chrome
   ws-opts:
-    path: /socks5=888:888@hkip.1d.mom:1080fp=chrome
+    path: /ws
     headers:
-      Host: vlso5.1d.mom
-- client-fingerprint: firefox
-  name: '[ermaozi-subscribe] 🇮🇩[www.v2nodes.com] vless-ID-1...'
-  network: tcp
-  port: 57353
-  server: 130.94.95.198
-  servername: in001.zestapp778.com
-  skip-cert-verify: true
+      Host: bounded-crammed.video-streams.org
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1870576143'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 98.98.207.163
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_18|2.8MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21090
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
   tls: true
-  type: vless
-  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
-- type: vless
-  name: '[free18-clash] 🇩🇪_德国 (13)'
-  server: 82.118.19.153
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[chengaopan-base64] 🇩🇪[www.v2nodes.com] trojan-DE-... #3'
+  type: trojan
+  server: 193.108.119.29
   port: 443
-  uuid: adcaa148-7c66-4282-a81a-99ec8afa029d
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  tls: true
+  sni: blog.iloverussia2026.com
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8CA75A'
+  server: 209.200.246.148
+  port: 443
+  type: vless
+  uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk
+    short-id: f98843107912e782
+  client-fingerprint: random
+  network: tcp
+- type: vless
+  name: '[free18-clash] 🇮🇹_意大利 (2)'
+  server: 82.118.16.189
+  port: 443
+  uuid: d5e5f5a1-0f23-4c49-af9f-4be445bf9d8e
   flow: xtls-rprx-vision
   udp: true
   tls: true
@@ -1702,93 +1604,653 @@ proxies:
   skip-cert-verify: true
   client-fingerprint: chrome
   reality-opts:
-    public-key: Tiuy8om5Lk0pWL95-8LaFFTwH0vbURVMoOkaW9xGaiE
-    short-id: 670ed9f350bd8ee0
-- name: '[igareck-vless] 🇬🇪 Georgia, Tbilisi (Nadzaladevi District) | [BL]-4'
+    public-key: SjGkzJQ9I6ZZjC3V73atcPMczhMm0oiTrB8mUQXz1HY
+    short-id: 37fbf155c7a9f3ff
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-32'
   type: vless
-  server: 93.190.9.160
-  port: 3090
-  uuid: c4dc2569-f444-4a48-aba9-b1886e36a5e2
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless
-- name: '[share-daily-node] US-HTTP-18'
-  type: http
-  server: jgwynphotoarts.pro
+  server: 151.101.1.242
   port: 443
+  uuid: 18dee1c0-77be-4596-88d6-c23bd83fdae6
+  tls: true
+  sni: bounded-crammed.video-streams.org
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1870576189'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 68.183.235.240
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_19|3.0MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33025
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇪🇪EE_1|1.6MB/s|K001-260618'
+  password: None
+  port: 9443
+  server: 192.159.101.174
+  skip-cert-verify: true
+  sub_tag: K001-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8DE6BE'
+  server: 104.27.0.1
+  port: 443
+  type: vmess
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  alterId: 0
+  cipher: auto
   udp: true
   tls: true
-  skip-cert-verify: true
-  password: None
-- name: '[cbusifabcap-uri] 🇧🇷BR_1|263KB/s|F003-260618'
-  type: vless
-  server: 146.235.59.153
-  port: 2053
-  uuid: 817b61c8-9bf0-4365-8a52-e43dfad274a6
-  tls: true
-  sni: shin-ra.ccwu.cc
+  servername: vmess.lbw666.dpdns.org
   network: ws
-  client-fingerprint: unsafe
+  ws-opts:
+    path: /ws
+    headers:
+      Host: vmess.lbw666.dpdns.org
+- type: vless
+  name: '[free18-clash] 🇮🇹_意大利 (3)'
+  server: 82.118.16.187
+  port: 443
+  uuid: dc2259c4-388e-4285-ba18-df619b6672b6
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: www.cloudflare.com
+  sni: www.cloudflare.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: R5ycsjJ-v024902dMSqTsSdqxUwCFEXMebdBEWFt9VU
+    short-id: cd6065902eea7a02
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-33'
+  type: vless
+  server: 151.101.129.242
+  port: 443
+  uuid: 18dee1c0-77be-4596-88d6-c23bd83fdae6
+  tls: true
+  sni: bounded-crammed.video-streams.org
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1870576255'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 128.1.186.73
+  type: ss
+  udp: true
+- client-fingerprint: chrome
+  encryption: none
+  name: '[cbusifabcap-clashmeta] 🇦🇲AM_1|352KB/s|C002-260622'
+  network: raw
+  port: 55983
+  reality-opts:
+    public-key: nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg
+    short-id: 0e
+  server: 77.91.68.70
+  sub_tag: C002-260622
+  tls: true
+  type: vless
+  udp: true
+  uuid: f667a096-5231-4cfb-8759-92bb32473139
+  xudp: true
+  packet-encoding: xudp
+  servername: yahoo.com
+- name: '[ermaozi-subscribe] 🇪🇪EE_2|1.2MB/s'
+  password: None
+  port: 9443
+  server: 95.153.32.2
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 8E67A9'
+  server: 151.101.1.242
+  port: 443
+  type: vless
+  uuid: 566e98ad-4a56-4c1d-9dbc-83987079731b
+  udp: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- type: vless
+  name: '[free18-clash] 🇮🇹_意大利 (4)'
+  server: 151.91.39.191
+  port: 443
+  uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
+  udp: true
+  tls: true
+  servername: 148-253-210-191.sslip.io
+  sni: 148-253-210-191.sslip.io
+  skip-cert-verify: true
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /test-ws
+    headers:
+      Host: 148-253-210-191.sslip.io
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-34'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 18dee1c0-77be-4596-88d6-c23bd83fdae6
+  tls: true
+  sni: bounded-crammed.video-streams.org
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1870576345'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 79.110.54.250
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_20|3.0MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33152
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇪🇪EE_3|1.9MB/s'
+  password: None
+  port: 9443
+  server: 95.153.31.66
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-35'
+  type: vless
+  server: bounded-crammed.video-streams.org
+  port: 443
+  uuid: 18dee1c0-77be-4596-88d6-c23bd83fdae6
+  tls: true
+  sni: bounded-crammed.video-streams.org
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1870576356'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 146.70.20.147
+  type: ss
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇧🇦BA_1|875KB/s|R002-260618'
+  port: 9443
+  server: 185.164.35.16
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_21|3.4MB/s|M003-260806'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33174
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇪🇸 西班牙 | ESP'
+  server: ench-snet-app.w-ctrip.cn
+  port: 22100
+  type: trojan
+  password: b17e9b52db9623bd6c16eea3d7adb5b3
+  sni: cm.g.doubleclick.net
+  skip-cert-verify: true
+  udp: true
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-36'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 1f365eee-dd80-432b-8046-d0b3e7e0e419
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1827148746'
+  password: ae7eb4dwyaz25pxwgq59
+  port: 59689
+  server: 66.23.203.21
+  skip-cert-verify: true
+  sni: ''
+  type: trojan
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇧🇦BA_2|1.1MB/s|R002-260618'
+  port: 443
+  server: 185.164.35.16
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_22|3.6MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 8444
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-37'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 1f365eee-dd80-432b-8046-d0b3e7e0e419
+  tls: true
+  sni: minimize-evenness.cdn-content.com
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1827149167'
+  password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
+  port: 8886
+  server: 139.180.146.200
+  skip-cert-verify: true
+  sni: ''
+  type: trojan
+  udp: true
+- cipher: aes-256-cfb
+  name: '[cbusifabcap-clashmeta] 🇧🇬BG_10|2.0MB/s|A004-260618'
+  password: PRBf4BS2HvJqtWxY
+  port: 9049
+  server: 213.183.63.60
+  sub_tag: A004-260618
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_23|3.3MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21000
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  ports: 21000-21199,33000-33199
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇪🇸ES_1|2.7MB/s'
+  password: None
+  port: 443
+  server: 130.195.250.34
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 95FB9D'
+  server: japan.com
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
+  network: ws
   ws-opts:
     path: /
     headers:
-      Host: shin-ra.ccwu.cc
-- name: '[ermaozi-subscribe] 🇮🇪IE_2|2.4MB/s'
-  password: None
+      Host: v6.bangfw.dpdns.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-38'
+  type: vless
+  server: minimize-evenness.cdn-content.com
   port: 443
-  server: 34.249.214.108
-  skip-cert-verify: true
+  uuid: 1f365eee-dd80-432b-8046-d0b3e7e0e419
   tls: true
-  type: http
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5D1251'
-  server: www.speedtest.net
-  port: 443
-  type: trojan
-  password: humanity
+  sni: minimize-evenness.cdn-content.com
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- cipher: aes-256-cfb
+  name: '[cbusifabcap-clashmeta] 🇧🇬BG_11|3.0MB/s|A004-260618'
+  password: cp8pRSUAyLhTfVWH
+  port: 9064
+  server: 213.183.63.60
+  sub_tag: A004-260618
+  type: ss
   udp: true
-  sni: www.calmlunch.com
+- name: '[cbusifabcap-uri] 🇨🇭CH_24|4.3MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21158
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  name: '[ermaozi-subscribe] 🇫🇮[www.v2nodes.com] vless-FI-1...'
+  network: ws
+  port: 465
+  server: hw5.roghanmo.com
+  servername: hw5.roghanmo.com.
+  tls: true
+  type: vless
+  uuid: a356fa77-7199-417a-80dd-0c0925789161
+  ws-opts:
+    headers:
+      Host: hw5.roghanmo.com
+    path: /
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9A808D'
+  server: 151.101.129.242
+  port: 443
+  type: vless
+  uuid: cd9e00aa-3581-42e4-a35c-56ae3a521159
+  udp: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /assignment
+    path: /ws
     headers:
-      Host: www.calmlunch.com
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 071  | ⬇️ 4MB/s'
-  server: 162.159.192.7
-  port: 4500
-  private-key: kDGQmi8MA3XmCxGpf8kRiEFyonfdWf2h8XKLetdGLUg=
-  udp: true
-  ip: 172.16.0.2/32
-  reserved:
-  - 211
-  - 49
-  - 1
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1280
-  keepalive: '5'
-  wnoise: quic
-  wnoisecount: '5'
-  wnoisedelay: '5'
-  wpayloadsize: 40-90
-  persistent-keepalive: '5'
-- name: '[share-daily-node] US-HTTP-21'
-  type: http
-  server: voteshirleysew.club
+      Host: minimize-evenness.cdn-content.com
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-39'
+  type: vless
+  server: piracy-android.video-streams.org
   port: 443
-  udp: true
+  uuid: 1f365eee-dd80-432b-8046-d0b3e7e0e419
   tls: true
-  skip-cert-verify: false
-- name: '[ermaozi-subscribe] 🇮🇪IE_3|2.8MB/s|P002-260618'
-  password: None
-  port: 443
-  server: 149.88.96.1
+  sni: piracy-android.video-streams.org
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- cipher: aes-256-cfb
+  name: '[cbusifabcap-clashmeta] 🇧🇬BG_12|405KB/s|A004-260618'
+  password: VcFuyXvND2yQWSFY
+  port: 9054
+  server: 213.183.63.60
+  sub_tag: A004-260618
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_25|3.9MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33042
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   skip-cert-verify: true
-  sub_tag: P002-260618
+- client-fingerprint: firefox
+  encryption: none
+  name: '[ermaozi-subscribe] 🇫🇮FI_2|1.4MB/s'
+  network: xhttp
+  port: 4443
+  server: fl3.nexfile.net
+  servername: fl3.nexfile.net
   tls: true
-  type: http
+  type: vless
   udp: true
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5D7454'
-  server: 172.67.167.78
+  uuid: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  xhttp-opts:
+    mode: auto
+    path: /api/v1/sync/
+  xudp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9ABF67'
+  server: 66.70.179.198
+  port: 2053
+  type: vless
+  uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
+  udp: true
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
+    short-id: 83f8317a948bb769
+  client-fingerprint: chrome
+  network: tcp
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-40'
+  type: vless
+  server: 151.101.65.242
+  port: 443
+  uuid: 316f013e-4cf9-4a02-8415-73c22932594a
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[cbusifabcap-uri] 🇨🇭CH_27|4.2MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33141
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇫🇷 法国 | FRA'
+  server: 62.210.70.194
+  port: 37783
+  type: vless
+  uuid: a289c660-1b12-432b-a06c-c2ae469272b0
+  tls: true
+  encryption: mlkem768x25519plus.native.0rtt.I5ge5qOTUhKE8xpufKI84yktvqqG9qkViwYe20uFZUyGwbnK7QMv6Tih0subInSmZTyem1QFG1CDFvGfgMBu3Yw1ryNJfGjMnALAqZawBoukaROcTzxXmFAzuejDalyhxxfNJkeUefW3biOHIzcu_AairYSvJ8l_iHJpKVEKXZWPQWiq-tm_nPJz_oDDhFElaCHKnCslodSen2M6afQQ0HYKc6nKZmZwc1cHG1GKW9xHx6CBfLhFVOhT62tCvbxShul1NJgL-shELnovAtS1aHBFQKDOIiJYC7Ww0awUfsyGIFhnJIhdnqFHnkG7sOcdiWiH-ZkQ11p065zAWEQ14HTOi-aqCAsnWNwdRxwj1_qlArYd3nNF1dXKARRikbMFutC5GyyvSJxk7XwHRGWoK_q6_zK2amtIrsin6tov5kKs3UqywFJMJ2rMtgYZXpvK_TdXumLGUimIq9vFW7idpbMlv9F84NY8UbtrkyB87IQwdKqbtnuOMzxkYik-i9N5vaKcXLSdOGRpMgAKSMt5NbSyllcEh6qUTZoVb_h8ZmYij8csvbGWxodCj1WvOGoRtGGnTSpWMdG3X3ZxXlhNQ6tpIPGTfxkzjPtRjHQDcqm0fgrLjWONnkGxMQRO-Wi50vzNPzW9Vuy5BlZszdGqpjLNRLGw24JTAYKXpxiUkTxUxhO3LRC8kMvGVBgxjImwmwev1IqfPiVIMSwhV0FAMNw27nALh0qyPnNLbFpbTFuTL6V83YypFDl1yahns_AE86ufKnSAaSs_0PwMM_ZDfkhE7nRKCygaD9UjWWygRWq6fZarZahcTAqrZUYPXWxqDsrE7VRYO3ch70AHi6ZXTyKR1YcyM0Kiw3S0kxpjbtWReOJ3lXwry-BjcusDKhRsAxErDIBD6IFuY5ucRTtpfPoNgiq7rSFG8SFNvTe-_wh39Bwjj3JeRnw6kzujiKgxGiAH9GYm6LVvG2ljdWacJjSyoDE6mbFwgRCGdDh4h6eMCPs7hjQmNByx76lb0PYt-BuD9xCfiEFMoKJzTjWUvOy1gbmOrjY5xtkkByo8PCS40YRqXiYQ0Me9U5t_lsdxrvO6f7ajFHBNp_IiQOAstWu9UKC2hiABnVWbHaTFeQSp0tAx9rm5vehC0_a3EAHByGzGFUQ-QWpUO5mvGzZKpPVQrgovg2GsgepxgOMymOgv2CbLNKiwAJJyjDe5d5yXiueH3ZdppJqepXrOGuGOn3e-8RKVu3I-nCp-aMS769Yl5mmS8BYOpxW3HseSzZZMIta4hjsa7hqSgmycflvLV5x-8bM9iBFZ7iOey9oYyEkEbFN-6-Alh2dQfopjE2QNFqW6KatBKHXKHNVoayoc4ZegDKPNAEnAo9wIHkBpDFC-fVoCkGMDcRSeNbF67keruuE0xfMA8ltaklEyRwMcxVQwMhILq6vKlzpJF9OJMGVg5amP_-i4NAsKEfC8Ayp61gByykoWKTWkuLAEAYtXXNIfQ9BPvZca1BITgpC69lapO4SH1UAZ4KRxOTVtbHES_GsjM_lkTv940p3IDkG7jfvxIfY_Q9C3QVbkilRpPvg
+  reality-opts:
+    public-key: tQeEamJmYVUUfjRLX7ETvMnPj4DrHzRhR5TI684oYgg
+    short-id: 21569dd6
+  servername: www.yahoo.com
+  client-fingerprint: chrome
+  network: xhttp
+  xhttp-opts:
+    path: /OCrp5Ajs
+    host: www.yahoo.com
+    mode: auto
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9CD133'
+  server: www.okcupid.com
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v6.bangfw.dpdns.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-41'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 316f013e-4cf9-4a02-8415-73c22932594a
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1827149654'
+  password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
+  port: 8886
+  server: 45.32.52.173
+  skip-cert-verify: true
+  sni: 45.32.52.173
+  type: trojan
+  udp: true
+- cipher: aes-256-cfb
+  name: '[cbusifabcap-clashmeta] 🇧🇬BG_1|2.7MB/s|A004-260618'
+  password: 9ej82EKe2gq7gLAM
+  port: 9085
+  server: 213.183.63.60
+  sub_tag: A004-260618
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_29|3.4MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21084
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 9D2C06'
+  server: time.is
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v6.bangfw.dpdns.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-42'
+  type: vless
+  server: adheres-scruple.quick-cdn.net
+  port: 443
+  uuid: 316f013e-4cf9-4a02-8415-73c22932594a
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- name: '[cbusifabcap-uri] 🇨🇭CH_32|3.6MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33195
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A1A4EC'
+  server: 151.101.65.242
+  port: 443
+  type: vless
+  uuid: e8bec62c-ba78-45e9-a216-44c1a138b88d
+  udp: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- type: vless
+  name: '[free18-clash] 🇳🇱_荷兰 (11)'
+  server: 51.158.206.87
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: fuck.rkn
+  sni: fuck.rkn
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-43'
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 3c8a0eb8-37a3-4e69-8c5b-7ef465095710
+  tls: true
+  sni: adheres-scruple.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: adheres-scruple.quick-cdn.net
+- cipher: aes-256-cfb
+  name: '[cbusifabcap-clashmeta] 🇧🇬BG_3|2.8MB/s|A004-260618'
+  password: 9eeJ2fwnZA5Fxgz8
+  port: 9028
+  server: 213.183.63.60
+  sub_tag: A004-260618
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_33|3.2MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21086
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A2407D'
+  server: 172.64.80.1
   port: 8443
   type: vmess
   uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
@@ -1802,467 +2264,486 @@ proxies:
     path: /lMnsZUN4/
     headers:
       Host: v2ray1.dozapp.xyz
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 073  | ⬇️ 671KB/s'
-  server: 162.159.192.20
-  port: 903
-  private-key: 8CBaFoNjMJ64gMWudh+rjxrHtCq0lktrhxseaYo2S0k=
-  udp: true
-  ip: 172.16.0.2/32
-  reserved:
-  - 228
-  - 46
-  - 87
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1380
-  keepalive: '25'
-  wnoise: quic
-  wnoisecount: '5'
-  wnoisedelay: '5'
-  wpayloadsize: 40-90
-  persistent-keepalive: '25'
-- name: '[share-daily-node] US-HTTP-23'
-  type: http
-  server: 167.88.60.242
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- name: '[share-daily-node] US-HTTP-24'
-  type: http
-  server: 149.22.88.65
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] 🇦🇪AE_4|635KB/s|M003-260806'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: _0hmzeEAGEx6boacV3d-FrFGaFBYfdvJno39FxveJwM
-    short-id: e7c5f2a9
-  server: uae.purchasebot.net
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: 0d607d84-0ae0-4b9c-a4f3-1766ab456e02
-  xudp: true
-  packet-encoding: xudp
-  servername: bunny.net
-- name: '[chengaopan-base64] 🇨🇦[www.v2nodes.com] vless-CA-1... #3'
-  type: vless
-  server: 168.222.43.53
-  port: 8080
-  uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
 - type: vless
-  name: '[free18-clash] 🇩🇪_德国 (18)'
-  server: milo.rubinaz.xyz
-  port: 8080
-  uuid: 6bceb548-d9b6-461f-8e37-a5a7fbcdc2c8
-  udp: true
-  tls: false
-  skip-cert-verify: true
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 092  | ⬇️ 3MB/s'
-  server: 162.159.192.17
-  port: 934
-  private-key: 6NcXfVkz/AfkMIQpiUZEwwczmJjKVl1Bc6jJT1ssumg=
-  udp: true
-  ip: 172.16.0.2/32
-  reserved:
-  - 17
-  - 102
-  - 140
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1380
-  keepalive: '25'
-  wnoise: quic
-  wnoisecount: '5'
-  wnoisedelay: '5'
-  wpayloadsize: 40-90
-  persistent-keepalive: '25'
-- name: '[share-daily-node] US-HTTP-32'
-  type: http
-  server: 192.34.83.226
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- type: wireguard
-  name: '[ovmvo-permanent] 🇨🇳 095  | ⬇️ 2MB/s'
-  server: 162.159.192.1
-  port: 4500
-  private-key: kPHu3NuyH/jqGQuaW7f/3jXpbM5Wr+SG7A3PK7EW7Eo=
-  udp: true
-  ip: 172.16.0.2/32
-  reserved:
-  - 235
-  - 219
-  - 112
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1280
-  keepalive: '5'
-  wnoise: quic
-  wnoisecount: '5'
-  wnoisedelay: '5'
-  wpayloadsize: 40-90
-  persistent-keepalive: '5'
-- name: '[share-daily-node] ZA-HTTP-03'
-  type: http
-  server: 197.242.155.133
-  port: 443
-  udp: true
-  tls: true
-  skip-cert-verify: true
-- client-fingerprint: chrome
-  encryption: none
-  flow: xtls-rprx-vision
-  name: '[cbusifabcap-clashmeta] 🇦🇹AT_5|1.1MB/s|M003-260806'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: hyOYRfDSIYyqALQt3N2H0RjK8gbV1JvPTkNACC4PJF8
-    short-id: 8718c58d3d51db59
-  server: 66.90.106.228
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: 8007dda2-aed2-4514-8299-6e3edbdb015b
-  xudp: true
-  packet-encoding: xudp
-  servername: au1.wolffast.net
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 65E3BE'
-  server: 216.152.147.152
-  port: 443
-  type: trojan
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  udp: true
-  sni: learn.connectingpeoplewithgreatjobs.com
-  network: tcp
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]'
-  type: vless
-  server: grimness-backlogs.cdn-content.com
-  port: 443
-  uuid: 0097844e-b939-4d50-93f3-591debdceb55
-  tls: true
-  sni: grimness-backlogs.cdn-content.com
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: grimness-backlogs.cdn-content.com
-- type: wireguard
-  name: '[ovmvo-permanent] 🇺🇸 076  | ⬇️ 4MB/s'
-  server: 162.159.195.9
-  port: 500
-  private-key: EF4Q1fC9L/0Q797m8RVB5kywG/iP96eXH9uV8KNXvnw=
-  udp: true
-  ip: 172.16.0.2/32
-  reserved:
-  - 50
-  - 240
-  - 54
-  public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-  mtu: 1380
-  keepalive: '25'
-  wnoise: quic
-  wnoisecount: '5'
-  wnoisedelay: '5'
-  wpayloadsize: 40-90
-  persistent-keepalive: '25'
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 67FAB9'
-  server: 104.21.0.1
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.calmlunch.com
-  network: ws
-  ws-opts:
-    path: /assignment?ed
-    headers:
-      Host: www.calmlunch.com
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-2'
-  type: vless
-  server: ghosts-spasm.quick-cdn.net
-  port: 443
-  uuid: 01520a52-6d92-4683-b525-00d5df476dce
-  tls: true
-  sni: ghosts-spasm.quick-cdn.net
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: ghosts-spasm.quick-cdn.net
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 76F5D4'
-  server: 104.27.46.35
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  udp: true
-  tls: true
-  servername: jp3.yohototo.top
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-3'
-  type: vless
-  server: grimness-backlogs.cdn-content.com
-  port: 443
-  uuid: 01520a52-6d92-4683-b525-00d5df476dce
-  tls: true
-  sni: grimness-backlogs.cdn-content.com
-  network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: grimness-backlogs.cdn-content.com
-- type: vless
-  name: '[free18-clash] 🇩🇪_德国 (5)'
-  server: 144.31.140.125
-  port: 8443
-  uuid: f5e70ce3-cfb4-4df1-b25c-d19bfae627c0
+  name: '[free18-clash] 🇳🇱_荷兰 (12)'
+  server: 51.158.206.93
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
   udp: true
   tls: true
-  servername: twitch.tv
-  sni: twitch.tv
+  servername: fuck.rkn
+  sni: fuck.rkn
   skip-cert-verify: true
   client-fingerprint: chrome
   reality-opts:
-    public-key: wgyw3OxZw4HEzedNdY_eHdcVkrtT7GEeZSHfzcZ8iDo
-    short-id: 168c15efac9df5fd
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-4'
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-44'
   type: vless
-  server: ghosts-spasm.quick-cdn.net
+  server: 151.101.129.242
   port: 443
-  uuid: 01b3cd91-21d6-494a-8af3-e3093914f5f8
+  uuid: 3c8a0eb8-37a3-4e69-8c5b-7ef465095710
   tls: true
-  sni: ghosts-spasm.quick-cdn.net
+  sni: minimize-evenness.cdn-content.com
   network: ws
-  alpn:
-  - http/1.1
-  client-fingerprint: android
+  client-fingerprint: firefox
   ws-opts:
     path: /ws
     headers:
-      Host: ghosts-spasm.quick-cdn.net
-- name: '[cbusifabcap-clashmeta] 🇦🇺AU_6|392KB/s|R002-260618'
+      Host: minimize-evenness.cdn-content.com
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1827188340'
+  password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
+  port: 8886
+  server: 139.180.146.200
+  skip-cert-verify: true
+  sni: 139.180.146.200
+  type: trojan
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇧🇬BG_5|1.2MB/s|R002-260618'
   port: 443
-  server: 103.62.50.130
+  server: 109.204.88.17
   skip-cert-verify: true
   sub_tag: R002-260618
   tls: true
   type: http
   udp: true
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-5'
+- name: '[cbusifabcap-uri] 🇨🇭CH_34|2.3MB/s|M003-260806'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21161
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- type: vless
+  name: '[free18-clash] 🇳🇱_荷兰 (13)'
+  server: 51.158.206.26
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: fuck.rkn
+  sni: fuck.rkn
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-45'
   type: vless
   server: adheres-scruple.quick-cdn.net
   port: 443
-  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  uuid: 3c8a0eb8-37a3-4e69-8c5b-7ef465095710
   tls: true
   sni: adheres-scruple.quick-cdn.net
   network: ws
+  alpn:
+  - http/1.1
   client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
       Host: adheres-scruple.quick-cdn.net
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-6'
-  type: vless
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1827613948'
+  password: nwilryafgkyvuxauc8pz
+  port: 50875
+  server: 69.164.240.85
+  skip-cert-verify: true
+  sni: ''
+  type: trojan
+  udp: true
+- cipher: aes-256-cfb
+  name: '[cbusifabcap-clashmeta] 🇧🇬BG_6|2.1MB/s|A004-260618'
+  password: 2KUaE2a8NWTvuCZ3
+  port: 9066
+  server: 213.183.63.60
+  sub_tag: A004-260618
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_35|4.1MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33133
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇫🇷FR_1|1.1MB/s'
+  password: None
+  port: 9443
+  server: 138.199.47.247
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | A3F842'
   server: 151.101.1.242
   port: 443
-  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  type: vless
+  uuid: 0259b0b9-c954-4de2-988e-a5877b2cd6e5
+  udp: true
+  tls: true
+  servername: piracy-android.video-streams.org
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: piracy-android.video-streams.org
+- type: vless
+  name: '[free18-clash] 🇳🇱_荷兰 (14)'
+  server: 108.61.164.217
+  port: 4443
+  uuid: 20dd9433-389e-4573-ba7b-689619cf13da
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: www.samsung.com
+  sni: www.samsung.com
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: k9srkQedwHsZGJP-R-GGwDOGok05gk23s8d4mtidMC4
+    short-id: 835391010667297d
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-46'
+  type: vless
+  server: minimize-evenness.cdn-content.com
+  port: 443
+  uuid: 3c8a0eb8-37a3-4e69-8c5b-7ef465095710
   tls: true
   sni: minimize-evenness.cdn-content.com
   network: ws
   alpn:
-  - h3
-  - h2
   - http/1.1
   client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
       Host: minimize-evenness.cdn-content.com
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 80527E'
-  server: chatgpt.com
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] 🇧🇬BG_9|2.3MB/s|A004-260618'
+  network: tcp
   port: 443
-  type: trojan
-  password: humanity
+  reality-opts:
+    public-key: rabtI-ymNXBUvYYRwAw8DiR-1pdP7U0WPIaCBHEkgzo
+    short-id: 77bb0d07bddbc832
+  server: 195.123.226.21
+  sub_tag: A004-260618
+  tls: true
+  type: vless
   udp: true
-  sni: www.calmlunch.com
-  network: ws
-  ws-opts:
-    path: /assignment?Telegram---Config7x--CONFIG7X
-    headers:
-      Host: www.calmlunch.com
+  uuid: 6589c320-db68-43cd-a273-b46299bab355
+  xudp: true
+  packet-encoding: xudp
+  servername: gateway.icloud.com
 - type: vless
-  name: '[free18-clash] 🇩🇪_德国 (8)'
-  server: nl-modx-prime.storagedirectguide.com
-  port: 443
-  uuid: 5254c281-3bc1-40ee-ba89-1aaf8c251402
+  name: '[free18-clash] 🇳🇱_荷兰 (15)'
+  server: 51.158.206.8
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
   udp: true
   tls: true
-  servername: nl-modx-prime.storagedirectguide.com
-  sni: nl-modx-prime.storagedirectguide.com
+  servername: fuck.rkn
+  sni: fuck.rkn
   skip-cert-verify: true
   client-fingerprint: chrome
   reality-opts:
-    public-key: node0aB_7yyVADkeieiBBpxqIlxNLQcvgotRClh0QXQ
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-7'
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-47'
   type: vless
-  server: 151.101.193.242
+  server: minimize-evenness.cdn-content.com
   port: 443
-  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  uuid: 3c8a0eb8-37a3-4e69-8c5b-7ef465095710
   tls: true
-  sni: piracy-android.video-streams.org
+  sni: minimize-evenness.cdn-content.com
   network: ws
   client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
-      Host: piracy-android.video-streams.org
-- cipher: aes-256-gcm
-  name: '[ermaozi-subscribe] 🇯🇵[www.v2nodes.com] ss-JP-1544...'
-  password: 3eOFeNssde7PYYMv
-  port: 80
-  server: 84.247.155.196
-  type: ss
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 807CC2'
-  server: 188.114.98.0
-  port: 443
-  type: trojan
-  password: humanity
-  udp: true
-  sni: www.calmlunch.com
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-- type: trojan
-  name: '[free18-clash] 🇩🇪_德国 (9)'
-  server: de001.zestapp778.com
-  port: 51520
-  password: 5t6i121em5lkmsmk
-  udp: true
-  tls: true
+      Host: minimize-evenness.cdn-content.com
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1827955817'
+  password: nwilryafgkyvuxauc8pz
+  port: 50875
+  server: 69.164.240.85
   skip-cert-verify: true
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-8'
-  type: vless
-  server: 199.232.173.242
+  sni: 69.164.240.85
+  type: trojan
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇧🇷BR_1|562KB/s|R002-260618'
   port: 443
-  uuid: 056d58b7-2577-4f82-b7a8-2473202419c2
+  server: 134.65.17.77
+  skip-cert-verify: true
+  sub_tag: R002-260618
   tls: true
-  sni: adheres-scruple.quick-cdn.net
+  type: http
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_3|2.9MB/s|R002-260618'
+  type: hysteria2
+  server: 152.67.75.161
+  port: 443
+  password: 3a702d4d1de4949005d8431220e040fb
+  tls: true
+  sni: www.bing.com
+  obfs: salamander
+  obfs-password: c13f29db6a638ad2b211b9ce2669ef27
+  skip-cert-verify: true
+- type: vless
+  name: '[free18-clash] 🇳🇱_荷兰 (16)'
+  server: 51.158.206.34
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: fuck.rkn
+  sni: fuck.rkn
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-48'
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 3d5f6543-8d96-4e94-b0dc-0a4bc7c3b363
+  tls: true
+  sni: bounded-crammed.video-streams.org
   network: ws
-  alpn:
-  - h3
-  - h2
-  - http/1.1
   client-fingerprint: firefox
   ws-opts:
     path: /ws
     headers:
-      Host: adheres-scruple.quick-cdn.net
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-9'
-  type: vless
-  server: 151.101.1.242
+      Host: bounded-crammed.video-streams.org
+- client-fingerprint: chrome
+  name: '[cbusifabcap-clashmeta] 🇧🇷BR_4|717KB/s|M003-260806'
+  network: tcp
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   port: 443
-  uuid: 0d03e44f-f60f-41b6-8ad7-13445af164fd
-  tls: true
-  sni: minimize-evenness.cdn-content.com
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: minimize-evenness.cdn-content.com
-- name: '[ermaozi-subscribe] 🇯🇵[www.v2nodes.com] vless-JP-2...'
-  network: ws
-  port: 443
-  server: 141.11.139.215
-  servername: ccc.010304.xyz
-  tls: true
-  type: vless
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-    path: /fp=chrome
-- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 81B423'
-  server: 172.64.152.23
-  port: 443
+  server: 216.238.104.154
+  skip-cert-verify: true
+  sub_tag: M003-260806
   type: trojan
-  password: humanity
   udp: true
-  sni: www.calmlunch.com
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-10'
-  type: vless
-  server: 151.101.65.242
-  port: 443
-  uuid: 0d03e44f-f60f-41b6-8ad7-13445af164fd
+- name: '[cbusifabcap-uri] 🇨🇭CH_40|2.7MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33117
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
   tls: true
-  sni: adheres-scruple.quick-cdn.net
-  network: ws
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: adheres-scruple.quick-cdn.net
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-11'
-  type: vless
-  server: 199.232.173.242
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | AD2283'
+  server: 151.101.193.242
   port: 443
-  uuid: 0d03e44f-f60f-41b6-8ad7-13445af164fd
+  type: vless
+  uuid: e20c9b29-4d10-4311-80f2-feeb21450230
+  udp: true
   tls: true
-  sni: piracy-android.video-streams.org
+  servername: piracy-android.video-streams.org
+  client-fingerprint: firefox
   network: ws
-  client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
       Host: piracy-android.video-streams.org
-- type: trojan
-  name: '[free18-clash] 🇪🇸_西班牙 (2)'
-  server: 66.163.118.244
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-49'
+  type: vless
+  server: 151.101.129.242
   port: 443
+  uuid: 3d5f6543-8d96-4e94-b0dc-0a4bc7c3b363
+  tls: true
+  sni: bounded-crammed.video-streams.org
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1849374991'
+  password: ae7eb4dwyaz25pxwgq59
+  port: 59689
+  server: 66.23.203.21
+  skip-cert-verify: true
+  sni: 66.23.203.21
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  name: '[cbusifabcap-clashmeta] 🇧🇷BR_5|698KB/s|C002-260622'
+  network: tcp
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  port: 443
+  server: 216.238.104.154
+  skip-cert-verify: true
+  sni: 216.238.104.154
+  sub_tag: C002-260622
+  type: trojan
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_42|3.6MB/s|M003-260806'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 33187
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇬🇧[www.v2nodes.com] vless-GB-1... #4'
+  port: 10002
+  server: connect.hondamotor.site
+  tls: false
+  type: vless
+  uuid: c6362720-0931-4b91-b187-d8ecf3149734
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-50'
+  type: vless
+  server: 151.101.129.242
+  port: 443
+  uuid: 3d5f6543-8d96-4e94-b0dc-0a4bc7c3b363
+  tls: true
+  sni: ghosts-spasm.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: '[au1rxx-free-vpn-subscriptions] trojan-1853341794'
+  password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
+  port: 8886
+  server: 45.32.52.173
+  skip-cert-verify: true
+  sni: ''
+  type: trojan
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇧🇷BR_6|575KB/s|R002-260618'
+  password: None
+  port: 443
+  server: 134.65.17.77
+  skip-cert-verify: true
+  sub_tag: R002-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[cbusifabcap-uri] 🇨🇭CH_43|4.3MB/s|B007-260618'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21067
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇬🇧GB_5|2.1MB/s'
+  password: None
+  port: 443
+  server: 37.120.233.50
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B897AE'
+  server: 216.152.147.201
+  port: 443
+  type: trojan
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   udp: true
+  sni: resources.connectingpeoplewithgreatjobs.com
+  network: tcp
+- type: vless
+  name: '[free18-clash] 🇳🇱_荷兰 (19)'
+  server: 51.158.206.103
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  flow: xtls-rprx-vision
+  udp: true
   tls: true
-  servername: api.discovergreatjobsandadvanceyourcareer.com
-  sni: api.discovergreatjobsandadvanceyourcareer.com
+  servername: fuck.rkn
+  sni: fuck.rkn
   skip-cert-verify: true
-- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-12'
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-51'
   type: vless
-  server: adheres-scruple.quick-cdn.net
+  server: bounded-crammed.video-streams.org
   port: 443
-  uuid: 0f0e6a6c-f448-4931-b5a3-0fcdcd6dacec
+  uuid: 3d5f6543-8d96-4e94-b0dc-0a4bc7c3b363
   tls: true
-  sni: adheres-scruple.quick-cdn.net
+  sni: bounded-crammed.video-streams.org
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: bounded-crammed.video-streams.org
+- name: '[cbusifabcap-clashmeta] 🇧🇾BY_10|922KB/s|A004-260618'
+  network: tcp
+  port: 10443
+  server: 178.172.227.124
+  sub_tag: A004-260618
+  type: vless
+  udp: true
+  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  xudp: true
+  packet-encoding: xudp
+- name: '[cbusifabcap-uri] 🇨🇭CH_45|3.9MB/s|M003-260806'
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21154
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  tls: true
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | BA5CB7'
+  server: russia.com
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v6.bangfw.dpdns.org
+- type: vless
+  name: '[free18-clash] 🇳🇱_荷兰 (2)'
+  server: 51.158.206.19
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: fuck.rkn
+  sni: fuck.rkn
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-52'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 3d5f6543-8d96-4e94-b0dc-0a4bc7c3b363
+  tls: true
+  sni: ghosts-spasm.quick-cdn.net
   network: ws
   alpn:
   - http/1.1
@@ -2270,4 +2751,406 @@ proxies:
   ws-opts:
     path: /ws
     headers:
+      Host: ghosts-spasm.quick-cdn.net
+- client-fingerprint: ios
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] 🇧🇾BY_11|1.0MB/s|M003-260806'
+  network: raw
+  port: 10444
+  reality-opts:
+    public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
+    short-id: 8debcf36f1cc69ff
+  server: 178.172.227.228
+  sub_tag: M003-260806
+  tls: true
+  type: vless
+  udp: true
+  uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
+  xudp: true
+  packet-encoding: xudp
+  servername: ads.x5.ru
+- name: '[cbusifabcap-uri] 🇨🇭CH_4|3.9MB/s|R002-260618'
+  type: hysteria2
+  server: 140.238.213.114
+  port: 50160
+  password: 84a506ca5aca505696a454d828420b3f
+  tls: true
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | BABC9C'
+  server: www.gov.se
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v6.bangfw.dpdns.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-53'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 3d5f6543-8d96-4e94-b0dc-0a4bc7c3b363
+  tls: true
+  sni: ghosts-spasm.quick-cdn.net
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- encryption: none
+  name: '[cbusifabcap-clashmeta] 🇧🇾BY_12|1.7MB/s|B007-260618'
+  network: tcp
+  port: 10443
+  server: 178.172.227.124
+  sub_tag: B007-260618
+  type: vless
+  udp: true
+  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  xudp: true
+  packet-encoding: xudp
+  servername: 178.172.227.124
+- name: '[cbusifabcap-uri] 🇨🇭CH_53|492KB/s|A004-260618'
+  type: trojan
+  server: 208.69.78.60
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  tls: true
+  sni: cdn.yourultimateprofessionalcareerhub.com
+  network: tcp
+  client-fingerprint: chrome
+- name: '[ermaozi-subscribe] 🇭🇰HK_1|1.7MB/s'
+  port: 3128
+  server: 119.28.24.235
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C063BC'
+  server: 104.25.239.113
+  port: 2053
+  type: trojan
+  password: gHQP0D7D15
+  udp: true
+  sni: marvdasht.phonecomparisonblog.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: marvdasht.phonecomparisonblog.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-54'
+  type: vless
+  server: 151.101.1.242
+  port: 443
+  uuid: 409f4682-a458-4671-8805-40dfc6978336
+  tls: true
+  sni: grimness-backlogs.cdn-content.com
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- encryption: none
+  name: '[cbusifabcap-clashmeta] 🇧🇾BY_1|956KB/s|S004-260618'
+  network: ws
+  port: 14430
+  server: 95.128.71.79
+  sub_tag: S004-260618
+  type: vless
+  udp: true
+  uuid: 8cef7621-c6f0-486e-b51d-59c30c5b0b25
+  ws-opts:
+    headers:
+      Host: 95.128.71.79
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/68.0.3440.1805 Safari/537.36 MVisionPlayer/1.0.0.0
+    path: /vless
+  xudp: true
+  packet-encoding: xudp
+- name: '[cbusifabcap-uri] 🇨🇭CH_54|627KB/s|S004-260618'
+  type: trojan
+  server: 208.69.78.19
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  tls: true
+  sni: www.yourultimateprofessionalcareerhub.com
+  network: tcp
+  client-fingerprint: chrome
+- name: '[ermaozi-subscribe] 🇭🇷HR_2|2.9MB/s|K001-260618'
+  password: None
+  port: 443
+  server: 154.47.29.174
+  skip-cert-verify: true
+  sub_tag: K001-260618
+  tls: true
+  type: http
+  udp: true
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C80018'
+  server: www.visa.co.jp
+  port: 443
+  type: vless
+  uuid: 599798e2-5eed-40f3-a5cf-cbda9a4baad1
+  udp: true
+  tls: true
+  servername: v6.bangfw.dpdns.org
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v6.bangfw.dpdns.org
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-55'
+  type: vless
+  server: 151.101.193.242
+  port: 443
+  uuid: 409f4682-a458-4671-8805-40dfc6978336
+  tls: true
+  sni: ghosts-spasm.quick-cdn.net
+  network: ws
+  client-fingerprint: firefox
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- client-fingerprint: safari
+  encryption: none
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] 🇧🇾BY_2|1.1MB/s|F003-260618'
+  network: tcp
+  port: 10444
+  reality-opts:
+    public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
+    short-id: 8debcf36f1cc69ff
+  server: 178.172.227.228
+  sub_tag: F003-260618
+  tls: true
+  type: vless
+  udp: true
+  uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
+  xudp: true
+  packet-encoding: xudp
+  servername: ads.x5.ru
+- name: '[cbusifabcap-uri] 🇨🇭CH_55|166KB/s|M003-260806'
+  type: trojan
+  server: 208.69.78.29
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  tls: true
+  sni: learn.yourultimateprofessionalcareerhub.com
+  network: tcp
+  client-fingerprint: chrome
+- client-fingerprint: firefox
+  name: '[ermaozi-subscribe] 🇮🇩[www.v2nodes.com] vless-ID-1...'
+  port: 57353
+  server: 130.94.95.198
+  servername: in001.zestapp778.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | C876B4'
+  server: 151.101.65.242
+  port: 443
+  type: vless
+  uuid: daed3ca3-6b04-44e3-bd55-a9995e88d70b
+  udp: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-56'
+  type: vless
+  server: ghosts-spasm.quick-cdn.net
+  port: 443
+  uuid: 409f4682-a458-4671-8805-40dfc6978336
+  tls: true
+  sni: ghosts-spasm.quick-cdn.net
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: ghosts-spasm.quick-cdn.net
+- name: '[cbusifabcap-clashmeta] 🇧🇾BY_3|928KB/s|A004-260618'
+  network: ws
+  port: 14430
+  server: 178.172.227.124
+  sub_tag: A004-260618
+  type: vless
+  udp: true
+  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  ws-opts:
+    headers:
+      Host: 178.172.227.124
+      User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; vivo 1603 Build/MMB29M) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36
+    path: /vless
+  xudp: true
+  packet-encoding: xudp
+  servername: 178.172.227.124
+- name: '[cbusifabcap-uri] 🇨🇭CH_56|227KB/s|M003-260806'
+  type: trojan
+  server: 208.69.78.158
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  tls: true
+  sni: api.yourultimateprofessionalcareerhub.com
+  network: tcp
+  client-fingerprint: chrome
+- name: '[ermaozi-subscribe] 🇮🇪IE_1|1.5MB/s'
+  port: 443
+  server: 149.88.96.1
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D42981'
+  server: 151.101.1.242
+  port: 443
+  type: vless
+  uuid: b0cf4078-96b8-4e11-80a8-0f9352565a16
+  udp: true
+  tls: true
+  servername: minimize-evenness.cdn-content.com
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: minimize-evenness.cdn-content.com
+- type: vless
+  name: '[free18-clash] 🇳🇱_荷兰 (24)'
+  server: 154.86.119.121
+  port: 443
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: sw.golangwikito.cfd
+  sni: sw.golangwikito.cfd
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg
+    short-id: a1037b25dcef6aa7
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-57'
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 409f4682-a458-4671-8805-40dfc6978336
+  tls: true
+  sni: grimness-backlogs.cdn-content.com
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: grimness-backlogs.cdn-content.com
+- client-fingerprint: safari
+  encryption: none
+  flow: xtls-rprx-vision
+  name: '[cbusifabcap-clashmeta] 🇧🇾BY_4|1.5MB/s|F003-260618'
+  network: tcp
+  port: 10444
+  reality-opts:
+    public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
+    short-id: 8debcf36f1cc69ff
+  server: 95.128.71.79
+  sub_tag: F003-260618
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8cef7621-c6f0-486e-b51d-59c30c5b0b25
+  xudp: true
+  packet-encoding: xudp
+  servername: ads.x5.ru
+- name: '[cbusifabcap-uri] 🇨🇭CH_57|407KB/s|M003-260806'
+  type: trojan
+  server: 208.69.78.19
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  tls: true
+  sni: www.yourultimateprofessionalcareerhub.com
+  network: tcp
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- name: '[ermaozi-subscribe] 🇮🇪IE_2|1.9MB/s'
+  port: 9443
+  server: 149.88.96.12
+  skip-cert-verify: true
+  tls: true
+  type: http
+- name: '[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | D47F14'
+  server: 151.101.65.242
+  port: 443
+  type: vless
+  uuid: 51a8d623-0d6d-4018-82f4-84b76d5bd015
+  udp: true
+  tls: true
+  servername: adheres-scruple.quick-cdn.net
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
       Host: adheres-scruple.quick-cdn.net
+- name: '[igareck-vless] 🇺🇸 United States | 🌐 | [BL]-58'
+  type: vless
+  server: grimness-backlogs.cdn-content.com
+  port: 443
+  uuid: 409f4682-a458-4671-8805-40dfc6978336
+  tls: true
+  sni: grimness-backlogs.cdn-content.com
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+- name: '[cbusifabcap-clashmeta] 🇧🇾BY_5|550KB/s|A004-260618'
+  network: ws
+  port: 14430
+  server: 178.172.227.228
+  sub_tag: A004-260618
+  type: vless
+  udp: true
+  uuid: b6e5dc56-836f-48c1-9163-b0b0b43b647d
+  ws-opts:
+    headers:
+      Host: 178.172.227.228
+      User-Agent: Mozilla/5.0 (Linux; Android 8.0.0; WAS-LX3 Build/HUAWEIWAS-LX3)
+        AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
+    path: /vless
+  xudp: true
+  packet-encoding: xudp
+  servername: 178.172.227.228
+- name: '[cbusifabcap-uri] 🇨🇭CH_58|587KB/s|M003-260806'
+  type: trojan
+  server: 208.69.78.29
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  tls: true
+  sni: learn.yourultimateprofessionalcareerhub.com
+  network: tcp
+  client-fingerprint: chrome
+  skip-cert-verify: true
+- client-fingerprint: firefox
+  name: '[ermaozi-subscribe] 🇮🇳[www.v2nodes.com] vless-IN-1...'
+  network: ws
+  port: 443
+  server: 122.176.216.52
+  servername: app-6ada5023.deploy.meerasolution.com
+  tls: true
+  type: vless
+  uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
+  ws-opts:
+    headers:
+      Host: app-6ada5023.deploy.meerasolution.com
+    path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
