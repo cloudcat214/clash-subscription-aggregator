@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-04T16:50:34Z",
+  "generated_at": "2026-11-06T21:17:37Z",
   "vantage": "cloud+apihz-mainland-tcp",
   "method": "apihz-cn-tcp; rotating-window; two-strike",
-  "tested": 188,
-  "stable": 483,
-  "verified": 483,
+  "tested": 220,
+  "stable": 486,
+  "verified": 486,
   "stable_keys": [
     "001a92db15ce2439",
     "00c3bdedaa486e63",
@@ -145,6 +145,7 @@
     "44dcb3fd42a91128",
     "4569d6754495e7b9",
     "456c8fd42fdde3b1",
+    "45e81301e843a073",
     "48929fb8ccf3de6c",
     "48f988cf9ad408f2",
     "497f022d9a8cabe3",
@@ -159,6 +160,7 @@
     "4e2cf0bfc7879ebb",
     "4e6f62ee5ef4584e",
     "4e97c8777f4c4442",
+    "4ed2441ddeac8a23",
     "4f1b837908e91974",
     "4f90e3698e37f380",
     "501c797ab4d6d2b0",
@@ -456,6 +458,7 @@
     "ed8e26aeb7cb5489",
     "ed969a31d089bd74",
     "eda88ece7090915e",
+    "efcffc9f7a30be35",
     "f0cc2ca2271cce53",
     "f0d6ce6bc62eb4f4",
     "f13fda8491a71e8c",
@@ -708,7 +711,7 @@
       "skip-cert-verify": true
     },
     "0dc30ba4d38ea4d5": {
-      "name": "[cbusifabcap-clashmeta] 🇧🇦BA_1|1.1MB/s|R002-260618",
+      "name": "[cbusifabcap-clashmeta] 🇧🇦BA_1|862KB/s|R002-260618",
       "port": 443,
       "server": "185.164.35.16",
       "skip-cert-verify": true,
@@ -1161,13 +1164,14 @@
       "skip-cert-verify": true
     },
     "328174e70479eff0": {
-      "name": "[share-daily-node] CA-HTTP-15",
-      "type": "http",
-      "server": "142.44.210.129",
+      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_15|695KB/s|R002-260618",
       "port": 443,
-      "udp": true,
+      "server": "142.44.210.129",
+      "skip-cert-verify": true,
+      "sub_tag": "R002-260618",
       "tls": true,
-      "skip-cert-verify": true
+      "type": "http",
+      "udp": true
     },
     "340aae7d6b5d7ecc": {
       "name": "[zhuhaiuk-free-nodes] US - zhuhai.uk 07",
@@ -1186,7 +1190,7 @@
       "skip-cert-verify": true
     },
     "3662a580ac985fc5": {
-      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_40|673KB/s|P002-260618",
+      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_22|894KB/s|P002-260618",
       "password": "None",
       "port": 443,
       "server": "206.223.183.16",
@@ -1298,7 +1302,7 @@
       "udp": true
     },
     "4060d74469458477": {
-      "name": "[cbusifabcap-clashmeta] 🇧🇬BG_5|1.1MB/s|R002-260618",
+      "name": "[cbusifabcap-clashmeta] 🇧🇬BG_9|1000KB/s|R002-260618",
       "port": 9443,
       "server": "169.150.237.1",
       "skip-cert-verify": true,
@@ -1404,6 +1408,18 @@
       "tls": true,
       "skip-cert-verify": true
     },
+    "45e81301e843a073": {
+      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_23|673KB/s|K001-260618",
+      "password": "None",
+      "port": 443,
+      "server": "206.223.161.47",
+      "skip-cert-verify": true,
+      "sub_tag": "K001-260618",
+      "tls": true,
+      "type": "http",
+      "username": "",
+      "udp": true
+    },
     "48929fb8ccf3de6c": {
       "name": "[share-daily-node] US-HTTP-19",
       "type": "http",
@@ -1488,6 +1504,18 @@
       "sub_tag": "R002-260618",
       "tls": true,
       "type": "http",
+      "udp": true
+    },
+    "4ed2441ddeac8a23": {
+      "name": "[cbusifabcap-clashmeta] 🇧🇷BR_8|537KB/s|K001-260618",
+      "password": "null",
+      "port": 443,
+      "server": "134.65.17.77",
+      "skip-cert-verify": true,
+      "sub_tag": "K001-260618",
+      "tls": true,
+      "type": "http",
+      "username": "null",
       "udp": true
     },
     "4f1b837908e91974": {
@@ -1605,7 +1633,7 @@
       "type": "http"
     },
     "5b6f1fe38bdbd3d4": {
-      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_39|793KB/s|K001-260618",
+      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_18|941KB/s|K001-260618",
       "password": "None",
       "port": 443,
       "server": "206.223.183.13",
@@ -1617,7 +1645,7 @@
       "udp": true
     },
     "5b747cc24cd1af65": {
-      "name": "[ermaozi-subscribe] 🇪🇪EE_2|1.0MB/s",
+      "name": "[ermaozi-subscribe] 🇪🇪EE_2|1.3MB/s",
       "password": "None",
       "port": 9443,
       "server": "95.153.31.66",
@@ -1784,7 +1812,7 @@
       "type": "http"
     },
     "68bb040cd2ea5a68": {
-      "name": "[cbusifabcap-clashmeta] 🇧🇷BR_7|523KB/s|R002-260618",
+      "name": "[cbusifabcap-clashmeta] 🇧🇷BR_7|556KB/s|R002-260618",
       "password": "None",
       "port": 443,
       "server": "134.65.17.77",
@@ -2113,15 +2141,13 @@
       "type": "http"
     },
     "841df08c9943d74e": {
-      "name": "[cbusifabcap-clashmeta] ❓Other_49|294KB/s|P002-260618",
+      "name": "[ermaozi-subscribe] 🇬🇧GB_3|1.1MB/s",
       "password": "None",
       "port": 443,
       "server": "212.102.63.31",
       "skip-cert-verify": true,
-      "sub_tag": "P002-260618",
       "tls": true,
-      "type": "http",
-      "udp": true
+      "type": "http"
     },
     "84a4b5feee173351": {
       "name": "[ermaozi-subscribe] 🇨🇦CA_2|2.2MB/s",
@@ -2209,7 +2235,7 @@
       "tls": true
     },
     "89d7b3d76334ad96": {
-      "name": "[cbusifabcap-clashmeta] 🇧🇪BE_1|1.2MB/s|R002-260618",
+      "name": "[cbusifabcap-clashmeta] 🇧🇪BE_2|902KB/s|R002-260618",
       "password": "None",
       "port": 443,
       "server": "146.70.176.242",
@@ -2230,7 +2256,7 @@
       "skip-cert-verify": true
     },
     "8c800ca6c087b2cc": {
-      "name": "[ermaozi-subscribe] 🇬🇧GB_5|3.1MB/s",
+      "name": "[ermaozi-subscribe] 🇬🇧GB_2|2.8MB/s",
       "password": "None",
       "port": 443,
       "server": "212.102.63.61",
@@ -2782,7 +2808,7 @@
       "skip-cert-verify": true
     },
     "b9ef13dea7883cf2": {
-      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_25|956KB/s|K001-260618",
+      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_32|849KB/s|K001-260618",
       "password": "None",
       "port": 9443,
       "server": "149.88.98.81",
@@ -2873,7 +2899,7 @@
       "type": "http"
     },
     "bd82a52aec0cd928": {
-      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_47|539KB/s|R002-260618",
+      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_38|821KB/s|R002-260618",
       "password": "None",
       "port": 443,
       "server": "206.223.183.21",
@@ -2884,7 +2910,7 @@
       "udp": true
     },
     "be4e582d57285ded": {
-      "name": "[ermaozi-subscribe] 🇭🇺HU_1|3.8MB/s",
+      "name": "[ermaozi-subscribe] 🇭🇺HU_1|1.1MB/s",
       "password": "None",
       "port": 443,
       "server": "146.70.203.18",
@@ -3441,7 +3467,7 @@
       }
     },
     "e600d2b08a9afb7e": {
-      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_37|545KB/s|K001-260618",
+      "name": "[cbusifabcap-clashmeta] 🇨🇦CA_25|785KB/s|K001-260618",
       "password": "None",
       "port": 9443,
       "server": "198.44.157.19",
@@ -3539,6 +3565,15 @@
       "udp": true,
       "tls": true,
       "skip-cert-verify": true
+    },
+    "efcffc9f7a30be35": {
+      "name": "[ermaozi-subscribe] 🇬🇧GB_1|1015KB/s",
+      "password": "None",
+      "port": 443,
+      "server": "84.17.50.193",
+      "skip-cert-verify": true,
+      "tls": true,
+      "type": "http"
     },
     "f0d6ce6bc62eb4f4": {
       "name": "[cbusifabcap-clashmeta] 🇦🇺AU_3|418KB/s|R002-260618",
@@ -3820,8 +3855,8 @@
     "bc32786f709e8baa": 1,
     "cb2231a39c87bc10": 1
   },
-  "tested_this_run": 4,
-  "on_this_run": 4,
+  "tested_this_run": 17,
+  "on_this_run": 17,
   "off_this_run": 0,
   "errors": 0
 }
