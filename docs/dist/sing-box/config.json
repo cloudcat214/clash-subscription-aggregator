@@ -8,8 +8,6 @@
       "tag": "proxy",
       "outbounds": [
         "direct",
-        "[ermaozi-subscribe] 🇮🇹_IT_意大利_IPV4 (3)",
-        "[ermaozi-subscribe] 🇰🇷[www.v2nodes.com] trojan-KR-...",
         "[cbusifabcap-clashmeta] ❓Other_11|269KB/s|M003-260806",
         "[cbusifabcap-uri] ❓Other_11|269KB/s|M003-260806",
         "[chengaopan-merged] 🇨🇭[www.v2nodes.com] trojan-CH-... #2",
@@ -111,6 +109,7 @@
         "[au1rxx-free-vpn-subscriptions] hysteria2-1910185368",
         "[cbusifabcap-clashmeta] 🇦🇹AT_6|912KB/s|F003-260618",
         "[cbusifabcap-uri] 🇧🇷BR_2|721KB/s|A004-260618",
+        "[ermaozi-subscribe] 🇮🇹_IT_意大利_IPV4 (3)",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5EDA07",
         "[au1rxx-free-vpn-subscriptions] hysteria2-1917575832",
         "[cbusifabcap-uri] 🇧🇷BR_4|699KB/s|M003-260806",
@@ -169,6 +168,7 @@
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827147315",
         "[cbusifabcap-clashmeta] 🇧🇬BG_10|2.4MB/s|A004-260618",
         "[cbusifabcap-uri] 🇨🇭CH_18|177KB/s|M003-260806",
+        "[ermaozi-subscribe] 🇰🇷[www.v2nodes.com] trojan-KR-...",
         "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | B897AE",
         "[iboxz-collector] 🇳🇱 NL | 50.7.176.65",
         "[au1rxx-free-vpn-subscriptions] shadowsocks-1827147479",
@@ -262,32 +262,30 @@
         "[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | 8433E8",
         "[cbusifabcap-clashmeta] 🇧🇾BY_7|577KB/s|A004-260618",
         "[cbusifabcap-uri] 🇨🇱CL_3|623KB/s|M003-260806",
-        "[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | 894BDE"
+        "[free-v2ray-verified-clash] CH 🇨🇭 | @Raydikalx | 894BDE",
+        "[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 373E2E",
+        "[iboxz-collector] 🇨🇦 CA | 104.18.151.231",
+        "[share-daily-node] GB-HTTP-01",
+        "[snapdragon-systemproxy] 🇬🇧GB_22_0@21",
+        "[zhuhaiuk-free-nodes] CZ - zhuhai.uk",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1828373530",
+        "[share-daily-node] NL-HTTP-53",
+        "[zhuhaiuk-free-nodes] DE - zhuhai.uk 02",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1828374855",
+        "[share-daily-node] NL-HTTP-55",
+        "[snapdragon-systemproxy] 🇰🇷KR_77 ⇽中转_1@76",
+        "[zhuhaiuk-free-nodes] GB - zhuhai.uk",
+        "[au1rxx-free-vpn-subscriptions] hysteria2-1832764859",
+        "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 31AC44",
+        "[iboxz-collector] 🇨🇦 CA | 216.152.147.74",
+        "[share-daily-node] SG-HTTP-01",
+        "[zhuhaiuk-free-nodes] MY - zhuhai.uk",
+        "[share-daily-node] SG-HTTP-09"
       ]
     },
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "[ermaozi-subscribe] 🇮🇹_IT_意大利_IPV4 (3)",
-      "server": "202.50.253.90",
-      "server_port": 19999,
-      "method": "aes-256-gcm",
-      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-    },
-    {
-      "type": "trojan",
-      "tag": "[ermaozi-subscribe] 🇰🇷[www.v2nodes.com] trojan-KR-...",
-      "server": "kr002.zestapp778.com",
-      "server_port": 48851,
-      "password": "5t6i121em5lkmsmk",
-      "tls": {
-        "enabled": true,
-        "server_name": "kr002.zestapp778.com",
-        "insecure": true
-      }
     },
     {
       "type": "trojan",
@@ -1581,6 +1579,14 @@
       }
     },
     {
+      "type": "shadowsocks",
+      "tag": "[ermaozi-subscribe] 🇮🇹_IT_意大利_IPV4 (3)",
+      "server": "202.50.253.90",
+      "server_port": 19999,
+      "method": "aes-256-gcm",
+      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+    },
+    {
       "type": "trojan",
       "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 5EDA07",
       "server": "104.16.186.130",
@@ -2427,6 +2433,18 @@
       "tls": {
         "enabled": true,
         "server_name": "vpn.local",
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "[ermaozi-subscribe] 🇰🇷[www.v2nodes.com] trojan-KR-...",
+      "server": "kr002.zestapp778.com",
+      "server_port": 48851,
+      "password": "5t6i121em5lkmsmk",
+      "tls": {
+        "enabled": true,
+        "server_name": "kr002.zestapp778.com",
         "insecure": true
       }
     },
@@ -3653,6 +3671,213 @@
       "tls": {
         "enabled": true,
         "server_name": "learn.yourultimateprofessionalcareerhub.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "[free-v2ray-verified-clash] AU 🇦🇺 | @Raydikalx | 373E2E",
+      "server": "45.63.30.142",
+      "server_port": 443,
+      "password": "0ab6c98dae3b48e8b9c4a776b6c9c19a",
+      "tls": {
+        "enabled": true,
+        "server_name": "connectwithemployerstohireyouridealteam.com"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[iboxz-collector] 🇨🇦 CA | 104.18.151.231",
+      "server": "104.18.151.231",
+      "server_port": 2053,
+      "uuid": "eaf76557-2219-4799-8171-d7020adfefd0",
+      "tls": {
+        "enabled": true,
+        "server_name": "twilight-frost-15b0.yigom67484.workers.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "twilight-frost-15b0.yigom67484.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[share-daily-node] GB-HTTP-01",
+      "server": "84.17.50.193",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[snapdragon-systemproxy] 🇬🇧GB_22_0@21",
+      "server": "82.38.31.205",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] CZ - zhuhai.uk",
+      "server": "193.35.104.196",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1828373530",
+      "server": "140.238.213.114",
+      "server_port": 50160,
+      "password": "84a506ca5aca505696a454d828420b3f",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[share-daily-node] NL-HTTP-53",
+      "server": "84.17.47.147",
+      "server_port": 9002,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] DE - zhuhai.uk 02",
+      "server": "213.109.163.119",
+      "server_port": 443,
+      "username": "null",
+      "password": "null",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1828374855",
+      "server": "103.115.109.49",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "https",
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[share-daily-node] NL-HTTP-55",
+      "server": "161.129.60.66",
+      "server_port": 9443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "[snapdragon-systemproxy] 🇰🇷KR_77 ⇽中转_1@76",
+      "server": "p141.panda001.net",
+      "server_port": 4652,
+      "method": "aes-256-cfb",
+      "password": "qwerREWQ@@"
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] GB - zhuhai.uk",
+      "server": "206.189.118.214",
+      "server_port": 443,
+      "username": "testuser1",
+      "password": "e4b72b531a2d10900519",
+      "tls": {
+        "enabled": true,
+        "server_name": "cebd76d6.acsnet.co"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "[au1rxx-free-vpn-subscriptions] hysteria2-1832764859",
+      "server": "62.210.7.139",
+      "server_port": 60111,
+      "password": "github.com/Alvin9999-newpac/fanqiang",
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "[free-v2ray-verified-clash] CA 🇨🇦 | @Raydikalx | 31AC44",
+      "server": "209.200.246.148",
+      "server_port": 443,
+      "uuid": "ca52e2b6-fb9f-4dac-b6dc-49da9923f251",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk",
+          "short_id": "f98843107912e782"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "[iboxz-collector] 🇨🇦 CA | 216.152.147.74",
+      "server": "216.152.147.74",
+      "server_port": 443,
+      "password": "0ab6c98dae3b48e8b9c4a776b6c9c19a",
+      "tls": {
+        "enabled": true,
+        "server_name": "api.connectingpeoplewithgreatjobs.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[share-daily-node] SG-HTTP-01",
+      "server": "154.26.138.166",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[zhuhaiuk-free-nodes] MY - zhuhai.uk",
+      "server": "152.233.3.14",
+      "server_port": 9443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "http",
+      "tag": "[share-daily-node] SG-HTTP-09",
+      "server": "154.26.138.233",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": true
       }
     }
   ]

@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-07T23:26:12Z",
+  "generated_at": "2026-11-08T04:02:29Z",
   "vantage": "cloud+apihz-mainland-tcp",
   "method": "apihz-cn-tcp; rotating-window; two-strike",
-  "tested": 289,
-  "stable": 493,
-  "verified": 493,
+  "tested": 307,
+  "stable": 496,
+  "verified": 496,
   "stable_keys": [
     "001a92db15ce2439",
     "00c3bdedaa486e63",
@@ -203,6 +203,7 @@
     "65ab951701a7293d",
     "66839a57062fda77",
     "68bb040cd2ea5a68",
+    "68d24ea4663df367",
     "692ef8c03551ed19",
     "6b8677e7172deacf",
     "6c5bac40829469f9",
@@ -350,6 +351,7 @@
     "b545154f745501f8",
     "b5841c00a2cc9ca8",
     "b5c8fd6b1815a8b6",
+    "b5eb0f457b798108",
     "b6894f49c60e7e1d",
     "b70a98ff19c4a7f4",
     "b87eda7af24f6ddb",
@@ -469,6 +471,7 @@
     "f0d6ce6bc62eb4f4",
     "f13fda8491a71e8c",
     "f16c176edc5f9e22",
+    "f18d248abbca8617",
     "f20db14976aa69d0",
     "f22710963808877a",
     "f2baafde7bc22651",
@@ -1855,6 +1858,15 @@
       "type": "http",
       "udp": true
     },
+    "68d24ea4663df367": {
+      "name": "[share-daily-node] NL-HTTP-53",
+      "type": "http",
+      "server": "84.17.47.147",
+      "port": 9002,
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": true
+    },
     "692ef8c03551ed19": {
       "name": "[ermaozi-subscribe] ❓Other_1|3.1MB/s",
       "port": 9443,
@@ -2673,7 +2685,7 @@
       "username": "1234"
     },
     "ac9489e5d74a957d": {
-      "name": "[share-daily-node] SG-HTTP-09",
+      "name": "[share-daily-node] SG-HTTP-01",
       "type": "http",
       "server": "154.26.138.166",
       "port": 443,
@@ -2816,8 +2828,16 @@
       "tls": true,
       "skip-cert-verify": true
     },
+    "b5eb0f457b798108": {
+      "name": "[zhuhaiuk-free-nodes] MY - zhuhai.uk",
+      "type": "http",
+      "server": "152.233.3.14",
+      "port": 9443,
+      "tls": true,
+      "skip-cert-verify": true
+    },
     "b70a98ff19c4a7f4": {
-      "name": "[share-daily-node] SG-HTTP-20",
+      "name": "[share-daily-node] SG-HTTP-09",
       "type": "http",
       "server": "154.26.138.233",
       "port": 443,
@@ -3013,12 +3033,13 @@
       "skip-cert-verify": true
     },
     "c0dda77cf8770a9e": {
-      "name": "[ermaozi-subscribe] 🇬🇧GB_8|2.7MB/s",
-      "port": 443,
+      "name": "[share-daily-node] GB-HTTP-01",
+      "type": "http",
       "server": "84.17.50.193",
-      "skip-cert-verify": true,
+      "port": 443,
+      "udp": true,
       "tls": true,
-      "type": "http"
+      "skip-cert-verify": true
     },
     "c1cbe281b51b2f8f": {
       "name": "[share-daily-node] SG-HTTP-06",
@@ -3307,7 +3328,7 @@
       "skip-cert-verify": true
     },
     "d91ea5069b5cbbc2": {
-      "name": "[zhuhaiuk-free-nodes] DE - zhuhai.uk",
+      "name": "[zhuhaiuk-free-nodes] DE - zhuhai.uk 02",
       "type": "http",
       "server": "213.109.163.119",
       "port": 443,
@@ -3673,6 +3694,16 @@
       "type": "http",
       "udp": true
     },
+    "f18d248abbca8617": {
+      "name": "[zhuhaiuk-free-nodes] GB - zhuhai.uk",
+      "type": "http",
+      "server": "206.189.118.214",
+      "port": 443,
+      "username": "testuser1",
+      "password": "e4b72b531a2d10900519",
+      "tls": true,
+      "sni": "cebd76d6.acsnet.co"
+    },
     "f20db14976aa69d0": {
       "name": "[ermaozi-subscribe] 🇬🇧GB_1|1.6MB/s|R002-260618",
       "password": "None",
@@ -3935,14 +3966,14 @@
   "cn_off": {
     "1c9fba2f6dbd857b": 1,
     "2887eeb16f6c2825": 1,
-    "430897e04d9a8cb7": 1,
     "5686b237a756e066": 1,
     "8f84778ee60cf336": 1,
     "bc32786f709e8baa": 1,
-    "cb2231a39c87bc10": 1
+    "cb2231a39c87bc10": 1,
+    "d91ea5069b5cbbc2": 1
   },
-  "tested_this_run": 18,
-  "on_this_run": 17,
+  "tested_this_run": 21,
+  "on_this_run": 20,
   "off_this_run": 1,
-  "errors": 0
+  "errors": 6
 }
