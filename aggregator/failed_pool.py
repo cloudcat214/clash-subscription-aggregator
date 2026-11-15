@@ -2,7 +2,7 @@
 
 import copy
 import json
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import cast
@@ -12,7 +12,15 @@ from .quality import classify_node, node_key
 FAILED_POOL_SCHEMA_VERSION = 1
 FAILED_POOL_CAP = 5000
 BACKOFF_SECONDS = (3600, 6 * 3600, 24 * 3600, 72 * 3600)
+_MAX_ERROR_DETAIL = 300
 _VERDICT_ORDER = {"fast": 0, "verified": 1, "stable": 2, "not_tested": 3}
+
+
+def _row_detail(row: Mapping[str, object]) -> str | None:
+    value = row.get("detail", row.get("error_detail"))
+    if not isinstance(value, str) or not value:
+        return None
+    return " ".join(value.split())[:_MAX_ERROR_DETAIL]
 
 
 def _meets_minimum(verdict: str, minimum: str) -> bool:
@@ -98,6 +106,10 @@ def load_failed_pool(path: Path) -> list[dict[str, object]]:
                 raise TypeError("failed_pool_invalid")
         if raw_entry.get("last_error_category") is not None and not isinstance(
             raw_entry.get("last_error_category"), str
+        ):
+            raise TypeError("failed_pool_invalid")
+        if raw_entry.get("last_error_detail") is not None and not isinstance(
+            raw_entry.get("last_error_detail"), str
         ):
             raise TypeError("failed_pool_invalid")
         entry = copy.deepcopy(raw_entry)
@@ -262,3 +274,77 @@ def merge_failed_pool(
 
     stats["size"] = len(current)
     return list(current.values()), stats, promoted_nodes
+
+
+def merge_core_validation_failures(
+    entries: list[dict[str, object]],
+    failures: Sequence[Mapping[str, object]],
+    *,
+    now: str,
+    max_entries: int = FAILED_POOL_CAP,
+) -> tuple[list[dict[str, object]], dict[str, int]]:
+    """Record nodes rejected by per-node client syntax validation.
+
+    Rows follow the probe result contract (``node_key``/``error_category``) and
+    may carry a bounded, already-redacted ``detail``. Entries use the same shape
+    and backoff as probe failures, so the retry scheduler needs no new state.
+    """
+    current = {str(entry["key"]): copy.deepcopy(entry) for entry in entries}
+    stats = {"added": 0, "retested": 0, "pruned": 0}
+    seen: set[str] = set()
+    for row in failures:
+        node = row.get("node")
+        if not isinstance(node, dict):
+            continue
+        key = str(row.get("node_key") or node_key(node))
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        category = str(row.get("error_category") or "core_validation_error")
+        detail = _row_detail(row)
+        source_id = str(row.get("source_id") or "unknown")
+        existing = current.get(key)
+        if existing is None:
+            entry: dict[str, object] = {
+                "key": key,
+                "node": copy.deepcopy(node),
+                "source_id": source_id,
+                "first_failed_at": now,
+                "last_rechecked_at": now,
+                "next_retry_at": _next_retry_at(now, 1),
+                "last_conclusion": "failed",
+                "last_error_category": category,
+                "consecutive_failures": 1,
+                "total_failures": 1,
+            }
+            if detail:
+                entry["last_error_detail"] = detail
+            current[key] = entry
+            stats["added"] += 1
+        else:
+            failures_count = int(existing["consecutive_failures"]) + 1
+            existing["node"] = copy.deepcopy(node)
+            existing["last_rechecked_at"] = now
+            existing["next_retry_at"] = _next_retry_at(now, failures_count)
+            existing["last_conclusion"] = "failed"
+            existing["last_error_category"] = category
+            if detail:
+                existing["last_error_detail"] = detail
+            existing["consecutive_failures"] = failures_count
+            existing["total_failures"] = int(existing["total_failures"]) + 1
+            stats["retested"] += 1
+
+    if len(current) > max_entries:
+        ordered = sorted(
+            current.values(),
+            key=lambda entry: (
+                str(entry["next_retry_at"]),
+                int(entry["total_failures"]),
+            ),
+        )
+        keep = ordered[:max_entries]
+        stats["pruned"] = len(ordered) - len(keep)
+        current = {str(entry["key"]): entry for entry in keep}
+
+    stats["size"] = len(current)
+    return list(current.values()), stats

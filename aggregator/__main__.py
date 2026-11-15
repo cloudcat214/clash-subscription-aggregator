@@ -8,9 +8,14 @@ from pathlib import Path
 
 from . import __version__
 from .fastprobe import probe_nodes as delay_probe_nodes
-from .pipeline import initialize_dist, load_config, run_pipeline
+from .pipeline import (
+    NodeValidator,
+    initialize_dist,
+    load_config,
+    run_pipeline,
+)
 from .probe import probe_nodes
-from .validators import validate_generated_artifacts
+from .validators import validate_generated_artifacts, validate_node_configs
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -115,6 +120,16 @@ def main(argv: list[str] | None = None) -> int:
 
         validator = _validator
 
+    node_validator: NodeValidator | None = None
+    if args.mihomo:
+
+        def _node_validator(
+            proxies: list[dict[str, object]],
+        ) -> list[dict[str, object]]:
+            return validate_node_configs(proxies, mihomo_path=args.mihomo)
+
+        node_validator = _node_validator
+
     probe_interface = args.probe_interface
     probe_runner: Callable[[list[dict[str, object]]], dict[str, object]] | None = None
     if args.probe:
@@ -182,6 +197,7 @@ def main(argv: list[str] | None = None) -> int:
             private_output_dir=args.private_output,
             validator=validator,
             probe_runner=probe_runner,
+            node_validator=node_validator,
             verified_pool_path=args.verified_pool,
             failed_pool_path=args.failed_pool,
         )

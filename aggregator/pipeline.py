@@ -22,7 +22,9 @@ import yaml
 from .failed_pool import (
     due_failed_pool_nodes,
     failed_pool_document,
+    load_failed_pool,
     load_runtime_pools,
+    merge_core_validation_failures,
     merge_failed_pool,
 )
 from .fastprobe import TARGET_URL as FASTPROBE_TARGET_URL
@@ -93,6 +95,7 @@ class PipelineResult:
 SourceLoader = Callable[[dict[str, Any], Path, dict[str, Any], bool], str]
 ArtifactValidator = Callable[[Path], dict[str, Any]]
 ProbeRunner = Callable[[list[dict[str, object]]], dict[str, object]]
+NodeValidator = Callable[[list[dict[str, object]]], list[dict[str, object]]]
 
 _PROBE_BACKEND_CAPS = {
     "spawn": {"max_nodes": 500, "concurrency": 8},
@@ -623,6 +626,40 @@ def _normalize_probe_rows(
     return normalized, rows
 
 
+def _node_validation_summary(
+    rows: list[dict[str, object]], expected: int
+) -> dict[str, object]:
+    """Summarize per-node client validation for manifest/health evidence."""
+    failed = [row for row in rows if row.get("status") != "passed"]
+    categories: Counter[str] = Counter()
+    for row in failed:
+        category = row.get("error_category")
+        if isinstance(category, str) and category:
+            categories[category] += 1
+    summary: dict[str, object] = {
+        "status": "failed" if failed else "passed",
+        "tested": len(rows),
+        "expected": expected,
+        "passed": len(rows) - len(failed),
+        "failed": len(failed),
+        "error_categories": dict(sorted(categories.items())),
+        "failures": [
+            {
+                "node_key": str(row.get("node_key") or ""),
+                "protocol": str(row.get("protocol") or "unknown"),
+                "error_category": str(
+                    row.get("error_category") or "core_validation_error"
+                ),
+                "detail": str(row.get("detail") or "")[:300],
+            }
+            for row in failed[:50]
+        ],
+    }
+    if len(failed) > 50:
+        summary["omitted_failures"] = len(failed) - 50
+    return summary
+
+
 def _node_quality_counts(
     candidates: int,
     rows: list[dict[str, object]],
@@ -885,6 +922,7 @@ def _publish_transaction(
     manifest: dict[str, object],
     health: dict[str, object],
     validator: ArtifactValidator | None = None,
+    node_validation: dict[str, object] | None = None,
 ) -> dict[str, object] | None:
     output_dir.parent.mkdir(parents=True, exist_ok=True)
     staging = Path(
@@ -896,8 +934,21 @@ def _publish_transaction(
             _write_text(staging / relative, content)
         if validator is not None:
             validation = validator(staging)
-            manifest["core_validation"] = validation
-            health["core_validation"] = validation
+        if validation is not None or node_validation is not None:
+            core_validation: dict[str, object]
+            if isinstance(validation, dict):
+                core_validation = dict(validation)
+            elif node_validation is not None:
+                core_validation = {
+                    "status": str(node_validation.get("status", "not_tested"))
+                }
+            else:
+                core_validation = {"status": "not_tested"}
+            if node_validation is not None:
+                core_validation["nodes"] = node_validation
+            manifest["core_validation"] = core_validation
+            health["core_validation"] = core_validation
+            validation = core_validation
         _write_json(staging / "manifest.json", manifest)
         _write_json(staging / "health.json", health)
         backup = _replace_directory(staging, output_dir, keep_backup=True)
@@ -928,6 +979,7 @@ def _write_failure(
     active_probe: bool = False,
     verification: dict[str, object] | None = None,
     node_quality: dict[str, object] | None = None,
+    node_validation: dict[str, object] | None = None,
 ) -> PipelineResult:
     output_dir.mkdir(parents=True, exist_ok=True)
     has_lkg = _has_lkg(state_dir)
@@ -945,6 +997,14 @@ def _write_failure(
         active_probe=active_probe,
         verification=verification,
         node_quality=node_quality,
+        validation=(
+            {
+                "status": str(node_validation.get("status", "failed")),
+                "nodes": node_validation,
+            }
+            if node_validation is not None
+            else None
+        ),
     )
     health["failure_reason"] = reason
     health_path = output_dir / "health.json"
@@ -1035,6 +1095,7 @@ def run_pipeline(
     private_output_dir: Path | None = None,
     validator: ArtifactValidator | None = None,
     probe_runner: ProbeRunner | None = None,
+    node_validator: NodeValidator | None = None,
     verified_pool_path: Path | None = None,
     failed_pool_path: Path | None = None,
 ) -> PipelineResult:
@@ -1211,6 +1272,10 @@ def run_pipeline(
     node_quality = _empty_node_quality(
         len(proxies), published=0 if active_probe else len(proxies)
     )
+    pool_entries: list[dict[str, object]] = []
+    failed_entries: list[dict[str, object]] = []
+    pool_shrink_ratio = max_shrink_ratio
+    node_validation: dict[str, object] | None = None
     if active_probe:
         pool_shrink_ratio = max_shrink_ratio
         if previous_count >= 10:
@@ -1339,6 +1404,96 @@ def run_pipeline(
         total_probe_candidates = (
             len(candidate_pool) + pool_only_count + len(failed_probe_nodes)
         )
+        core_failure_rows: list[dict[str, object]] = []
+        if node_validator is not None:
+            try:
+                validation_rows = [
+                    row
+                    for row in node_validator(candidates_before_probe)
+                    if isinstance(row, dict)
+                ]
+            except Exception:  # noqa: BLE001 - a broken validator must fail closed
+                validation_rows = []
+            if len(validation_rows) != len(candidates_before_probe):
+                node_validation = {
+                    "status": "failed",
+                    "reason": "node_validation_incomplete",
+                    "tested": len(validation_rows),
+                    "expected": len(candidates_before_probe),
+                }
+                return _write_failure(
+                    output_dir,
+                    state_dir,
+                    public_results,
+                    "node_validation_incomplete",
+                    generated_at,
+                    active_probe=True,
+                    verification=verification,
+                    node_quality=_empty_node_quality(len(candidate_pool)),
+                    node_validation=node_validation,
+                )
+            node_validation = _node_validation_summary(
+                validation_rows, len(candidates_before_probe)
+            )
+            if node_validation["status"] == "failed":
+                invalid_rows = [
+                    row for row in validation_rows if row.get("status") != "passed"
+                ]
+                invalid_keys = {
+                    str(row.get("node_key") or "")
+                    for row in invalid_rows
+                    if row.get("node_key")
+                }
+                node_by_key = {node_key(node): node for node in candidates_before_probe}
+                for row in invalid_rows:
+                    key = str(row.get("node_key") or "")
+                    invalid_node = node_by_key.get(key)
+                    if invalid_node is None:
+                        continue
+                    core_failure_rows.append(
+                        {
+                            **row,
+                            "node": invalid_node,
+                            "source_id": probe_source_by_key.get(key, "unknown"),
+                        }
+                    )
+                pool_entries = [
+                    entry
+                    for entry in pool_entries
+                    if str(entry["key"]) not in invalid_keys
+                ]
+                pool_probe_nodes = [
+                    node
+                    for node in pool_probe_nodes
+                    if node_key(node) not in invalid_keys
+                ]
+                new_probe_nodes = [
+                    node
+                    for node in new_probe_nodes
+                    if node_key(node) not in invalid_keys
+                ]
+                failed_probe_nodes = [
+                    node
+                    for node in failed_probe_nodes
+                    if node_key(node) not in invalid_keys
+                ]
+                candidates_before_probe = [
+                    node
+                    for node in candidates_before_probe
+                    if node_key(node) not in invalid_keys
+                ]
+                if not candidates_before_probe:
+                    return _write_failure(
+                        output_dir,
+                        state_dir,
+                        public_results,
+                        "core_validation_no_valid_nodes",
+                        generated_at,
+                        active_probe=True,
+                        verification=verification,
+                        node_quality=node_quality,
+                        node_validation=node_validation,
+                    )
         if not candidates_before_probe:
             return _write_failure(
                 output_dir,
@@ -1563,6 +1718,11 @@ def run_pipeline(
                     for entry in pool_entries
                     if str(entry["key"]) not in recovered_keys
                 ]
+            core_stats: dict[str, int] | None = None
+            if core_failure_rows:
+                failed_entries, core_stats = merge_core_validation_failures(
+                    failed_entries, core_failure_rows, now=generated_at
+                )
             try:
                 _write_json(pool_path, pool_document(pool_entries, generated_at))
                 _write_json(
@@ -1582,6 +1742,10 @@ def run_pipeline(
                 policy,
                 not_tested_budget=total_probe_candidates - len(candidates_before_probe),
             )
+            if core_failure_rows:
+                node_quality["dropped"] = int(cast(int, node_quality["dropped"])) + len(
+                    core_failure_rows
+                )
             error_counts = Counter(
                 str(row["error_category"])
                 for row in probe_rows
@@ -1624,6 +1788,23 @@ def run_pipeline(
                 "failed_pool_size": failed_stats["size"],
             }
             verification.update(stage_stats)
+            if node_validation is not None:
+                node_validation["failed_pool"] = core_stats or {
+                    "added": 0,
+                    "retested": 0,
+                    "pruned": 0,
+                    "size": len(failed_entries),
+                }
+            if core_stats:
+                verification["failed_pool_size"] = core_stats["size"]
+                verification["failed_pool_added"] = (
+                    int(cast(int, verification.get("failed_pool_added", 0)))
+                    + core_stats["added"]
+                )
+                verification["failed_pool_retested"] = (
+                    int(cast(int, verification.get("failed_pool_retested", 0)))
+                    + core_stats["retested"]
+                )
             if raw_probe_interface or raw_interface_mode:
                 if raw_probe_interface:
                     verification["probe_interface"] = raw_probe_interface
@@ -1695,6 +1876,172 @@ def run_pipeline(
                 node_quality=node_quality,
             )
 
+    if node_validator is not None and node_validation is None:
+        try:
+            validation_rows = [
+                row for row in node_validator(proxies) if isinstance(row, dict)
+            ]
+        except Exception:  # noqa: BLE001 - a broken validator must fail closed
+            validation_rows = []
+        if len(validation_rows) != len(proxies):
+            node_validation = {
+                "status": "failed",
+                "reason": "node_validation_incomplete",
+                "tested": len(validation_rows),
+                "expected": len(proxies),
+            }
+            return _write_failure(
+                output_dir,
+                state_dir,
+                public_results,
+                "node_validation_incomplete",
+                generated_at,
+                active_probe=active_probe,
+                verification=verification,
+                node_quality=node_quality,
+                node_validation=node_validation,
+            )
+        node_validation = _node_validation_summary(validation_rows, len(proxies))
+        if node_validation["status"] == "failed":
+            invalid_rows = [
+                row for row in validation_rows if row.get("status") != "passed"
+            ]
+            invalid_keys = {
+                str(row.get("node_key") or "")
+                for row in invalid_rows
+                if row.get("node_key")
+            }
+            node_by_key = {node_key(proxy): proxy for proxy in proxies}
+            source_by_key = dict(candidate_source_by_key)
+            failure_entries: list[dict[str, object]] | None
+            failed_pool_load_error: str | None = None
+            if active_probe:
+                for entry in [*pool_entries, *failed_entries]:
+                    entry_node = entry.get("node")
+                    if isinstance(entry_node, dict):
+                        source_by_key.setdefault(
+                            str(entry.get("key")),
+                            str(entry.get("source_id", "unknown")),
+                        )
+                pool_entries = [
+                    entry
+                    for entry in pool_entries
+                    if str(entry["key"]) not in invalid_keys
+                ]
+                failure_entries = failed_entries
+            else:
+                try:
+                    failure_entries = load_failed_pool(failed_path)
+                except (TypeError, ValueError) as exc:
+                    # A damaged history file stays on disk untouched; skip the
+                    # merge for this run instead of overwriting it with [].
+                    failure_entries = None
+                    failed_pool_load_error = type(exc).__name__
+            recorded: list[dict[str, object]] = []
+            for row in invalid_rows:
+                key = str(row.get("node_key") or "")
+                invalid_node = node_by_key.get(key)
+                if invalid_node is None:
+                    continue
+                recorded.append(
+                    {
+                        **row,
+                        "node": invalid_node,
+                        "source_id": source_by_key.get(key, "unknown"),
+                    }
+                )
+            core_stats: dict[str, int] | None = None
+            if failure_entries is not None:
+                try:
+                    failure_entries, core_stats = merge_core_validation_failures(
+                        failure_entries, recorded, now=generated_at
+                    )
+                    _write_json(
+                        failed_path,
+                        failed_pool_document(failure_entries, generated_at),
+                    )
+                    if active_probe:
+                        _write_json(
+                            pool_path, pool_document(pool_entries, generated_at)
+                        )
+                except OSError:
+                    return _write_failure(
+                        output_dir,
+                        state_dir,
+                        public_results,
+                        "pool_write_failed",
+                        generated_at,
+                        active_probe=active_probe,
+                        verification=verification,
+                        node_quality=node_quality,
+                        node_validation=node_validation,
+                    )
+                node_validation["failed_pool"] = core_stats
+            if failed_pool_load_error is not None:
+                node_validation["failed_pool_load_error"] = failed_pool_load_error
+                verification["failed_pool_load_error"] = failed_pool_load_error
+            if active_probe and core_stats is not None:
+                verification["pool_size"] = len(pool_entries)
+                verification["failed_pool_size"] = core_stats["size"]
+                verification["failed_pool_added"] = (
+                    int(cast(int, verification.get("failed_pool_added", 0)))
+                    + core_stats["added"]
+                )
+                verification["failed_pool_retested"] = (
+                    int(cast(int, verification.get("failed_pool_retested", 0)))
+                    + core_stats["retested"]
+                )
+            proxies = [
+                proxy for proxy in proxies if node_key(proxy) not in invalid_keys
+            ]
+            node_quality["published"] = len(proxies)
+            node_quality["dropped"] = int(cast(int, node_quality["dropped"])) + len(
+                recorded
+            )
+            if not proxies:
+                return _write_failure(
+                    output_dir,
+                    state_dir,
+                    public_results,
+                    "core_validation_no_valid_nodes",
+                    generated_at,
+                    active_probe=active_probe,
+                    verification=verification,
+                    node_quality=node_quality,
+                    node_validation=node_validation,
+                )
+            if len(proxies) < min_publish_nodes:
+                return _write_failure(
+                    output_dir,
+                    state_dir,
+                    public_results,
+                    "min_publish_nodes",
+                    generated_at,
+                    active_probe=active_probe,
+                    verification=verification,
+                    node_quality=node_quality,
+                    node_validation=node_validation,
+                )
+            effective_shrink_ratio = (
+                pool_shrink_ratio if active_probe else max_shrink_ratio
+            )
+            if (
+                previous_count > 0
+                and 0 < effective_shrink_ratio <= 1
+                and len(proxies) < previous_count * effective_shrink_ratio
+            ):
+                return _write_failure(
+                    output_dir,
+                    state_dir,
+                    public_results,
+                    "shrink_guard",
+                    generated_at,
+                    active_probe=active_probe,
+                    verification=verification,
+                    node_quality=node_quality,
+                    node_validation=node_validation,
+                )
+
     publish = config.get("publish") if isinstance(config.get("publish"), dict) else {}
     base_url = (
         str(publish.get("base_url")) if publish and publish.get("base_url") else None
@@ -1732,7 +2079,13 @@ def run_pipeline(
     )
     try:
         _publish_transaction(
-            output_dir, state_dir, artifacts, manifest, health, validator
+            output_dir,
+            state_dir,
+            artifacts,
+            manifest,
+            health,
+            validator,
+            node_validation,
         )
     except (OSError, CoreValidationError, ValueError) as exc:
         return _write_failure(
@@ -1744,6 +2097,7 @@ def run_pipeline(
             active_probe=active_probe,
             verification=verification,
             node_quality=node_quality,
+            node_validation=node_validation,
         )
 
     private_manifest_path: Path | None = None
