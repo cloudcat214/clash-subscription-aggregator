@@ -723,3 +723,286 @@ proxies:
   reality-opts:
     public-key: ZSmetD4e9QG5CiXhniHg5HJB68L4kwbgAkJmMHtVwEE
     short-id: 42426c882c5fcd41
+- name: '[share-daily-node] US-HTTP-138'
+  type: http
+  server: 167.88.60.226
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- cipher: aes-128-cfb
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827146735'
+  password: shadowsocks
+  port: 443
+  server: 109.201.152.181
+  type: ss
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇧🇾BY_3|1.7MB/s|P002-260618'
+  port: 10443
+  server: 178.172.227.124
+  sub_tag: P002-260618
+  tls: false
+  type: vless
+  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  udp: true
+  network: tcp
+  servername: 178.172.227.124
+- name: '[ermaozi-subscribe] 🇷🇺 俄罗斯 | RUS 2'
+  server: 201.24.116.192
+  port: 443
+  type: vless
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
+  tls: true
+  servername: vps3.nemnogogo.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  udp: true
+- type: ss
+  name: '[free18-clash] 🇫🇷_法国 (4)'
+  server: 23.162.152.245
+  port: 443
+  password: ySGkGhr2sKHV
+  cipher: chacha20-ietf-poly1305
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: '[igareck-vless] 🇳🇱 The Netherlands | 🌐 | [BL]-17'
+  type: vless
+  server: 104.18.151.231
+  port: 443
+  uuid: eaf76557-2219-4799-8171-d7020adfefd0
+  tls: true
+  sni: shiny-base-4d9a.mifolan4697928.workers.dev
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: shiny-base-4d9a.mifolan4697928.workers.dev
+- name: '[share-daily-node] US-HTTP-148'
+  type: http
+  server: 104.244.210.242
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147315'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 68.183.227.4
+  type: ss
+  udp: true
+- name: '[cbusifabcap-clashmeta] 🇧🇾BY_4|1.5MB/s|A004-260618'
+  network: tcp
+  port: 10443
+  server: 178.172.227.124
+  sub_tag: A004-260618
+  type: vless
+  udp: true
+  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  xudp: true
+  packet-encoding: xudp
+- alpn:
+  - h2
+  client-fingerprint: firefox
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  name: '[ermaozi-subscribe] 🇷🇺 俄罗斯 | RUS 3'
+  network: grpc
+  port: 443
+  server: vps3.nemnogogo.com
+  servername: vps3.nemnogogo.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 7F5961'
+  server: 94.130.237.57
+  port: 27154
+  type: vless
+  uuid: d9d02f3e-c877-4a1f-990e-f2418777f745
+  udp: true
+  tls: false
+  network: grpc
+  grpc-opts:
+    grpc-service-name: Telegram=@AmyraxVPN
+- name: '[share-daily-node] US-HTTP-156'
+  type: http
+  server: 149.40.56.130
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147479'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 137.184.174.93
+  type: ss
+  udp: true
+- encryption: none
+  name: '[cbusifabcap-clashmeta] 🇧🇾BY_5|190KB/s|B007-260618'
+  network: tcp
+  port: 10443
+  server: 178.172.227.124
+  sub_tag: B007-260618
+  type: vless
+  udp: true
+  uuid: 1af36694-b548-4b18-89a0-bc076eab4ed7
+  xudp: true
+  packet-encoding: xudp
+  servername: 178.172.227.124
+- name: '[cbusifabcap-uri] 🇩🇪DE_143|1.3MB/s|P002-260618'
+  type: vless
+  server: 104.18.0.181
+  port: 2052
+  uuid: 5744e593-1cc8-48fa-b8ca-57cd494fe35b
+  sni: eu02.123450908.xyz
+  network: ws
+  ws-opts:
+    path: /rain1226
+    headers:
+      Host: eu02.123450908.xyz
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 812F0E'
+  server: 77.221.157.45
+  port: 443
+  type: vless
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+  udp: true
+  tls: true
+  servername: 961ec0g.nl13.h1clayd.click
+  reality-opts:
+    public-key: xn7KVKS5MOnsFrYrEeRS04JssBCOxh12rxegaDFyGkA
+    short-id: 6d289ff0f47c0aac
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: 7d5abcd7d8a1
+- name: '[igareck-vless] 🇳🇱 The Netherlands | 🌐 | [BL]-19'
+  type: vless
+  server: 104.18.151.231
+  port: 443
+  uuid: eaf76557-2219-4799-8171-d7020adfefd0
+  tls: true
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    headers:
+      Host: shiny-base-4d9a.mifolan4697928.workers.dev
+- name: '[share-daily-node] US-HTTP-160'
+  type: http
+  server: 162.244.227.36
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147700'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 138.199.42.68
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇩🇪DE_144|1.1MB/s|S004-260618'
+  type: vless
+  server: 104.27.97.42
+  port: 8443
+  uuid: 3692de53-42e6-4aed-a522-40ec355dcd2f
+  tls: true
+  sni: free.sahanwickramasinghe.com
+  network: ws
+  alpn:
+  - http/1.1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: free.sahanwickramasinghe.com
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 82D48F'
+  server: 82.118.19.153
+  port: 443
+  type: vless
+  uuid: adcaa148-7c66-4282-a81a-99ec8afa029d
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: Tiuy8om5Lk0pWL95-8LaFFTwH0vbURVMoOkaW9xGaiE
+    short-id: 670ed9f350bd8ee0
+  client-fingerprint: chrome
+  network: tcp
+- type: ss
+  name: '[free18-clash] 🇬🇧_英国'
+  server: 82.38.31.162
+  port: 443
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  cipher: chacha20-ietf-poly1305
+  udp: true
+  tls: false
+  skip-cert-verify: true
+- name: '[igareck-vless] 🇳🇱 The Netherlands | 🌐 | [BL]-20'
+  type: vless
+  server: 104.18.151.231
+  port: 443
+  uuid: eaf76557-2219-4799-8171-d7020adfefd0
+  tls: true
+  network: ws
+  client-fingerprint: chrome
+  ws-opts:
+    headers:
+      Host: workers.retaxay188.workers.dev
+- name: '[share-daily-node] US-HTTP-164'
+  type: http
+  server: 149.22.88.65
+  port: 443
+  udp: true
+  tls: true
+  skip-cert-verify: true
+- cipher: rc4-md5
+  name: '[au1rxx-free-vpn-subscriptions] shadowsocks-1827147777'
+  password: 14fFPrbezE3HDZzsMOr6
+  port: 8080
+  server: 146.70.61.37
+  type: ss
+  udp: true
+- name: '[cbusifabcap-uri] 🇩🇪DE_146|841KB/s|M003-260806'
+  type: vless
+  server: 104.16.0.1
+  port: 2052
+  uuid: 5744e593-1cc8-48fa-b8ca-57cd494fe35b
+  network: ws
+  ws-opts:
+    path: /rain1226
+    headers:
+      Host: eu02.123450908.xyz
+- name: '[chengaopan-base64] 🇮🇳[www.v2nodes.com] vless-IN-1... #2'
+  type: vless
+  server: 13.140.56.100
+  port: 14430
+  uuid: 68512eac-cd53-4de3-8d1e-08f6e04af1a9
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 13.140.56.100
+- name: '[free-v2ray-verified-clash] DE 🇩🇪 | @Raydikalx | 8C6947'
+  server: 57.129.76.233
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+- type: ss
+  name: '[free18-clash] 🇬🇧_英国 (10)'
+  server: 141.98.101.181
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+  tls: false
+  skip-cert-verify: true
